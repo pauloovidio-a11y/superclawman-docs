@@ -1,5 +1,6 @@
 // Sandman · Superclawman · Ktulu · Jr — inventory data
-// Single source of truth. Loaded by matrix.html via <script src="data.js">.
+// Single source of truth. Loaded by index.html via <script src="data.js">.
+// Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
   generated_at: "2026-05-15T15:45:11-03:00",
