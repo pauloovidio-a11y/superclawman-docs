@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Sandman · Superclawman · Ktulu · Jr — Inventory Matrix</title>
+<style>
+  :root {
+    --ivory:#0F1115; --paper:#171A21; --slate:#E8E6DF;
+    --clay:#E3A04A; --oat:#2B2F38;
+    --g100:#1B1E26; --g200:#23272F; --g300:#2F3441; --g500:#7A8094; --g700:#B9BFCC;
+
+    --yes:#7CA56A;
+    --no:#5E6577;
+    --partial:#E3A04A;
+    --planned:#6B8FB5;
+
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --sans:  system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{background:var(--ivory);color:var(--slate);font-family:var(--sans);margin:0;-webkit-font-smoothing:antialiased}
+  body{padding:0 24px 96px}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 0 0}
+
+  /* Header */
+  .eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--clay);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .eyebrow::before{content:"";display:inline-block;width:24px;height:2px;background:var(--clay)}
+  h1{font-family:var(--serif);font-size:clamp(34px,4.6vw,52px);line-height:1.07;letter-spacing:-0.018em;font-weight:500;margin:0 0 18px;color:var(--slate)}
+  h1 em{color:var(--clay);font-style:italic}
+  .sub{font-family:var(--sans);font-size:16.5px;line-height:1.55;color:var(--g700);max-width:840px;margin:0 0 24px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:14px 26px;font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.08em;padding-bottom:28px;border-bottom:1.5px solid var(--g300);margin-bottom:36px}
+  .meta-row b{color:var(--g700);font-weight:600;margin-right:6px}
+
+  /* Filter bar */
+  .filter-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px;font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.1em}
+  .filter-bar b{color:var(--slate);font-weight:600}
+  .clear-btn{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--g300);color:var(--g700);cursor:pointer;display:none}
+  .clear-btn:hover{background:var(--g200);color:var(--slate)}
+  body:not([data-filter="all"]) .clear-btn{display:inline-flex;align-items:center;gap:6px}
+
+  /* Agent cards (clickable to filter) */
+  .agents{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}
+  .agent{appearance:none;background:var(--paper);border:1px solid var(--g300);border-radius:10px;padding:20px 20px 16px;position:relative;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font-family:inherit;transition:all 0.18s ease;outline:none}
+  .agent::before{content:"";position:absolute;top:0;left:0;height:3px;width:100%;background:var(--c)}
+  .agent:hover{transform:translateY(-2px);border-color:var(--c)}
+  .agent.active{border-color:var(--c);box-shadow:0 0 0 1px var(--c) inset, 0 8px 24px -8px rgba(0,0,0,0.5)}
+  body:not([data-filter="all"]) .agent:not(.active){opacity:0.4;filter:saturate(0.6)}
+  .agent .nm{font-family:var(--serif);font-size:21px;color:var(--slate);font-weight:500;margin-bottom:4px;line-height:1.15}
+  .agent .nm .emo{font-size:16px;margin-right:5px;letter-spacing:-0.05em}
+  .agent .role{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--g500);margin-bottom:12px;line-height:1.4}
+  .agent .summary{font-size:12.5px;color:var(--g700);line-height:1.55;font-family:var(--sans);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .agent .stats{display:flex;flex-wrap:wrap;gap:6px 10px;padding-top:10px;border-top:1px solid var(--g300);font-family:var(--mono);font-size:10px;color:var(--g500);letter-spacing:0.04em}
+  .agent .stats span b{color:var(--slate);font-weight:600;margin-right:3px}
+  .agent .hostline{font-family:var(--mono);font-size:10px;color:var(--c);margin-top:6px;letter-spacing:0.04em;opacity:0.85}
+
+  /* Sections */
+  section.matrix-section{padding:22px 0 32px;border-bottom:1px solid var(--g300)}
+  section.matrix-section:last-of-type{border-bottom:0}
+  .s-eyebrow{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--g500);margin-bottom:6px}
+  h2{font-family:var(--serif);font-size:24px;letter-spacing:-0.01em;font-weight:500;margin:0 0 6px;color:var(--slate)}
+  h2 em{font-style:italic;color:var(--clay)}
+  .s-note{font-size:13.5px;color:var(--g500);line-height:1.55;margin:0 0 18px;max-width:900px}
+
+  /* Item table */
+  table.items{width:100%;border-collapse:collapse;font-size:13.5px}
+  table.items th{text-align:left;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--g500);font-weight:500;padding:8px 10px;border-bottom:1px solid var(--g300)}
+  table.items th.stat{text-align:center;width:72px}
+  table.items td{padding:10px;vertical-align:top;border-bottom:1px solid var(--g200);color:var(--g700)}
+  table.items td.name{color:var(--slate);font-family:var(--mono);font-size:12px;white-space:nowrap;padding-right:14px}
+  table.items td.note{color:var(--g700);line-height:1.5;font-size:13px}
+  table.items td.note em{color:var(--clay);font-style:normal;font-weight:600}
+  table.items td.stat{text-align:center;font-family:var(--mono);font-size:14px;font-weight:600}
+  table.items tr:hover td{background:var(--g100)}
+
+  /* Status cells */
+  .stat .yes{color:var(--yes)}
+  .stat .no{color:var(--no);opacity:0.55}
+  .stat .partial{color:var(--partial)}
+  .stat .planned{color:var(--planned)}
+  .stat .icon{display:inline-block;font-family:var(--mono);font-size:15px;line-height:1}
+
+  /* Note variants: hide all by default, show by filter */
+  .note > span.note-variant{display:none}
+  body[data-filter="all"] .note > span.note-default{display:block}
+  body[data-filter="sandman"] .note > span.note-sandman{display:block}
+  body[data-filter="superclawman"] .note > span.note-superclawman{display:block}
+  body[data-filter="ktulu"] .note > span.note-ktulu{display:block}
+  body[data-filter="jr"] .note > span.note-jr{display:block}
+
+  /* Hide non-selected agent columns when filtered */
+  body[data-filter="sandman"] th.col-superclawman, body[data-filter="sandman"] td.col-superclawman, body[data-filter="sandman"] col.col-superclawman,
+  body[data-filter="sandman"] th.col-ktulu, body[data-filter="sandman"] td.col-ktulu, body[data-filter="sandman"] col.col-ktulu,
+  body[data-filter="sandman"] th.col-jr, body[data-filter="sandman"] td.col-jr, body[data-filter="sandman"] col.col-jr { display:none }
+
+  body[data-filter="superclawman"] th.col-sandman, body[data-filter="superclawman"] td.col-sandman, body[data-filter="superclawman"] col.col-sandman,
+  body[data-filter="superclawman"] th.col-ktulu, body[data-filter="superclawman"] td.col-ktulu, body[data-filter="superclawman"] col.col-ktulu,
+  body[data-filter="superclawman"] th.col-jr, body[data-filter="superclawman"] td.col-jr, body[data-filter="superclawman"] col.col-jr { display:none }
+
+  body[data-filter="ktulu"] th.col-sandman, body[data-filter="ktulu"] td.col-sandman, body[data-filter="ktulu"] col.col-sandman,
+  body[data-filter="ktulu"] th.col-superclawman, body[data-filter="ktulu"] td.col-superclawman, body[data-filter="ktulu"] col.col-superclawman,
+  body[data-filter="ktulu"] th.col-jr, body[data-filter="ktulu"] td.col-jr, body[data-filter="ktulu"] col.col-jr { display:none }
+
+  body[data-filter="jr"] th.col-sandman, body[data-filter="jr"] td.col-sandman, body[data-filter="jr"] col.col-sandman,
+  body[data-filter="jr"] th.col-superclawman, body[data-filter="jr"] td.col-superclawman, body[data-filter="jr"] col.col-superclawman,
+  body[data-filter="jr"] th.col-ktulu, body[data-filter="jr"] td.col-ktulu, body[data-filter="jr"] col.col-ktulu { display:none }
+
+  /* Pairings */
+  .pair-section{padding:36px 0 0}
+  .pair-card{background:var(--paper);border:1px solid var(--g300);border-left:4px solid var(--clay);border-radius:8px;padding:22px 26px;margin-bottom:14px}
+  .pair-card .lbl{font-family:var(--mono);font-size:10.5px;color:var(--clay);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:6px}
+  .pair-card h3{font-family:var(--serif);font-size:18px;margin:0 0 10px;color:var(--slate);font-weight:500}
+  .pair-card ul{margin:0;padding-left:20px;color:var(--g700);font-size:13.5px;line-height:1.6}
+  .pair-card li{margin-bottom:5px}
+  body[data-filter="sandman"] .pair-card:not(.from-sandman):not(.to-sandman){display:none}
+  body[data-filter="superclawman"] .pair-card:not(.from-superclawman):not(.to-superclawman){display:none}
+  body[data-filter="ktulu"] .pair-card:not(.from-ktulu):not(.to-ktulu){display:none}
+  body[data-filter="jr"] .pair-card:not(.from-jr):not(.to-jr){display:none}
+
+  /* Legend */
+  .legend{background:linear-gradient(180deg,var(--paper) 0%,#1c2028 100%);border:1px solid var(--g300);border-radius:10px;padding:16px 22px;margin-bottom:32px;display:flex;flex-wrap:wrap;gap:14px 26px;font-family:var(--mono);font-size:11px;color:var(--g700);align-items:center}
+  .legend b{color:var(--slate);font-weight:600;margin-right:8px;text-transform:uppercase;letter-spacing:0.08em;font-size:10.5px}
+  .legend .lk{display:inline-flex;align-items:center;gap:7px}
+  .legend .lk .icon{font-size:14px;font-weight:600}
+  .legend .yes .icon{color:var(--yes)}
+  .legend .no .icon{color:var(--no);opacity:0.6}
+  .legend .partial .icon{color:var(--partial)}
+  .legend .planned .icon{color:var(--planned)}
+
+  /* Footer */
+  footer{padding:40px 0 0;font-family:var(--mono);font-size:10.5px;color:var(--g500);letter-spacing:0.06em;text-transform:uppercase;text-align:center}
+  footer span{color:var(--clay)}
+
+  @media (max-width: 1000px){
+    body{padding:0 16px 64px}
+    .agents{grid-template-columns:repeat(2,1fr)}
+    table.items th.stat{width:56px}
+    table.items td.name{white-space:normal}
+  }
+  @media (max-width: 540px){
+    .agents{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body data-filter="all">
+<div class="wrap">
+
+  <div class="eyebrow" id="doc-status">Loading…</div>
+  <h1>Sandman <em>·</em> Superclawman <em>·</em> Ktulu <em>·</em> Jr</h1>
+  <p class="sub">Four-way inventory across Paulo's agent cast. Click any agent card to filter the matrix to that agent's perspective — every note rewrites itself to describe that agent specifically. Click again or hit <b>Compare all</b> to return to the cross-agent view.</p>
+
+  <div class="meta-row" id="meta-row"></div>
+
+  <div class="filter-bar">
+    <b>Filter</b>
+    <span>click an agent card to focus · </span>
+    <button class="clear-btn" id="clear-btn">← Compare all</button>
+  </div>
+
+  <div class="agents" id="agents"></div>
+
+  <div class="legend">
+    <b>Legend</b>
+    <span class="lk yes"><span class="icon">✓</span> exists</span>
+    <span class="lk no"><span class="icon">—</span> doesn't exist</span>
+    <span class="lk partial"><span class="icon">◐</span> adapted / partial</span>
+    <span class="lk planned"><span class="icon">◯</span> planned</span>
+  </div>
+
+  <main id="sections"></main>
+
+  <div class="pair-section" id="pairings"></div>
+
+  <footer>Sandman · Superclawman · Ktulu · Jr matrix · <span id="footer-stamp"></span> · single-file artifact</footer>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+(() => {
+  const D = window.INVENTORY;
+  if (!D) { document.body.innerHTML = '<pre style="color:#E3A04A;padding:40px;font-family:monospace">ERROR: data.js failed to load. Open with file:// next to data.js, or via a local server.</pre>'; return; }
+
+  const NAME_MAP = Object.fromEntries(D.agents.map(a => [a.id, a.name]));
+  const SHORT_MAP = { sandman: "Sandman", superclawman: "Superclawman", ktulu: "Ktulu", jr: "Jr" };
+
+  const statusIcon = (s) => ({yes:'✓', no:'—', partial:'◐', planned:'◯'})[s] || '—';
+  const escapeHtml = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // Header
+  document.getElementById('doc-status').textContent = D.doc_status + ' · last refresh ' + D.generated_at.slice(0,16).replace('T',' ');
+  document.getElementById('footer-stamp').textContent = 'generated ' + D.generated_at;
+  document.getElementById('meta-row').innerHTML = `
+    <div><b>Doc</b> ${escapeHtml(D.doc_title)}</div>
+    <div><b>Agents</b> ${D.agents.length}</div>
+    <div><b>Sections</b> ${D.sections.length}</div>
+    <div><b>Operator</b> Paulo Ovidio</div>
+  `;
+
+  // Agent cards
+  document.getElementById('agents').innerHTML = D.agents.map(a => `
+    <button class="agent" data-agent="${a.id}" style="--c:${a.color}">
+      <div class="nm"><span class="emo">${a.emoji}</span>${escapeHtml(a.name)}</div>
+      <div class="role">${escapeHtml(a.role)}</div>
+      <div class="summary">${escapeHtml(a.summary)}</div>
+      <div class="hostline">${escapeHtml(a.host)}</div>
+      <div class="stats">
+        ${Object.entries(a.stats).map(([k,v]) => `<span><b>${v}</b> ${k.replace(/_/g,' ')}</span>`).join('')}
+      </div>
+    </button>
+  `).join('');
+
+  // Sections
+  document.getElementById('sections').innerHTML = D.sections.map(section => `
+    <section class="matrix-section" data-section="${section.id}">
+      <div class="s-eyebrow">${escapeHtml(section.eyebrow)}</div>
+      <h2>${escapeHtml(section.title)} <em>— ${escapeHtml(section.title_em)}</em></h2>
+      <p class="s-note">${escapeHtml(section.note)}</p>
+      <table class="items">
+        <colgroup>
+          <col style="width:240px">
+          ${D.agents.map(a => `<col class="col-${a.id} stat">`).join('')}
+          <col>
+        </colgroup>
+        <thead><tr>
+          <th>Item</th>
+          ${D.agents.map(a => `<th class="stat col-${a.id}" style="color:${a.color}">${SHORT_MAP[a.id]||a.name}</th>`).join('')}
+          <th>Note</th>
+        </tr></thead>
+        <tbody>
+          ${section.rows.map(row => `
+            <tr>
+              <td class="name">${escapeHtml(row.name)}</td>
+              ${D.agents.map(a => {
+                const s = (row.status && row.status[a.id]) || 'no';
+                return `<td class="stat col-${a.id}"><span class="${s} icon">${statusIcon(s)}</span></td>`;
+              }).join('')}
+              <td class="note">
+                <span class="note-variant note-default">${row.notes.default || ''}</span>
+                ${D.agents.map(a => `<span class="note-variant note-${a.id}">${row.notes[a.id] || row.notes.default || ''}</span>`).join('')}
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </section>
+  `).join('');
+
+  // Pairings
+  document.getElementById('pairings').innerHTML = (D.pairings || []).map(p => `
+    <div class="pair-card from-${p.from} to-${p.to}">
+      <div class="lbl">Pairing · ${SHORT_MAP[p.from]||p.from} → ${SHORT_MAP[p.to]||p.to}</div>
+      <h3>What ${SHORT_MAP[p.from]||p.from} can hand to ${SHORT_MAP[p.to]||p.to}</h3>
+      <ul>${p.items.map(it => `<li>${escapeHtml(it)}</li>`).join('')}</ul>
+    </div>
+  `).join('');
+
+  // Filter behavior
+  function setFilter(target) {
+    document.body.dataset.filter = target;
+    document.querySelectorAll('.agent').forEach(el => {
+      el.classList.toggle('active', el.dataset.agent === target);
+    });
+  }
+
+  document.querySelectorAll('.agent').forEach(el => {
+    el.addEventListener('click', () => {
+      const current = document.body.dataset.filter;
+      const id = el.dataset.agent;
+      setFilter(current === id ? 'all' : id);
+    });
+  });
+
+  document.getElementById('clear-btn').addEventListener('click', () => setFilter('all'));
+
+  // Initial state
+  setFilter('all');
+})();
+</script>
+</body>
+</html>
