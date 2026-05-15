@@ -14,8 +14,14 @@ Canonical internal docs for Paulo's agent cast. Source of truth for the **Sandma
 
 ## View the matrix
 
+**Live URL (access from anywhere):** [pauloovidio-a11y.github.io/superclawman-docs/](https://pauloovidio-a11y.github.io/superclawman-docs/)
+
+Hosted via GitHub Pages from `main` branch. `robots.txt` blocks search-engine indexing — access is by-link-only.
+
+**Locally:**
+
 ```bash
-open index.html
+open ~/Claude/projects/superclawman-docs/index.html
 ```
 
 Works directly from `file://` — no server needed. Single HTML + single data file; portable, single source of truth.
