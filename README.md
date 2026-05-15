@@ -6,10 +6,10 @@ Canonical internal docs for Paulo's agent cast. Source of truth for the **Sandma
 
 | File | Purpose |
 |---|---|
-| `matrix.html` | The interactive inventory matrix. Click any agent card to filter. Loads `data.js` at startup. |
-| `data.js` | The single source of truth. Sets `window.INVENTORY` with per-section per-row per-agent data + notes. Human-curated. |
-| `refresh.sh` | SSHes into the 4 agent hosts, snapshots stats into `snapshots/`, bumps the `generated_at` timestamp in `data.js`. Does NOT auto-edit notes (those stay human-curated). |
-| `snapshots/` | Append-only log of host probes — one file per refresh. |
+| `matrix.html` | Interactive matrix. Click any agent card to filter. Loads `data.js` at startup. |
+| `data.js` | Single source of truth. Sets `window.INVENTORY` with sections, rows, statuses, per-agent notes, agent profiles, pairings, recent activity. **Human-curated.** |
+| `refresh.sh` | SSHes the 4 hosts, captures hardware + OS + OpenClaw version + inventory counts + last-24h files. Writes structured JSON to `snapshots/`. Bumps `data.js` timestamp. Does NOT auto-edit notes. |
+| `snapshots/` | Append-only log of host probes. `latest.json` is the most recent. Used for diff on next refresh. |
 
 ## View the matrix
 
@@ -17,11 +17,11 @@ Canonical internal docs for Paulo's agent cast. Source of truth for the **Sandma
 open matrix.html
 ```
 
-Works directly from `file://` — no server needed. The matrix is one HTML file + one data file; portable, single-source-of-truth.
+Works directly from `file://` — no server needed. Single HTML + single data file; portable, single source of truth.
 
 ## Refresh stats
 
-The matrix is owned by the **Mac mini** (this machine). All other hosts (NUC, i7 Ktulu, Hetzner Jr) are read-only sources. To refresh:
+The Mac mini owns the canonical data. All other hosts (NUC, i7 Ktulu, Hetzner Jr) are read-only sources.
 
 ```bash
 ./refresh.sh             # snapshot + bump timestamp
@@ -29,29 +29,56 @@ The matrix is owned by the **Mac mini** (this machine). All other hosts (NUC, i7
 ./refresh.sh --commit    # snapshot + git commit
 ```
 
-If a host is offline, refresh.sh logs `OFFLINE` for that agent and continues. Hosts are reached via these SSH aliases:
+Hosts reached via SSH alias:
 
-| Agent | Alias | Path |
+| Agent | SSH alias | Path probed |
 |---|---|---|
-| Sandman | `ssh nuc` | `/root/.openclaw/` |
+| Sandman | `nuc` | `/root/.openclaw/` |
 | Superclawman | local | `~/.openclaw/` |
-| Ktulu | `ssh ktulu-mac` | `/Volumes/KtuluDisk/.openclaw/` |
-| Jr | `ssh superclawman-jr` | `/usr/local/lib/openclaw-jr/` + `/var/lib/openclaw-jr/tenants/paulo/` |
+| Ktulu | `ktulu-mac` | `/Volumes/KtuluDisk/ktulu/.openclaw/` |
+| Jr | `superclawman-jr` | `/usr/local/lib/openclaw-jr/` + `/var/lib/openclaw-jr/tenants/paulo/` + `/root/.openclaw-jr-paulo/` |
 
-## Edit a fact
+Offline hosts log `OFFLINE` and the script continues.
 
-`data.js` is the only place to change content. Find the relevant section + row, update the `status` or the per-agent note. Then refresh in the browser. No build step.
+## Update the matrix (ask Claude)
 
-## Why a single file with filter (vs 4 files merged)
+After a day of changes across the cast, ask Claude (in any session, any host that can SSH to the Mac mini):
 
-One source of truth = no sync step, no stale data, no merge conflicts. The filter UX hides the columns + swaps the note text from per-agent variants stored in `data.js`. See conversation notes 2026-05-15.
+> **"update the matrix"**
+
+Claude will:
+1. Run `./refresh.sh` to capture fresh state into `snapshots/latest.json`
+2. Diff `snapshots/latest.json` against `data.js`
+3. Revise per-agent notes + statuses where the structure changed (new skill, new MCP, removed daemon, etc.)
+4. Bump version in `data.js`
+5. Commit
+6. (Optional) Re-publish to Notion if asked
+
+The refresh script automates the **mechanical** part (probe + snapshot). Claude does the **curated** part (what changed, what it means, how to describe it to a human reader).
+
+## Edit a fact directly
+
+Find the relevant section + row in `data.js`, update the `status` or per-agent note. Refresh the browser. No build step.
+
+## Filter UX
+
+Each row has 4 status cells (one per agent) + 1 note column. Notes have variants stored per-agent:
+- `notes.default` — comparison/cross-agent view (shown when no filter)
+- `notes.sandman / superclawman / ktulu / jr` — agent-specific (shown when filtered)
+
+Filter = click an agent card. Filter again = clear (or hit "Compare all"). Pairings + recent activity also filter to the selected agent.
 
 ## Notion mirror
 
-Published to **Superclawman Docs** hub at Notion. The Notion page is the read-only published view; **`data.js` here is the source of truth**. Update here first; re-publish to Notion on meaningful change.
+Published to **Superclawman Docs** hub at Notion. Notion is the **read-only published view**; `data.js` here is the source of truth. Update here first; re-publish to Notion on meaningful change.
 
-## Phase status
+## Why a single file with filter (vs 4 files merged)
 
-- **Phase 1 (2026-05-15)** ✅ Repo + data.js + matrix.html + refresh.sh + README.
-- **Phase 2** Notion publish.
-- **Phase 3** (deferred) Auto-merge stats from refresh.sh into data.js (requires JS AST walker).
+One source of truth = no sync step, no stale data, no merge conflicts. The filter UX hides columns + swaps note text from per-agent variants stored in `data.js`. See conversation notes 2026-05-15.
+
+## Versioning
+
+| Version | Date | Notes |
+|---|---|---|
+| v1.0 | 2026-05-15 12:14 | Initial — 4 agents, 9 sections, ~70 rows |
+| v1.1 | 2026-05-15 15:50 | Added hardware + OS + OpenClaw version per agent. Added quick-reference panel on filter. Added recent-activity feed. Updated Ktulu (Phase 1A-1D shipped, html-it adopted, 2 playbooks adopted, git-tracked) and Jr (Phase 0d.3 recovery@ build active, 10 scripts, 6 systemd units). Smarter refresh.sh writes JSON snapshots. |

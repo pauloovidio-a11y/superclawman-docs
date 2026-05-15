@@ -10,12 +10,7 @@
     --ivory:#0F1115; --paper:#171A21; --slate:#E8E6DF;
     --clay:#E3A04A; --oat:#2B2F38;
     --g100:#1B1E26; --g200:#23272F; --g300:#2F3441; --g500:#7A8094; --g700:#B9BFCC;
-
-    --yes:#7CA56A;
-    --no:#5E6577;
-    --partial:#E3A04A;
-    --planned:#6B8FB5;
-
+    --yes:#7CA56A; --no:#5E6577; --partial:#E3A04A; --planned:#6B8FB5;
     --serif: ui-serif, Georgia, "Times New Roman", serif;
     --sans:  system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -23,38 +18,53 @@
   *{box-sizing:border-box}
   html,body{background:var(--ivory);color:var(--slate);font-family:var(--sans);margin:0;-webkit-font-smoothing:antialiased}
   body{padding:0 24px 96px}
-  .wrap{max-width:1280px;margin:0 auto;padding:48px 0 0}
+  .wrap{max-width:1320px;margin:0 auto;padding:48px 0 0}
 
-  /* Header */
   .eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--clay);display:flex;align-items:center;gap:12px;margin-bottom:14px}
   .eyebrow::before{content:"";display:inline-block;width:24px;height:2px;background:var(--clay)}
   h1{font-family:var(--serif);font-size:clamp(34px,4.6vw,52px);line-height:1.07;letter-spacing:-0.018em;font-weight:500;margin:0 0 18px;color:var(--slate)}
   h1 em{color:var(--clay);font-style:italic}
-  .sub{font-family:var(--sans);font-size:16.5px;line-height:1.55;color:var(--g700);max-width:840px;margin:0 0 24px}
-  .meta-row{display:flex;flex-wrap:wrap;gap:14px 26px;font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.08em;padding-bottom:28px;border-bottom:1.5px solid var(--g300);margin-bottom:36px}
+  .sub{font-family:var(--sans);font-size:16.5px;line-height:1.55;color:var(--g700);max-width:870px;margin:0 0 24px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:14px 26px;font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.08em;padding-bottom:28px;border-bottom:1.5px solid var(--g300);margin-bottom:32px}
   .meta-row b{color:var(--g700);font-weight:600;margin-right:6px}
 
-  /* Filter bar */
   .filter-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px;font-family:var(--mono);font-size:11px;color:var(--g500);text-transform:uppercase;letter-spacing:0.1em}
   .filter-bar b{color:var(--slate);font-weight:600}
   .clear-btn{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--g300);color:var(--g700);cursor:pointer;display:none}
   .clear-btn:hover{background:var(--g200);color:var(--slate)}
   body:not([data-filter="all"]) .clear-btn{display:inline-flex;align-items:center;gap:6px}
 
-  /* Agent cards (clickable to filter) */
-  .agents{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}
-  .agent{appearance:none;background:var(--paper);border:1px solid var(--g300);border-radius:10px;padding:20px 20px 16px;position:relative;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font-family:inherit;transition:all 0.18s ease;outline:none}
+  /* Agent cards */
+  .agents{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+  .agent{appearance:none;background:var(--paper);border:1px solid var(--g300);border-radius:10px;padding:18px 18px 14px;position:relative;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font-family:inherit;transition:all 0.18s ease;outline:none;display:flex;flex-direction:column}
   .agent::before{content:"";position:absolute;top:0;left:0;height:3px;width:100%;background:var(--c)}
   .agent:hover{transform:translateY(-2px);border-color:var(--c)}
   .agent.active{border-color:var(--c);box-shadow:0 0 0 1px var(--c) inset, 0 8px 24px -8px rgba(0,0,0,0.5)}
-  body:not([data-filter="all"]) .agent:not(.active){opacity:0.4;filter:saturate(0.6)}
-  .agent .nm{font-family:var(--serif);font-size:21px;color:var(--slate);font-weight:500;margin-bottom:4px;line-height:1.15}
-  .agent .nm .emo{font-size:16px;margin-right:5px;letter-spacing:-0.05em}
-  .agent .role{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--g500);margin-bottom:12px;line-height:1.4}
-  .agent .summary{font-size:12.5px;color:var(--g700);line-height:1.55;font-family:var(--sans);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
-  .agent .stats{display:flex;flex-wrap:wrap;gap:6px 10px;padding-top:10px;border-top:1px solid var(--g300);font-family:var(--mono);font-size:10px;color:var(--g500);letter-spacing:0.04em}
+  body:not([data-filter="all"]) .agent:not(.active){opacity:0.35;filter:saturate(0.5)}
+  .agent .nm{font-family:var(--serif);font-size:20px;color:var(--slate);font-weight:500;margin-bottom:3px;line-height:1.15}
+  .agent .nm .emo{font-size:15px;margin-right:5px;letter-spacing:-0.05em}
+  .agent .role{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--g500);margin-bottom:10px;line-height:1.4}
+  .agent .specblk{font-family:var(--mono);font-size:10px;line-height:1.55;color:var(--g700);margin-bottom:10px;padding:8px 0;border-top:1px dashed var(--g300);border-bottom:1px dashed var(--g300)}
+  .agent .specblk .row{display:flex;gap:6px;align-items:baseline}
+  .agent .specblk b{color:var(--g500);font-weight:500;text-transform:uppercase;letter-spacing:0.04em;font-size:9px;min-width:42px;flex:0 0 42px}
+  .agent .specblk .v{color:var(--slate);font-weight:500}
+  .agent .specblk .ver{color:var(--c);font-weight:600}
+  .agent .phase{font-family:var(--mono);font-size:9.5px;color:var(--c);background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:4px;margin-bottom:8px;letter-spacing:0.04em;text-transform:uppercase;border:1px solid var(--c);opacity:0.85}
+  .agent .summary{font-size:12px;color:var(--g700);line-height:1.5;font-family:var(--sans);margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;flex-grow:1}
+  .agent .stats{display:flex;flex-wrap:wrap;gap:5px 9px;padding-top:8px;border-top:1px solid var(--g300);font-family:var(--mono);font-size:9.5px;color:var(--g500);letter-spacing:0.04em}
   .agent .stats span b{color:var(--slate);font-weight:600;margin-right:3px}
-  .agent .hostline{font-family:var(--mono);font-size:10px;color:var(--c);margin-top:6px;letter-spacing:0.04em;opacity:0.85}
+
+  /* Quick reference panel (visible when filtered to one agent) */
+  .quickref{background:var(--paper);border:1px solid var(--g300);border-left:4px solid var(--qc,var(--clay));border-radius:8px;padding:22px 26px;margin-bottom:30px;display:none}
+  body:not([data-filter="all"]) .quickref{display:block}
+  .quickref .lbl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--qc,var(--clay));margin-bottom:8px}
+  .quickref h3{font-family:var(--serif);font-size:22px;color:var(--slate);font-weight:500;margin:0 0 14px}
+  .quickref h3 .emo{font-size:18px;margin-right:8px}
+  .quickref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 22px;font-family:var(--mono);font-size:12px}
+  .quickref-grid .item{display:flex;flex-direction:column;gap:3px}
+  .quickref-grid .item .k{color:var(--g500);font-size:9.5px;text-transform:uppercase;letter-spacing:0.06em}
+  .quickref-grid .item .val{color:var(--slate);line-height:1.45;word-break:break-word}
+  .quickref-grid .item.wide{grid-column:1/-1}
 
   /* Sections */
   section.matrix-section{padding:22px 0 32px;border-bottom:1px solid var(--g300)}
@@ -62,7 +72,7 @@
   .s-eyebrow{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--g500);margin-bottom:6px}
   h2{font-family:var(--serif);font-size:24px;letter-spacing:-0.01em;font-weight:500;margin:0 0 6px;color:var(--slate)}
   h2 em{font-style:italic;color:var(--clay)}
-  .s-note{font-size:13.5px;color:var(--g500);line-height:1.55;margin:0 0 18px;max-width:900px}
+  .s-note{font-size:13.5px;color:var(--g500);line-height:1.55;margin:0 0 18px;max-width:920px}
 
   /* Item table */
   table.items{width:100%;border-collapse:collapse;font-size:13.5px}
@@ -75,14 +85,13 @@
   table.items td.stat{text-align:center;font-family:var(--mono);font-size:14px;font-weight:600}
   table.items tr:hover td{background:var(--g100)}
 
-  /* Status cells */
   .stat .yes{color:var(--yes)}
   .stat .no{color:var(--no);opacity:0.55}
   .stat .partial{color:var(--partial)}
   .stat .planned{color:var(--planned)}
   .stat .icon{display:inline-block;font-family:var(--mono);font-size:15px;line-height:1}
 
-  /* Note variants: hide all by default, show by filter */
+  /* Note variants */
   .note > span.note-variant{display:none}
   body[data-filter="all"] .note > span.note-default{display:block}
   body[data-filter="sandman"] .note > span.note-sandman{display:block}
@@ -90,19 +99,16 @@
   body[data-filter="ktulu"] .note > span.note-ktulu{display:block}
   body[data-filter="jr"] .note > span.note-jr{display:block}
 
-  /* Hide non-selected agent columns when filtered */
+  /* Hide non-selected agent columns */
   body[data-filter="sandman"] th.col-superclawman, body[data-filter="sandman"] td.col-superclawman, body[data-filter="sandman"] col.col-superclawman,
   body[data-filter="sandman"] th.col-ktulu, body[data-filter="sandman"] td.col-ktulu, body[data-filter="sandman"] col.col-ktulu,
   body[data-filter="sandman"] th.col-jr, body[data-filter="sandman"] td.col-jr, body[data-filter="sandman"] col.col-jr { display:none }
-
   body[data-filter="superclawman"] th.col-sandman, body[data-filter="superclawman"] td.col-sandman, body[data-filter="superclawman"] col.col-sandman,
   body[data-filter="superclawman"] th.col-ktulu, body[data-filter="superclawman"] td.col-ktulu, body[data-filter="superclawman"] col.col-ktulu,
   body[data-filter="superclawman"] th.col-jr, body[data-filter="superclawman"] td.col-jr, body[data-filter="superclawman"] col.col-jr { display:none }
-
   body[data-filter="ktulu"] th.col-sandman, body[data-filter="ktulu"] td.col-sandman, body[data-filter="ktulu"] col.col-sandman,
   body[data-filter="ktulu"] th.col-superclawman, body[data-filter="ktulu"] td.col-superclawman, body[data-filter="ktulu"] col.col-superclawman,
   body[data-filter="ktulu"] th.col-jr, body[data-filter="ktulu"] td.col-jr, body[data-filter="ktulu"] col.col-jr { display:none }
-
   body[data-filter="jr"] th.col-sandman, body[data-filter="jr"] td.col-sandman, body[data-filter="jr"] col.col-sandman,
   body[data-filter="jr"] th.col-superclawman, body[data-filter="jr"] td.col-superclawman, body[data-filter="jr"] col.col-superclawman,
   body[data-filter="jr"] th.col-ktulu, body[data-filter="jr"] td.col-ktulu, body[data-filter="jr"] col.col-ktulu { display:none }
@@ -119,8 +125,23 @@
   body[data-filter="ktulu"] .pair-card:not(.from-ktulu):not(.to-ktulu){display:none}
   body[data-filter="jr"] .pair-card:not(.from-jr):not(.to-jr){display:none}
 
+  /* Activity feed */
+  .activity{background:var(--paper);border:1px solid var(--g300);border-radius:10px;padding:22px 28px;margin-bottom:32px}
+  .activity .lbl{font-family:var(--mono);font-size:10.5px;color:var(--clay);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .activity .lbl::before{content:"●";color:var(--clay);font-size:10px}
+  .activity h4{font-family:var(--serif);font-size:18px;color:var(--slate);font-weight:500;margin:0 0 14px}
+  .activity .entry{display:flex;gap:14px;padding:10px 0;border-top:1px dashed var(--g300);font-size:13.5px;line-height:1.5;align-items:baseline}
+  .activity .entry:first-of-type{border-top:0;padding-top:0}
+  .activity .entry .who{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--c2);font-weight:600;flex:0 0 130px}
+  .activity .entry .when{font-family:var(--mono);font-size:10px;color:var(--g500);flex:0 0 90px}
+  .activity .entry .note{color:var(--g700)}
+  body[data-filter="sandman"] .activity .entry:not(.agent-sandman){display:none}
+  body[data-filter="superclawman"] .activity .entry:not(.agent-superclawman){display:none}
+  body[data-filter="ktulu"] .activity .entry:not(.agent-ktulu){display:none}
+  body[data-filter="jr"] .activity .entry:not(.agent-jr){display:none}
+
   /* Legend */
-  .legend{background:linear-gradient(180deg,var(--paper) 0%,#1c2028 100%);border:1px solid var(--g300);border-radius:10px;padding:16px 22px;margin-bottom:32px;display:flex;flex-wrap:wrap;gap:14px 26px;font-family:var(--mono);font-size:11px;color:var(--g700);align-items:center}
+  .legend{background:linear-gradient(180deg,var(--paper) 0%,#1c2028 100%);border:1px solid var(--g300);border-radius:10px;padding:16px 22px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:14px 26px;font-family:var(--mono);font-size:11px;color:var(--g700);align-items:center}
   .legend b{color:var(--slate);font-weight:600;margin-right:8px;text-transform:uppercase;letter-spacing:0.08em;font-size:10.5px}
   .legend .lk{display:inline-flex;align-items:center;gap:7px}
   .legend .lk .icon{font-size:14px;font-weight:600}
@@ -129,11 +150,10 @@
   .legend .partial .icon{color:var(--partial)}
   .legend .planned .icon{color:var(--planned)}
 
-  /* Footer */
   footer{padding:40px 0 0;font-family:var(--mono);font-size:10.5px;color:var(--g500);letter-spacing:0.06em;text-transform:uppercase;text-align:center}
   footer span{color:var(--clay)}
 
-  @media (max-width: 1000px){
+  @media (max-width: 1100px){
     body{padding:0 16px 64px}
     .agents{grid-template-columns:repeat(2,1fr)}
     table.items th.stat{width:56px}
@@ -149,7 +169,7 @@
 
   <div class="eyebrow" id="doc-status">Loading…</div>
   <h1>Sandman <em>·</em> Superclawman <em>·</em> Ktulu <em>·</em> Jr</h1>
-  <p class="sub">Four-way inventory across Paulo's agent cast. Click any agent card to filter the matrix to that agent's perspective — every note rewrites itself to describe that agent specifically. Click again or hit <b>Compare all</b> to return to the cross-agent view.</p>
+  <p class="sub">Four-way inventory matrix · canonical reference for Paulo's agent cast. Each card shows hardware, OS, OpenClaw version, and current build phase. Click any agent card to focus the matrix on that agent — every note rewrites to that agent's perspective. Click again or hit <b>Compare all</b> to return to the cross-agent view.</p>
 
   <div class="meta-row" id="meta-row"></div>
 
@@ -160,6 +180,10 @@
   </div>
 
   <div class="agents" id="agents"></div>
+
+  <div class="quickref" id="quickref"></div>
+
+  <div class="activity" id="activity"></div>
 
   <div class="legend">
     <b>Legend</b>
@@ -173,7 +197,7 @@
 
   <div class="pair-section" id="pairings"></div>
 
-  <footer>Sandman · Superclawman · Ktulu · Jr matrix · <span id="footer-stamp"></span> · single-file artifact</footer>
+  <footer>Sandman · Superclawman · Ktulu · Jr · <span id="footer-stamp"></span> · single-file artifact · ~/Claude/projects/superclawman-docs/</footer>
 
 </div>
 
@@ -181,43 +205,85 @@
 <script>
 (() => {
   const D = window.INVENTORY;
-  if (!D) { document.body.innerHTML = '<pre style="color:#E3A04A;padding:40px;font-family:monospace">ERROR: data.js failed to load. Open with file:// next to data.js, or via a local server.</pre>'; return; }
+  if (!D) { document.body.innerHTML = '<pre style="color:#E3A04A;padding:40px;font-family:monospace">ERROR: data.js failed to load. Open matrix.html via file:// from the same directory as data.js.</pre>'; return; }
 
-  const NAME_MAP = Object.fromEntries(D.agents.map(a => [a.id, a.name]));
-  const SHORT_MAP = { sandman: "Sandman", superclawman: "Superclawman", ktulu: "Ktulu", jr: "Jr" };
-
+  const SHORT = { sandman: "Sandman", superclawman: "Superclawman", ktulu: "Ktulu", jr: "Jr" };
   const statusIcon = (s) => ({yes:'✓', no:'—', partial:'◐', planned:'◯'})[s] || '—';
-  const escapeHtml = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
   // Header
   document.getElementById('doc-status').textContent = D.doc_status + ' · last refresh ' + D.generated_at.slice(0,16).replace('T',' ');
   document.getElementById('footer-stamp').textContent = 'generated ' + D.generated_at;
   document.getElementById('meta-row').innerHTML = `
-    <div><b>Doc</b> ${escapeHtml(D.doc_title)}</div>
+    <div><b>Doc</b> ${esc(D.doc_title)}</div>
     <div><b>Agents</b> ${D.agents.length}</div>
     <div><b>Sections</b> ${D.sections.length}</div>
     <div><b>Operator</b> Paulo Ovidio</div>
+    <div><b>Source</b> ~/Claude/projects/superclawman-docs/</div>
   `;
 
   // Agent cards
   document.getElementById('agents').innerHTML = D.agents.map(a => `
     <button class="agent" data-agent="${a.id}" style="--c:${a.color}">
-      <div class="nm"><span class="emo">${a.emoji}</span>${escapeHtml(a.name)}</div>
-      <div class="role">${escapeHtml(a.role)}</div>
-      <div class="summary">${escapeHtml(a.summary)}</div>
-      <div class="hostline">${escapeHtml(a.host)}</div>
+      <div class="nm"><span class="emo">${a.emoji}</span>${esc(a.name)}</div>
+      <div class="role">${esc(a.role)}</div>
+      <div class="phase">${esc(a.status_phase)}</div>
+      <div class="specblk">
+        <div class="row"><b>HW</b><span class="v">${esc(a.hardware)}</span></div>
+        <div class="row"><b>OS</b><span class="v">${esc(a.os)}</span></div>
+        <div class="row"><b>OC</b><span class="ver">${esc(a.openclaw_version)}</span></div>
+      </div>
+      <div class="summary">${esc(a.summary)}</div>
       <div class="stats">
         ${Object.entries(a.stats).map(([k,v]) => `<span><b>${v}</b> ${k.replace(/_/g,' ')}</span>`).join('')}
       </div>
     </button>
   `).join('');
 
+  // Quick reference panel (shown when filtered)
+  function renderQuickref(agentId) {
+    const qr = document.getElementById('quickref');
+    if (agentId === 'all') { qr.innerHTML = ''; return; }
+    const a = D.agents.find(x => x.id === agentId);
+    if (!a) return;
+    qr.style.setProperty('--qc', a.color);
+    qr.innerHTML = `
+      <div class="lbl">Quick reference</div>
+      <h3><span class="emo">${a.emoji}</span>${esc(a.name)} — ${esc(a.role)}</h3>
+      <div class="quickref-grid">
+        <div class="item"><div class="k">SSH alias / host</div><div class="val">${esc(a.host)}</div></div>
+        <div class="item"><div class="k">Filesystem path</div><div class="val">${esc(a.paths)}</div></div>
+        <div class="item"><div class="k">Channel</div><div class="val">${esc(a.channel)}</div></div>
+        <div class="item"><div class="k">Signature</div><div class="val">${esc(a.signature)}</div></div>
+        <div class="item"><div class="k">Hardware</div><div class="val">${esc(a.hardware)}</div></div>
+        <div class="item"><div class="k">OS</div><div class="val">${esc(a.os)}</div></div>
+        <div class="item"><div class="k">OpenClaw version</div><div class="val" style="color:${a.color};font-weight:600">${esc(a.openclaw_version)}</div></div>
+        <div class="item"><div class="k">Current phase / status</div><div class="val">${esc(a.status_phase)}</div></div>
+        <div class="item wide"><div class="k">Summary</div><div class="val">${esc(a.summary)}</div></div>
+      </div>
+    `;
+  }
+
+  // Activity feed
+  document.getElementById('activity').innerHTML = `
+    <div class="lbl">Recent activity · last 24h</div>
+    <h4>What changed today</h4>
+    ${(D.recent_activity || []).map(r => {
+      const ag = D.agents.find(x => x.id === r.agent);
+      return `<div class="entry agent-${r.agent}" style="--c2:${ag?.color || '#E3A04A'}">
+        <span class="who">${ag?.emoji || ''} ${SHORT[r.agent] || r.agent}</span>
+        <span class="when">${esc(r.at)}</span>
+        <span class="note">${esc(r.note)}</span>
+      </div>`;
+    }).join('')}
+  `;
+
   // Sections
   document.getElementById('sections').innerHTML = D.sections.map(section => `
     <section class="matrix-section" data-section="${section.id}">
-      <div class="s-eyebrow">${escapeHtml(section.eyebrow)}</div>
-      <h2>${escapeHtml(section.title)} <em>— ${escapeHtml(section.title_em)}</em></h2>
-      <p class="s-note">${escapeHtml(section.note)}</p>
+      <div class="s-eyebrow">${esc(section.eyebrow)}</div>
+      <h2>${esc(section.title)}${section.title_em ? ` <em>— ${esc(section.title_em)}</em>` : ''}</h2>
+      <p class="s-note">${esc(section.note)}</p>
       <table class="items">
         <colgroup>
           <col style="width:240px">
@@ -226,20 +292,20 @@
         </colgroup>
         <thead><tr>
           <th>Item</th>
-          ${D.agents.map(a => `<th class="stat col-${a.id}" style="color:${a.color}">${SHORT_MAP[a.id]||a.name}</th>`).join('')}
+          ${D.agents.map(a => `<th class="stat col-${a.id}" style="color:${a.color}">${SHORT[a.id]||a.name}</th>`).join('')}
           <th>Note</th>
         </tr></thead>
         <tbody>
           ${section.rows.map(row => `
             <tr>
-              <td class="name">${escapeHtml(row.name)}</td>
+              <td class="name">${esc(row.name)}</td>
               ${D.agents.map(a => {
                 const s = (row.status && row.status[a.id]) || 'no';
                 return `<td class="stat col-${a.id}"><span class="${s} icon">${statusIcon(s)}</span></td>`;
               }).join('')}
               <td class="note">
-                <span class="note-variant note-default">${row.notes.default || ''}</span>
-                ${D.agents.map(a => `<span class="note-variant note-${a.id}">${row.notes[a.id] || row.notes.default || ''}</span>`).join('')}
+                <span class="note-variant note-default">${esc(row.notes.default || '')}</span>
+                ${D.agents.map(a => `<span class="note-variant note-${a.id}">${esc(row.notes[a.id] || row.notes.default || '')}</span>`).join('')}
               </td>
             </tr>
           `).join('')}
@@ -251,9 +317,9 @@
   // Pairings
   document.getElementById('pairings').innerHTML = (D.pairings || []).map(p => `
     <div class="pair-card from-${p.from} to-${p.to}">
-      <div class="lbl">Pairing · ${SHORT_MAP[p.from]||p.from} → ${SHORT_MAP[p.to]||p.to}</div>
-      <h3>What ${SHORT_MAP[p.from]||p.from} can hand to ${SHORT_MAP[p.to]||p.to}</h3>
-      <ul>${p.items.map(it => `<li>${escapeHtml(it)}</li>`).join('')}</ul>
+      <div class="lbl">Pairing · ${SHORT[p.from]||p.from} → ${SHORT[p.to]||p.to}</div>
+      <h3>What ${SHORT[p.from]||p.from} can hand to ${SHORT[p.to]||p.to}</h3>
+      <ul>${p.items.map(it => `<li>${esc(it)}</li>`).join('')}</ul>
     </div>
   `).join('');
 
@@ -263,6 +329,7 @@
     document.querySelectorAll('.agent').forEach(el => {
       el.classList.toggle('active', el.dataset.agent === target);
     });
+    renderQuickref(target);
   }
 
   document.querySelectorAll('.agent').forEach(el => {
@@ -275,7 +342,6 @@
 
   document.getElementById('clear-btn').addEventListener('click', () => setFilter('all'));
 
-  // Initial state
   setFilter('all');
 })();
 </script>
