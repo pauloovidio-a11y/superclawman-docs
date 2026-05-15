@@ -70,7 +70,11 @@ Filter = click an agent card. Filter again = clear (or hit "Compare all"). Pairi
 
 ## Notion mirror
 
-Published to **Superclawman Docs** hub at Notion. Notion is the **read-only published view**; `data.js` here is the source of truth. Update here first; re-publish to Notion on meaningful change.
+Published to **Superclawman Docs** hub at Notion:
+
+**[notion.so/361085df9ff881ed8d59e9365e9cb55c](https://www.notion.so/361085df9ff881ed8d59e9365e9cb55c)**
+
+Notion is the **read-only published view** — quick access from anywhere (phone, browser, mobile). `data.js` here is the source of truth. Update here first; re-publish to Notion on meaningful change via the `notion-update-page` MCP. Parent page: Superclawman Docs hub (`355085df-9ff8-8122-b7fd-fa633a08a7b3`).
 
 ## Why a single file with filter (vs 4 files merged)
 
@@ -82,3 +86,4 @@ One source of truth = no sync step, no stale data, no merge conflicts. The filte
 |---|---|---|
 | v1.0 | 2026-05-15 12:14 | Initial — 4 agents, 9 sections, ~70 rows |
 | v1.1 | 2026-05-15 15:50 | Added hardware + OS + OpenClaw version per agent. Added quick-reference panel on filter. Added recent-activity feed. Updated Ktulu (Phase 1A-1D shipped, html-it adopted, 2 playbooks adopted, git-tracked) and Jr (Phase 0d.3 recovery@ build active, 10 scripts, 6 systemd units). Smarter refresh.sh writes JSON snapshots. |
+| v1.1-notion | 2026-05-15 16:00 | Phase 2 shipped — Notion mirror published under Superclawman Docs hub. Access-from-anywhere quick-glance view. HTML stays canonical / source-of-truth. |
