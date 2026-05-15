@@ -6,7 +6,8 @@ Canonical internal docs for Paulo's agent cast. Source of truth for the **Sandma
 
 | File | Purpose |
 |---|---|
-| `matrix.html` | Interactive matrix. Click any agent card to filter. Loads `data.js` at startup. |
+| `index.html` | Interactive matrix. Click any agent card to filter. Loads `data.js` at startup. |
+| `robots.txt` | Blocks search-engine indexing — Pages access is by-link-only. |
 | `data.js` | Single source of truth. Sets `window.INVENTORY` with sections, rows, statuses, per-agent notes, agent profiles, pairings, recent activity. **Human-curated.** |
 | `refresh.sh` | SSHes the 4 hosts, captures hardware + OS + OpenClaw version + inventory counts + last-24h files. Writes structured JSON to `snapshots/`. Bumps `data.js` timestamp. Does NOT auto-edit notes. |
 | `snapshots/` | Append-only log of host probes. `latest.json` is the most recent. Used for diff on next refresh. |
@@ -14,7 +15,7 @@ Canonical internal docs for Paulo's agent cast. Source of truth for the **Sandma
 ## View the matrix
 
 ```bash
-open matrix.html
+open index.html
 ```
 
 Works directly from `file://` — no server needed. Single HTML + single data file; portable, single source of truth.
