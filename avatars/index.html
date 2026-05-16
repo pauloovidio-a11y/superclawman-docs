@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Superclawman family — avatar review</title>
+<title>Superclawman family — avatar review v3</title>
 <style>
   :root {
     --bg: #07090f;
@@ -13,10 +13,12 @@
     --fg: #e8edf7;
     --muted: #8892b0;
     --cyan: #00d4ff;
-    --gold: #f5c542;
+    --mint: #00ffe0;
+    --gold: #fbbf24;
     --violet: #b48cff;
     --green: #4ade80;
     --amber: #fbbf24;
+    --red: #ef4444;
     --wa-chat-bg: #0b141a;
     --wa-text: #e9edef;
     --wa-sub: #8696a0;
@@ -25,8 +27,8 @@
   body {
     margin: 0;
     background:
-      radial-gradient(1200px 600px at 20% -20%, rgba(0,212,255,0.08), transparent),
-      radial-gradient(900px 500px at 90% 100%, rgba(180,140,255,0.06), transparent),
+      radial-gradient(1200px 600px at 20% -20%, rgba(0,255,224,0.06), transparent),
+      radial-gradient(900px 500px at 90% 100%, rgba(251,191,36,0.04), transparent),
       var(--bg);
     color: var(--fg);
     font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
@@ -38,26 +40,56 @@
     font-size: 38px;
     margin: 0 0 8px;
     letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #fff, #8892b0);
+    background: linear-gradient(135deg, #fff, var(--mint));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .lede { color: var(--muted); max-width: 760px; font-size: 16px; margin-bottom: 40px; }
+  .lede { color: var(--muted); max-width: 800px; font-size: 16px; margin-bottom: 32px; }
+  .palette-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 56px;
+  }
+  .swatch {
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid #1f2740;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .swatch .dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+  .swatch .name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+  .swatch .hex { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; color: var(--muted); }
+  .swatch .role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
   .section-head {
     display: flex;
     align-items: baseline;
     gap: 14px;
     margin: 56px 0 16px;
+    flex-wrap: wrap;
   }
   .section-head h2 {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--cyan);
+    color: var(--mint);
     margin: 0;
     font-weight: 700;
   }
+  .section-head.sandman h2 { color: var(--violet); }
+  .section-head.ktulu h2 { color: var(--cyan); }
+  .section-head.jr h2 { color: var(--gold); }
   .section-head .badge {
     background: rgba(74,222,128,0.12);
     color: var(--green);
@@ -69,7 +101,7 @@
     letter-spacing: 0.08em;
   }
   .section-head .badge.decide { background: rgba(251,191,36,0.12); color: var(--amber); }
-  .section-head .canon { color: var(--muted); font-size: 13px; margin-left: auto; }
+  .section-head .canon { color: var(--muted); font-size: 13px; }
 
   .agent-block {
     background: var(--surface);
@@ -103,7 +135,7 @@
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 12px;
-    color: var(--cyan);
+    color: var(--mint);
   }
 
   .variants {
@@ -121,8 +153,9 @@
     transition: all 0.2s;
   }
   .variant.recommended {
-    border-color: rgba(74,222,128,0.4);
-    background: linear-gradient(180deg, rgba(74,222,128,0.04), var(--surface-2));
+    border-color: rgba(74,222,128,0.5);
+    background: linear-gradient(180deg, rgba(74,222,128,0.05), var(--surface-2));
+    box-shadow: 0 0 0 1px rgba(74,222,128,0.15);
   }
   .variant.locked {
     border-color: rgba(0,212,255,0.4);
@@ -147,7 +180,7 @@
     border-radius: 999px;
     font-weight: 700;
   }
-  .variant-tag.rec { background: rgba(74,222,128,0.15); color: var(--green); }
+  .variant-tag.rec { background: rgba(74,222,128,0.18); color: var(--green); }
   .variant-tag.locked { background: rgba(0,212,255,0.15); color: var(--cyan); }
   .variant-tag.alt { background: rgba(136,146,176,0.15); color: var(--muted); }
 
@@ -162,7 +195,7 @@
   .variant .desc {
     font-size: 13px;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: 1.55;
     margin-bottom: 14px;
     min-height: 3em;
   }
@@ -206,20 +239,23 @@
   .chat-preview-text { color: var(--wa-sub); font-size: 12px; margin-top: 1px; }
   .chat-time { color: var(--wa-sub); font-size: 10px; }
 
-  .canonical-note {
-    background: rgba(0,212,255,0.05);
-    border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 14px;
-    padding: 18px 22px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 32px;
+  .family-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+    padding: 28px;
+    background: var(--surface);
+    border-radius: 20px;
+    border: 1px solid #1f2740;
   }
-  .canonical-note strong { color: var(--fg); }
+  .family-strip .cell { text-align: center; }
+  .family-strip img { width: 100%; aspect-ratio: 1/1; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+  .family-strip .name { margin-top: 12px; font-weight: 700; font-size: 14px; }
+  .family-strip .role { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
 
   @media (max-width: 920px) {
-    .variants { grid-template-columns: 1fr; }
+    .variants, .palette-strip, .family-strip { grid-template-columns: 1fr 1fr; }
     .agent-block .meta { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
@@ -227,48 +263,73 @@
 <body>
 <div class="container">
 
-  <h1>Avatar review — Superclawman family</h1>
-  <p class="lede">Four agents, one DNA, role-coded differences. <strong>Sandman</strong> and <strong>Ktulu</strong> are locked. <strong>Superclawman</strong> and <strong>Jr</strong> are awaiting your pick. Each agent block shows the canonical role, the variant(s), and how the avatar reads at WhatsApp / Telegram thumbnail sizes (40&nbsp;px is the chat-list killer).</p>
+  <h1>Avatar review · round 3</h1>
+  <p class="lede">Bigger color delta this round. Pulled <strong>Superclawman</strong>'s palette directly from <a href="https://www.superclawman.ai" style="color:var(--mint)">superclawman.ai</a> (black + electric mint-teal). Gave <strong>Jr</strong> his own distinct charcoal + amber-gold beacon palette. All rendered in premium 3D with prominent claws + articulated legs. Sandman and Ktulu stay locked.</p>
 
-  <div class="canonical-note">
-    <strong>Canonical hierarchy from the inventory matrix:</strong>
-    <ul style="margin: 8px 0 0 18px; padding: 0;">
-      <li><strong>Sandman</strong> ≠ <strong>Superclawman</strong> — sibling agents in <em>different domains</em> (personal vs business), not a hierarchy.</li>
-      <li><strong>Jr ⊆ Superclawman</strong> — hard rule. Every Jr capability is a subset of Superclawman's.</li>
-      <li><strong>Ktulu</strong> — outreach-only face of Superclawman.ai. Wears the company wordmark verbatim.</li>
-      <li>The 🦀 emoji is the lineage marker — preserved in every descendant. Ktulu's signature uses 🦞 (lobster) but visually he's still the family crab.</li>
-    </ul>
+  <div class="palette-strip">
+    <div class="swatch">
+      <div class="dot" style="background:#050508; border:1px solid #222"></div>
+      <div>
+        <div class="name">Superclawman</div>
+        <div class="hex">#050508 · #00ffe0</div>
+        <div class="role">Black + electric mint-teal (from superclawman.ai)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="dot" style="background:linear-gradient(135deg,#1a0d2e,#b48cff)"></div>
+      <div>
+        <div class="name">Sandman</div>
+        <div class="hex">#1a0d2e · #b48cff</div>
+        <div class="role">Cosmic purple + violet (locked)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="dot" style="background:linear-gradient(135deg,#0b1b3b,#00d4ff,#ff6b35);"></div>
+      <div>
+        <div class="name">Ktulu</div>
+        <div class="hex">#0b1b3b · #00d4ff · #ff6b35</div>
+        <div class="role">Navy + cyan + red-orange (shipped)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="dot" style="background:linear-gradient(135deg,#1a1d24,#fbbf24)"></div>
+      <div>
+        <div class="name">Jr</div>
+        <div class="hex">#1a1d24 · #fbbf24</div>
+        <div class="role">Charcoal + amber-gold beacon</div>
+      </div>
+    </div>
   </div>
 
   <!-- SUPERCLAWMAN -->
   <div class="section-head">
     <h2>🧠 Superclawman — the boss</h2>
     <span class="badge decide">Pick one</span>
-    <span class="canon">Business domain · Mac mini M2 Pro · WhatsApp +5511994917618 · LinkedIn · X · Instagram</span>
+    <span class="canon">Business domain · WhatsApp · LinkedIn · X · Instagram</span>
   </div>
   <div class="agent-block">
     <div class="meta">
       <div class="meta-cell"><div class="label">Signature</div><div class="value"><code>[Superclawman 🧠⚡🦀🤘]</code></div></div>
-      <div class="meta-cell"><div class="label">Role</div><div class="value">Primary assistant · brand owner · authors canonical docs</div></div>
+      <div class="meta-cell"><div class="label">Palette</div><div class="value">Black <code>#050508</code> + mint-teal <code>#00ffe0</code></div></div>
       <div class="meta-cell"><div class="label">Channels</div><div class="value">WhatsApp · LinkedIn · X · Instagram</div></div>
-      <div class="meta-cell"><div class="label">Outbound 3p sig</div><div class="value"><code>[Superclawman 🧠⚡🦀🤘 - Assistente do Paulo]</code></div></div>
+      <div class="meta-cell"><div class="label">Vibe</div><div class="value">Tech CEO · quiet command · sharp not soft</div></div>
     </div>
     <div class="variants">
       <div class="variant recommended">
         <div class="variant-head">
-          <div class="variant-title">A · Wireframe glasses</div>
+          <div class="variant-title">A · Power stance</div>
           <div class="variant-tag rec">Recommended</div>
         </div>
-        <img class="portrait" src="superclawman-glasses.png" alt="Superclawman glasses">
-        <div class="desc">Modern minimalist glasses, calm half-smile, both claws lowered in a CEO portrait pose. Tech-exec composure. Quiet authority — the brain still shows on top of the shell.</div>
+        <img class="portrait" src="superclawman-power.png" alt="Superclawman power stance">
+        <div class="desc">Dark gunmetal carapace, electric mint-teal circuits + brain + lightning + eyes. Chrome claws with mint-teal edge glow, both lowered but powerful, all four legs visible and articulated. Piercing eyes with confident smirk. Quiet command, founder energy.</div>
         <div class="sizes">
-          <div class="size-pile"><img class="circle c120" src="superclawman-glasses.png"><div class="size-label">120</div></div>
-          <div class="size-pile"><img class="circle c64" src="superclawman-glasses.png"><div class="size-label">64</div></div>
-          <div class="size-pile"><img class="circle c40" src="superclawman-glasses.png"><div class="size-label">40</div></div>
+          <div class="size-pile"><img class="circle c120" src="superclawman-power.png"><div class="size-label">120</div></div>
+          <div class="size-pile"><img class="circle c64" src="superclawman-power.png"><div class="size-label">64</div></div>
+          <div class="size-pile"><img class="circle c40" src="superclawman-power.png"><div class="size-label">40</div></div>
         </div>
         <div class="chat-preview">
           <div class="chat-row">
-            <img src="superclawman-glasses.png">
+            <img src="superclawman-power.png">
             <div>
               <div class="chat-name">Superclawman</div>
               <div class="chat-preview-text">Paulo, daily brief ready — 3 items</div>
@@ -279,19 +340,19 @@
       </div>
       <div class="variant">
         <div class="variant-head">
-          <div class="variant-title">B · Lapel-pin badge</div>
+          <div class="variant-title">B · Keynote pose</div>
           <div class="variant-tag alt">Alternate</div>
         </div>
-        <img class="portrait" src="superclawman-pin.png" alt="Superclawman pin">
-        <div class="desc">Chrome-and-cyan insignia pin on the carapace, no glasses. Lower-key executive presence. Body shape came out a bit blocky — weaker render of the same idea.</div>
+        <img class="portrait" src="superclawman-keynote.png" alt="Superclawman keynote">
+        <div class="desc">Side-angle dynamic pose with neon ring framing the figure. Same palette, more "stage presence" energy, but the side stance reduces direct eye contact and the ring competes with the character for attention.</div>
         <div class="sizes">
-          <div class="size-pile"><img class="circle c120" src="superclawman-pin.png"><div class="size-label">120</div></div>
-          <div class="size-pile"><img class="circle c64" src="superclawman-pin.png"><div class="size-label">64</div></div>
-          <div class="size-pile"><img class="circle c40" src="superclawman-pin.png"><div class="size-label">40</div></div>
+          <div class="size-pile"><img class="circle c120" src="superclawman-keynote.png"><div class="size-label">120</div></div>
+          <div class="size-pile"><img class="circle c64" src="superclawman-keynote.png"><div class="size-label">64</div></div>
+          <div class="size-pile"><img class="circle c40" src="superclawman-keynote.png"><div class="size-label">40</div></div>
         </div>
         <div class="chat-preview">
           <div class="chat-row">
-            <img src="superclawman-pin.png">
+            <img src="superclawman-keynote.png">
             <div>
               <div class="chat-name">Superclawman</div>
               <div class="chat-preview-text">Paulo, daily brief ready — 3 items</div>
@@ -304,55 +365,45 @@
   </div>
 
   <!-- SANDMAN -->
-  <div class="section-head">
+  <div class="section-head sandman">
     <h2>💀 Sandman — personal domain, master of skills</h2>
     <span class="badge">Locked</span>
-    <span class="canon">Personal domain · NUC Ubuntu · WhatsApp +556293902655 only</span>
+    <span class="canon">Personal domain · WhatsApp only</span>
   </div>
   <div class="agent-block">
     <div class="meta">
       <div class="meta-cell"><div class="label">Signature</div><div class="value"><code>[Sandman 💀⏳🦀🤘]</code></div></div>
-      <div class="meta-cell"><div class="label">Role</div><div class="value">Family · household · health · daily digest · workout · backups</div></div>
+      <div class="meta-cell"><div class="label">Palette</div><div class="value">Cosmic purple + violet + silver</div></div>
       <div class="meta-cell"><div class="label">Channel</div><div class="value">WhatsApp only</div></div>
-      <div class="meta-cell"><div class="label">Relationship</div><div class="value">Sibling of Superclawman — different domain, not a subordinate</div></div>
+      <div class="meta-cell"><div class="label">Relationship</div><div class="value">Sibling of Superclawman — different domain</div></div>
     </div>
     <div class="variants single">
       <div class="variant locked">
         <div class="variant-head">
           <div class="variant-title">Final · cosmic shell + nightcap</div>
-          <div class="variant-tag locked">Locked in</div>
+          <div class="variant-tag locked">Locked</div>
         </div>
         <img class="portrait" src="sandman.png" alt="Sandman">
-        <div class="desc">Cosmic purple-and-violet palette, galaxy texture on shell, starry nightcap (canonical for the dream-master role), glowing violet eyes, chrome silver claws. Wordmark unified to <code>SUPERCLAWMAN.AI</code>.</div>
+        <div class="desc">Cosmic purple-and-violet palette, galaxy texture on shell, starry nightcap (canonical for the dream-master role), glowing violet eyes, chrome silver claws.</div>
         <div class="sizes">
           <div class="size-pile"><img class="circle c120" src="sandman.png"><div class="size-label">120</div></div>
           <div class="size-pile"><img class="circle c64" src="sandman.png"><div class="size-label">64</div></div>
           <div class="size-pile"><img class="circle c40" src="sandman.png"><div class="size-label">40</div></div>
-        </div>
-        <div class="chat-preview">
-          <div class="chat-row">
-            <img src="sandman.png">
-            <div>
-              <div class="chat-name">Sandman</div>
-              <div class="chat-preview-text">Night rollup: 12 ingests, 0 errors</div>
-            </div>
-            <div class="chat-time">02:14</div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- KTULU -->
-  <div class="section-head">
+  <div class="section-head ktulu">
     <h2>🦞 Ktulu — outreach face of Superclawman.ai</h2>
     <span class="badge">Locked &amp; shipped</span>
-    <span class="canon">Outreach only · i7 Mac mini · WhatsApp +17866001332 only</span>
+    <span class="canon">Outreach only · WhatsApp only</span>
   </div>
   <div class="agent-block">
     <div class="meta">
       <div class="meta-cell"><div class="label">Signature</div><div class="value"><code>[Ktulu 🦞📨⚡🤘]</code></div></div>
-      <div class="meta-cell"><div class="label">Role</div><div class="value">Outreach only — never quotes pricing, never commits, escalates substance</div></div>
+      <div class="meta-cell"><div class="label">Palette</div><div class="value">Navy + cyan + red-orange</div></div>
       <div class="meta-cell"><div class="label">Channel</div><div class="value">WhatsApp only</div></div>
       <div class="meta-cell"><div class="label">Outbound 3p sig</div><div class="value"><code>— Paulo Ovidio · Superclawman.ai</code></div></div>
     </div>
@@ -363,89 +414,104 @@
           <div class="variant-tag locked">Locked · already on WhatsApp</div>
         </div>
         <img class="portrait" src="ktulu.png" alt="Ktulu">
-        <div class="desc">The customer-facing face of Superclawman.ai — brain on shell, 🤘 claw, lightning bolt, <code>SUPERCLAWMAN.AI</code> wordmark prominent. Ktulu doesn't get his own brand because he <em>is</em> the brand.</div>
+        <div class="desc">The customer-facing face of Superclawman.ai — brain on shell, 🤘 claw, lightning bolt, prominent SUPERCLAWMAN.AI wordmark.</div>
         <div class="sizes">
           <div class="size-pile"><img class="circle c120" src="ktulu.png"><div class="size-label">120</div></div>
           <div class="size-pile"><img class="circle c64" src="ktulu.png"><div class="size-label">64</div></div>
           <div class="size-pile"><img class="circle c40" src="ktulu.png"><div class="size-label">40</div></div>
-        </div>
-        <div class="chat-preview">
-          <div class="chat-row">
-            <img src="ktulu.png">
-            <div>
-              <div class="chat-name">Ktulu</div>
-              <div class="chat-preview-text">Olá! Vi que vocês trabalham com…</div>
-            </div>
-            <div class="chat-time">14:32</div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- JR -->
-  <div class="section-head">
+  <div class="section-head jr">
     <h2>💀🧠 Jr — Superclawman's deputy, takes the watch when boss is offline</h2>
-    <span class="badge decide">Pick one (or ask for a re-roll)</span>
-    <span class="canon">Watchdog + failover · Hetzner VPS · Telegram only</span>
+    <span class="badge decide">Pick one</span>
+    <span class="canon">Watchdog + failover · Telegram only</span>
   </div>
   <div class="agent-block">
     <div class="meta">
       <div class="meta-cell"><div class="label">Signature</div><div class="value"><code>[SC Jr 💀 🧠]</code></div></div>
-      <div class="meta-cell"><div class="label">Role</div><div class="value">Watchdog + failover. Performs Superclawman duties when offline.</div></div>
-      <div class="meta-cell"><div class="label">Channel</div><div class="value">Telegram only (chat 8735701356)</div></div>
-      <div class="meta-cell"><div class="label">Canonical rule</div><div class="value">Jr ⊆ Superclawman (strict subset). 💀 inherited from Sandman lineage = standby marker.</div></div>
+      <div class="meta-cell"><div class="label">Palette</div><div class="value">Charcoal + amber-gold + bronze</div></div>
+      <div class="meta-cell"><div class="label">Channel</div><div class="value">Telegram only</div></div>
+      <div class="meta-cell"><div class="label">Canonical rule</div><div class="value">Jr ⊆ Superclawman · 💀 = standby marker (canonical lore)</div></div>
     </div>
     <div class="variants">
-      <div class="variant recommended">
+      <div class="variant">
         <div class="variant-head">
-          <div class="variant-title">A · Deputy chevron badge</div>
-          <div class="variant-tag rec">Recommended</div>
+          <div class="variant-title">A · Deputy chevron, alert</div>
+          <div class="variant-tag alt">Alternate</div>
         </div>
-        <img class="portrait" src="jr-badge.png" alt="Jr badge">
-        <div class="desc">Adult proportions, chrome deputy chevron prominently on the carapace, glowing blue eyes behind a subtle mask, claws raised in a confident protector stance. Reads as "capable second-in-command who steps in when the boss is offline."</div>
+        <img class="portrait" src="jr-deputy.png" alt="Jr deputy">
+        <div class="desc">Bronze deputy chevron on chest, one claw raised in sentinel attention, copper-bronze articulated legs and claws, glowing amber-gold eyes. Reads as "watching, ready to react."</div>
         <div class="sizes">
-          <div class="size-pile"><img class="circle c120" src="jr-badge.png"><div class="size-label">120</div></div>
-          <div class="size-pile"><img class="circle c64" src="jr-badge.png"><div class="size-label">64</div></div>
-          <div class="size-pile"><img class="circle c40" src="jr-badge.png"><div class="size-label">40</div></div>
+          <div class="size-pile"><img class="circle c120" src="jr-deputy.png"><div class="size-label">120</div></div>
+          <div class="size-pile"><img class="circle c64" src="jr-deputy.png"><div class="size-label">64</div></div>
+          <div class="size-pile"><img class="circle c40" src="jr-deputy.png"><div class="size-label">40</div></div>
         </div>
         <div class="chat-preview">
           <div class="chat-row">
-            <img src="jr-badge.png">
+            <img src="jr-deputy.png">
             <div>
               <div class="chat-name">SC Jr</div>
-              <div class="chat-preview-text">Watchdog tick: all green · taking the watch</div>
+              <div class="chat-preview-text">Watchdog tick · all green</div>
             </div>
             <div class="chat-time">09:15</div>
           </div>
         </div>
       </div>
-      <div class="variant">
+      <div class="variant recommended">
         <div class="variant-head">
-          <div class="variant-title">B · Comm headset</div>
-          <div class="variant-tag alt">Alternate</div>
+          <div class="variant-title">B · Skull emblem, squared</div>
+          <div class="variant-tag rec">Recommended (canonical)</div>
         </div>
-        <img class="portrait" src="jr-headset.png" alt="Jr headset">
-        <div class="desc">Chrome headset/earpiece, alert glowing eyes, vigilant scanning posture. Reads more "operator on duty" — but the expression came out a bit grumpy and the pose slightly combative.</div>
+        <img class="portrait" src="jr-skull.png" alt="Jr skull">
+        <div class="desc">Small bronze <strong>skull emblem</strong> on chest — directly visualizes the 💀 in his <code>[SC Jr 💀🧠]</code> signature. Both claws lowered in capable stance, four articulated legs visible, glowing amber eyes behind subtle dark visor. Reads as "capable second-in-command on watch."</div>
         <div class="sizes">
-          <div class="size-pile"><img class="circle c120" src="jr-headset.png"><div class="size-label">120</div></div>
-          <div class="size-pile"><img class="circle c64" src="jr-headset.png"><div class="size-label">64</div></div>
-          <div class="size-pile"><img class="circle c40" src="jr-headset.png"><div class="size-label">40</div></div>
+          <div class="size-pile"><img class="circle c120" src="jr-skull.png"><div class="size-label">120</div></div>
+          <div class="size-pile"><img class="circle c64" src="jr-skull.png"><div class="size-label">64</div></div>
+          <div class="size-pile"><img class="circle c40" src="jr-skull.png"><div class="size-label">40</div></div>
         </div>
         <div class="chat-preview">
           <div class="chat-row">
-            <img src="jr-headset.png">
+            <img src="jr-skull.png">
             <div>
               <div class="chat-name">SC Jr</div>
-              <div class="chat-preview-text">Watchdog tick: all green · taking the watch</div>
+              <div class="chat-preview-text">Watchdog tick · all green</div>
             </div>
             <div class="chat-time">09:15</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="canonical-note" style="margin-top: 24px; margin-bottom: 0;">
-      <strong>Possible third direction for Jr</strong> (re-roll if you want it): the canonical <code>💀🧠</code> signature suggests Jr could carry a subtle <strong>skull-standby motif</strong> or a <strong>sleep-mask pulled up onto the forehead</strong> — echoing the Sandman-lineage 💀 as the "wakes when boss is down" marker. That would visually encode "Superclawman with a night-watch mask on." Say the word and I'll generate two variants in that direction.
+  </div>
+
+  <!-- FAMILY STRIP -->
+  <div class="section-head">
+    <h2>The family with my recommended picks</h2>
+    <span class="canon">How they'd line up on superclawman.ai · email sig · matrix page</span>
+  </div>
+  <div class="family-strip">
+    <div class="cell">
+      <img src="superclawman-power.png" alt="Superclawman">
+      <div class="name">Superclawman</div>
+      <div class="role">The boss</div>
+    </div>
+    <div class="cell">
+      <img src="sandman.png" alt="Sandman">
+      <div class="name">Sandman</div>
+      <div class="role">Personal · master of skills</div>
+    </div>
+    <div class="cell">
+      <img src="ktulu.png" alt="Ktulu">
+      <div class="name">Ktulu</div>
+      <div class="role">Outreach face</div>
+    </div>
+    <div class="cell">
+      <img src="jr-skull.png" alt="Jr">
+      <div class="name">Jr</div>
+      <div class="role">Deputy on watch</div>
     </div>
   </div>
 
