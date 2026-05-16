@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-16T17:41:06-03:00",
+  generated_at: "2026-05-16T18:41:50-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.4",
+  doc_status: "Canonical · v1.5",
 
   agents: [
     {
@@ -399,7 +399,9 @@ window.INVENTORY = {
         { name: "precedent_matcher (BGE-M3)", status: { sandman: "no", superclawman: "yes", ktulu: "planned", jr: "no" },
           notes: { default: "Cosine over verdicts.", sandman: "Not installed.", superclawman: "BGE-M3 escalation classifier.", ktulu: "Phase 2.", jr: "N/A — read-mostly." } },
         { name: "Inbound style observers / commitment tracker", status: { sandman: "no", superclawman: "yes", ktulu: "planned", jr: "no" },
-          notes: { default: "Per-contact style learning + promise tracking.", sandman: "Not installed.", superclawman: "Both active.", ktulu: "Phase 2.", jr: "N/A — single operator." } }
+          notes: { default: "Per-contact style learning + promise tracking.", sandman: "Not installed.", superclawman: "Both active.", ktulu: "Phase 2.", jr: "N/A — single operator." } },
+        { name: "Per-agent provenance scopes (memory_scopes.py)", status: { sandman: "no", superclawman: "yes", ktulu: "no", jr: "no" },
+          notes: { default: "agent_scope as provenance metadata on every memory row (NOT cross-agent ACL — each agent has its own brain).", sandman: "Own brain — separate store.", superclawman: "memory_scopes.py + migrate_agent_scope.py + memory_scopes_cli.py + memory-engine-v2 --agent wiring. 40,634 rows backfilled to [tenant:default:org] 2026-05-16. Doctrinal reframe (post-multi-session coord): scope is who-wrote-this, not who-can-read-this. Strict reader rule still useful within-store for asymmetric reads (e.g. Jr→Sandman in failover). `tenant:<id>:<agent>` namespace composes for §C.3 SaaS prep. Memory canonical v1.41 + post-plan v1.10. Phase 4 Stages 1+2 shipped (code); Stages 3+4 are observation (not code).", ktulu: "Own brain — separate store.", jr: "Own brain — separate store." } }
       ]
     },
 
@@ -601,6 +603,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-05-16 evening", note: "Memory canonical bumped: main v1.40 → **v1.41**, post-plan v1.9 → **v1.10**. **§A.8 doctrinal reframe** — scope field is **provenance, not cross-agent ACL**. Each agent has its own brain (separate store), so there's no cross-store reading to access-control; `agent_scope` is who-wrote-this metadata, strict reader rule still useful within-store for asymmetric reads (Jr→Sandman in failover). Phase 4 Stages 1+2 shipped (substrate + backfill + CLI + engine wiring); Stages 3+4 are observation (not code) — no writer-migration sprint anymore. Tenant prefix `tenant:<id>:<agent>` still composes for §C.3 SaaS prep. **Follow-up flagged**: 2 of 3 memory-ingest LaunchAgents on Mac (`clawman.whatsapp-bridge-memory-ingest`, `clawman.memory-capture`) have no source-controlled plist; only `com.clawman.multimodal-ingest` is in repo. Per-host plist backup strategy is a tracked TODO." },
     { agent: "ktulu", at: "2026-05-16 PM", note: "v1.1.2 canonical addendum: daily status-digest envelope shipped — ktulu_digest.py (10th pipeline module) + ai.openclaw.ktulu.digest.plist (6th LaunchDaemon, installed DORMANT during soak; bootstrap Tue 5/19 PM). Fires 21:00 BRT → Paulo selfchat. Codifies action-clarity rule (every envelope has explicit `Ação:` line above envelope-id footer, default 'nenhuma da sua parte'). Forward-applies to ALL envelope kinds. Continuous test corpus for Phase 2.1 recognizer. Commit e288657 on ktulu repo." },
     { agent: "jr", at: "2026-05-16 PM", note: "v1.30 ambient-state primitives shipped — operator-declared modes (maintenance + travel) via jr-maintenance.py + jr-travel-mode.py using the 5-part design pattern (CLI · watchdog_state.json key · public predicate · persona HARD section · per-primitive audit log). Plus jr-html-deliver.py + jr-daily-digest.py + openclaw-jr-daily-digest@.timer (5th service+timer pair). 16 shared scripts now (was 12). 10 systemd units (was 8)." },
     { agent: "superclawman", at: "2026-05-16 PM", note: "Credential audit playbook + admin keys infrastructure shipped. Admin keys at ~/.openclaw/secrets/{anthropic,openai}_admin.key. Fleet-wide cleanup: 3 OpenAI keys revoked (clawman-mac, Mac-01, Clawman-mac2), 7 keys live across 5 projects. 21-key Anthropic history mapped. Memory entries: playbook_credential_audit_2026_05_16.md + state_provider_admin_keys_2026_05_16.md." },
