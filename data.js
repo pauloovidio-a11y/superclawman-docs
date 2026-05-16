@@ -3,7 +3,7 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-16T12:10:43-03:00",
+  generated_at: "2026-05-16T12:31:42-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
   doc_status: "Canonical · v1.2",
 
@@ -74,7 +74,7 @@ window.INVENTORY = {
       openclaw_version: "2026.5.5 (b1abf9d)",
       status_phase: "Phase 0d.3 active build (recovery dance)",
       summary: "VPS-side failover + watchdog. Wakes when Mac mini is unreachable (power outage, hardware failure, WA 440). Multi-tenant from day 1 (currently 1 tenant: paulo). Telegram-only on purpose — routes around WA fragility. Hard rule: Jr's capability set is always ⊆ Superclawman's. Phase 0d.3 recovery dance build active right now — recovery@ timer, jr-outage-queue.py, recovery-orchestrator.py landed today.",
-      stats: { shared_scripts: 11, mcps: 7, skills: 3, systemd_units: 8, tenants: 1 }
+      stats: { shared_scripts: 12, mcps: 7, skills: 3, systemd_units: 8, tenants: 1 }
     }
   ],
 
@@ -490,7 +490,7 @@ window.INVENTORY = {
       id: "scripts",
       eyebrow: "I · Notable script families",
       title: "Capability-bearing scripts",
-      note: "Sandman ~84 scripts (probe canonical; previous ~152 was operator-curated, included backups) · Superclawman ~73 · Ktulu has 9 native pipeline modules in clawman-bus/ · Jr has 11 shared scripts at /usr/local/lib/openclaw-jr/ (jr-backup.py added 2026-05-16).",
+      note: "Sandman ~84 scripts (probe canonical; previous ~152 was operator-curated, included backups) · Superclawman ~73 · Ktulu has 9 native pipeline modules in clawman-bus/ · Jr has 12 shared scripts at /usr/local/lib/openclaw-jr/ (jr-backup.py + jr_haiku_voice.py added 2026-05-16).",
       rows: [
         { name: "dashboard-server.mjs", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "Control Center UI.", sandman: "Sandman dashboard server.", superclawman: "Not installed.", ktulu: "Out of scope.", jr: "Out of scope." } },
@@ -589,7 +589,7 @@ window.INVENTORY = {
   recent_activity: [
     { agent: "sandman", at: "2026-05-16", note: "Matrix correction: lossless-claw v0.9.2 was already installed (DB has 20,273 msgs / 106 DAG nodes — accumulated pre-detection; install ran as root, not sandmanpo). Closes pairing op #3. Also: OpenClaw 2026.5.7 → 2026.5.12 bump caught + codex-sandman 3-layer pipeline now live (Entry 96 stable). 0.9.2 → 0.9.4 lossless-claw bump now the only remaining gap." },
     { agent: "ktulu", at: "2026-05-16", note: "5th LaunchDaemon shipped — ai.openclaw.ktulu.backup.plist. Pipeline now {gateway,ingest,worker,sender,backup}." },
-    { agent: "jr", at: "2026-05-16", note: "4th service+timer pair shipped — openclaw-jr-backup@.timer + jr-backup.py. 8 systemd units total (was 6). jr-google-user-mcp.py refined (writes still stubbed per Phase 0d.3)." },
+    { agent: "jr", at: "2026-05-16", note: "4th service+timer pair shipped — openclaw-jr-backup@.timer + jr-backup.py. 8 systemd units total (was 6). jr_haiku_voice.py shipped (Smart-Agent voice composer — Jr's human-facing Telegram prose is now Haiku-composed). jr-google-user-mcp.py refined (writes still stubbed per Phase 0d.3)." },
     { agent: "ktulu", at: "2026-05-15", note: "Major refactor — workspace moved to /Volumes/KtuluDisk/ktulu/.openclaw/. Adopted html-it skill + pdf-fetch + operational-routing playbooks. 9 pipeline modules in clawman-bus/. KTULU_CANONICAL_v1.0.md written (30KB). Now git-tracked at pauloovidio-a11y/ktulu (private)." },
     { agent: "jr", at: "2026-05-15", note: "Phase 0d.3 active build — recovery@ timer added, recovery-orchestrator.py + jr-outage-queue.py landed. vps-watchdog flap suppression shipped (commit d053fa1c). P10 wiring landed same day." },
     { agent: "superclawman", at: "2026-05-15", note: "Authored KTULU_CANONICAL_v1.0.md. Updated SUPERCLAWMAN_FINAL_WHATSAPP_CANONICAL_v1, X_CANONICAL, POST_MEMORY_LEARNING_PLAN, MEMORY_FINAL_CANONICAL, WATCHDOG_JR_CANONICAL." }
