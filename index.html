@@ -205,7 +205,7 @@
 <script>
 (() => {
   const D = window.INVENTORY;
-  if (!D) { document.body.innerHTML = '<pre style="color:#E3A04A;padding:40px;font-family:monospace">ERROR: data.js failed to load. Open matrix.html via file:// from the same directory as data.js.</pre>'; return; }
+  if (!D) { document.body.innerHTML = '<pre style="color:#E3A04A;padding:40px;font-family:monospace">ERROR: data.js failed to load. Open index.html via file:// from the same directory as data.js.</pre>'; return; }
 
   const SHORT = { sandman: "Sandman", superclawman: "Superclawman", ktulu: "Ktulu", jr: "Jr" };
   const statusIcon = (s) => ({yes:'✓', no:'—', partial:'◐', planned:'◯'})[s] || '—';
