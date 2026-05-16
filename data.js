@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-16T12:31:42-03:00",
+  generated_at: "2026-05-16T17:41:06-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.3",
+  doc_status: "Canonical · v1.4",
 
   agents: [
     {
@@ -55,9 +55,9 @@ window.INVENTORY = {
       hardware: "Intel i7-8700B @ 3.2GHz · 12 cores · 32GB RAM · 1.8TB external APFS",
       os: "macOS 14.8.4 Sonoma · Darwin 23.6.0 · x86_64",
       openclaw_version: "2026.5.12 (f066dd2) — tied newest with Sandman",
-      status_phase: "Phase 1A → 1E shipped · canonical v1.0.1 · soak window active (fire 2026-05-19)",
+      status_phase: "Phase 1A → 1E shipped · canonical v1.0.1 (+v1.1.2 digest) · soak window active (fire 2026-05-19) · digest envelope dormant",
       summary: "Outbound outreach + autonomous reply on Intel i7 Mac mini, paired to USA WA number +1 786-600-1332. Sibling to Superclawman. Receives prospect queue from Beautiful Websites Kit, drips outbound at human cadence, 4-branch classifier (positive/dismissive/cost/ambiguous), auto-replies where safe, escalates everything substantive to Paulo. Now git-tracked (pauloovidio-a11y/ktulu private).",
-      stats: { doctrine: 8, plugins: 5, launchdaemons: 5, pipeline_modules: 9, playbooks: 2, skills: 1, subagents: 1 }
+      stats: { doctrine: 8, plugins: 5, launchdaemons: 6, pipeline_modules: 10, playbooks: 2, skills: 1, subagents: 1 }
     },
     {
       id: "jr",
@@ -72,9 +72,9 @@ window.INVENTORY = {
       hardware: "AMD EPYC-Genoa · 4 vCPU · 7.6GB RAM · Hetzner Cloud",
       os: "Ubuntu 24.04.4 LTS",
       openclaw_version: "2026.5.5 (b1abf9d)",
-      status_phase: "Phase 0d.3 active build (recovery dance)",
-      summary: "VPS-side failover + watchdog. Wakes when Mac mini is unreachable (power outage, hardware failure, WA 440). Multi-tenant from day 1 (currently 1 tenant: paulo). Telegram-only on purpose — routes around WA fragility. Hard rule: Jr's capability set is always ⊆ Superclawman's. Phase 0d.3 recovery dance build active right now — recovery@ timer, jr-outage-queue.py, recovery-orchestrator.py landed today.",
-      stats: { shared_scripts: 12, mcps: 7, skills: 3, systemd_units: 8, tenants: 1 }
+      status_phase: "Phase 0d.3 (recovery dance) · v1.30 ambient-state primitives shipped (maintenance + travel)",
+      summary: "VPS-side failover + watchdog. Wakes when Mac mini is unreachable (power outage, hardware failure, WA 440). Multi-tenant from day 1 (currently 1 tenant: paulo). Telegram-only on purpose — routes around WA fragility. Hard rule: Jr's capability set is always ⊆ Superclawman's. v1.30 added operator-declared ambient-state primitives (maintenance + travel modes via jr-maintenance.py + jr-travel-mode.py) using the 5-part pattern. Daily-digest envelope shipped (jr-daily-digest@.timer).",
+      stats: { shared_scripts: 16, mcps: 7, skills: 3, systemd_units: 10, tenants: 1 }
     }
   ],
 
@@ -442,7 +442,9 @@ window.INVENTORY = {
         { name: "operational-routing.md", status: { sandman: "no", superclawman: "yes", ktulu: "yes", jr: "no" },
           notes: { default: "Generic routing reference.", sandman: "Pairing op #4.", superclawman: "Active.", ktulu: "ADOPTED 2026-05-15 — Ktulu-narrowed status check.", jr: "Embedded in canonical doc." } },
         { name: "sandmanpo handlers", status: { sandman: "yes", superclawman: "partial", ktulu: "no", jr: "no" },
-          notes: { default: "Sandmanpo VPS.", sandman: "Has sandmanpo-flow.sh + sandmanpo-sonnet-reply.py.", superclawman: "References via scripts.", ktulu: "Out of scope.", jr: "N/A — different VPS." } }
+          notes: { default: "Sandmanpo VPS.", sandman: "Has sandmanpo-flow.sh + sandmanpo-sonnet-reply.py.", superclawman: "References via scripts.", ktulu: "Out of scope.", jr: "N/A — different VPS." } },
+        { name: "Credential audit playbook (fleet-wide)", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
+          notes: { default: "Reusable methodology for fleet-wide credential audits across GCP/Anthropic/OpenAI.", sandman: "Covered.", superclawman: "Authoring host. Admin keys at ~/.openclaw/secrets/{anthropic,openai}_admin.key (chmod 600). GCP via gcloud user-level auth. Post-cleanup state: 7 OpenAI keys live + 3 revoked (clawman-mac, Mac-01, Clawman-mac2), 5 OpenAI projects, 21-key Anthropic history (5 active / 16 archived). Memory entries: playbook_credential_audit_2026_05_16.md + state_provider_admin_keys_2026_05_16.md.", ktulu: "Covered — has anthropic.key + openai.key per §8.", jr: "Covered — admin keys + OAuth daemons (google + higgsfield)." } }
       ]
     },
 
@@ -451,7 +453,7 @@ window.INVENTORY = {
       eyebrow: "H · Persistence layer (systemd / LaunchDaemons / LaunchAgents)",
       title: "Long-running services + scheduled jobs",
       title_em: "where the agent actually breathes",
-      note: "Sandman = 7 systemd + 15 cron jobs · Superclawman = 1 LaunchAgent · Ktulu = 5 LaunchDaemons (backup@ added 2026-05-16) · Jr = 8 systemd units = 4 service+timer pairs (backup@ added 2026-05-16, recovery@ shipped 2026-05-15 Phase 0d.3).",
+      note: "Sandman = 7 systemd + 15 cron jobs · Superclawman = 1 LaunchAgent (probe-stat only counts ai.openclaw.gateway; ~10 clawman.* LaunchAgents also loaded) · Ktulu = 6 LaunchDaemons (digest@ installed 2026-05-16, DORMANT during soak — bootstrap Tue 5/19 PM) · Jr = 10 systemd units = 5 service+timer pairs (daily-digest@ added 2026-05-16).",
       rows: [
         { name: "openclaw gateway", status: { sandman: "no", superclawman: "yes", ktulu: "yes", jr: "yes" },
           notes: { default: "Always-on agent gateway.", sandman: "Different model — openclaw-whatsapp.service.", superclawman: "LaunchAgent ai.openclaw.gateway.", ktulu: "LaunchDaemon ai.openclaw.ktulu.gateway. Bash-wrapped for AMFI.", jr: "Process on port 18789. Per-tenant via --profile jr-paulo." } },
@@ -463,12 +465,14 @@ window.INVENTORY = {
           notes: { default: "Daily learning distill.", sandman: "N/A.", superclawman: "nightly-dream.py equivalent.", ktulu: "N/A.", jr: "Reads last 24h lossless-claw, Haiku extracts learnings, Telegram digest." } },
         { name: "openclaw-jr-recovery@<tenant>.timer", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Recovery dance orchestrator.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "Shipped 2026-05-15 (Phase 0d.3) — paired with recovery-orchestrator.py + jr-outage-queue.py. P10 wiring landed same day." } },
-        { name: "openclaw-jr-backup@<tenant>.timer (NEW 2026-05-16)", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
-          notes: { default: "Daily Jr-side state backup.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "NEW 2026-05-16. jr-backup.py at /usr/local/lib/openclaw-jr/. 4th service+timer pair." } },
+        { name: "openclaw-jr-backup@<tenant>.timer", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
+          notes: { default: "Daily Jr-side state backup.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "Shipped 2026-05-16. jr-backup.py at /usr/local/lib/openclaw-jr/. 4th service+timer pair." } },
+        { name: "openclaw-jr-daily-digest@<tenant>.timer (NEW 2026-05-16 PM)", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
+          notes: { default: "Daily Jr-side digest envelope to Telegram.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "NEW 2026-05-16. jr-daily-digest.py at /usr/local/lib/openclaw-jr/. 5th service+timer pair. Mirrors Ktulu's digest pattern (codifies action-clarity rule)." } },
         { name: "openclaw-jr-higgsfield (OAuth proxy)", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Long-running OAuth proxy.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "Serve on 127.0.0.1:18790/mcp + 50-min refresh timer. First per-tenant OAuth daemon." } },
-        { name: "ai.openclaw.ktulu.{gateway,ingest,worker,sender,backup}", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
-          notes: { default: "Ktulu's 5 native pipeline daemons.", sandman: "N/A.", superclawman: "N/A.", ktulu: "All 5 LaunchDaemons live (backup added 2026-05-16). KeepAlive. Logs at /var/log/ktulu/ (NOT /Volumes — TCC).", jr: "N/A." } },
+        { name: "ai.openclaw.ktulu.{gateway,ingest,worker,sender,backup,digest}", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
+          notes: { default: "Ktulu's 6 native pipeline daemons.", sandman: "N/A.", superclawman: "N/A.", ktulu: "6 LaunchDaemons: 5 live (gateway/ingest/worker/sender/backup) + 1 installed-dormant (digest, will be bootstrapped Tue 5/19 PM after campaign fire — produces daily status envelope at 21:00 BRT, action-clarity rule applied). KeepAlive. Logs at /var/log/ktulu/.", jr: "N/A." } },
         { name: "sandman-dashboard / mission-control / skill-tree", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "Visual control surfaces.", sandman: "All 3 active.", superclawman: "Pairing op #5.", ktulu: "Out of scope.", jr: "Out of scope (Telegram is UI)." } },
         { name: "qmd-mcp.service", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
@@ -492,7 +496,7 @@ window.INVENTORY = {
       id: "scripts",
       eyebrow: "I · Notable script families",
       title: "Capability-bearing scripts",
-      note: "Sandman ~84 scripts (probe canonical; previous ~152 was operator-curated, included backups) · Superclawman ~73 · Ktulu has 9 native pipeline modules in clawman-bus/ · Jr has 12 shared scripts at /usr/local/lib/openclaw-jr/ (jr-backup.py + jr_haiku_voice.py added 2026-05-16).",
+      note: "Sandman ~84 scripts · Superclawman ~73 · Ktulu has 10 native pipeline modules in clawman-bus/ (ktulu_digest.py added 2026-05-16) · Jr has 16 shared scripts at /usr/local/lib/openclaw-jr/ (2026-05-16 batch: jr-backup, jr_haiku_voice, jr-html-deliver, jr-maintenance, jr-travel-mode, jr-daily-digest).",
       rows: [
         { name: "dashboard-server.mjs", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "Control Center UI.", sandman: "Sandman dashboard server.", superclawman: "Not installed.", ktulu: "Out of scope.", jr: "Out of scope." } },
@@ -520,10 +524,16 @@ window.INVENTORY = {
           notes: { default: "BRT-aware calendar.", sandman: "Pairing op #7.", superclawman: "Active with iCal feed.", ktulu: "Out of scope.", jr: "Via google-user MCP — multi-calendar fix 2026-05-13." } },
         { name: "vps-watchdog / recovery-orchestrator / jr-outage-queue", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Jr's Phase 0d.3 stack.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "All 3 at /usr/local/lib/openclaw-jr/. vps-watchdog (Phase 0d.1 active). recovery-orchestrator + jr-outage-queue NEW today (Phase 0d.3 build)." } },
-        { name: "ktulu pipeline (9 modules)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
-          notes: { default: "Ktulu's native pipeline.", sandman: "N/A.", superclawman: "N/A.", ktulu: "clawman-bus/: bus.py · gateway_ingest.py · ktulu_signature.py · ktulu_contacts.py · ktulu_escalation.py · ktulu_media.py · ktulu_campaign_replies.py · ktulu_outreach_worker.py · ktulu_sender.py.", jr: "N/A." } },
+        { name: "ktulu pipeline (10 modules)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
+          notes: { default: "Ktulu's native pipeline.", sandman: "N/A.", superclawman: "N/A.", ktulu: "clawman-bus/: bus.py · gateway_ingest.py · ktulu_signature.py · ktulu_contacts.py · ktulu_escalation.py · ktulu_media.py · ktulu_campaign_replies.py · ktulu_outreach_worker.py · ktulu_sender.py · ktulu_digest.py (NEW 2026-05-16 — daily status digest envelope, dormant during soak).", jr: "N/A." } },
         { name: "3-layer group-JID guard (Ktulu safety hardening)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
-          notes: { default: "Defense-in-depth against outbound to WhatsApp groups.", sandman: "N/A.", superclawman: "N/A.", ktulu: "Commit 9a1aa1f (2026-05-16). ktulu_contacts.classify() detects @g.us OR digits>15 → role=group · worker drops · sender refuses outbound. Memory entry feedback_ktulu_group_jid_guard.md — do not relax.", jr: "N/A." } }
+          notes: { default: "Defense-in-depth against outbound to WhatsApp groups.", sandman: "N/A.", superclawman: "N/A.", ktulu: "Commit 9a1aa1f (2026-05-16). ktulu_contacts.classify() detects @g.us OR digits>15 → role=group · worker drops · sender refuses outbound. Memory entry feedback_ktulu_group_jid_guard.md — do not relax.", jr: "N/A." } },
+        { name: "Daily status-digest envelope (Ktulu + Jr)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "yes" },
+          notes: { default: "Daily operator-facing status envelope with action-clarity rule.", sandman: "N/A.", superclawman: "N/A.", ktulu: "ktulu_digest.py (clawman-bus) + ai.openclaw.ktulu.digest.plist (LaunchDaemon, installed 2026-05-16, DORMANT during soak — bootstrap Tue 5/19 PM). Fires 21:00 BRT → Paulo selfchat. Codifies action-clarity rule: every envelope has explicit `Ação:` line above envelope-id footer (default 'nenhuma da sua parte'). Forward-applies to ALL envelope kinds. Continuous test corpus for Phase 2.1 recognizer.", jr: "jr-daily-digest.py + openclaw-jr-daily-digest@<tenant>.timer (5th service+timer pair, NEW 2026-05-16). Telegram-side mirror of the Ktulu pattern." } },
+        { name: "Jr ambient-state primitives (v1.30 design pattern)", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
+          notes: { default: "Operator-declared modes (maintenance, travel, future).", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "v1.30 5-part pattern: (1) CLI to declare/clear · (2) watchdog_state.json key · (3) public predicate · (4) persona HARD section · (5) per-primitive audit log. Two primitives live: jr-maintenance.py + jr-travel-mode.py at /usr/local/lib/openclaw-jr/. Reuse this shape; don't reinvent. Memory entry project_jr_ambient_state_primitives.md." } },
+        { name: "jr-html-deliver", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
+          notes: { default: "Jr-side HTML artifact delivery.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "NEW 2026-05-16 — jr-html-deliver.py at /usr/local/lib/openclaw-jr/. Jr's Telegram-routed HTML artifact delivery surface (Jr's html-it/web-artifacts equivalent)." } }
       ]
     },
 
@@ -591,6 +601,9 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "ktulu", at: "2026-05-16 PM", note: "v1.1.2 canonical addendum: daily status-digest envelope shipped — ktulu_digest.py (10th pipeline module) + ai.openclaw.ktulu.digest.plist (6th LaunchDaemon, installed DORMANT during soak; bootstrap Tue 5/19 PM). Fires 21:00 BRT → Paulo selfchat. Codifies action-clarity rule (every envelope has explicit `Ação:` line above envelope-id footer, default 'nenhuma da sua parte'). Forward-applies to ALL envelope kinds. Continuous test corpus for Phase 2.1 recognizer. Commit e288657 on ktulu repo." },
+    { agent: "jr", at: "2026-05-16 PM", note: "v1.30 ambient-state primitives shipped — operator-declared modes (maintenance + travel) via jr-maintenance.py + jr-travel-mode.py using the 5-part design pattern (CLI · watchdog_state.json key · public predicate · persona HARD section · per-primitive audit log). Plus jr-html-deliver.py + jr-daily-digest.py + openclaw-jr-daily-digest@.timer (5th service+timer pair). 16 shared scripts now (was 12). 10 systemd units (was 8)." },
+    { agent: "superclawman", at: "2026-05-16 PM", note: "Credential audit playbook + admin keys infrastructure shipped. Admin keys at ~/.openclaw/secrets/{anthropic,openai}_admin.key. Fleet-wide cleanup: 3 OpenAI keys revoked (clawman-mac, Mac-01, Clawman-mac2), 7 keys live across 5 projects. 21-key Anthropic history mapped. Memory entries: playbook_credential_audit_2026_05_16.md + state_provider_admin_keys_2026_05_16.md." },
     { agent: "ktulu", at: "2026-05-16", note: "v1.0.1 canonical · 3 structural shipments: (1) browser plugin added to plugins.allow — gives Ktulu static-HTML fetch via openclaw web_fetch. (2) media_audit.jsonl substrate at handoff/state/ — every transcript + image desc + PDF/video metadata persisted by ktulu_media.py (Phase 2.3 multimodal_ingest bootstrap). (3) 3-layer group-JID guard (commit 9a1aa1f) — classify @g.us/digits>15, worker drops, sender refuses. Soak window active, fire locked 2026-05-19." },
     { agent: "sandman", at: "2026-05-16", note: "Matrix correction: lossless-claw v0.9.2 was already installed (DB has 20,273 msgs / 106 DAG nodes — accumulated pre-detection; install ran as root, not sandmanpo). Closes pairing op #3. Also: OpenClaw 2026.5.7 → 2026.5.12 bump caught + codex-sandman 3-layer pipeline now live (Entry 96 stable). 0.9.2 → 0.9.4 lossless-claw bump now the only remaining gap." },
     { agent: "ktulu", at: "2026-05-16", note: "5th LaunchDaemon shipped — ai.openclaw.ktulu.backup.plist. Pipeline now {gateway,ingest,worker,sender,backup}." },
