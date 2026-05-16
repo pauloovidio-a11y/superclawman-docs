@@ -5,7 +5,7 @@
 window.INVENTORY = {
   generated_at: "2026-05-16T12:31:42-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.2",
+  doc_status: "Canonical · v1.3",
 
   agents: [
     {
@@ -55,9 +55,9 @@ window.INVENTORY = {
       hardware: "Intel i7-8700B @ 3.2GHz · 12 cores · 32GB RAM · 1.8TB external APFS",
       os: "macOS 14.8.4 Sonoma · Darwin 23.6.0 · x86_64",
       openclaw_version: "2026.5.12 (f066dd2) — tied newest with Sandman",
-      status_phase: "Phase 1A → 1D shipped · canonical v1.0",
+      status_phase: "Phase 1A → 1E shipped · canonical v1.0.1 · soak window active (fire 2026-05-19)",
       summary: "Outbound outreach + autonomous reply on Intel i7 Mac mini, paired to USA WA number +1 786-600-1332. Sibling to Superclawman. Receives prospect queue from Beautiful Websites Kit, drips outbound at human cadence, 4-branch classifier (positive/dismissive/cost/ambiguous), auto-replies where safe, escalates everything substantive to Paulo. Now git-tracked (pauloovidio-a11y/ktulu private).",
-      stats: { doctrine: 8, plugins: 4, launchdaemons: 5, pipeline_modules: 9, playbooks: 2, skills: 1, subagents: 1 }
+      stats: { doctrine: 8, plugins: 5, launchdaemons: 5, pipeline_modules: 9, playbooks: 2, skills: 1, subagents: 1 }
     },
     {
       id: "jr",
@@ -214,7 +214,7 @@ window.INVENTORY = {
             default: "cacheRetention=long, context1m=false, contextPruning, memoryFlush=off.",
             sandman: "Mirrored from Mac. Plugins.allow is unrestricted — TODO tighten.",
             superclawman: "Source of truth: SUPERCLAWMAN-COST-OPTIMIZATION-CANONICAL-v1.0.md.",
-            ktulu: "Ported: cacheRetention=long, context1m=false, contextPruning cache-ttl 60m, memoryFlush=off, reserveTokensFloor=64k. Plugins.allow=[anthropic, whatsapp, memory-core, lossless-claw].",
+            ktulu: "Ported: cacheRetention=long, context1m=false, contextPruning cache-ttl 60m, memoryFlush=off, reserveTokensFloor=64k. Plugins.allow=[anthropic, whatsapp, memory-core, lossless-claw, browser] (browser added 2026-05-16 for openclaw web_fetch).",
             jr: "Applied v1.3 — Sonnet long-cache, Haiku short-cache, Haiku as compaction with reserveTokensFloor=64k, 6h heartbeat."
           }
         }
@@ -331,8 +331,8 @@ window.INVENTORY = {
             ktulu: "Local install in npm/node_modules.",
             jr: "v0.9.4 contextEngine. Haiku summaryModel. 300s TTL cache-aware compaction."
           } },
-        { name: "browser-automation", status: { sandman: "yes", superclawman: "yes", ktulu: "no", jr: "yes" },
-          notes: { default: "Browser plugin.", sandman: "In unrestricted allow.", superclawman: "In allow.", ktulu: "Out of scope — headless.", jr: "Phase 0d.5 parity-mirror." } },
+        { name: "browser-automation", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
+          notes: { default: "Browser plugin.", sandman: "In unrestricted allow.", superclawman: "In allow.", ktulu: "Added 2026-05-16 — gives Ktulu static-HTML fetch via openclaw web_fetch (verified on canto-do-brigadeiro.vercel.app).", jr: "Phase 0d.5 parity-mirror." } },
         { name: "perplexity / firecrawl", status: { sandman: "yes", superclawman: "yes", ktulu: "no", jr: "yes" },
           notes: {
             default: "Web search + scrape.",
@@ -346,7 +346,7 @@ window.INVENTORY = {
         { name: "device-pair", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Gateway write-ops plugin.", sandman: "Not needed.", superclawman: "Not needed.", ktulu: "Not needed.", jr: "Added 2026-05-15 to enable CLI operator.admin grant (B fix §1.4.3)." } },
         { name: "plugins.allow IS RESTRICTED", status: { sandman: "no", superclawman: "yes", ktulu: "yes", jr: "yes" },
-          notes: { default: "Hardened allowlist — only explicitly-listed plugins load.", sandman: "Currently UNRESTRICTED — non-bundled plugins may auto-load. Canonical TODO to tighten.", superclawman: "anthropic, browser, firecrawl, lossless-claw, perplexity, whatsapp, memory-core.", ktulu: "anthropic, whatsapp, memory-core, lossless-claw — narrow 4.", jr: "telegram, anthropic, lossless-claw, browser, perplexity, firecrawl + device-pair (6+1)." } }
+          notes: { default: "Hardened allowlist — only explicitly-listed plugins load.", sandman: "Currently UNRESTRICTED — non-bundled plugins may auto-load. Canonical TODO to tighten.", superclawman: "anthropic, browser, firecrawl, lossless-claw, perplexity, whatsapp, memory-core.", ktulu: "anthropic, whatsapp, memory-core, lossless-claw, browser — narrow 5 (browser added 2026-05-16).", jr: "telegram, anthropic, lossless-claw, browser, perplexity, firecrawl + device-pair (6+1)." } }
       ]
     },
 
@@ -388,6 +388,8 @@ window.INVENTORY = {
           notes: { default: "Keyword search.", sandman: "qmd-mcp local MCP.", superclawman: "N/A — vector-only.", ktulu: "N/A.", jr: "QMD v2.1.0 — 2,151 docs." } },
         { name: "Conversation log (WAL/DAG)", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
           notes: { default: "Persistent conversation state.", sandman: "lcm.db with WAL.", superclawman: "Via lossless-claw + lcm.db.", ktulu: "lcm.db + lcm.db-wal + lcm.db-shm in /Volumes/KtuluDisk/ktulu/.openclaw/.", jr: "lossless-claw SQLite DAG + SESSION-STATE.md WAL." } },
+        { name: "Multimodal audit substrate (media_audit.jsonl)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
+          notes: { default: "Persisted multimodal-event log for retrospective learning.", sandman: "Not installed.", superclawman: "Not installed.", ktulu: "~/.openclaw/workspace/handoff/state/media_audit.jsonl — every transcript + image description + PDF/video metadata persisted by ktulu_media.py (2026-05-16). Phase 2.3 multimodal_ingest bootstrap substrate.", jr: "Not installed." } },
         { name: "Daily consolidation", status: { sandman: "yes", superclawman: "yes", ktulu: "planned", jr: "yes" },
           notes: { default: "Nightly memory consolidation.", sandman: "workspace/memory/*.md files.", superclawman: "nightly-dream.py.", ktulu: "Phase 2.", jr: "jr-learn distill via openclaw-jr-distill@paulo.timer (04:30 BRT)." } },
         { name: "Learning loop", status: { sandman: "yes", superclawman: "yes", ktulu: "planned", jr: "yes" },
@@ -519,7 +521,9 @@ window.INVENTORY = {
         { name: "vps-watchdog / recovery-orchestrator / jr-outage-queue", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Jr's Phase 0d.3 stack.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "All 3 at /usr/local/lib/openclaw-jr/. vps-watchdog (Phase 0d.1 active). recovery-orchestrator + jr-outage-queue NEW today (Phase 0d.3 build)." } },
         { name: "ktulu pipeline (9 modules)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
-          notes: { default: "Ktulu's native pipeline.", sandman: "N/A.", superclawman: "N/A.", ktulu: "clawman-bus/: bus.py · gateway_ingest.py · ktulu_signature.py · ktulu_contacts.py · ktulu_escalation.py · ktulu_media.py · ktulu_campaign_replies.py · ktulu_outreach_worker.py · ktulu_sender.py.", jr: "N/A." } }
+          notes: { default: "Ktulu's native pipeline.", sandman: "N/A.", superclawman: "N/A.", ktulu: "clawman-bus/: bus.py · gateway_ingest.py · ktulu_signature.py · ktulu_contacts.py · ktulu_escalation.py · ktulu_media.py · ktulu_campaign_replies.py · ktulu_outreach_worker.py · ktulu_sender.py.", jr: "N/A." } },
+        { name: "3-layer group-JID guard (Ktulu safety hardening)", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
+          notes: { default: "Defense-in-depth against outbound to WhatsApp groups.", sandman: "N/A.", superclawman: "N/A.", ktulu: "Commit 9a1aa1f (2026-05-16). ktulu_contacts.classify() detects @g.us OR digits>15 → role=group · worker drops · sender refuses outbound. Memory entry feedback_ktulu_group_jid_guard.md — do not relax.", jr: "N/A." } }
       ]
     },
 
@@ -587,6 +591,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "ktulu", at: "2026-05-16", note: "v1.0.1 canonical · 3 structural shipments: (1) browser plugin added to plugins.allow — gives Ktulu static-HTML fetch via openclaw web_fetch. (2) media_audit.jsonl substrate at handoff/state/ — every transcript + image desc + PDF/video metadata persisted by ktulu_media.py (Phase 2.3 multimodal_ingest bootstrap). (3) 3-layer group-JID guard (commit 9a1aa1f) — classify @g.us/digits>15, worker drops, sender refuses. Soak window active, fire locked 2026-05-19." },
     { agent: "sandman", at: "2026-05-16", note: "Matrix correction: lossless-claw v0.9.2 was already installed (DB has 20,273 msgs / 106 DAG nodes — accumulated pre-detection; install ran as root, not sandmanpo). Closes pairing op #3. Also: OpenClaw 2026.5.7 → 2026.5.12 bump caught + codex-sandman 3-layer pipeline now live (Entry 96 stable). 0.9.2 → 0.9.4 lossless-claw bump now the only remaining gap." },
     { agent: "ktulu", at: "2026-05-16", note: "5th LaunchDaemon shipped — ai.openclaw.ktulu.backup.plist. Pipeline now {gateway,ingest,worker,sender,backup}." },
     { agent: "jr", at: "2026-05-16", note: "4th service+timer pair shipped — openclaw-jr-backup@.timer + jr-backup.py. 8 systemd units total (was 6). jr_haiku_voice.py shipped (Smart-Agent voice composer — Jr's human-facing Telegram prose is now Haiku-composed). jr-google-user-mcp.py refined (writes still stubbed per Phase 0d.3)." },
