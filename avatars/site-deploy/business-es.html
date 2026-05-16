@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperClawman para Empresas — IA que Actúa, no solo Responde</title>
+  <meta name="description" content="SuperClawman para Empresas: IA residente en WhatsApp que se conecta a tu CRM, ERP y sistemas web. Automatización por política, memoria profunda, verticales reales." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://superclawman.ai/business-es.html" />
+  <meta property="og:title" content="SuperClawman para Empresas — IA que Actúa, no solo Responde" />
+  <meta property="og:description" content="IA residente en WhatsApp que se conecta a tu CRM, ERP y sistemas web. Automatización por política, memoria profunda, verticales reales." />
+  <meta property="og:url" content="https://superclawman.ai/business-es.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <link rel="apple-touch-icon" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <link rel="alternate" hreflang="en" href="https://superclawman.ai/business.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://superclawman.ai/business-pt.html" />
+  <link rel="alternate" hreflang="es" href="https://superclawman.ai/business-es.html" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --neon: #00ffe0;
+      --neon-dim: rgba(0, 255, 224, 0.15);
+      --neon-border: rgba(0, 255, 224, 0.25);
+      --bg: #050508;
+      --card-bg: rgba(0, 255, 224, 0.04);
+      --text: #e8e8f0;
+      --muted: #666688;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+
+    .scanline {
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Language switcher */
+    .lang-row {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.5rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.4rem;
+    }
+    .lang-switch {
+      text-decoration: none;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.2s, filter 0.2s;
+      filter: drop-shadow(0 0 6px rgba(0,255,224,0.3));
+      border: 1px solid var(--neon-border);
+      border-radius: 8px;
+      padding: 4px 8px;
+      background: var(--card-bg);
+    }
+    .lang-switch:hover { transform: scale(1.12); filter: drop-shadow(0 0 10px rgba(0,255,224,0.6)); }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .back-link:hover { color: var(--neon); }
+
+    .hero { text-align: center; max-width: 760px; margin: 0 auto 4.5rem; }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 1.2rem;
+      opacity: 0.85;
+    }
+
+    .headline {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subheadline {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+    .subheadline strong { color: var(--neon); font-weight: 700; }
+
+    /* Section heads */
+    .section-head { text-align: center; margin: 4rem auto 2.5rem; max-width: 760px; }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 0.8rem;
+      opacity: 0.8;
+    }
+    .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.8rem; }
+    .section-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+
+    /* Capability cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      border: 1px solid var(--neon-border);
+      border-radius: 16px;
+      padding: 1.6rem 1.6rem 1.8rem;
+      background: var(--card-bg);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(0,255,224,0.5);
+      box-shadow: 0 0 30px rgba(0,255,224,0.08);
+      transform: translateY(-3px);
+    }
+    .card-icon {
+      font-size: 1.7rem;
+      margin-bottom: 0.9rem;
+      filter: drop-shadow(0 0 8px rgba(0,255,224,0.4));
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--neon);
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.01em;
+    }
+    .card-body {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    /* Verticals */
+    .verticals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+    .vertical {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 2rem;
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .vertical:hover { border-color: var(--neon-border); transform: translateY(-3px); }
+    .vertical-icon { font-size: 2.2rem; margin-bottom: 1rem; filter: drop-shadow(0 0 8px rgba(0,255,224,0.4)); }
+    .vertical-name { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--neon); margin-bottom: 0.3rem; }
+    .vertical-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; }
+    .vertical-body { font-size: 0.92rem; color: var(--text); opacity: 0.8; line-height: 1.65; margin-bottom: 1.2rem; }
+    .vertical-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--neon);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: gap 0.2s;
+    }
+    .vertical-link:hover { gap: 0.7rem; }
+
+    /* Path / timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      counter-reset: step;
+    }
+    .step {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem 1.6rem;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      counter-increment: step;
+    }
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--neon);
+      opacity: 0.75;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .step-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .step-duration { font-size: 0.72rem; color: var(--neon); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.7rem; opacity: 0.8; }
+    .step-body { font-size: 0.85rem; color: var(--text); opacity: 0.78; line-height: 1.55; }
+
+    /* CTA */
+    .cta-block { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 5rem; padding: 3rem 2rem; text-align: center; }
+    .cta-label { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .cta-headline { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--neon);
+      color: #050508;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      padding: 0.9rem 2.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 0 30px rgba(0,255,224,0.35);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cta-btn:hover { box-shadow: 0 0 50px rgba(0,255,224,0.55); transform: scale(1.04); }
+
+    .footer { position: relative; z-index: 1; text-align: center; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.05em; padding: 2rem; }
+    .footer a { color: var(--neon); text-decoration: none; font-weight: 700; padding: 4px 8px; }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+  <div class="lang-row">
+    <a class="lang-switch" href="business.html" title="View in English">🇺🇸</a>
+    <a class="lang-switch" href="business-pt.html" title="Ver em Português">🇧🇷</a>
+  </div>
+
+  <div class="wrapper">
+    <a class="back-link" href="/es">← Volver a SuperClawman</a>
+
+    <!-- HERO -->
+    <div class="hero">
+      <p class="eyebrow">SuperClawman para Empresas</p>
+      <h1 class="headline">Tu IA que actúa,<br/>no solo responde</h1>
+      <p class="subheadline">
+        La mayoría de las IAs solo <strong>habla</strong>. SuperClawman <strong>actúa</strong> —
+        dentro de las herramientas que tu equipo ya usa, con la confianza para actuar en tu nombre.
+        Hecho para <strong>B2B</strong> y <strong>B2C</strong>, adaptable a tu vertical,
+        aprendiendo de tu operación todos los días.
+      </p>
+    </div>
+
+    <!-- CAPABILITIES -->
+    <div class="section-head">
+      <div class="section-eyebrow">Qué hace</div>
+      <h2 class="section-title">Ocho capacidades, un asistente</h2>
+      <p class="section-sub">No es un chatbot. Es un operador residente que vive en WhatsApp y alcanza toda tu stack.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <div class="card-title">Vive en WhatsApp</div>
+        <div class="card-body">Ninguna app nueva, ningún entrenamiento. Tu equipo y tus clientes mantienen el canal que ya usan — SuperClawman maneja el trabajo detrás.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Memoria que se acumula</div>
+        <div class="card-body">Cada cliente, cada negocio, cada conversación indexada y recuperada en tiempo real. El contexto nunca se pierde entre threads o turnos.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔌</div>
+        <div class="card-title">Se conecta a tu stack</div>
+        <div class="card-body">CRM, ERP, e-commerce, bases de datos propias, sistemas web internos. Lee y escribe vía API — orquesta el trabajo entre todos los sistemas que tu equipo toca.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">Autonomía por política</div>
+        <div class="card-body">Tú defines las reglas. SuperClawman puntúa la confianza de cada acción — bajo el umbral, redacta para revisión; sobre el umbral, ejecuta. Tu equipo mantiene el control.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <div class="card-title">Aprende tus patrones</div>
+        <div class="card-body">Vocabulario, casos límite, flujos, caminos de escalada. Mejora diariamente con cada acción aprobada y cada override — sin ciclos de reentrenamiento.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Escalada con contexto</div>
+        <div class="card-body">Cuando no sabe, pasa a un humano con la thread completa, un resumen de lo que intentó y una recomendación del próximo paso. Los agentes se vuelven analistas, no tomadores de pedidos.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">Multilingüe por defecto</div>
+        <div class="card-body">Detecta el idioma del cliente — portugués, inglés, español — y se queda en él. Los audios se transcriben; el sentido ambiguo se confirma antes de actuar.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <div class="card-title">La familia escala contigo</div>
+        <div class="card-body">Ktulu hace outreach en frío con tu voz. Jr hace guardia 24/7 y toma el control cuando hace falta. Superclawman dirige. <a href="/es" style="color:var(--neon);text-decoration:none;font-weight:700;">Conoce a la familia →</a></div>
+      </div>
+
+    </div>
+
+    <!-- VERTICALS -->
+    <div class="section-head">
+      <div class="section-eyebrow">Verticales reales</div>
+      <h2 class="section-title">Míralo en operación</h2>
+      <p class="section-sub">Misma arquitectura, adaptada a cada mercado. Propuestas vivas para dos engagements actuales:</p>
+    </div>
+
+    <div class="verticals">
+
+      <div class="vertical">
+        <div class="vertical-icon">🏥</div>
+        <div class="vertical-name">Salud · Younit Health</div>
+        <div class="vertical-title">Agenda, reprograma, recibe exámenes — directo en Feegow</div>
+        <div class="vertical-body">
+          Los pacientes envían mensajes por WhatsApp. La IA lista horarios reales del calendario en vivo, agenda citas, registra pacientes nuevos, acepta PDFs de exámenes y los sube directo a la historia clínica. Cuando el asunto es clínico, escala con contexto completo.
+        </div>
+        <a class="vertical-link" href="https://pauloovidio-a11y.github.io/superclawman-propostas/younit/" target="_blank" rel="noopener">Ver la propuesta de Younit →</a>
+      </div>
+
+      <div class="vertical">
+        <div class="vertical-icon">🏗️</div>
+        <div class="vertical-name">Alquiler de Equipos · Sisloc</div>
+        <div class="vertical-title">Cotización autónoma → cierre en WhatsApp</div>
+        <div class="vertical-body">
+          Los clientes preguntan por disponibilidad, fechas, precio. La IA consulta la flota en vivo, genera el contrato, conduce el cierre — todo en la thread de WhatsApp. Calculadora muestra el ahorro operacional vs. un equipo CLT. Los operadores se vuelven analistas.
+        </div>
+        <a class="vertical-link" href="https://pauloovidio-a11y.github.io/superclawman-propostas/sisloc/" target="_blank" rel="noopener">Ver la propuesta de Sisloc →</a>
+      </div>
+
+      <div class="vertical">
+        <div class="vertical-icon">🏘️</div>
+        <div class="vertical-name">Tu vertical · Hecho para adaptarse</div>
+        <div class="vertical-title">Inmuebles · servicios · retail · lo que sea que operes</div>
+        <div class="vertical-body">
+          La arquitectura es la misma; las integraciones cambian. CRM inmobiliario, agenda de servicios profesionales, gestión de pedidos de retail — SuperClawman se adapta a tu stack y a tu vocabulario. B2B y B2C en el mismo agente.
+        </div>
+        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Cuéntanos lo que operas →</a>
+      </div>
+
+    </div>
+
+    <!-- PATH TO GO-LIVE -->
+    <div class="section-head">
+      <div class="section-eyebrow">Camino al go-live</div>
+      <h2 class="section-title">Del primer día al piloto automático, a tu ritmo</h2>
+      <p class="section-sub">Aprobación en cada paso. Tú ves lo que SuperClawman haría antes de que pueda hacerlo.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="step">
+        <div class="step-title">Descubrimiento</div>
+        <div class="step-duration">~ 1–2 semanas</div>
+        <div class="step-body">Leemos tus patrones de conversación, tu schema de CRM, tus casos límite — y una muestra de threads anonimizadas. Sin compromiso aún.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Sandbox</div>
+        <div class="step-duration">~ 2–3 semanas</div>
+        <div class="step-body">El agente opera en un canal sandbox contra sistemas de staging. Cada acción pasa por la aprobación de tu equipo. Construyes confianza antes de tocar un cliente.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Live · con gating de confianza</div>
+        <div class="step-duration">~ 4–6 semanas</div>
+        <div class="step-body">Sale en vivo con acciones de baja confianza en borrador para revisión y acciones de alta confianza en piloto automático. Umbrales por política que tú controlas.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Aprendizaje continuo</div>
+        <div class="step-duration">Continuo</div>
+        <div class="step-body">Cada aprobación, cada override, cada escalada enseña al modelo. La confianza sube, la tasa de borrador baja, el alcance del piloto automático crece semana a semana.</div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <p class="cta-label">¿Listo para ponerlo a trabajar?</p>
+      <h3 class="cta-headline">Empieza con una call de descubrimiento de 30 minutos</h3>
+      <a class="cta-btn" href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">
+        💬 Habla con nosotros en WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    &copy; 2026 SuperClawman &nbsp;·&nbsp;
+    <a href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">Contacto por WhatsApp</a> &nbsp;·&nbsp;
+    <a href="/es">Inicio</a>
+  </div>
+</body>
+</html>
