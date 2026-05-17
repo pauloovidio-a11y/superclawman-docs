@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-17T15:20:00-03:00",
+  generated_at: "2026-05-17T18:15:00-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.8",
+  doc_status: "Canonical · v1.9",
 
   agents: [
     {
@@ -40,7 +40,7 @@ window.INVENTORY = {
       openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity with Sandman + Ktulu)",
       status_phase: "Production · canonical authoring host",
       summary: "Cost-optimized M-series harness. Powers Paulo's WhatsApp life — Sandman/Xisto/CareHTSA/DryCleaner/family routing, plus the 31k-vector position-locked memory store with the 5-skill learning loop. Authors all canonical docs (Ktulu canonical v1.0 was written here today). Stricter doctrine surface than Sandman by design.",
-      stats: { skills: 5, scripts: 73, subagents: 6, playbooks: 7, plugins: 7 }
+      stats: { skills: 7, scripts: 77, subagents: 6, playbooks: 7, plugins: 9 }
     },
     {
       id: "ktulu",
@@ -251,12 +251,12 @@ window.INVENTORY = {
           } },
         { name: "heygen-skills", status: { sandman: "no", superclawman: "yes", ktulu: "no", jr: "no" },
           notes: { default: "HeyGen avatar.", sandman: "Has heygen-video.mjs script instead.", superclawman: "Installed.", ktulu: "Out of scope.", jr: "Deferred — Phase 0d.5 heaviest." } },
-        { name: "1password", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
-          notes: { default: "Secret retrieval.", sandman: "Installed.", superclawman: "Pairing op — reads ~/.openclaw/secrets/ directly.", ktulu: "Out of scope.", jr: "Out of scope — Jr uses per-tenant secrets." } },
+        { name: "1password", status: { sandman: "yes", superclawman: "yes", ktulu: "no", jr: "no" },
+          notes: { default: "Secret retrieval.", sandman: "Installed (desktop+tmux flow).", superclawman: "Ported 2026-05-17. op CLI v2.34 + Business-tier service-account token at ~/.openclaw/secrets/op_service_account.token (chmod 600), exported as OP_SERVICE_ACCOUNT_TOKEN by the gateway env-wrapper. Verified: `op whoami` → SERVICE_ACCOUNT, integration BMCUDVWK5VDE3HGMAFRWQ5AH2Q. Current scope: 3 vaults (Cards/Imported CSV/Websites) — recommended tightening to dedicated 'Superclawman' vault, deferred. Flat-file ~/.openclaw/secrets/*.key remains canonical; 1Password is additive (opt-in per secret) for vault scoping + rotation + audit trail.", ktulu: "Out of scope.", jr: "Out of scope — Jr uses per-tenant secrets." } },
         { name: "github-cli / openclaw-github-assistant", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "gh wrappers.", sandman: "Both installed.", superclawman: "Pairing op — propostas + Ktulu repo work.", ktulu: "Out of scope (Ktulu has its own private repo).", jr: "Out of scope." } },
-        { name: "gog (Google Workspace)", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
-          notes: { default: "Gmail/Calendar/Contacts auth wrapper.", sandman: "Installed.", superclawman: "Pairing op — TOOLS.md references gog but skill lives only on Sandman.", ktulu: "Out of scope.", jr: "Equivalent via google-oauth.py daemon + google-public + google-user MCPs. Phase 0d.2.1." } },
+        { name: "gog (Google Workspace)", status: { sandman: "yes", superclawman: "yes", ktulu: "no", jr: "partial" },
+          notes: { default: "Gmail/Calendar/Contacts/Drive/Sheets/Docs auth wrapper.", sandman: "Installed.", superclawman: "Ported 2026-05-17 (declarative — binary + OAuth were already live, 79 hard deps across scripts; missing only the documented skill artifact). TOOLS.md updated. calendar_today.py iCal feed is a separate mechanism, unaffected.", ktulu: "Out of scope.", jr: "Equivalent via google-oauth.py daemon + google-public + google-user MCPs. Phase 0d.2.1." } },
         { name: "google-maps", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
           notes: { default: "Maps queries.", sandman: "Installed.", superclawman: "Not installed.", ktulu: "Out of scope.", jr: "Via google-public MCP. IP-restricted API key." } },
         { name: "summarize", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
@@ -346,7 +346,7 @@ window.INVENTORY = {
         { name: "device-pair", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Gateway write-ops plugin.", sandman: "Not needed.", superclawman: "Not needed.", ktulu: "Not needed.", jr: "Added 2026-05-15 to enable CLI operator.admin grant (B fix §1.4.3)." } },
         { name: "plugins.allow IS RESTRICTED", status: { sandman: "no", superclawman: "yes", ktulu: "yes", jr: "yes" },
-          notes: { default: "Hardened allowlist — only explicitly-listed plugins load.", sandman: "Currently UNRESTRICTED — non-bundled plugins may auto-load. Canonical TODO to tighten.", superclawman: "anthropic, browser, firecrawl, lossless-claw, perplexity, whatsapp, memory-core.", ktulu: "anthropic, whatsapp, memory-core, lossless-claw, browser — narrow 5 (browser added 2026-05-16).", jr: "telegram, anthropic, lossless-claw, browser, perplexity, firecrawl + device-pair (6+1)." } }
+          notes: { default: "Hardened allowlist — only explicitly-listed plugins load.", sandman: "Currently UNRESTRICTED — non-bundled plugins may auto-load. Canonical TODO to tighten.", superclawman: "anthropic, browser, firecrawl, lossless-claw, perplexity, whatsapp, memory-core, openai, codex (last 2 added 2026-05-17 for codex script-review pipeline).", ktulu: "anthropic, whatsapp, memory-core, lossless-claw, browser — narrow 5 (browser added 2026-05-16).", jr: "telegram, anthropic, lossless-claw, browser, perplexity, firecrawl + device-pair (6+1)." } }
       ]
     },
 
@@ -603,6 +603,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-05-17 PM", note: "**Codex script-review pipeline shipped** — gpt-5.5 reviewer ported from Sandman (simplified to single-layer, drops gpt-4o + auto-fix-as-default). Trigger fires on every commit (post-commit hook on ~/.openclaw + propostas) + hourly LaunchAgent safety-net (ai.openclaw.script-review). Cards land in C2 group (120363406507708378@g.us) with: 📋 card_id at TOP (survives WA's ~194-char replyToBody truncation), Sandman-style per-file 🔴/🟠 grouping, Haiku-generated `Superclawman recommends: FIX|INVESTIGATE|INFO|UNKNOWN` line. Operator UX: quote-reply `VETO` in C2 → block, quote-reply `GO` in selfchat → execute (FIX = codex auto-edit, INVESTIGATE = Sonnet analysis). Out-of-band watcher daemon (ai.openclaw.script-review-c2-watcher) polls gateway JSON log every 30s — wa-inbound-router only sees messages Sonnet dispatches for response-generation, C2 VETOs and selfchat GOs bypass that flow. Sandman's wa-watcher.mjs patched to silently no-op when its pending queue is empty (was false-claiming `⚠️ VETO received — no pending` on SC VETOs). Plugins added: @openclaw/openai (stock provider) + @openclaw/codex (clawhub) — both in plugins.allow now (9 total). Also: gog + 1password skills ported (gog = declarative-only, binary + OAuth already live; 1password new — op CLI v2.34 + service-account token at ~/.openclaw/secrets/op_service_account.token chmod 600, exported by gateway env-wrapper). TOOLS.md updated for both." },
     { agent: "superclawman", at: "2026-05-16 evening", note: "WhatsApp canonical Notion main-page body **fully re-mirrored to v1.17** (replace_content with all 25 child page references preserved). Top callouts + v1.15→v1.16 + v1.16→v1.17 changelogs + updated TL;DR (now 9 items, including the new v1.17 autonomy-pilot substrate point) + updated Configuration + North Star + Sequential Layers + Parallel subsystems diagrams (Layer 4 + Layer 5 + Layer 6 + Layer 7 now mention the v1.17 autonomy substrate; new 'Phase 1 Autonomy substrate' subsystem block + new 'Reconnect-storm watchdog' subsystem block). **Follow-up TODO**: the 25 child sub-pages (Layer 1 patches, Layer 2 ingest, ... Activity Gate, Cards Group, Appendix A incident log, Appendix B-E, etc.) still carry their v1.11/v1.12 content — each needs individual fetch+patch to bring to v1.17. Workspace markdown remains authoritative on body content. Main-page v1.17 landed; sub-pages incremental." },
     { agent: "superclawman", at: "2026-05-16 evening", note: "Memory canonical bumped: main v1.40 → **v1.41**, post-plan v1.9 → **v1.10**. **§A.8 doctrinal reframe** — scope field is **provenance, not cross-agent ACL**. Each agent has its own brain (separate store), so there's no cross-store reading to access-control; `agent_scope` is who-wrote-this metadata, strict reader rule still useful within-store for asymmetric reads (Jr→Sandman in failover). Phase 4 Stages 1+2 shipped (substrate + backfill + CLI + engine wiring); Stages 3+4 are observation (not code) — no writer-migration sprint anymore. Tenant prefix `tenant:<id>:<agent>` still composes for §C.3 SaaS prep. **Follow-up flagged**: 2 of 3 memory-ingest LaunchAgents on Mac (`clawman.whatsapp-bridge-memory-ingest`, `clawman.memory-capture`) have no source-controlled plist; only `com.clawman.multimodal-ingest` is in repo. Per-host plist backup strategy is a tracked TODO." },
     { agent: "ktulu", at: "2026-05-16 PM", note: "v1.1.2 canonical addendum: daily status-digest envelope shipped — ktulu_digest.py (10th pipeline module) + ai.openclaw.ktulu.digest.plist (6th LaunchDaemon, installed DORMANT during soak; bootstrap Tue 5/19 PM). Fires 21:00 BRT → Paulo selfchat. Codifies action-clarity rule (every envelope has explicit `Ação:` line above envelope-id footer, default 'nenhuma da sua parte'). Forward-applies to ALL envelope kinds. Continuous test corpus for Phase 2.1 recognizer. Commit e288657 on ktulu repo." },
