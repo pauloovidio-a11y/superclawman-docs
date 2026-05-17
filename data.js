@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-16T18:41:50-03:00",
+  generated_at: "2026-05-17T15:20:00-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.7",
+  doc_status: "Canonical · v1.8",
 
   agents: [
     {
@@ -37,7 +37,7 @@ window.INVENTORY = {
       signature: "[Superclawman 🧠⚡🦀🤘]",
       hardware: "Apple M2 Pro · 32GB RAM",
       os: "macOS 15.7.4 Sequoia · Darwin 24.6.0 · arm64",
-      openclaw_version: "2026.5.5 (b1abf9d)",
+      openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity with Sandman + Ktulu)",
       status_phase: "Production · canonical authoring host",
       summary: "Cost-optimized M-series harness. Powers Paulo's WhatsApp life — Sandman/Xisto/CareHTSA/DryCleaner/family routing, plus the 31k-vector position-locked memory store with the 5-skill learning loop. Authors all canonical docs (Ktulu canonical v1.0 was written here today). Stricter doctrine surface than Sandman by design.",
       stats: { skills: 5, scripts: 73, subagents: 6, playbooks: 7, plugins: 7 }
@@ -71,7 +71,7 @@ window.INVENTORY = {
       signature: "[SC Jr 💀 🧠]",
       hardware: "AMD EPYC-Genoa · 4 vCPU · 7.6GB RAM · Hetzner Cloud",
       os: "Ubuntu 24.04.4 LTS",
-      openclaw_version: "2026.5.5 (b1abf9d)",
+      openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity)",
       status_phase: "Phase 0d.3 (recovery dance) · v1.30 ambient-state primitives shipped (maintenance + travel)",
       summary: "VPS-side failover + watchdog. Wakes when Mac mini is unreachable (power outage, hardware failure, WA 440). Multi-tenant from day 1 (currently 1 tenant: paulo). Telegram-only on purpose — routes around WA fragility. Hard rule: Jr's capability set is always ⊆ Superclawman's. v1.30 added operator-declared ambient-state primitives (maintenance + travel modes via jr-maintenance.py + jr-travel-mode.py) using the 5-part pattern. Daily-digest envelope shipped (jr-daily-digest@.timer).",
       stats: { shared_scripts: 16, mcps: 7, skills: 3, systemd_units: 10, tenants: 1 }
