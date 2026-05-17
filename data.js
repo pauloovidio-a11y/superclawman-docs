@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-17T18:15:00-03:00",
+  generated_at: "2026-05-17T18:45:00-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.9",
+  doc_status: "Canonical · v1.10",
 
   agents: [
     {
@@ -287,17 +287,17 @@ window.INVENTORY = {
           notes: {
             default: "Long-term memory layers.",
             sandman: "All 3 installed as skills.",
-            superclawman: "Equivalent via clawman-memory vector store.",
+            superclawman: "Equivalent via clawman-memory vector store + lossless-claw hot tier + workspace/memory/YYYY-MM-DD.md cold tier. **AUDIT 2026-05-17 (Part b) → SKIP all 3**: elite-longterm-memory + fluid-memory overlap heavily with Skill 3 synapse_grow + Skill 4 train_retrieval + lossless-claw v0.10.0; porting risks dual-orchestration race conditions. memory-tiering policy text (eviction/promotion rules) could feed Skill 4 grid-search knobs as a deferred opportunity — not a port. The memory-v3 doc lists HOT/WARM/COLD tiering as priority-#5 TODO; SC's tiering is informal but functional.",
             ktulu: "Phase 2 candidate.",
             jr: "Equivalent via jr-vector + lossless-claw + jr-learn stack."
           } },
         { name: "neural-memory (nmem)", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
-          notes: { default: "Active brain.", sandman: "Active.", superclawman: "Uses clawman-memory.", ktulu: "Phase 2.", jr: "Equivalent via QMD + jr-vector." } },
+          notes: { default: "Active brain.", sandman: "Active. SQLite graph (~/.neuralmemory/brains/<name>.db): 1034 neurons, 5063 typed synapses (20 edge types incl. REFERENCES/ELABORATES/SUPERSEDES/CONTRADICTS), 502 fibers (temporal/causal narratives), 491 typed memories. Operations: nmem remember | recall (spreading activation, multi-hop) | stats | health.", superclawman: "Uses clawman-memory + 5-skill loop. **AUDIT 2026-05-17 (Part b) → SKIP**: nmem has 5 genuinely unique primitives (spreading activation, Hebbian co-activation logging, neuron decay + refractory period, knowledge-gap detection, brain versioning) but porting creates dual learning-signal contention with Skill 2 learn_from_use's reinforcement_journal. SC's typed synapses are already generated post-ingest by Skill 3 via Haiku kNN classifier (different mechanism, equivalent surface). Revisit ONLY if 'distant-association discovery' (2+ hop graph traversal) becomes a real bottleneck — none today.", ktulu: "Phase 2.", jr: "Equivalent via QMD + jr-vector." } },
         { name: "self-improving-agent / capability-evolver-pro", status: { sandman: "yes", superclawman: "partial", ktulu: "planned", jr: "partial" },
           notes: {
             default: "Self-improvement.",
-            sandman: "Both as skills.",
-            superclawman: "5-skill loop (multimodal_ingest, learn_from_use, synapse_grow, train_retrieval, bench_weekly).",
+            sandman: "self-improving-agent: errors/corrections/feature-requests → .learnings/*.md files (ERR-/LRN-/FEAT- IDs) → daily Haiku consolidation 23:50 BRT → NeuralMemory. Recurrence ≥3 → promote to SOUL/AGENTS/TOOLS.md. capability-evolver-pro: no operational description in Sandman blueprint, appears shelf-ware.",
+            superclawman: "5-skill loop (multimodal_ingest, learn_from_use, synapse_grow, train_retrieval, bench_weekly) + paulo_bench golden-set + 5% delta gate + auto-rollback (Skill 5 bench_weekly). **AUDIT 2026-05-17 (Part b) → SKIP both**: Sandman's pipeline is observe-extract only (no metrics gates, no tuning loop); SC's is observe-extract-tune-bench-rollback — strictly more capable. capability-evolver-pro can't be ported safely (no docs). Sandman's 23:50 BRT cron would also race SC's 03:30 BRT sleep_consolidate.",
             ktulu: "Phase 2.",
             jr: "jr-learn distill timer + proposed-learnings queue."
           } },
@@ -565,13 +565,19 @@ window.INVENTORY = {
 
   pairings: [
     { from: "sandman", to: "superclawman", items: [
-      "SKILLS.md index — 29 skills with no master index",
-      "github-cli — repo work (Ktulu private repo, propostas)",
-      "gog (Google Workspace) — TOOLS.md references it but skill lives only on Sandman",
+      "SKILLS.md index — 29 skills with no master index (cosmetic, low priority)",
+      "github-cli + openclaw-github-assistant — AUDIT 2026-05-17 (Part a) → SKIP (gh CLI suffices for shell-native flow)",
+      "gog (Google Workspace) — DONE 2026-05-17 (declarative; binary + OAuth were already live)",
       "firecrawl-cli — already mirrored to Sup as plugin (Phase 0d.5)",
-      "1password — credential rotation flows",
-      "health-ledger + plugin-watchdog — intelligent-alerts canonical says all agents",
-      "llm-cost-fetch-api — Superclawman makes the spend"
+      "1password — DONE 2026-05-17 (op CLI v2.34 + Business-tier service-account token)",
+      "google-maps — AUDIT 2026-05-17 (Part a) → SKIP (no organic demand; flows use hardcoded locations)",
+      "summarize — AUDIT 2026-05-17 (Part a) → SKIP (5 existing summarization paths; high overlap)",
+      "mcporter — AUDIT 2026-05-17 (Part a) → SKIP (openclaw mcp set + Claude Code MCP suffice)",
+      "elite-longterm-memory + fluid-memory + memory-tiering — AUDIT 2026-05-17 (Part b) → SKIP (overlap with 5-skill loop + lossless-claw; memory-tiering policy text could feed Skill 4 grid-search as deferred opportunity)",
+      "neural-memory (nmem) — AUDIT 2026-05-17 (Part b) → SKIP (5 unique primitives but porting creates dual learning-signal contention; revisit only if 2+ hop graph traversal becomes a bottleneck)",
+      "self-improving-agent + capability-evolver-pro — AUDIT 2026-05-17 (Part b) → SKIP (SC's 5-skill loop is strictly more capable; capability-evolver-pro is shelf-ware)",
+      "🟡 PHASE 8 (queued for Mac mini port): health-ledger + plugin-watchdog (intelligent-alerts canonical — all agents)",
+      "🟡 PHASE 8 (queued for Mac mini port): llm-cost-fetch-api (SC makes the spend)"
     ] },
     { from: "superclawman", to: "sandman", items: [
       "operational-routing.md — Sandman lacks the doc",
@@ -603,6 +609,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-05-17 evening", note: "**Sandman → SC skills audit closed** — 12 candidate skills audited across Part (a) safe ports + Part (b) memory cluster. Outcomes: **2 PORTED** (gog, 1password — earlier today), **10 SKIPPED** (github-cli + openclaw-github-assistant, google-maps, summarize, mcporter, elite-longterm-memory, fluid-memory, memory-tiering, neural-memory, self-improving-agent, capability-evolver-pro). **2 QUEUED for Phase 8** (next batch Mac mini port): health-ledger + plugin-watchdog (intelligent-alerts canonical) + llm-cost-fetch-api (SC makes the spend). Part (b) verdict drivers: SC's memory + learning stack (clawman-memory 31k vectors + 5-skill loop with metrics-gated tuning + lossless-claw v0.10.0 + precedent_matcher BGE-M3 + inbound style observers + agent_scope provenance) is genuinely more sophisticated than Sandman's; porting any Sandman memory skill creates dual-orchestration / dual learning-signal contention. memory-tiering policy text flagged as a deferred opportunity (~1.5d effort, could feed Skill 4 grid-search knobs). nmem's spreading-activation primitive flagged for revisit IF distant-association discovery becomes a real bottleneck (none today)." },
     { agent: "superclawman", at: "2026-05-17 PM", note: "**Codex script-review pipeline shipped** — gpt-5.5 reviewer ported from Sandman (simplified to single-layer, drops gpt-4o + auto-fix-as-default). Trigger fires on every commit (post-commit hook on ~/.openclaw + propostas) + hourly LaunchAgent safety-net (ai.openclaw.script-review). Cards land in C2 group (120363406507708378@g.us) with: 📋 card_id at TOP (survives WA's ~194-char replyToBody truncation), Sandman-style per-file 🔴/🟠 grouping, Haiku-generated `Superclawman recommends: FIX|INVESTIGATE|INFO|UNKNOWN` line. Operator UX: quote-reply `VETO` in C2 → block, quote-reply `GO` in selfchat → execute (FIX = codex auto-edit, INVESTIGATE = Sonnet analysis). Out-of-band watcher daemon (ai.openclaw.script-review-c2-watcher) polls gateway JSON log every 30s — wa-inbound-router only sees messages Sonnet dispatches for response-generation, C2 VETOs and selfchat GOs bypass that flow. Sandman's wa-watcher.mjs patched to silently no-op when its pending queue is empty (was false-claiming `⚠️ VETO received — no pending` on SC VETOs). Plugins added: @openclaw/openai (stock provider) + @openclaw/codex (clawhub) — both in plugins.allow now (9 total). Also: gog + 1password skills ported (gog = declarative-only, binary + OAuth already live; 1password new — op CLI v2.34 + service-account token at ~/.openclaw/secrets/op_service_account.token chmod 600, exported by gateway env-wrapper). TOOLS.md updated for both." },
     { agent: "superclawman", at: "2026-05-16 evening", note: "WhatsApp canonical Notion main-page body **fully re-mirrored to v1.17** (replace_content with all 25 child page references preserved). Top callouts + v1.15→v1.16 + v1.16→v1.17 changelogs + updated TL;DR (now 9 items, including the new v1.17 autonomy-pilot substrate point) + updated Configuration + North Star + Sequential Layers + Parallel subsystems diagrams (Layer 4 + Layer 5 + Layer 6 + Layer 7 now mention the v1.17 autonomy substrate; new 'Phase 1 Autonomy substrate' subsystem block + new 'Reconnect-storm watchdog' subsystem block). **Follow-up TODO**: the 25 child sub-pages (Layer 1 patches, Layer 2 ingest, ... Activity Gate, Cards Group, Appendix A incident log, Appendix B-E, etc.) still carry their v1.11/v1.12 content — each needs individual fetch+patch to bring to v1.17. Workspace markdown remains authoritative on body content. Main-page v1.17 landed; sub-pages incremental." },
     { agent: "superclawman", at: "2026-05-16 evening", note: "Memory canonical bumped: main v1.40 → **v1.41**, post-plan v1.9 → **v1.10**. **§A.8 doctrinal reframe** — scope field is **provenance, not cross-agent ACL**. Each agent has its own brain (separate store), so there's no cross-store reading to access-control; `agent_scope` is who-wrote-this metadata, strict reader rule still useful within-store for asymmetric reads (Jr→Sandman in failover). Phase 4 Stages 1+2 shipped (substrate + backfill + CLI + engine wiring); Stages 3+4 are observation (not code) — no writer-migration sprint anymore. Tenant prefix `tenant:<id>:<agent>` still composes for §C.3 SaaS prep. **Follow-up flagged**: 2 of 3 memory-ingest LaunchAgents on Mac (`clawman.whatsapp-bridge-memory-ingest`, `clawman.memory-capture`) have no source-controlled plist; only `com.clawman.multimodal-ingest` is in repo. Per-host plist backup strategy is a tracked TODO." },
