@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-20T22:45:53-03:00",
+  generated_at: "2026-05-21T21:30:00-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.16",
+  doc_status: "Canonical · v1.17",
 
   agents: [
     {
@@ -55,9 +55,9 @@ window.INVENTORY = {
       hardware: "Intel i7-8700B @ 3.2GHz · 12 cores · 32GB RAM · 1.8TB external APFS",
       os: "macOS 14.8.4 Sonoma · Darwin 23.6.0 · x86_64",
       openclaw_version: "2026.5.12 (f066dd2) — tied newest with Sandman",
-      status_phase: "Phase 1A→1E shipped · canonical v1.4 (2026-05-20) · campaign fired+hardened (2026-05-19/20) · 10 LaunchDaemons live · qmd-refresh live · boss-relay + bot-handoff active · escalate-only doctrine locked",
+      status_phase: "Phase 1A→1E shipped · canonical v1.4 (2026-05-20) · campaign fired+hardened (2026-05-19/20) · 13 LaunchDaemons live · Central CC observability LIVE — green on :8991 (3/3, 0 red), 2026-05-21 · qmd-refresh live · boss-relay + bot-handoff active · escalate-only doctrine locked",
       summary: "Outbound outreach + autonomous reply on Intel i7 Mac mini, paired to USA WA number +1 786-600-1332. Sibling to Superclawman. Receives prospect queue from Beautiful Websites Kit, drips outbound at human cadence, 4-branch classifier (positive/dismissive/cost/ambiguous). Post-campaign hardening (v1.3→v1.4): prospect-chat leak fixed (single-tier escalate-only), boss-relay live, bot-handoff carve-out, qmd local search bootstrapped, backup-tmp relocated to KtuluDisk. Now git-tracked (pauloovidio-a11y/ktulu private).",
-      stats: { doctrine: 8, plugins: 5, launchdaemons: 10, pipeline_modules: 10, playbooks: 2, skills: 1, subagents: 1 }
+      stats: { doctrine: 8, plugins: 5, launchdaemons: 13, pipeline_modules: 10, playbooks: 2, skills: 1, subagents: 1 }
     },
     {
       id: "jr",
@@ -182,7 +182,7 @@ window.INVENTORY = {
             default: "External-watcher architecture.",
             sandman: "QNAP cron runs ensure-daemon-running.sh every 5 min against NUC.",
             superclawman: "Jr is the equivalent (different impl).",
-            ktulu: "Not yet — Ktulu has no external watcher.",
+            ktulu: "No on-host doctrine file yet, but external Heimdall coverage is LIVE (2026-05-21): QNAP heimdall-ktulu-probe, Mode C dry-run, reads via SC's fleet-server.",
             jr: "Jr IS this for Mac mini side (different impl). Phase 0d.3 builds recovery dance."
           }
         },
@@ -479,12 +479,12 @@ window.INVENTORY = {
           notes: { default: "Visual control surfaces.", sandman: "All 3 active.", superclawman: "Pairing op #5.", ktulu: "Out of scope.", jr: "Out of scope (Telegram is UI)." } },
         { name: "qmd-mcp.service", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
           notes: { default: "Local QMD MCP.", sandman: "Active.", superclawman: "Not installed.", ktulu: "Out of scope.", jr: "QMD installed but via openclaw mcp set, not systemd." } },
-        { name: "Heimdall (QNAP-side)", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
-          notes: { default: "External health watcher.", sandman: "QNAP cron every 5 min.", superclawman: "Jr equivalent.", ktulu: "Not yet.", jr: "Jr IS this for Mac mini." } },
+        { name: "Heimdall (QNAP-side)", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "no" },
+          notes: { default: "External health watcher.", sandman: "QNAP cron every 5 min.", superclawman: "QNAP heimdall-sc-probe (Mode C dry-run) → shared Haiku judge → Superclawman Heimdall app.", ktulu: "QNAP heimdall-ktulu-probe (Mode C dry-run, 2026-05-21). Reads Ktulu health via SC's fleet-server /api/fleet (QNAP→Ktulu SSH unwired); confirmed transition → shared Haiku judge → Ktulu Heimdall Pushover app.", jr: "Jr IS this for Mac mini." } },
         { name: "wa-watchdog (440 recovery)", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "partial" },
           notes: { default: "WA 440 recovery.", sandman: "wa-watchdog.py + cron.", superclawman: "wa-watchdog.py + plist. v0.1 ~407 LOC, 5-min cron.", ktulu: "ai.openclaw.ktulu.wa-watchdog.plist (v1.2.d, 2026-05-17). Polls openclaw channels status every 3 min, kickstarts gateway via sudo helper on disconnect. Recovered 2 real disconnects in first 24h. 10-min kick throttle. Jr to take over in Phase 2+.", jr: "vps-watchdog cross-host equivalent. Recovery dance is Phase 0d.3 (active build now)." } },
-        { name: "plugin-watchdog / health-ledger (3-5 min cron)", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
-          notes: { default: "Plugin health + host snapshot.", sandman: "Both active. Entry 74 reliability stack.", superclawman: "Pairing op #6.", ktulu: "Not yet.", jr: "Equivalent via vps-watchdog + /var/log/openclaw-jr audit." } },
+        { name: "plugin-watchdog / health-ledger (3-5 min cron)", status: { sandman: "yes", superclawman: "partial", ktulu: "yes", jr: "partial" },
+          notes: { default: "Plugin health + host snapshot.", sandman: "Both active. Entry 74 reliability stack.", superclawman: "health-ledger live (feeds the :8991 fleet card); plugin-watchdog n/a.", ktulu: "ai.openclaw.ktulu.health-ledger LaunchDaemon (2026-05-21) — 10 hard checks → ledger.jsonl, StartInterval 300; also fires HC.io KTULU_HOST_PING + transition alerts. (TCC-dead cron → LaunchDaemon.)", jr: "Equivalent via vps-watchdog + /var/log/openclaw-jr audit." } },
         { name: "openclaw-backup / nas-backup (cron 02:00)", status: { sandman: "yes", superclawman: "partial", ktulu: "no", jr: "no" },
           notes: { default: "Nightly backup to QNAP.", sandman: "Canonical chain. Both crons active.", superclawman: "Some manual.", ktulu: "Not yet.", jr: "Snapshot is the backup (daily import from Mac)." } },
         { name: "synthetic-ping / llm-cost-fetch-api crons", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
@@ -500,10 +500,10 @@ window.INVENTORY = {
       title: "Capability-bearing scripts",
       note: "Sandman ~84 scripts · Superclawman ~73 · Ktulu has 10 native pipeline modules in clawman-bus/ (ktulu_digest.py added 2026-05-16) · Jr has 16 shared scripts at /usr/local/lib/openclaw-jr/ (2026-05-16 batch: jr-backup, jr_haiku_voice, jr-html-deliver, jr-maintenance, jr-travel-mode, jr-daily-digest).",
       rows: [
-        { name: "dashboard-server.mjs", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
-          notes: { default: "Control Center UI.", sandman: "Sandman dashboard server.", superclawman: "Not installed.", ktulu: "Out of scope.", jr: "Out of scope." } },
-        { name: "diagnose.mjs / diagnose-and-notify.sh", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
-          notes: { default: "Intelligent alert pipeline.", sandman: "LLM diagnosis + action steps.", superclawman: "Not installed.", ktulu: "Not yet.", jr: "vps-watchdog.py first-person Telegram alerts." } },
+        { name: "dashboard-server.mjs", status: { sandman: "yes", superclawman: "yes", ktulu: "partial", jr: "no" },
+          notes: { default: "Control Center UI.", sandman: "Sandman dashboard server.", superclawman: "dashboard-server.mjs on :8990 — serves /api/status + /api/heimdall-judge (shared Haiku judge) + /api/llm-cost; feeds the fleet-server.", ktulu: "Minimal status shim on :8990 (/api/status + /api/llm-cost, 2026-05-21) — fleet-server reads it. A ~100-line shim, not the full dashboard.", jr: "Out of scope." } },
+        { name: "diagnose.mjs / diagnose-and-notify.sh", status: { sandman: "yes", superclawman: "no", ktulu: "yes", jr: "partial" },
+          notes: { default: "Intelligent alert pipeline.", sandman: "LLM diagnosis + action steps.", superclawman: "Not installed.", ktulu: "Ported (scripts/ktulu-port, 2026-05-21) — diagnose.mjs + diagnose-and-notify.sh + notify.sh + hc-ping.sh. Transition alerts on the health-ledger LaunchDaemon.", jr: "vps-watchdog.py first-person Telegram alerts." } },
         { name: "c2-monitor-daemon (LinkedIn)", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "LinkedIn intelligence.", sandman: "Canonical at LinkedIn Intelligence Architecture v1.3.", superclawman: "Not installed.", ktulu: "Out of scope.", jr: "Out of scope." } },
         { name: "c6-finance / c6-statement-pipeline", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
