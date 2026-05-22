@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-21T21:30:00-03:00",
+  generated_at: "2026-05-21T22:46:08-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.17",
+  doc_status: "Canonical · v1.18",
 
   agents: [
     {
@@ -23,7 +23,7 @@ window.INVENTORY = {
       openclaw_version: "2026.5.12 (f066dd2) — tied newest with Ktulu",
       status_phase: "Entry 96 stable · codex-sandman 3-layer pipeline live · plugins=unrestricted",
       summary: "Bedtime/personal-assistant + general OpenClaw harness on the NUC. The oldest + heaviest of the cast. Runs Mission Control Dashboard, Skill Tree, QMD MCP, WhatsApp watcher, plus Sandmanpo (the VPS-side gmail/sales pipeline) as a sibling. Plugin allowlist is currently 'unrestricted' — tightening is canonical TODO.",
-      stats: { skills: 29, scripts: 86, subagents: 3, hooks: 2, doctrine: 34 }
+      stats: { skills: 29, scripts: 87, subagents: 3, hooks: 2, doctrine: 34 }
     },
     {
       id: "superclawman",
@@ -40,7 +40,7 @@ window.INVENTORY = {
       openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity with Sandman + Ktulu)",
       status_phase: "Production · canonical authoring host",
       summary: "Cost-optimized M-series harness. Powers Paulo's WhatsApp life — Sandman/Xisto/CareHTSA/DryCleaner/family routing, plus the 31k-vector position-locked memory store with the 5-skill learning loop. Authors all canonical docs (Ktulu canonical v1.0 was written here today). Stricter doctrine surface than Sandman by design.",
-      stats: { skills: 7, scripts: 108, subagents: 7, playbooks: 7, launchagents: 13, plugins: 9 }
+      stats: { skills: 7, scripts: 109, subagents: 7, playbooks: 7, launchagents: 13, plugins: 9 }
     },
     {
       id: "ktulu",
@@ -55,9 +55,9 @@ window.INVENTORY = {
       hardware: "Intel i7-8700B @ 3.2GHz · 12 cores · 32GB RAM · 1.8TB external APFS",
       os: "macOS 14.8.4 Sonoma · Darwin 23.6.0 · x86_64",
       openclaw_version: "2026.5.12 (f066dd2) — tied newest with Sandman",
-      status_phase: "Phase 1A→1E shipped · canonical v1.4 (2026-05-20) · campaign fired+hardened (2026-05-19/20) · 13 LaunchDaemons live · Central CC observability LIVE — green on :8991 (3/3, 0 red), 2026-05-21 · qmd-refresh live · boss-relay + bot-handoff active · escalate-only doctrine locked",
+      status_phase: "Phase 1A→1E shipped · canonical v1.4 (2026-05-20) · campaign fired+hardened (2026-05-19/20) · 14 LaunchDaemons live · Central CC observability LIVE — green on :8991 (3/3, 0 red), 2026-05-21 · qmd-refresh live · boss-relay + bot-handoff active · escalate-only doctrine locked · bootstrap-budget daemon added 2026-05-21",
       summary: "Outbound outreach + autonomous reply on Intel i7 Mac mini, paired to USA WA number +1 786-600-1332. Sibling to Superclawman. Receives prospect queue from Beautiful Websites Kit, drips outbound at human cadence, 4-branch classifier (positive/dismissive/cost/ambiguous). Post-campaign hardening (v1.3→v1.4): prospect-chat leak fixed (single-tier escalate-only), boss-relay live, bot-handoff carve-out, qmd local search bootstrapped, backup-tmp relocated to KtuluDisk. Now git-tracked (pauloovidio-a11y/ktulu private).",
-      stats: { doctrine: 8, plugins: 5, launchdaemons: 13, pipeline_modules: 10, playbooks: 2, skills: 1, subagents: 1 }
+      stats: { doctrine: 8, plugins: 5, launchdaemons: 14, pipeline_modules: 10, playbooks: 2, skills: 1, subagents: 1 }
     },
     {
       id: "jr",
@@ -455,7 +455,7 @@ window.INVENTORY = {
       eyebrow: "H · Persistence layer (systemd / LaunchDaemons / LaunchAgents)",
       title: "Long-running services + scheduled jobs",
       title_em: "where the agent actually breathes",
-      note: "Sandman = 7 systemd + 15 cron jobs · Superclawman = 13 LaunchAgents (probe counts ai.openclaw.gateway + ~12 clawman.* agents) · Ktulu = 10 LaunchDaemons (qmd-refresh bootstrapped 2026-05-20 — 10th; codex-review safety+c2-watcher added 2026-05-18; wa-watchdog 2026-05-17) · Jr = 10 systemd units = 5 service+timer pairs (daily-digest@ added 2026-05-16).",
+      note: "Sandman = 7 systemd + 15 cron jobs · Superclawman = 13 LaunchAgents (probe counts ai.openclaw.gateway + ~12 clawman.* agents) · Ktulu = 14 LaunchDaemons (10 core pipeline; health-ledger + dashboard + wa-probe added May; bootstrap-budget added 2026-05-21 — 14th) · Jr = 10 systemd units = 5 service+timer pairs (daily-digest@ added 2026-05-16).",
       rows: [
         { name: "openclaw gateway", status: { sandman: "no", superclawman: "yes", ktulu: "yes", jr: "yes" },
           notes: { default: "Always-on agent gateway.", sandman: "Different model — openclaw-whatsapp.service.", superclawman: "LaunchAgent ai.openclaw.gateway.", ktulu: "LaunchDaemon ai.openclaw.ktulu.gateway. Bash-wrapped for AMFI.", jr: "Process on port 18789. Per-tenant via --profile jr-paulo." } },
@@ -473,8 +473,8 @@ window.INVENTORY = {
           notes: { default: "Daily Jr-side digest envelope to Telegram.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "NEW 2026-05-16. jr-daily-digest.py at /usr/local/lib/openclaw-jr/. 5th service+timer pair. Mirrors Ktulu's digest pattern (codifies action-clarity rule)." } },
         { name: "openclaw-jr-higgsfield (OAuth proxy)", status: { sandman: "no", superclawman: "no", ktulu: "no", jr: "yes" },
           notes: { default: "Long-running OAuth proxy.", sandman: "N/A.", superclawman: "N/A.", ktulu: "N/A.", jr: "Serve on 127.0.0.1:18790/mcp + 50-min refresh timer. First per-tenant OAuth daemon." } },
-        { name: "ai.openclaw.ktulu.{gateway,ingest,worker,sender,backup,digest,wa-watchdog,codex-review-c2-watcher,codex-review-safety,qmd-refresh}", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
-          notes: { default: "Ktulu's 10 native LaunchDaemons.", sandman: "N/A.", superclawman: "N/A.", ktulu: "10 LaunchDaemons (all KeepAlive, logs /var/log/ktulu/): core pipeline (gateway/ingest/worker/sender — v1.0) + backup (v1.1, daily GPG to QNAP) + digest (v1.2.a, 21:00 BRT status envelope, action-clarity rule) + qmd-refresh (v1.2.c/v1.4.d, 22:00 BRT, bootstrapped 2026-05-20) + wa-watchdog (v1.2.d, 3-min WA disconnect recovery) + codex-review-c2-watcher (2026-05-18) + codex-review-safety (2026-05-18).", jr: "N/A." } },
+        { name: "ai.openclaw.ktulu.{gateway,ingest,worker,sender,backup,digest,wa-watchdog,codex-review-c2-watcher,codex-review-safety,qmd-refresh,dashboard,health-ledger,wa-probe,bootstrap-budget}", status: { sandman: "no", superclawman: "no", ktulu: "yes", jr: "no" },
+          notes: { default: "Ktulu's 14 LaunchDaemons.", sandman: "N/A.", superclawman: "N/A.", ktulu: "14 LaunchDaemons (all KeepAlive, logs /var/log/ktulu/): core pipeline (gateway/ingest/worker/sender — v1.0) + backup (v1.1, daily GPG to QNAP) + digest (v1.2.a, 21:00 BRT status envelope, action-clarity rule) + qmd-refresh (v1.2.c/v1.4.d, 22:00 BRT, bootstrapped 2026-05-20) + wa-watchdog (v1.2.d, 3-min WA disconnect recovery) + codex-review-c2-watcher (2026-05-18) + codex-review-safety (2026-05-18) + dashboard (status shim :8990) + health-ledger (2026-05-21, StartInterval 300, HC.io pings) + wa-probe (outreach probe) + bootstrap-budget (2026-05-21, budget tracking daemon).", jr: "N/A." } },
         { name: "sandman-dashboard / mission-control / skill-tree", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "Visual control surfaces.", sandman: "All 3 active.", superclawman: "Pairing op #5.", ktulu: "Out of scope.", jr: "Out of scope (Telegram is UI)." } },
         { name: "qmd-mcp.service", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "partial" },
@@ -621,6 +621,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-05-21 nightly", note: "**Nightly docs audit (22:45 BRT) — stats refresh.** Structural trigger: Ktulu launchdaemons 13→14 (new ai.openclaw.ktulu.bootstrap-budget daemon confirmed via plist in sandman-blueprint/templates/ktulu-launchd/ + probe state/bootstrap-budget.json). Daemon row updated to 14 entries. Cosmetic: Sandman scripts 86→87; Superclawman scripts 108→109. Flagged for operator: Ktulu allow field returned empty from probe (likely probe artifact — data.js notes unchanged at 5 plugins). Workspace canonicals committed: workspace/memory/2026-05-21.md. Matrix v1.17→v1.18." },
     { agent: "superclawman", at: "2026-05-20 nightly", note: "**Nightly docs audit (22:45 BRT) — stats refresh.** Structural trigger: Ktulu 10th LaunchDaemon (ai.openclaw.ktulu.qmd-refresh.plist bootstrapped 2026-05-20 as v1.4.d). Ktulu canonical advanced v1.0.1→v1.4 (campaign fired Tue 5/19, hardened Wed 5/20): media-routing 5-signal fix, bot-handoff canned-reply carve-out, boss-relay live, campaign human-branches escalate-only, backup-tmp on KtuluDisk, qmd-refresh + wa-watchdog live (both previously noted as planned — now confirmed active). wa-watchdog and codex-review-{safety,c2-watcher} daemons retroactively confirmed in daemon row. Cosmetic: Sandman scripts 85→86; Superclawman scripts 96→108 (+12), launchagents now tracked (13). Workspace canonical committed: KTULU_CANONICAL_v1.0.1.md. Matrix v1.15→v1.16." },
     { agent: "superclawman", at: "2026-05-18 nightly", note: "**Nightly docs audit (22:45 BRT) — stats refresh.** Probe surfaced structural triggers: (1) Superclawman subagents 6→7 (codex-script-review subagent, already documented 2026-05-17 PM — stat was stale). (2) Ktulu launchdaemons 6→9 (+3 new daemons, likely script-review-related — details in next blueprint refresh). Cosmetic: Sandman scripts 84→85, doctrine 33→34; Superclawman scripts 77→96. Flagged for operator: Jr MCP probe count 7→4 (counting-method discrepancy — data.js left at 7 pending investigation). Workspace canonicals committed: AGENTS.md, MEMORY.md, TOOLS.md, KTULU_CANONICAL_v1.0.1.md, memory/2026-05-18.md, memory/2026-05-19.md. Matrix v1.14→v1.15." },
     { agent: "jr", at: "2026-05-18 morning (2)", note: "**Track B closed — two follow-ups belt-and-suspenders green.** **FU-1 (snapshot overwrites persona)**: discovered jr-snapshot-import.py already has an overlay mechanism — applies persona files from `/etc/openclaw-jr/tenants/<t>/persona/` AFTER each snapshot swap. The bug was that local edits went only to runtime `/var/lib/.../state/` (which gets wiped per snapshot). Fix: `bin/sync-to-runtime` now writes to BOTH runtime state AND overlay source. `bin/sync-from-runtime` now pulls from overlay source (canonical) with state-fallback for non-overlay files (HEARTBEAT.md). Validated by simulating a snapshot wipe + manually running the overlay step → Track A2 edits (palette CSS, §write-during-outage, jr-image-describe pointer) survived intact (4 markers in post-overlay AGENTS.md, identical to git-tracked). Tomorrow's 04:30 BRT real snapshot will validate end-to-end automatically. **FU-2 (live write-flip)**: ran 5-phase smoke against real Google Calendar API. Phase 1 preview (no API): executed=false, preview=true ✓. Phase 2 live execute (confirmed=true): real event created in primary calendar, event_id returned ✓. Phase 3 cleanup: DELETE 204 No Content, event removed ✓. Phase 4 failure path (bad datetimes): executed=false, RuntimeError captured ✓. Phase 5 audit verification: both `executed_by_jr` (success) and `executed_by_jr_failed` (failure) rows present in `/var/lib/openclaw-jr/tenants/paulo/jr_outage_log.jsonl` ✓. Write-flip is production-ready for real outages. Commits on Jr: `978b4f7` (FU-1 sync fix). Digest cadence answer for the operator: jr-daily-digest@.timer fires daily at 09:00 BRT but the script no-ops unless travel mode is active (declared via jr-travel-mode.py start ...); zero cost when home, daily check-in when away." },
