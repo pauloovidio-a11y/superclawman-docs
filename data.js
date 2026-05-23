@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-05-23T15:05:59-03:00",
+  generated_at: "2026-05-23T19:00:29-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.21",
+  doc_status: "Canonical · v1.22",
 
   agents: [
     {
@@ -20,7 +20,7 @@ window.INVENTORY = {
       signature: "[Sandman 💀]",
       hardware: "Intel i7-13620H · 16 cores · 30GB RAM",
       os: "Ubuntu 26.04 LTS · kernel 7.0.0",
-      openclaw_version: "2026.5.12 (f066dd2) — tied newest with Ktulu",
+      openclaw_version: "2026.5.20 (e510042) — fleet-wide 5.20 upgrade 2026-05-23",
       status_phase: "Entry 96 stable · codex-sandman 3-layer pipeline live · plugins=unrestricted",
       summary: "Bedtime/personal-assistant + general OpenClaw harness on the NUC. The oldest + heaviest of the cast. Runs Mission Control Dashboard, Skill Tree, QMD MCP, WhatsApp watcher, plus Sandmanpo (the VPS-side gmail/sales pipeline) as a sibling. Plugin allowlist is currently 'unrestricted' — tightening is canonical TODO.",
       stats: { skills: 29, scripts: 88, subagents: 3, hooks: 2, doctrine: 34 }
@@ -37,7 +37,7 @@ window.INVENTORY = {
       signature: "[Superclawman 🧠⚡🦀🤘]",
       hardware: "Apple M2 Pro · 32GB RAM",
       os: "macOS 15.7.4 Sequoia · Darwin 24.6.0 · arm64",
-      openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity with Sandman + Ktulu)",
+      openclaw_version: "2026.5.20 (e510042) — fleet-wide 5.20 upgrade 2026-05-23",
       status_phase: "Production · canonical authoring host",
       summary: "Cost-optimized M-series harness. Powers Paulo's WhatsApp life — Sandman/Xisto/CareHTSA/DryCleaner/family routing, plus the 31k-vector position-locked memory store with the 5-skill learning loop. Authors all canonical docs (Ktulu canonical v1.0 was written here today). Stricter doctrine surface than Sandman by design.",
       stats: { skills: 7, scripts: 109, subagents: 7, playbooks: 7, launchagents: 13, plugins: 9 }
@@ -54,7 +54,7 @@ window.INVENTORY = {
       signature: "[Ktulu 🦞📨⚡🤘] · outbound — Paulo Ovidio · Superclawman.ai",
       hardware: "Intel i7-8700B @ 3.2GHz · 12 cores · 32GB RAM · 1.8TB external APFS",
       os: "macOS 14.8.4 Sonoma · Darwin 23.6.0 · x86_64",
-      openclaw_version: "2026.5.12 (f066dd2) — tied newest with Sandman",
+      openclaw_version: "2026.5.20 (e510042) — fleet-wide 5.20 upgrade 2026-05-23",
       status_phase: "Phase 1A→1E shipped · canonical v1.5.2 (2026-05-22) · campaign fired+hardened (2026-05-19/20) · 16 LaunchDaemons live · Central CC observability LIVE — green on :8991 (3/3, 0 red), 2026-05-21 · FULL Control Center dashboard live on :8990 Tailscale (cost+briefing+drift+Heimdall+cron, parity with Sandman/SC), 2026-05-22 · qmd-refresh live · boss-relay + bot-handoff active · escalate-only doctrine locked · bootstrap-budget + llm-cost-fetch daemons added 2026-05-21/22 · worker→observer AGENT-PRIMARY (v1.5, 2026-05-22)",
       summary: "Outbound outreach + autonomous reply on Intel i7 Mac mini, paired to USA WA number +1 786-600-1332. Sibling to Superclawman. Receives prospect queue from Beautiful Websites Kit, drips outbound at human cadence, 4-branch classifier (positive/dismissive/cost/ambiguous). Post-campaign hardening (v1.3→v1.4): prospect-chat leak fixed (single-tier escalate-only), boss-relay live, bot-handoff carve-out, qmd local search bootstrapped, backup-tmp relocated to KtuluDisk. Now git-tracked (pauloovidio-a11y/ktulu private).",
       stats: { doctrine: 8, plugins: 5, launchdaemons: 16, pipeline_modules: 10, playbooks: 2, skills: 1, subagents: 1 }
@@ -71,7 +71,7 @@ window.INVENTORY = {
       signature: "[SC Jr 💀 🧠]",
       hardware: "AMD EPYC-Genoa · 4 vCPU · 7.6GB RAM · Hetzner Cloud",
       os: "Ubuntu 24.04.4 LTS",
-      openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity)",
+      openclaw_version: "2026.5.20 (e510042) — fleet-wide 5.20 upgrade 2026-05-23",
       status_phase: "JR MVP COMPLETE · canonical v1.36 (pre-0d.7 hardening 2026-05-23) · v1.32 lighter-SC ports · ON THE CENTRAL CC BOARD 2026-05-22/23 (full dashboard :8990 + Fleet card on SC :8991, 4/4 green) · Heimdall-less by design · systemd_units 21 · NEXT: Phase 0d.7.0 multi-primary substrate kickoff Mon 2026-05-25 (universal watchdog for SC+Ktulu+Sandman)",
       summary: "VPS-side failover + watchdog. Wakes when Mac mini is unreachable (power outage, hardware failure, WA 440). Multi-tenant from day 1 (currently 1 tenant: paulo). Telegram-only on purpose — routes around WA fragility. Hard rule: Jr's capability set is always ⊆ Superclawman's. v1.30 added operator-declared ambient-state primitives (maintenance + travel modes via jr-maintenance.py + jr-travel-mode.py) using the 5-part pattern. Daily-digest envelope shipped (jr-daily-digest@.timer).",
       stats: { shared_scripts: 20, mcps: 7, skills: 3, systemd_units: 21, tenants: 1, git_repo: "pauloovidio-a11y/openclaw-jr (private)" }
@@ -591,7 +591,7 @@ window.INVENTORY = {
       "learn_from_use — highest leverage on escalation rate (Phase 2.1)",
       "precedent_matcher (BGE-M3) — replaces regex-based ktulu_escalation (Phase 2.2)",
       "inbound_style_observer / contact_style_profiler — per-prospect style learning",
-      "OpenClaw 2026.5.12 → bump Mac from 5.5 to 5.12 (Sandman + Ktulu both at 5.12; Mac is the laggard)",
+      "OpenClaw version parity — DONE 2026-05-23: all 4 agents on 2026.5.20 (fleet-wide upgrade)",
       "Vector store memory — Phase 2"
     ] },
     { from: "ktulu", to: "superclawman", items: [
@@ -621,6 +621,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-05-23", note: "**Fleet-wide OpenClaw 5.12 → 5.20 upgrade — all 4 agents green + validated.** Canary order Jr→Ktulu→Sandman→SC, each install→fix→reapply→restart→validate→≥24-30min soak (0 reds throughout). All now on `2026.5.20 (e510042)`. **Load-bearing breaking change (not the one the runbook flagged):** 5.20 retires `messages.queue.mode:\"queue\"` (the old #54488 mitigation value) — crash-loops the gateway on restart. Hit Jr (canary caught it), Ktulu, SC; Sandman immune (had `queue:{}`). Fixed fleet-wide with `queue→steer` (openclaw's own legacy-config migration; correct because #54488 is *followup-drain* lane starvation, NOT a steer bug). **The runbook's #1 risk (5.20 removing the `cat SKILL.md &&` skill-exec allowlist path) was a non-issue:** Ktulu/Jr run exec security:full/ask:off (bypass allowlist); SC/Sandman default-exec use 5.20's new supported skill path (no denials); script-review/codex pipelines are standalone child procs. **WA plugins kept at 5.12** — reconnect fine on 5.20 core, and live in separate prefixes (`~/.openclaw/npm` SC · `.openclaw/extensions` Ktulu/Sandman) so WA dist-patches SURVIVE a core upgrade (SC P1–P11+P_act/P_lid+leak-guard all intact). Only core-dist patch wiped+reapplied: Sandman's SANDMAN-PO runtime-context leak-patch (4.29 anchor still matched). Jr gateway restart = `systemctl --user` (not sudo system — runbook had it wrong). Configs backed up `*.bak-pre-5.20-*`." },
     { agent: "jr", at: "2026-05-22/23", note: "**Jr ON THE CENTRAL CC BOARD — fleet now 4/4 green.** The shared `dashboard-server.mjs` ports to Linux/systemd UNMODIFIED (no fork). Jr runs the full Control Center on its VPS :8990 (http://superclawman-jr.tail0688b7.ts.net:8990/) + has a Fleet card on SC :8991 (cost ~$38/mo forecast, budget $150 · bootstrap budget 87% · greenness sparkline). Collectors live: health-ledger (6 Telegram-only checks: gateway/gateway_http/openclaw_config_valid/lcm_db_present/watchdog_fresh/disk_ok), bootstrap-budget, llm-cost (admin key per-host, SANDMAN_API_KEY_ID=apikey_01Kbzp…). Live-Haiku briefing via Jr's own key. **Phase B (all env-gated, default-off → other agents byte-identical):** systemd-timer cron source, per-agent hard-check groups (fixed phantom-red panel), Heimdall panels + 'QNAP ?' pill hidden, Skill Tree link hidden. **Debounced green↔red transition→Pushover via the JR app (2-strike, per-check cause+action), live 2026-05-23.** Central CC Pushover app minted (5th token); PUSHOVER_TOKEN_CENTRAL_CC on SC + QNAP synced. **Heimdall-less BY DESIGN** (datacenter VPS w/ power+network redundancy, and is itself the fleet's external watchdog). This is Jr-as-MONITORED (read-only); Jr-as-watchdog/takeover stays Phase 0d.7 PARKED. Resolves the prior 'Jr systemd_units +7 unverified' flag — the +7 are the CC dashboard + ledger/budget/llmcost + lighter-SC heartbeat timers. CC canonical refreshed to BUILT & LIVE v1.1 (sandman-blueprint [1.11.1-alpha]). Pending fleet-wide (NOT Jr-CC gaps): Fleet CC v0.3.1 gated actions (soak-first), Heimdall extension to SC+Ktulu, Sandman nuc→sc dashboard convergence, Ktulu dashboard 1.10.x refresh, watch Jr bootstrap budget ~90%." },
     { agent: "superclawman", at: "2026-05-22 nightly", note: "**Nightly docs audit (22:45 BRT) — stats refresh.** Structural triggers: (1) Ktulu launchdaemons 15→16 (llm-cost-fetch LaunchDaemon confirmed by probe; daemon notes updated 14→16; 16th daemon unidentified — `launchctl list | grep ktulu` to verify). (2) Jr systemd_units 14→21 (+7 probe-detected 2026-05-22, reason unknown, last Jr entry 2026-05-18 — flagged for operator review). Cosmetic: Sandman scripts 87→88. Ktulu canonical v1.4→v1.5.2 (worker→observer AGENT-PRIMARY, De Donato leak documented, durable-guard design §7.7). synthetic-ping/llm-cost-fetch row updated ktulu: no→yes. Workspace canonicals committed: KTULU_CANONICAL_v1.0.1.md + memory/2026-05-22.md + memory/2026-05-23.md. Matrix v1.19→v1.20." },
     { agent: "superclawman", at: "2026-05-21 nightly", note: "**Nightly docs audit (22:45 BRT) — stats refresh.** Structural trigger: Ktulu launchdaemons 13→14 (new ai.openclaw.ktulu.bootstrap-budget daemon confirmed via plist in sandman-blueprint/templates/ktulu-launchd/ + probe state/bootstrap-budget.json). Daemon row updated to 14 entries. Cosmetic: Sandman scripts 86→87; Superclawman scripts 108→109. Flagged for operator: Ktulu allow field returned empty from probe (likely probe artifact — data.js notes unchanged at 5 plugins). Workspace canonicals committed: workspace/memory/2026-05-21.md. Matrix v1.17→v1.18." },

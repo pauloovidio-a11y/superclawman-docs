@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperClawman — The Resident WhatsApp AI Assistant</title>
+  <meta name="description" content="SuperClawman is the unique resident WhatsApp AI assistant that really does things for you. Coming soon." />
+  <meta name="keywords" content="SuperClawman, WhatsApp AI, WhatsApp agent, AI assistant WhatsApp, WhatsApp automation, WhatsApp bot, AI that does things, resident AI assistant, WhatsApp AI agent, personal AI, autonomous AI, AI coming soon, unique AI assistant, really does things for you, AI that acts, intelligent WhatsApp assistant, WhatsApp AI 2026, next generation AI assistant, AI automation WhatsApp, conversational AI WhatsApp" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://superclawman.ai/" />
+  <meta property="og:title" content="SuperClawman — The Resident WhatsApp AI Assistant" />
+  <meta property="og:description" content="The unique resident WhatsApp AI assistant that really does things for you." />
+  <meta property="og:url" content="https://superclawman.ai/" />
+  <meta property="og:type" content="website" />
+  <link rel="alternate" hreflang="en" href="https://superclawman.ai/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://superclawman.ai/pt.html" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --neon: #00ffe0;
+      --neon-dim: rgba(0, 255, 224, 0.15);
+      --bg: #050508;
+      --text: #e8e8f0;
+      --muted: #666688;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Animated background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(60px); }
+    }
+
+    /* Radial glow center */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(ellipse, rgba(0,255,224,0.07) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 6rem;
+    }
+
+    .emoji-row {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      margin-bottom: 2rem;
+      letter-spacing: 0.3em;
+      animation: floatEmoji 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgba(0,255,224,0.5));
+    }
+
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .brand {
+      font-size: clamp(2.8rem, 9vw, 7rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      position: relative;
+    }
+
+    .brand::after {
+      content: 'SuperClawman';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(20px);
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    .tagline {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-weight: 300;
+      color: var(--text);
+      max-width: 580px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
+
+    .tagline strong {
+      color: var(--neon);
+      font-weight: 700;
+    }
+
+    /* Video section */
+    .video-wrapper {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+
+    .video-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .video-frame {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,255,224,0.2);
+      box-shadow:
+        0 0 40px rgba(0,255,224,0.08),
+        0 0 80px rgba(0,255,224,0.04),
+        inset 0 0 20px rgba(0,255,224,0.03);
+      background: #0a0a0f;
+    }
+
+    .video-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* Corner accents */
+    .video-frame::before,
+    .video-frame::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .video-frame::before {
+      top: 0; left: 0;
+      border-top: 2px solid var(--neon);
+      border-left: 2px solid var(--neon);
+      border-radius: 12px 0 0 0;
+    }
+    .video-frame::after {
+      bottom: 0; right: 0;
+      border-bottom: 2px solid var(--neon);
+      border-right: 2px solid var(--neon);
+      border-radius: 0 0 12px 0;
+    }
+
+    .soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid var(--neon);
+      color: var(--neon);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      background: var(--neon-dim);
+      box-shadow: 0 0 20px rgba(0,255,224,0.2), inset 0 0 20px rgba(0,255,224,0.05);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(0,255,224,0.2), inset 0 0 20px rgba(0,255,224,0.05); }
+      50% { box-shadow: 0 0 35px rgba(0,255,224,0.4), inset 0 0 30px rgba(0,255,224,0.1); }
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--neon);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 2rem;
+      left: 0; right: 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      z-index: 10;
+    }
+
+    .footer a {
+      color: var(--neon);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity: 1;
+      font-weight: 700;
+      transition: opacity 0.2s;
+      padding: 4px 8px;
+    }
+
+    .footer a:hover { opacity: 0.8; }
+
+    /* Scanline overlay */
+    .scanline {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+  <div style="position:fixed;top:1.2rem;right:1.5rem;z-index:100;display:flex;gap:0.4rem;">
+    <a href="pt.html" title="Ver em Português" style="text-decoration:none;font-size:1.6rem;line-height:1;cursor:pointer;transition:transform 0.2s,filter 0.2s;filter:drop-shadow(0 0 6px rgba(0,255,224,0.3));border:1px solid rgba(0,255,224,0.25);border-radius:8px;padding:4px 8px;background:rgba(0,255,224,0.06);">🇧🇷</a>
+    <a href="es.html" title="Ver en Español" style="text-decoration:none;font-size:1.6rem;line-height:1;cursor:pointer;transition:transform 0.2s,filter 0.2s;filter:drop-shadow(0 0 6px rgba(0,255,224,0.3));border:1px solid rgba(0,255,224,0.25);border-radius:8px;padding:4px 8px;background:rgba(0,255,224,0.06);">🇪🇸</a>
+  </div>
+  <div class="container">
+    <div class="emoji-row">🧠 ⚡ 🦀 🤘</div>
+    <h1 class="brand">SuperClawman</h1>
+    <p class="tagline">
+      Soon — The Unique <strong>Resident WhatsApp AI Assistant</strong><br />
+      that really does things for you.
+    </p>
+
+    <!-- Superclawman intro video -->
+    <div class="video-wrapper">
+      <div class="video-label">▶ Meet Superclawman</div>
+      <div class="video-frame">
+        <video
+          controls
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://files2.heygen.ai/aws_pacific/avatar_tmp/bf718f54e1b14bf39693c59524e3390a/vfcebae2395dc442eb2be6c0fa46ebf2e/e22d9c3ddf374662a22a9ac42341ae3f.jpeg?Expires=1779213858&Signature=kiggC0r16TDRYus0V1TiB1UBGWaIaFyCBAb8f6Qu9SG9UeMDmtKZt01kx4GWuDgfQxdvr4oj1mark3doJXxJ~tZ~YGBmD9a05kWYNZs7DCae68Z4tpqO-d3EOPvdmp06KmuOpd06UYgYXUHcuUFeUsb4QKeZixoEXf~hNPofhTil7S9GqwId5lTkUpL7fIEMxdwIEshRYCo53nQu6gv19hoDk815PBF55Aawz24RuPGI-HNsVOh8BzBlIRq9ey~I8-iq~VyFcoSqKy3WS9JcVEbi5CioZaHGfQkZ7Doa8qzZJfCUYw4NK2KGmi4jSVQzirN9OTMjP1qmlWBx6Dofqg__&Key-Pair-Id=K38HBHX5LX3X2H"
+        >
+          <source src="https://resource2.heygen.ai/aws_pacific/avatar_tmp/bf718f54e1b14bf39693c59524e3390a/vfcebae2395dc442eb2be6c0fa46ebf2e/caption_e22d9c3ddf374662a22a9ac42341ae3f.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="soon-badge">
+      <span class="dot"></span>
+      Coming Soon
+    </div>
+
+    <p style="margin-top:2.5rem;font-size:0.9rem;color:#666688;">
+      Running a business? <a href="business.html" style="color:#00ffe0;font-weight:700;text-decoration:underline;text-underline-offset:3px;">See what SuperClawman can do for you →</a>
+    </p>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a>
+  </div>
+</body>
+</html>
