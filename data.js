@@ -72,7 +72,7 @@ window.INVENTORY = {
       hardware: "AMD EPYC-Genoa · 4 vCPU · 7.6GB RAM · Hetzner Cloud",
       os: "Ubuntu 24.04.4 LTS",
       openclaw_version: "2026.5.12 (f066dd2) — upgraded 2026-05-17 (fleet-wide parity)",
-      status_phase: "Phase 0d.3 (recovery dance) · v1.30 ambient-state primitives (maintenance+travel) · v1.35 lighter-SC ports · ON THE CENTRAL CC BOARD 2026-05-22/23 (full dashboard :8990 + Fleet card on SC :8991, 4/4 green) · Heimdall-less by design · systemd_units 21 (the +7 since 2026-05-18 = CC dashboard + ledger/budget/llmcost timers + lighter-SC heartbeat timers — resolved, not unverified)",
+      status_phase: "JR MVP COMPLETE · canonical v1.36 (pre-0d.7 hardening 2026-05-23) · v1.32 lighter-SC ports · ON THE CENTRAL CC BOARD 2026-05-22/23 (full dashboard :8990 + Fleet card on SC :8991, 4/4 green) · Heimdall-less by design · systemd_units 21 · NEXT: Phase 0d.7.0 multi-primary substrate kickoff Mon 2026-05-25 (universal watchdog for SC+Ktulu+Sandman)",
       summary: "VPS-side failover + watchdog. Wakes when Mac mini is unreachable (power outage, hardware failure, WA 440). Multi-tenant from day 1 (currently 1 tenant: paulo). Telegram-only on purpose — routes around WA fragility. Hard rule: Jr's capability set is always ⊆ Superclawman's. v1.30 added operator-declared ambient-state primitives (maintenance + travel modes via jr-maintenance.py + jr-travel-mode.py) using the 5-part pattern. Daily-digest envelope shipped (jr-daily-digest@.timer).",
       stats: { shared_scripts: 20, mcps: 7, skills: 3, systemd_units: 21, tenants: 1, git_repo: "pauloovidio-a11y/openclaw-jr (private)" }
     }
@@ -204,7 +204,7 @@ window.INVENTORY = {
             sandman: "Sandman — Master Blueprint + Sandman — Canonical Architecture in Notion.",
             superclawman: "Superclawman — Master Blueprint (Canonical) in Notion. SUPERCLAWMAN_FINAL_WHATSAPP_CANONICAL_v1.md on disk.",
             ktulu: "KTULU_CANONICAL_v1.0.md (30KB, 2026-05-15) on Superclawman + Notion mirror. Sibling to Superclawman canonical.",
-            jr: "Superclawman Watchdog v2 / Jr — Canonical Architecture v1.35 in Notion (LIVE page 364085df-9ff8-8187-bc86-d2c69168799a; two earlier duplicate pages — v1.30 362085df + v1.32 363085df — consolidated + trashed 2026-05-18). Recent arc: lighter-SC port sprint (notion-heartbeat, html-it palette tokens, PDF helpers, higgsfield-heartbeat, Haiku vision tool, write-flip) through v1.35. Source on disk: SUPERCLAWMAN_WATCHDOG_JR_CANONICAL_v1.md."
+            jr: "Superclawman Watchdog v2 / Jr — Canonical Architecture v1.36 in Notion (LIVE page 364085df-9ff8-8187-bc86-d2c69168799a; two earlier duplicate pages — v1.30 362085df + v1.32 363085df — consolidated + trashed 2026-05-18). Source of truth is the workspace markdown SUPERCLAWMAN_WATCHDOG_JR_CANONICAL_v1.md (Notion = read-only published view). Recent arc: lighter-SC port sprint (v1.32) → Phase 0d.7 design decisions (v1.35) → pre-0d.7 hardening (v1.36, capability inventory + primary-centric framing + WA round-trip detection)."
           }
         },
         {
@@ -560,7 +560,7 @@ window.INVENTORY = {
         { name: "Sales pipeline (beautiful-websites kit)", status: { sandman: "partial", superclawman: "yes", ktulu: "yes", jr: "no" },
           notes: { default: "5-skill sales pipeline.", sandman: "Provides google-maps + firecrawl-cli + gog skills.", superclawman: "Lives here. Drives Ktulu via dispatcher.", ktulu: "RECEIVES prospect queue from BW kit + drips outbound (the destination for the pipeline's WhatsApp follow-ups).", jr: "Out of scope." } },
         { name: "Notion Docs hub", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
-          notes: { default: "Canonical docs hub.", sandman: "Sandman Docs page in Notion.", superclawman: "Superclawman Docs hub at 355085df9ff88122b7fdfa633a08a7b3.", ktulu: "Mirror under Superclawman Docs (planned).", jr: "Canonical at 'Superclawman Watchdog v2 / Jr — Canonical Architecture v1.35' (live page 364085df…; duplicate v1.30+v1.32 pages trashed 2026-05-18)." } }
+          notes: { default: "Canonical docs hub.", sandman: "Sandman Docs page in Notion.", superclawman: "Superclawman Docs hub at 355085df9ff88122b7fdfa633a08a7b3.", ktulu: "Mirror under Superclawman Docs (planned).", jr: "Canonical at 'Superclawman Watchdog v2 / Jr — Canonical Architecture v1.36' (live page 364085df…; duplicate v1.30+v1.32 pages trashed 2026-05-18)." } }
       ]
     }
   ],
