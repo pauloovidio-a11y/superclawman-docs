@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Superclawman × YACOWS — Proposta de Parceria</title>
+<style>
+  :root{
+    --bg:#050508;
+    --bg-2:#0a0a12;
+    --panel:#0e0e18;
+    --panel-2:#12121f;
+    --line:#1e1e2e;
+    --txt:#e8e8f0;
+    --muted:#9a9ab0;
+    --faint:#6a6a82;
+    --cyan:#2fe6e0;
+    --teal:#22d3b0;
+    --purple:#a06bff;
+    --amber:#ffb547;
+    --pink:#ff5d8f;
+    --glow-cyan:rgba(47,230,224,.35);
+    --glow-purple:rgba(160,107,255,.35);
+    --radius:16px;
+    --maxw:980px;
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 700px at 80% -10%, rgba(160,107,255,.10), transparent 60%),
+      radial-gradient(900px 600px at -10% 10%, rgba(47,230,224,.08), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:.1px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(600px 300px at 50% 0%, rgba(47,230,224,.12), transparent 70%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--cyan);
+    border:1px solid rgba(47,230,224,.25);
+    background:rgba(47,230,224,.05);
+    padding:7px 14px;border-radius:999px;margin-bottom:28px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--glow-cyan)}
+  h1.title{
+    font-size:clamp(40px,7vw,76px);line-height:1.02;margin:0 0 10px;
+    font-weight:800;letter-spacing:-1.5px;
+  }
+  h1.title .grad{
+    background:linear-gradient(100deg,var(--cyan),var(--purple) 55%,var(--amber));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lead{font-size:clamp(18px,2.4vw,23px);color:var(--muted);max-width:680px;margin:18px 0 0}
+  .sig{
+    margin-top:34px;font-size:14px;color:var(--faint);
+    display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;
+  }
+  .sig b{color:var(--txt);font-weight:600}
+  .sig .em{font-size:18px;letter-spacing:2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  .kicker{
+    font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--purple);margin:0 0 14px;display:flex;align-items:center;gap:12px;
+  }
+  .kicker .num{
+    font-variant-numeric:tabular-nums;color:var(--faint);
+    border:1px solid var(--line);border-radius:8px;padding:2px 9px;font-size:11px;
+  }
+  h2{font-size:clamp(26px,4vw,40px);line-height:1.12;margin:0 0 18px;font-weight:800;letter-spacing:-.6px}
+  h2 .accent{color:var(--cyan)}
+  p.big{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:760px}
+  p{color:var(--muted)}
+  .strong{color:var(--txt);font-weight:600}
+
+  /* ---------- BEFORE / AFTER ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .col{
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+  }
+  .col.old{border-color:rgba(255,93,143,.22)}
+  .col.new{border-color:rgba(47,230,224,.28);box-shadow:0 0 40px -20px var(--glow-cyan)}
+  .col h3{margin:0 0 4px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  .col.old h3{color:var(--pink)}
+  .col.new h3{color:var(--cyan)}
+  .col .tag{font-size:12px;color:var(--faint);margin-bottom:18px}
+  .col ul{margin:0;padding:0;list-style:none}
+  .col li{padding:9px 0 9px 28px;position:relative;color:var(--muted);border-top:1px solid rgba(255,255,255,.04);font-size:15px}
+  .col li:first-child{border-top:none}
+  .col.old li::before{content:"✕";position:absolute;left:0;color:var(--pink);font-weight:700}
+  .col.new li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+
+  /* ---------- PULL QUOTE ---------- */
+  .quote{
+    margin:36px 0 0;padding:30px 34px;border-radius:var(--radius);
+    border:1px solid var(--line);border-left:3px solid var(--cyan);
+    background:linear-gradient(120deg,rgba(47,230,224,.06),rgba(160,107,255,.04));
+    font-size:clamp(19px,2.6vw,26px);font-weight:600;color:var(--txt);line-height:1.4;
+    letter-spacing:-.3px;
+  }
+  .quote .grad{background:linear-gradient(100deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- CARD GRID ---------- */
+  .grid{display:grid;gap:16px;margin-top:30px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    transition:transform .18s ease,border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-3px);border-color:rgba(160,107,255,.35)}
+  .card .ic{font-size:22px;margin-bottom:12px}
+  .card h4{margin:0 0 6px;font-size:16px;color:var(--txt);font-weight:700}
+  .card p{margin:0;font-size:14px;color:var(--muted)}
+
+  /* ---------- METRICS ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  .metric{
+    text-align:center;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 14px;background:linear-gradient(180deg,var(--panel-2),var(--bg));
+    position:relative;overflow:hidden;
+  }
+  .metric::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.6}
+  .metric .v{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;
+    background:linear-gradient(120deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .metric .l{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.35}
+
+  /* ---------- FLOW DIAGRAM ---------- */
+  .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:14px;margin-top:30px}
+  .node{
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;text-align:center;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+  }
+  .node .role{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint)}
+  .node .name{font-size:17px;font-weight:800;margin:6px 0 4px}
+  .node .sub{font-size:13px;color:var(--muted)}
+  .node.mid{border-color:rgba(47,230,224,.3);box-shadow:0 0 40px -22px var(--glow-cyan)}
+  .node.mid .name{background:linear-gradient(100deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .arrow{color:var(--cyan);font-size:24px;text-align:center;opacity:.7}
+
+  /* ---------- TABLE ---------- */
+  .tablewrap{margin-top:28px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+  thead th{background:var(--panel-2);color:var(--cyan);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(160,107,255,.04)}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;color:var(--txt);font-weight:600}
+  .hl-row td{background:rgba(47,230,224,.06);color:var(--txt);font-weight:700}
+  .note{font-size:12.5px;color:var(--faint);margin-top:12px;font-style:italic}
+
+  /* ---------- ECON HIGHLIGHT ---------- */
+  .econ{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .econ .e{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .econ .e .l{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--faint)}
+  .econ .e .v{font-size:clamp(22px,3vw,30px);font-weight:800;margin:8px 0 2px}
+  .econ .e.retail .v{color:var(--txt)}
+  .econ .e.whole .v{color:var(--amber)}
+  .econ .e.margin .v{background:linear-gradient(100deg,var(--cyan),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .econ .e .s{font-size:13px;color:var(--muted)}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{margin-top:30px;display:grid;gap:14px}
+  .phase{display:grid;grid-template-columns:120px 1fr;gap:20px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .phase .when{color:var(--purple);font-weight:800;font-size:14px}
+  .phase .when small{display:block;color:var(--faint);font-weight:500;font-size:12px;margin-top:4px}
+  .phase h4{margin:0 0 6px;font-size:17px;color:var(--txt)}
+  .phase p{margin:0;font-size:14px}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    margin-top:30px;text-align:center;border:1px solid rgba(47,230,224,.25);border-radius:var(--radius);
+    padding:48px 28px;background:
+      radial-gradient(500px 220px at 50% 0%, rgba(160,107,255,.10), transparent 70%),
+      linear-gradient(180deg,var(--panel),var(--bg));
+  }
+  .cta h2{margin-bottom:10px}
+  .btn{
+    display:inline-block;margin-top:22px;padding:15px 32px;border-radius:999px;
+    font-weight:800;font-size:16px;color:#06121a;
+    background:linear-gradient(100deg,var(--cyan),var(--teal));
+    box-shadow:0 10px 40px -12px var(--glow-cyan);
+  }
+  .btn:hover{text-decoration:none;filter:brightness(1.07)}
+  .contact{margin-top:22px;font-size:14px;color:var(--muted)}
+  .contact b{color:var(--txt)}
+
+  footer{padding:40px 0 64px;text-align:center;color:var(--faint);font-size:12.5px}
+  footer .em{font-size:16px;letter-spacing:2px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .g4,.metrics,.g3,.econ{grid-template-columns:repeat(2,1fr)}
+    .flow{grid-template-columns:1fr;}
+    .flow .arrow{transform:rotate(90deg)}
+    .split{grid-template-columns:1fr}
+    .phase{grid-template-columns:1fr;gap:8px}
+  }
+  @media(max-width:520px){
+    .g4,.metrics,.g2,.g3,.econ{grid-template-columns:1fr}
+    section{padding:48px 0}
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .card,.col,.metric,.node,.tablewrap,.e,.phase,.cta,.quote{box-shadow:none}
+    .btn{display:none}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Proposta de Parceria Estratégica · Confidencial</span>
+    <h1 class="title">Superclawman <span class="grad">×</span> YACOWS</h1>
+    <p class="lead">O próximo capítulo do marketing no WhatsApp: deixar de <strong class="strong">disparar mensagens</strong> e passar a <strong class="strong">conduzir conversas</strong> — com IA, memória e conformidade. White-label, sob a marca YACOWS.</p>
+    <div class="sig">
+      <span>Preparado para <b>Lindolfo Alves Neto</b> · YACOWS</span>
+      <span>Maio de 2026</span>
+      <span class="em">🧠⚡🦀🤘</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 01 — O MERCADO VIROU ===================== -->
+<section id="mercado">
+  <div class="wrap">
+    <p class="kicker"><span class="num">01</span> O mercado virou</p>
+    <h2>O WhatsApp deixou de ser um canal de <span class="accent">disparo</span>.<br>Virou um canal de <span class="accent">conversa</span>.</h2>
+    <p class="big">A régua mudou. O consumidor brasileiro espera respostas, não anúncios; atendimento, não interrupção. E a Meta vem fechando o cerco sobre o que não passa pela Plataforma Oficial do WhatsApp Business. O valor migrou do <em>volume enviado</em> para a <em>qualidade da conversa</em>.</p>
+
+    <div class="split">
+      <div class="col old">
+        <h3>O modelo que está expirando</h3>
+        <div class="tag">Disparo em massa · broadcast</div>
+        <ul>
+          <li>Custo de mídia por mensagem, em escala</li>
+          <li>Conversão baixa e em queda</li>
+          <li>Risco constante de bloqueio de números</li>
+          <li>Atrito regulatório e de plataforma</li>
+          <li>Fadiga e rejeição do consumidor</li>
+          <li>Zero memória, zero relacionamento</li>
+        </ul>
+      </div>
+      <div class="col new">
+        <h3>O modelo que está chegando</h3>
+        <div class="tag">Conversa com IA · conformidade</div>
+        <ul>
+          <li>Agente de IA 24×7 na Plataforma Oficial</li>
+          <li>Conversão muito maior — atende, qualifica, fecha</li>
+          <li>Números saudáveis, dentro das regras da Meta</li>
+          <li>Opt-in e LGPD por design</li>
+          <li>Experiência que o cliente <em>quer</em> receber</li>
+          <li>Memória persistente: cada conversa fica melhor</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="quote">Quem dominar a <span class="grad">conversa</span> — e não o disparo — vai dominar a próxima década do marketing mobile no Brasil.</p>
+  </div>
+</section>
+
+<!-- ===================== 02 — O QUE A YACOWS JÁ TEM ===================== -->
+<section id="yacows">
+  <div class="wrap">
+    <p class="kicker"><span class="num">02</span> O ativo YACOWS</p>
+    <h2>A YACOWS já tem o que <span class="accent">quase ninguém</span> tem.</h2>
+    <p class="big">Mais de 15 anos construindo a maior força de marketing direto do país. A distribuição existe. A base existe. A operação de canais existe. Falta apenas a peça que transforma tudo isso em receita recorrente de altíssimo valor.</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="ic">🏛️</div><h4>Marca consolidada</h4><p>15+ anos de autoridade em marketing direto no Brasil.</p></div>
+      <div class="card"><div class="ic">🤝</div><h4>Base de clientes</h4><p>Relacionamento comercial ativo e confiança já conquistada.</p></div>
+      <div class="card"><div class="ic">🗄️</div><h4>Dados &amp; canais</h4><p>Data Stone e operação de WhatsApp, SMS e Voz em escala.</p></div>
+      <div class="card"><div class="ic">⚙️</div><h4>Operação madura</h4><p>Time, processos e capilaridade para colocar produto na rua.</p></div>
+    </div>
+
+    <p class="quote">A YACOWS tem a <span class="grad">distribuição</span>. O Superclawman é o <span class="grad">produto</span> que faltava para ocupá-la.</p>
+  </div>
+</section>
+
+<!-- ===================== 03 — O QUE É O SUPERCLAWMAN ===================== -->
+<section id="produto">
+  <div class="wrap">
+    <p class="kicker"><span class="num">03</span> O produto</p>
+    <h2>Superclawman: um agente de IA para WhatsApp de <span class="accent">nível de produção</span>.</h2>
+    <p class="big">Não é um chatbot de árvore de decisão. É um agente que entende, lembra, aprende e executa — com trilhos de segurança estruturais e arquitetura multi-tenant white-label desde o primeiro dia.</p>
+
+    <div class="grid g3">
+      <div class="card"><div class="ic">🧠</div><h4>Memória persistente</h4><p>Multimodal — texto, áudio e imagem. Cada cliente, cada conversa, lembrada e contextualizada.</p></div>
+      <div class="card"><div class="ic">📈</div><h4>Aprende com o uso</h4><p>Loop de 5 habilidades em produção: ingestão, aprendizado, reforço, recuperação e benchmark semanal.</p></div>
+      <div class="card"><div class="ic">⚡</div><h4>Executa de verdade</h4><p>Agenda, integra sistemas do cliente, qualifica e fecha — não apenas responde.</p></div>
+      <div class="card"><div class="ic">✋</div><h4>Autonomia com aprovação</h4><p>Execução com trava humana. Por arquitetura, nenhuma mensagem não-aprovada sai. Segurança estrutural, não promessa.</p></div>
+      <div class="card"><div class="ic">🏷️</div><h4>White-label nativo</h4><p>Isolado por <code>tenant_id</code> em cada caminho, segredo e processo. Multi-cliente desde o dia zero.</p></div>
+      <div class="card"><div class="ic">🛡️</div><h4>Verdade determinística</h4><p>IA decide linguagem; o sistema decide estado, permissão, auditoria. O melhor dos dois mundos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 — PROVA / TRAÇÃO ===================== -->
+<section id="prova">
+  <div class="wrap">
+    <p class="kicker"><span class="num">04</span> Não é protótipo — está em produção</p>
+    <h2>Tração real, métricas reais.</h2>
+    <p class="big">O Superclawman já opera todos os dias em produção, com aprendizado contínuo e fechamentos autônomos comprovados.</p>
+
+    <div class="metrics">
+      <div class="metric"><div class="v">32.993</div><div class="l">registros de memória viva</div></div>
+      <div class="metric"><div class="v">5/5</div><div class="l">habilidades de aprendizado em produção</div></div>
+      <div class="metric"><div class="v">∞</div><div class="l">conversas simultâneas — escala sem contratar</div></div>
+      <div class="metric"><div class="v">24×7</div><div class="l">disponível, sem faltas, sem ramp-up</div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><div class="ic">🩺</div><h4>Caso Younit Health</h4><p>Um único agente cuida da agenda de <span class="strong">15 médicos</span> no WhatsApp, 24×7, sem faltas e sem ramp-up — fazendo o trabalho de uma equipe inteira de atendimento e escalando para mais médicos <span class="strong">sem contratar mais ninguém</span>.</p></div>
+      <div class="card"><div class="ic">✅</div><h4>Primeiro fechamento agêntico</h4><p>Em <span class="strong">02/05/2026</span> o agente conduziu e fechou um agendamento de reunião de ponta a ponta, sozinho. A tecnologia não é promessa de futuro — já fecha negócio hoje.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 — A OPORTUNIDADE (WHITE-LABEL) ===================== -->
+<section id="oportunidade">
+  <div class="wrap">
+    <p class="kicker"><span class="num">05</span> A proposta</p>
+    <h2>White-label: o Superclawman vira <span class="accent">produto da YACOWS</span>.</h2>
+    <p class="big">A YACOWS vende, sob sua própria marca, para sua própria base. Nós cuidamos da tecnologia nos bastidores — arquitetura, monitoramento, operação, engenharia de prompt e escalonamento. A YACOWS é dona do cliente, da marca e da relação comercial.</p>
+
+    <div class="flow">
+      <div class="node">
+        <div class="role">Frente</div>
+        <div class="name">YACOWS</div>
+        <div class="sub">Marca · distribuição · base de clientes · relação comercial</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node mid">
+        <div class="role">Motor</div>
+        <div class="name">Superclawman</div>
+        <div class="sub">IA multi-tenant · memória · execução · segurança · ops</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node">
+        <div class="role">Entrega</div>
+        <div class="name">Clientes finais</div>
+        <div class="sub">Agente de IA no WhatsApp, sob a marca YACOWS</div>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card"><div class="ic">🎯</div><h4>A YACOWS faz o que faz melhor</h4><p>Vender e cuidar do relacionamento. Sem precisar montar um time de engenharia de IA.</p></div>
+      <div class="card"><div class="ic">🔧</div><h4>Nós fazemos o que fazemos melhor</h4><p>Operar o agente em produção, com confiabilidade e custo controlado.</p></div>
+      <div class="card"><div class="ic">💸</div><h4>Receita recorrente</h4><p>Cada cliente ativado é mensalidade previsível — e margem alta — para a YACOWS.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 — ROLLOUT ===================== -->
+<section id="rollout">
+  <div class="wrap">
+    <p class="kicker"><span class="num">06</span> Como começa — você controla o ritmo</p>
+    <h2>Risco baixo, por fases.</h2>
+
+    <div class="timeline">
+      <div class="phase">
+        <div class="when">Fase 0<small>30–45 dias</small></div>
+        <div><h4>Piloto supervisionado</h4><p>1–2 clientes reais da base YACOWS. O agente opera com supervisão humana, métricas acompanhadas de perto. Prova de valor antes de qualquer compromisso de escala. Risco operacional próximo de zero.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Fase 1<small>mês 2–3</small></div>
+        <div><h4>Lançamento white-label</h4><p>Marca YACOWS aplicada, materiais de venda, onboarding padronizado. Primeiros ~10 clientes ativados. O agente passa de supervisionado a autônomo conforme a confiança cresce.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Fase 2<small>mês 4+</small></div>
+        <div><h4>Escala</h4><p>Playbook de vendas replicável, onboarding multi-tenant automatizado, 50+ clientes. A receita recorrente vira linha relevante no resultado da YACOWS.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 08 — CONFORMIDADE ===================== -->
+<section id="conformidade">
+  <div class="wrap">
+    <p class="kicker"><span class="num">07</span> Construído para durar</p>
+    <h2>Conformidade e segurança <span class="accent">por arquitetura</span>.</h2>
+    <p class="big">Cada cliente entregue assenta sobre uma base feita para não ser bloqueada — e para resistir a auditoria. É o que diferencia um ativo de longo prazo de uma operação frágil.</p>
+
+    <div class="grid g2">
+      <div class="card"><div class="ic">🟢</div><h4>Plataforma Oficial do WhatsApp Business</h4><p>Números e templates aprovados pela Meta, API Cloud oficial. Operação dentro das regras — não contra elas.</p></div>
+      <div class="card"><div class="ic">📜</div><h4>Opt-in e LGPD por design</h4><p>Consentimento e tratamento de dados embutidos no fluxo, não remendados depois.</p></div>
+      <div class="card"><div class="ic">✋</div><h4>Trava humana estrutural</h4><p>Nenhuma mensagem não-aprovada sai do sistema. A garantia é de arquitetura, não de configuração.</p></div>
+      <div class="card"><div class="ic">🔍</div><h4>Auditoria determinística</h4><p>Estado, permissão e trilha de auditoria são determinísticos. Tudo rastreável, tudo reproduzível.</p></div>
+    </div>
+
+    <p class="quote">Construído para <span class="grad">durar</span> — não para ser bloqueado.</p>
+  </div>
+</section>
+
+<!-- ===================== 09 — FECHAMENTO ===================== -->
+<section id="fechamento" style="border-bottom:none">
+  <div class="wrap">
+    <p class="kicker"><span class="num">08</span> Por que agora</p>
+    <h2>A janela está aberta — e é curta.</h2>
+    <p class="big">A migração do disparo para a IA conversacional está acontecendo agora, em 2026. Quem montar primeiro o canal white-label de agentes de IA no WhatsApp captura o mercado antes de ele virar commodity. A YACOWS tem a distribuição para fazer isso acontecer em meses, não anos.</p>
+
+    <div class="cta">
+      <h2>Vamos rodar um piloto com <span class="accent">um cliente real</span>.</h2>
+      <p class="big" style="margin:0 auto">Uma conversa de 30 minutos para alinhar o modelo, e um piloto com um cliente da base YACOWS. Sem compromisso de escala — só prova de valor.</p>
+      <a class="btn" href="mailto:paulo.ovidio@gmail.com?subject=Superclawman%20%C3%97%20YACOWS%20%E2%80%94%20Parceria%20White-label&amp;body=Lindolfo%2C%20vamos%20marcar%20a%20conversa%20de%2030%20min%3F">Marcar a conversa →</a>
+      <div class="contact">
+        <b>Paulo Ovídio</b> · Superclawman<br>
+        <a href="mailto:paulo.ovidio@gmail.com">paulo.ovidio@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="em">🧠⚡🦀🤘</div>
+    <p>Superclawman × YACOWS · Proposta de parceria white-label · Confidencial · Maio de 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
