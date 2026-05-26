@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Superclawman para Daniel Matias Pinto · Península</title>
+<style>
+  :root{
+    --bg:#050508;
+    --bg-2:#0a0a12;
+    --panel:#0e0e18;
+    --panel-2:#12121f;
+    --line:#1e1e2e;
+    --txt:#e8e8f0;
+    --muted:#9a9ab0;
+    --faint:#6a6a82;
+    --cyan:#2fe6e0;
+    --teal:#22d3b0;
+    --purple:#a06bff;
+    --amber:#ffb547;
+    --pink:#ff5d8f;
+    --glow-cyan:rgba(47,230,224,.35);
+    --glow-purple:rgba(160,107,255,.35);
+    --radius:16px;
+    --maxw:980px;
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 700px at 80% -10%, rgba(160,107,255,.08), transparent 60%),
+      radial-gradient(900px 600px at -10% 10%, rgba(47,230,224,.07), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:.1px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;padding:100px 0 80px;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(600px 300px at 50% 0%, rgba(47,230,224,.10), transparent 70%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--cyan);border:1px solid rgba(47,230,224,.25);
+    background:rgba(47,230,224,.05);padding:7px 14px;border-radius:999px;margin-bottom:28px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--glow-cyan)}
+  h1.title{font-size:clamp(40px,7vw,72px);line-height:1.04;margin:0 0 14px;font-weight:800;letter-spacing:-1.5px}
+  h1.title .grad{background:linear-gradient(100deg,var(--cyan),var(--purple) 55%,var(--amber));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(18px,2.3vw,22px);color:var(--muted);max-width:720px;margin:18px 0 0}
+  .epigraph{
+    margin-top:38px;padding:22px 26px;max-width:720px;
+    border-left:2px solid var(--cyan);border-radius:0 12px 12px 0;
+    background:linear-gradient(120deg,rgba(47,230,224,.04),transparent);
+    font-style:italic;color:var(--txt);font-size:clamp(16px,2vw,19px);line-height:1.55;
+  }
+  .epigraph cite{display:block;font-style:normal;color:var(--faint);font-size:13px;margin-top:10px;letter-spacing:.4px}
+  .sig{margin-top:34px;font-size:14px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+  .sig b{color:var(--txt);font-weight:600}
+  .sig .em{font-size:18px;letter-spacing:2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:68px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--purple);
+    margin:0 0 14px;display:flex;align-items:center;gap:12px}
+  .kicker .num{font-variant-numeric:tabular-nums;color:var(--faint);
+    border:1px solid var(--line);border-radius:8px;padding:2px 9px;font-size:11px}
+  h2{font-size:clamp(26px,3.8vw,38px);line-height:1.15;margin:0 0 18px;font-weight:800;letter-spacing:-.6px}
+  h2 .accent{color:var(--cyan)}
+  p.big{font-size:clamp(17px,1.9vw,19px);color:var(--muted);max-width:760px}
+  p{color:var(--muted)}
+  .strong{color:var(--txt);font-weight:600}
+
+  /* ---------- SPLIT (CHAT vs AGENT) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .col{border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .col.old{border-color:rgba(154,154,176,.18)}
+  .col.new{border-color:rgba(47,230,224,.28);box-shadow:0 0 40px -20px var(--glow-cyan)}
+  .col h3{margin:0 0 4px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  .col.old h3{color:var(--muted)}
+  .col.new h3{color:var(--cyan)}
+  .col .tag{font-size:12px;color:var(--faint);margin-bottom:18px}
+  .col ul{margin:0;padding:0;list-style:none}
+  .col li{padding:9px 0 9px 28px;position:relative;color:var(--muted);border-top:1px solid rgba(255,255,255,.04);font-size:15px}
+  .col li:first-child{border-top:none}
+  .col.old li::before{content:"—";position:absolute;left:0;color:var(--faint);font-weight:700}
+  .col.new li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+
+  /* ---------- PULL QUOTE ---------- */
+  .quote{margin:36px 0 0;padding:30px 34px;border-radius:var(--radius);
+    border:1px solid var(--line);border-left:3px solid var(--cyan);
+    background:linear-gradient(120deg,rgba(47,230,224,.06),rgba(160,107,255,.04));
+    font-size:clamp(19px,2.5vw,25px);font-weight:600;color:var(--txt);line-height:1.4;letter-spacing:-.3px}
+  .quote .grad{background:linear-gradient(100deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- CARD GRID ---------- */
+  .grid{display:grid;gap:16px;margin-top:30px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    transition:transform .18s ease,border-color .18s ease}
+  .card:hover{transform:translateY(-3px);border-color:rgba(47,230,224,.28)}
+  .card .ic{font-size:22px;margin-bottom:12px}
+  .card h4{margin:0 0 6px;font-size:16px;color:var(--txt);font-weight:700}
+  .card p{margin:0;font-size:14px;color:var(--muted)}
+
+  /* ---------- DAY TIMELINE ---------- */
+  .day{margin-top:30px;display:grid;gap:14px}
+  .moment{display:grid;grid-template-columns:130px 1fr;gap:24px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;background:linear-gradient(180deg,var(--panel),var(--bg-2));position:relative;overflow:hidden}
+  .moment::before{content:"";position:absolute;left:130px;top:24px;bottom:24px;width:1px;
+    background:linear-gradient(180deg,transparent,var(--cyan),transparent);opacity:.35}
+  .moment .time{font-variant-numeric:tabular-nums;font-weight:800;font-size:clamp(22px,3vw,28px);letter-spacing:-.5px;
+    background:linear-gradient(120deg,var(--cyan),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .moment .time small{display:block;font-weight:500;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--faint);margin-top:6px;-webkit-text-fill-color:var(--faint)}
+  .moment h4{margin:0 0 8px;font-size:17px;color:var(--txt);font-weight:700}
+  .moment p{margin:0;font-size:15px;color:var(--muted);line-height:1.6}
+  .moment .dialog{display:block;margin-top:10px;padding:10px 14px;border-left:2px solid rgba(47,230,224,.4);
+    border-radius:0 8px 8px 0;background:rgba(47,230,224,.04);color:var(--txt);font-size:14px;font-style:italic}
+
+  /* ---------- PHASE (rollout/pilot) ---------- */
+  .timeline{margin-top:30px;display:grid;gap:14px}
+  .phase{display:grid;grid-template-columns:130px 1fr;gap:20px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .phase .when{color:var(--purple);font-weight:800;font-size:14px}
+  .phase .when small{display:block;color:var(--faint);font-weight:500;font-size:12px;margin-top:4px}
+  .phase h4{margin:0 0 6px;font-size:17px;color:var(--txt)}
+  .phase p{margin:0;font-size:14px}
+
+  /* ---------- CTA ---------- */
+  .cta{margin-top:30px;text-align:center;border:1px solid rgba(47,230,224,.25);border-radius:var(--radius);
+    padding:50px 28px;background:
+      radial-gradient(500px 220px at 50% 0%, rgba(160,107,255,.10), transparent 70%),
+      linear-gradient(180deg,var(--panel),var(--bg))}
+  .cta h2{margin-bottom:10px}
+  .btn{display:inline-block;margin-top:22px;padding:15px 32px;border-radius:999px;font-weight:800;font-size:16px;color:#06121a;
+    background:linear-gradient(100deg,var(--cyan),var(--teal));box-shadow:0 10px 40px -12px var(--glow-cyan)}
+  .btn:hover{text-decoration:none;filter:brightness(1.07)}
+  .contact{margin-top:22px;font-size:14px;color:var(--muted)}
+  .contact b{color:var(--txt)}
+
+  footer{padding:40px 0 64px;text-align:center;color:var(--faint);font-size:12.5px}
+  footer .em{font-size:16px;letter-spacing:2px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .g4,.g3{grid-template-columns:repeat(2,1fr)}
+    .split{grid-template-columns:1fr}
+    .moment,.phase{grid-template-columns:1fr;gap:8px}
+    .moment::before{display:none}
+  }
+  @media(max-width:520px){
+    .g4,.g2,.g3{grid-template-columns:1fr}
+    section{padding:54px 0}
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .card,.col,.moment,.phase,.cta,.quote,.epigraph{box-shadow:none}
+    .btn{display:none}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Proposta Pessoal · Confidencial</span>
+    <h1 class="title">Um agente para o<br><span class="grad">CEO da Península</span>.</h1>
+    <p class="lead">Não é mais um chatbot. É um <strong class="strong">agente de IA pessoal</strong> — com memória de anos, voz, WhatsApp, e execução com aprovação. Construído para o ritmo do seu dia, não o do mercado.</p>
+
+    <blockquote class="epigraph">
+      "O tempo do mundo real é muito diferente do tempo do mercado financeiro."
+      <cite>— Daniel Mathias, em entrevista à ISTOÉ</cite>
+    </blockquote>
+
+    <div class="sig">
+      <span>Preparado para <b>Daniel Matias Pinto</b> · Península Participações</span>
+      <span>Maio de 2026</span>
+      <span class="em">🧠⚡🦀🤘</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 01 — O MOMENTO ===================== -->
+<section id="momento">
+  <div class="wrap">
+    <p class="kicker"><span class="num">01</span> O momento</p>
+    <h2>O escopo dobrou. <span class="accent">O dia continua com 24 horas.</span></h2>
+    <p class="big">O ofício de CIO concentra a mente em uma direção: mercados, teses, portfólio. O ofício de CEO de family office abre um leque inteiro — ativos estratégicos, conselhos, acionistas, jurídico, tributário, imobiliário, filantropia, sucessão. Cada um com seu vocabulário, sua memória e seu ritmo.</p>
+    <p class="big">Quando o tempo não estica, é a <strong class="strong">alavanca cognitiva</strong> que precisa crescer. Não outra ferramenta para abrir entre reuniões — uma camada que <em>já está com você</em>, em todas as reuniões, lendo o que você não tem tempo de ler, lembrando o que ninguém mais lembra, e preparando o que ainda nem entrou no calendário.</p>
+
+    <p class="quote">A diferença não é fazer mais. É <span class="grad">decidir melhor</span>, com tudo já lido, sintetizado e na ponta da língua — antes da reunião começar.</p>
+  </div>
+</section>
+
+<!-- ===================== 02 — O SALTO ===================== -->
+<section id="salto">
+  <div class="wrap">
+    <p class="kicker"><span class="num">02</span> O salto</p>
+    <h2>De <span class="accent">chat</span> para <span class="accent">agente</span>.</h2>
+    <p class="big">Você já experimentou a IA em modo conversa — abrir, perguntar, fechar. Útil, mas episódico. O que está realmente disponível hoje é uma categoria diferente: uma IA que <strong class="strong">vive ao seu lado</strong>, que lembra de tudo, e que trabalha enquanto você não está olhando.</p>
+
+    <div class="split">
+      <div class="col old">
+        <h3>IA como aplicativo</h3>
+        <div class="tag">Chat (Claude Cowork, ChatGPT)</div>
+        <ul>
+          <li>Você abre, pergunta, fecha — sessão termina ali</li>
+          <li>Memória curta, limitada à conversa</li>
+          <li>Roda no navegador do seu computador</li>
+          <li>Reativo: só responde quando você pergunta</li>
+          <li>Genérico: igual para qualquer usuário</li>
+          <li>Um canal só (chat)</li>
+        </ul>
+      </div>
+      <div class="col new">
+        <h3>IA como agente pessoal</h3>
+        <div class="tag">Superclawman</div>
+        <ul>
+          <li>Vive no <strong class="strong">seu WhatsApp</strong>, 24 horas, todos os dias</li>
+          <li>Memória persistente de <strong class="strong">anos</strong> — pessoas, decisões, documentos</li>
+          <li>Trabalha enquanto você dorme e na hora em que você acorda</li>
+          <li>Proativo: traz o que importa antes de você pedir</li>
+          <li>Aprende <em>você</em> — seu estilo, suas pessoas, suas prioridades</li>
+          <li>Multicanal: WhatsApp, voz, email, documentos, calendário</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="quote">A diferença entre um aplicativo que você abre e fecha — e um <span class="grad">colaborador silencioso</span> que segue ao seu lado o dia inteiro.</p>
+  </div>
+</section>
+
+<!-- ===================== 03 — SEU DIA ===================== -->
+<section id="dia">
+  <div class="wrap">
+    <p class="kicker"><span class="num">03</span> Seu dia, reescrito</p>
+    <h2>Não é especulação. É <span class="accent">como o dia muda</span> a partir do primeiro mês.</h2>
+    <p class="big">Cenas concretas. Em todas, o agente já está rodando, conectado ao seu WhatsApp, à sua agenda e aos canais que você autorizar.</p>
+
+    <div class="day">
+
+      <div class="moment">
+        <div class="time">06:30<small>Café</small></div>
+        <div>
+          <h4>O briefing da manhã chega no WhatsApp</h4>
+          <p>Mercados da noite em três linhas. Atualização sobre cada ativo estratégico — Carrefour, BRF, Wine, Oncoclínicas — só quando há algo. Agenda do dia com sinalização do que precisa de prep e do que já tem brief pronto. <em>Uma</em> coisa importante que poderia passar despercebida. Tempo de leitura: 4 minutos.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="time">08:50<small>Carro · Faria Lima</small></div>
+        <div>
+          <h4>Você pede preparação por voz, sem digitar</h4>
+          <p>Entre uma ligação e outra, na rua, você dita pelo WhatsApp.</p>
+          <span class="dialog">"Me prepare para o conselho do Wine às 11h. Quero o que ficou pendente da última, o que aconteceu desde então e os três pontos críticos."</span>
+          <p style="margin-top:10px">Noventa segundos depois o brief de uma página está no seu telefone — montado a partir das atas anteriores, dos comunicados do período e da memória das suas conversas sobre o tema.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="time">11:00<small>Conselho</small></div>
+        <div>
+          <h4>O agente acompanha a reunião — você não escreve nada</h4>
+          <p>Com gravação autorizada, o agente escuta em segundo plano. Ao final, devolve: decisões, donos, prazos, perguntas em aberto. Daqui a três meses, quando o tema voltar, está tudo lá — quem disse o quê, o que ficou combinado, o que mudou desde então.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="time">13:20<small>Almoço</small></div>
+        <div>
+          <h4>Uma carta de gestor de 38 páginas chega no email</h4>
+          <p>Você encaminha para o agente no WhatsApp. Em noventa segundos:</p>
+          <span class="dialog">"3 pontos que importam, 1 risco novo, 2 perguntas inteligentes para mandar ao gestor — quer que eu redija?"</span>
+          <p style="margin-top:10px">Você revisa, ajusta uma palavra, manda em trinta segundos. A carta original fica indexada — se aparecer algo correlato em junho, o agente liga os pontos sozinho.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="time">16:15<small>Conversa de acionistas</small></div>
+        <div>
+          <h4>"Quando foi a última vez que falamos sobre isso?"</h4>
+          <p>Num bate-papo com um dos acionistas, surge um assunto que já passou meses atrás. Você pergunta ao agente pelo WhatsApp.</p>
+          <span class="dialog">"21/03. Vocês fecharam que o orçamento do programa ficaria em torno do valor X, e ficou pendente decidir [tema]. Quer que eu retome com a equipe responsável?"</span>
+          <p style="margin-top:10px">Esse tipo de resgate, hoje, custa minutos vasculhando email e WhatsApp — quando é encontrado.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="time">19:40<small>Fim do dia</small></div>
+        <div>
+          <h4>O agente fecha o dia por você</h4>
+          <p>Quatro decisões registradas. Seis follow-ups gerados (aguardando sua aprovação para sair). Dois documentos preparados para sua leitura de amanhã — já com sumários. Sua manhã: bloco de uma hora reservado entre 9h e 10h para a leitura prioritária. Você pode desligar o telefone.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="time">Sáb 14:00<small>Casa de praia</small></div>
+        <div>
+          <h4>O agente respeita o fim de semana</h4>
+          <p>A CVM publicou uma nota que toca um dos seus investimentos. O agente percebe — e <em>não</em> te acorda.</p>
+          <span class="dialog">"Saiu uma nota da CVM relevante para [tema]. Resumo em 4 linhas — não é urgente. Pode ler segunda. Marco no brief de domingo à noite?"</span>
+          <p style="margin-top:10px">Ele aprende quando interromper e quando esperar. Esse julgamento é parte do produto, não acidente.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 — MEMÓRIA ===================== -->
+<section id="memoria">
+  <div class="wrap">
+    <p class="kicker"><span class="num">04</span> A memória que importa</p>
+    <h2>Ele lembra <span class="accent">do que ninguém mais lembra</span>.</h2>
+    <p class="big">A maior parte do tempo de um CEO desaparece reconstruindo contexto: <em>quem</em> disse <em>o quê</em>, <em>quando</em>, e <em>o que ficou combinado</em>. O agente vive nesse contexto. Cada conversa, cada documento, cada decisão entra numa memória estruturada — sua, privada, sob sua chave.</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="ic">👥</div><h4>Pessoas</h4><p>Acionistas, conselheiros, gestores, advogados, contadores, parceiros. Quem é quem, o que cada um já levantou, o que importa para cada um.</p></div>
+      <div class="card"><div class="ic">📑</div><h4>Decisões</h4><p>Cada decisão de conselho, de IC, de família. Donos, prazos, status. Tudo recuperável em segundos, anos depois.</p></div>
+      <div class="card"><div class="ic">📚</div><h4>Documentos</h4><p>Cartas de gestores, atas, term sheets, memos, comunicados. Lidos, indexados, ligados entre si.</p></div>
+      <div class="card"><div class="ic">🎯</div><h4>Suas preferências</h4><p>Seu estilo de escrita, suas pessoas críticas, o que você quer ver primeiro, o que delegar. Ele aprende.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 — ONDE ELE VIVE ===================== -->
+<section id="canais">
+  <div class="wrap">
+    <p class="kicker"><span class="num">05</span> Onde ele vive</p>
+    <h2>No <span class="accent">seu WhatsApp</span>. Brasileiro. Por voz, se preferir.</h2>
+    <p class="big">A maioria das ferramentas de IA pede que você vá até elas — abrir o navegador, lembrar a senha, lembrar do que estava fazendo. Esta vai até você. Ela mora exatamente onde você já passa o dia.</p>
+
+    <div class="grid g3">
+      <div class="card"><div class="ic">💬</div><h4>WhatsApp em primeiro lugar</h4><p>Canal principal. Texto, áudio, foto, PDF — tudo entra. Resposta no mesmo lugar, sem trocar de app.</p></div>
+      <div class="card"><div class="ic">🎙️</div><h4>Voz nativa</h4><p>Ditado fluido em português. Útil entre reuniões, no carro, na escada do prédio. Ele transcreve e age.</p></div>
+      <div class="card"><div class="ic">🇧🇷</div><h4>Brasileiro de verdade</h4><p>Pensado em português, não traduzido. Entende o jeito de escrever de Faria Lima e o ritmo das conversas brasileiras.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 — DISCRIÇÃO ===================== -->
+<section id="discricao">
+  <div class="wrap">
+    <p class="kicker"><span class="num">06</span> Discrição absoluta</p>
+    <h2>Seu agente, <span class="accent">seu servidor</span>, sua chave.</h2>
+    <p class="big">Family office não compartilha agente. Sua instância é dedicada — servidor próprio, isolado de qualquer outro cliente, sob seu controle. Você é o dono do dado e do dispositivo. Se um dia quiser desligar, leva tudo junto.</p>
+
+    <div class="grid g2">
+      <div class="card"><div class="ic">🔒</div><h4>Instância dedicada</h4><p>Servidor próprio, isolado por arquitetura. Sua memória nunca encontra a de outro cliente — nem por acidente, nem por bug.</p></div>
+      <div class="card"><div class="ic">🇧🇷</div><h4>Hospedagem onde fizer sentido</h4><p>Brasil ou exterior, conforme a preferência sua e dos seus advogados. LGPD por design.</p></div>
+      <div class="card"><div class="ic">📥</div><h4>Sua memória é sua</h4><p>Exportável a qualquer momento. Você nunca fica refém da plataforma.</p></div>
+      <div class="card"><div class="ic">🚫</div><h4>Nenhum dado seu treina modelo</h4><p>O processamento é via API com política contratual de não-retenção. Nada do que entra aqui sai para o mundo.</p></div>
+      <div class="card"><div class="ic">📜</div><h4>Auditoria estruturada</h4><p>Toda ação do agente — o que perguntou, o que respondeu, o que executou — gravada com timestamp. Tudo rastreável.</p></div>
+      <div class="card"><div class="ic">🎚️</div><h4>Você define o perímetro</h4><p>Quais canais ele lê, quais documentos pode tocar, quem pode falar com ele. Tudo configurável, tudo revogável.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 — APROVAÇÃO ===================== -->
+<section id="aprovacao">
+  <div class="wrap">
+    <p class="kicker"><span class="num">07</span> Aprovação humana sempre</p>
+    <h2>O agente <span class="accent">rascunha</span>. Você decide.</h2>
+    <p class="big">Por arquitetura — não por configuração — nenhuma mensagem externa sai, nenhum email é enviado, nenhuma reunião é marcada sem a sua aprovação explícita. Ou um padrão que você pré-autorizou e pode revogar a qualquer momento.</p>
+
+    <div class="grid g3">
+      <div class="card"><div class="ic">✋</div><h4>Trava estrutural</h4><p>Não é promessa. É o jeito como o sistema foi construído. Um bug no modelo de IA não consegue, por design, mandar nada em seu nome.</p></div>
+      <div class="card"><div class="ic">⚖️</div><h4>IA decide linguagem · você decide ação</h4><p>O modelo cuida do que é texto, síntese, classificação. O sistema cuida do que é estado, permissão, execução. O melhor dos dois mundos.</p></div>
+      <div class="card"><div class="ic">🧭</div><h4>Autonomia sob medida</h4><p>Comece supervisionado em tudo. Vá liberando o que ganhar sua confiança. Ele se torna mais autônomo no ritmo que você definir.</p></div>
+    </div>
+
+    <p class="quote">Nada importante acontece por engano. Tudo importante acontece <span class="grad">com sua mão</span>.</p>
+  </div>
+</section>
+
+<!-- ===================== 08 — COMO COMEÇA ===================== -->
+<section id="piloto">
+  <div class="wrap">
+    <p class="kicker"><span class="num">08</span> Como começa</p>
+    <h2>Um piloto silencioso. <span class="accent">Só você e o agente.</span></h2>
+    <p class="big">Nada de mexer com a equipe, com fornecedores, com processos. Duas a três semanas de uso pessoal seu, com o agente conectado apenas ao que você autorizar. No final, você sabe se vale. Sem compromisso de continuar.</p>
+
+    <div class="timeline">
+      <div class="phase">
+        <div class="when">Semana 1<small>Instalação</small></div>
+        <div><h4>Setup individual, dois encontros curtos</h4><p>Configuramos sua instância no servidor que escolher. WhatsApp dedicado. Integrações que você autorizar (calendário, email opcional). Ajustamos a memória inicial com o que você quiser que ele saiba sobre você, suas pessoas e seus temas — só isso.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Semana 2<small>Uso diário</small></div>
+        <div><h4>Briefing matinal, prep de reuniões, leitura de documentos</h4><p>Você passa a usar como rotina. Sem mudar nada no seu dia: ele se acopla ao que já existe. Acompanhamos de perto, ajustamos estilo, prioridades e o que ele deve ou não trazer.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Semana 3<small>Veredito</small></div>
+        <div><h4>Você decide se faz sentido continuar</h4><p>Se sim, conversamos sobre formato. Se não, a instância é desligada e os dados exportados ou apagados — como você quiser. Sem custo recorrente para descobrir se serve.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 09 — FECHAMENTO ===================== -->
+<section id="fechamento" style="border-bottom:none">
+  <div class="wrap">
+    <p class="kicker"><span class="num">09</span> Por que faz sentido conversar agora</p>
+    <h2>A cadeira é nova. <span class="accent">A janela é hoje.</span></h2>
+    <p class="big">A tecnologia que faz isso acontecer só ficou robusta o suficiente em 2026. Família e patrimônio são âncoras de longo prazo — mas a alavanca cognitiva do CEO se monta uma vez, no início do mandato, e capitaliza por anos. Trinta minutos numa primeira conversa bastam para você decidir se quer ver o piloto.</p>
+
+    <div class="cta">
+      <h2>Trinta minutos. <span class="accent">Sem deck.</span></h2>
+      <p class="big" style="margin:0 auto">Uma conversa direta — você descreve o seu dia, eu mostro onde o agente entra. Se fizer sentido, partimos para o piloto silencioso. Se não, ficou só a conversa.</p>
+      <a class="btn" href="https://wa.me/5511994917618?text=Ol%C3%A1%20Paulo%2C%20sou%20o%20Daniel%20da%20Pen%C3%ADnsula.%20Vi%20a%20proposta%20do%20Superclawman%20e%20gostaria%20de%20marcar%20a%20conversa%20de%2030%20min." target="_blank" rel="noopener">Marcar a conversa no WhatsApp →</a>
+      <div class="contact">
+        <b>Paulo Ovídio</b> · Superclawman<br>
+        <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a> · <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="em">🧠⚡🦀🤘</div>
+    <p>Superclawman para Daniel Matias Pinto · Península Participações · Confidencial · Maio de 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
