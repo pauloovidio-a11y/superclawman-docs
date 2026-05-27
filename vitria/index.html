@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>VTRIA × Superclawman + Claude Code · Proposta para Leo Monteiro</title>
+<style>
+  :root{
+    --bg:#050508;--bg-2:#0a0a12;--panel:#0e0e18;--panel-2:#12121f;--line:#1e1e2e;
+    --txt:#e8e8f0;--muted:#9a9ab0;--faint:#6a6a82;
+    --cyan:#2fe6e0;--teal:#22d3b0;--purple:#a06bff;--amber:#ffb547;--pink:#ff5d8f;
+    --glow-cyan:rgba(47,230,224,.35);--glow-purple:rgba(160,107,255,.35);
+    --radius:16px;--maxw:980px;font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;
+    background:
+      radial-gradient(1100px 700px at 80% -10%, rgba(160,107,255,.10), transparent 60%),
+      radial-gradient(900px 600px at -10% 10%, rgba(47,230,224,.08), transparent 55%),
+      var(--bg);
+    color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased;letter-spacing:.1px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;padding:100px 0 80px;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(600px 300px at 50% 0%, rgba(47,230,224,.12), transparent 70%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
+    letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);
+    border:1px solid rgba(47,230,224,.25);background:rgba(47,230,224,.05);
+    padding:7px 14px;border-radius:999px;margin-bottom:28px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--glow-cyan)}
+  h1.title{font-size:clamp(40px,7vw,72px);line-height:1.04;margin:0 0 14px;font-weight:800;letter-spacing:-1.5px}
+  h1.title .grad{background:linear-gradient(100deg,var(--cyan),var(--purple) 55%,var(--amber));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(18px,2.3vw,22px);color:var(--muted);max-width:740px;margin:18px 0 0}
+  .epigraph{margin-top:38px;padding:22px 26px;max-width:740px;
+    border-left:2px solid var(--cyan);border-radius:0 12px 12px 0;
+    background:linear-gradient(120deg,rgba(47,230,224,.04),transparent);
+    font-style:italic;color:var(--txt);font-size:clamp(16px,2vw,19px);line-height:1.55}
+  .epigraph cite{display:block;font-style:normal;color:var(--faint);font-size:13px;margin-top:10px;letter-spacing:.4px}
+  .sig{margin-top:34px;font-size:14px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+  .sig b{color:var(--txt);font-weight:600}
+  .sig .em{font-size:18px;letter-spacing:2px}
+
+  section{padding:68px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--purple);
+    margin:0 0 14px;display:flex;align-items:center;gap:12px}
+  .kicker .num{font-variant-numeric:tabular-nums;color:var(--faint);
+    border:1px solid var(--line);border-radius:8px;padding:2px 9px;font-size:11px}
+  h2{font-size:clamp(26px,3.8vw,38px);line-height:1.15;margin:0 0 18px;font-weight:800;letter-spacing:-.6px}
+  h2 .accent{color:var(--cyan)}
+  p.big{font-size:clamp(17px,1.9vw,19px);color:var(--muted);max-width:760px}
+  p{color:var(--muted)}
+  .strong{color:var(--txt);font-weight:600}
+
+  /* compare */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .col{border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .col.old{border-color:rgba(154,154,176,.18)}
+  .col.new{border-color:rgba(47,230,224,.28);box-shadow:0 0 40px -20px var(--glow-cyan)}
+  .col h3{margin:0 0 4px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  .col.old h3{color:var(--muted)}
+  .col.new h3{color:var(--cyan)}
+  .col .tag{font-size:12px;color:var(--faint);margin-bottom:18px}
+  .col ul{margin:0;padding:0;list-style:none}
+  .col li{padding:9px 0 9px 28px;position:relative;color:var(--muted);border-top:1px solid rgba(255,255,255,.04);font-size:15px}
+  .col li:first-child{border-top:none}
+  .col.old li::before{content:"—";position:absolute;left:0;color:var(--faint);font-weight:700}
+  .col.new li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+
+  /* quote */
+  .quote{margin:36px 0 0;padding:30px 34px;border-radius:var(--radius);
+    border:1px solid var(--line);border-left:3px solid var(--cyan);
+    background:linear-gradient(120deg,rgba(47,230,224,.06),rgba(160,107,255,.04));
+    font-size:clamp(19px,2.5vw,25px);font-weight:600;color:var(--txt);line-height:1.4;letter-spacing:-.3px}
+  .quote .grad{background:linear-gradient(100deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* cards */
+  .grid{display:grid;gap:16px;margin-top:30px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    transition:transform .18s ease,border-color .18s ease}
+  .card:hover{transform:translateY(-3px);border-color:rgba(47,230,224,.28)}
+  .card .ic{font-size:22px;margin-bottom:12px}
+  .card h4{margin:0 0 6px;font-size:16px;color:var(--txt);font-weight:700}
+  .card p{margin:0;font-size:14px;color:var(--muted)}
+
+  /* stack diagram */
+  .stack{margin-top:30px;display:flex;flex-direction:column;gap:10px}
+  .stack .actors{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .stack .pillar{border:1px solid var(--line);border-radius:12px;padding:16px 12px;text-align:center;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));font-weight:700;font-size:14px;color:var(--txt)}
+  .stack .pillar .role{display:block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint);margin-bottom:6px;font-weight:500}
+  .stack .band{border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;font-weight:800;font-size:15px}
+  .stack .band.agent{border-color:rgba(47,230,224,.32);background:linear-gradient(180deg,rgba(47,230,224,.07),transparent);color:var(--cyan);
+    box-shadow:0 0 36px -22px var(--glow-cyan)}
+  .stack .band.eng{border-color:rgba(160,107,255,.30);background:linear-gradient(180deg,rgba(160,107,255,.07),transparent);color:var(--purple);
+    box-shadow:0 0 36px -22px var(--glow-purple)}
+  .stack .band small{display:block;font-weight:500;color:var(--muted);margin-top:6px;font-size:13px;letter-spacing:.1px}
+  .stack .infra{text-align:center;color:var(--faint);font-size:13px;font-style:italic;padding:4px}
+  .stack .glue{text-align:center;color:var(--faint);font-size:18px;line-height:1;opacity:.5}
+
+  /* phase / pilot */
+  .timeline{margin-top:30px;display:grid;gap:14px}
+  .phase{display:grid;grid-template-columns:130px 1fr;gap:20px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .phase .when{color:var(--purple);font-weight:800;font-size:14px}
+  .phase .when small{display:block;color:var(--faint);font-weight:500;font-size:12px;margin-top:4px}
+  .phase h4{margin:0 0 6px;font-size:17px;color:var(--txt)}
+  .phase p{margin:0;font-size:14px}
+
+  /* CTA */
+  .cta{margin-top:30px;text-align:center;border:1px solid rgba(47,230,224,.25);border-radius:var(--radius);
+    padding:50px 28px;background:
+      radial-gradient(500px 220px at 50% 0%, rgba(160,107,255,.10), transparent 70%),
+      linear-gradient(180deg,var(--panel),var(--bg))}
+  .cta h2{margin-bottom:10px}
+  .btn{display:inline-block;margin-top:22px;padding:15px 32px;border-radius:999px;font-weight:800;font-size:16px;color:#06121a;
+    background:linear-gradient(100deg,var(--cyan),var(--teal));box-shadow:0 10px 40px -12px var(--glow-cyan)}
+  .btn:hover{text-decoration:none;filter:brightness(1.07)}
+  .contact{margin-top:22px;font-size:14px;color:var(--muted)}
+  .contact b{color:var(--txt)}
+
+  footer{padding:40px 0 64px;text-align:center;color:var(--faint);font-size:12.5px}
+  footer .em{font-size:16px;letter-spacing:2px}
+
+  @media(max-width:860px){
+    .g4,.g3{grid-template-columns:repeat(2,1fr)}
+    .split,.stack .actors{grid-template-columns:repeat(2,1fr)}
+    .phase{grid-template-columns:1fr;gap:8px}
+  }
+  @media(max-width:520px){
+    .g4,.g2,.g3,.stack .actors{grid-template-columns:1fr}
+    section{padding:54px 0}
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .card,.col,.phase,.cta,.quote,.epigraph,.stack .pillar,.stack .band{box-shadow:none}
+    .btn{display:none}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Proposta · Confidencial</span>
+    <h1 class="title">VTRIA <span class="grad">×</span><br>Superclawman <span class="grad">+</span> Claude Code.</h1>
+    <p class="lead">A camada técnica que falta para a VTRIA dar o próximo salto: <strong class="strong">engenharia de produção com velocidade de IA</strong> e um <strong class="strong">agente de verdade</strong> por loja — não um bot.</p>
+
+    <blockquote class="epigraph">
+      "Uma rede inteligente para vender moda local com a mesma facilidade de pedir comida pelo celular."
+      <cite>— VTRIA · Como Funciona</cite>
+    </blockquote>
+
+    <div class="sig">
+      <span>Preparado para <b>Leo Monteiro</b> · VTRIA · Ellamoove</span>
+      <span>Maio de 2026</span>
+      <span class="em">🧠⚡🦀🤘</span>
+    </div>
+  </div>
+</header>
+
+<!-- 01 — O QUE VOCÊ JÁ FEZ -->
+<section id="status">
+  <div class="wrap">
+    <p class="kicker"><span class="num">01</span> O que você já fez</p>
+    <h2>A tese está <span class="accent">certa e bem desenhada</span>.</h2>
+    <p class="big">Antes de qualquer coisa: a VTRIA é uma tese forte. Quatro atores claros, fluxo de pagamento com <em>split</em> imediato pelo banco digital, loja própria + app + delivery + IA + gestão em uma única operação. Ellamoove já no ar, Região da 44 mapeada como pista de decolagem. Você acertou no problema, no público e no modelo.</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="ic">🏪</div><h4>Lojista</h4><p>Domínio próprio, ERP, SEFAZ, Correios, WhatsApp, estoque e pedidos integrados. Produto cadastrado uma vez, venda em todos os canais.</p></div>
+      <div class="card"><div class="ic">🛍️</div><h4>Cliente</h4><p>App VTRIA. Look completo com a facilidade de um hambúrguer — escolha, compra, entrega local, troca assistida, devolução em 7 dias.</p></div>
+      <div class="card"><div class="ic">🛵</div><h4>Motoentregador</h4><p>App próprio, rotas, ganhos claros, 90% do frete, clube de benefícios, suporte por IA.</p></div>
+      <div class="card"><div class="ic">📊</div><h4>VTRIA central</h4><p>Dashboard em tempo real da rede inteira. Lojas, pedidos, entregas, pagamentos. Banco digital orquestra o <em>split</em>.</p></div>
+    </div>
+
+    <p class="quote">A pergunta não é mais <span class="grad">"o quê?"</span>. É <span class="grad">"com qual motor?"</span>.</p>
+  </div>
+</section>
+
+<!-- 02 — INFLEXÃO -->
+<section id="inflexao">
+  <div class="wrap">
+    <p class="kicker"><span class="num">02</span> O ponto de inflexão</p>
+    <h2>O que te trouxe até aqui <span class="accent">não te leva</span> aos próximos 120 dias.</h2>
+    <p class="big">Lovable e um BSP genérico de WhatsApp foram a escolha certa para chegar até a primeira loja viva. Mas o que vem agora — multi-tenant em escala, integração SEFAZ/Correios/banco digital com <em>split</em>, app de cliente + app de motoentregador + gestão de loja em produção, dashboard em tempo real para centenas de lojistas, IA de verdade para cada uma — está acima do teto de uma plataforma <em>no-code</em>.</p>
+    <p class="big">Não é crítica ao que foi feito. É reconhecimento de que <strong class="strong">a curva da Região 44 → Brasil exige um motor à altura</strong>. Engenharia profissional. Mas com a velocidade de IA que o no-code prometeu — e agora cumpre, no nível certo.</p>
+  </div>
+</section>
+
+<!-- 03 — A CAMADA QUE FALTA -->
+<section id="camada">
+  <div class="wrap">
+    <p class="kicker"><span class="num">03</span> A camada que falta</p>
+    <h2>Duas peças. <span class="accent">Encaixe perfeito</span> na VTRIA.</h2>
+    <p class="big">Nada de substituir o que está bom. Adicionar a camada que falta para a tese decolar.</p>
+
+    <div class="grid g2">
+      <div class="card" style="border-color:rgba(47,230,224,.28)">
+        <div class="ic" style="color:var(--cyan)">🧠</div>
+        <h4>Superclawman — o agente por loja</h4>
+        <p>Um agente de IA de verdade por lojista. Memória persistente (cliente, estoque, vendas, devoluções), multimodal (texto, voz, imagem, PDF), aprovação humana por arquitetura, multi-tenant por design — exatamente o formato que a VTRIA já é. Brasileiro, WhatsApp-first. Em produção hoje.</p>
+      </div>
+      <div class="card" style="border-color:rgba(160,107,255,.28)">
+        <div class="ic" style="color:var(--purple)">⚙️</div>
+        <h4>Claude Code — engenharia profissional com velocidade de IA</h4>
+        <p>Não é "no-code". É código real, em qualquer stack, com arquitetura sob medida — sem lock-in. A mesma velocidade que o Lovable entrega no protótipo, agora entregue no produto que vai pra App Store, pra produção de centenas de tenants, pras integrações de SEFAZ, Correios e banco. Um time pequeno, no ritmo de uma agência grande.</p>
+      </div>
+    </div>
+
+    <p class="big" style="margin-top:30px"><strong class="strong">Como elas se encaixam na arquitetura da VTRIA:</strong></p>
+
+    <div class="stack">
+      <div class="actors">
+        <div class="pillar"><span class="role">Atores</span>Lojista</div>
+        <div class="pillar"><span class="role">Atores</span>Cliente</div>
+        <div class="pillar"><span class="role">Atores</span>Motoentregador</div>
+        <div class="pillar"><span class="role">Atores</span>VTRIA central</div>
+      </div>
+      <div class="glue">▲</div>
+      <div class="band agent">Superclawman · agente de IA por <em>tenant</em><small>memória · voz · multimodal · aprovação humana · WhatsApp-first</small></div>
+      <div class="glue">▲</div>
+      <div class="band eng">Claude Code · engenharia da plataforma<small>web · apps nativos · backend · integrações · dashboards</small></div>
+      <div class="glue">▲</div>
+      <div class="infra">Sua escolha de infra · sem lock-in · qualquer BSP (Hermes, Cloud API direto), qualquer banco, qualquer ERP</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — SUPERCLAWMAN NA VTRIA -->
+<section id="sc-na-vtria">
+  <div class="wrap">
+    <p class="kicker"><span class="num">04</span> Onde o Superclawman entra</p>
+    <h2>Um agente <span class="accent">por ator</span> — não um bot.</h2>
+    <p class="big">A página 6 do seu deck já desenhou o caminho — comandos de voz, ERP conectado, gestão por IA. O Superclawman é o que faz aquela tela parar de ser <em>mockup</em>. E mais: o mesmo agente, multi-tenant, atende os outros três atores da rede.</p>
+
+    <div class="grid g2">
+      <div class="card"><div class="ic">🏪</div><h4>Para o lojista — "IA e gestão de verdade"</h4><p>Voz no WhatsApp para gerar relatório de vendas, alertar estoque baixo, prever reposição, excluir produto, sugerir campanha — mas com memória da loja, do estoque, do cliente fiel, do que foi combinado com o gestor semana passada. Não é CRUD por voz. É um assistente que <em>conhece</em> a loja.</p></div>
+      <div class="card"><div class="ic">🛍️</div><h4>Para o cliente final — comprar pelo WhatsApp</h4><p>"Comprar um look completo com a facilidade de pedir um hambúrguer" — não só no app, no WhatsApp da loja também. IA que reconhece o cliente, mostra catálogo, sugere look, negocia, acompanha entrega, ajuda na troca. O atendimento humano vira opcional, não gargalo.</p></div>
+      <div class="card"><div class="ic">🛵</div><h4>Para o motoentregador — "Suporte IA" do app</h4><p>Aquele "Suporte IA" que aparece no card do app — operacional de verdade. Tira dúvida de rota, calcula ganho da semana, sinaliza problema, conecta com a operação central sem fila de atendimento. WhatsApp, voz, na palma.</p></div>
+      <div class="card"><div class="ic">📊</div><h4>Para a VTRIA central — agente de rede</h4><p>O agente que monitora as centenas de lojas em tempo real, percebe anomalias antes do dashboard piscar, sugere campanha cruzada entre lojistas com perfis complementares, te avisa no WhatsApp o que precisa da sua atenção — e o que não precisa.</p></div>
+    </div>
+
+    <p class="quote">Cada loja com <span class="grad">seu próprio agente</span>. Mesma plataforma, isolamento por arquitetura, identidade da loja por cima. É exatamente o formato da VTRIA.</p>
+  </div>
+</section>
+
+<!-- 05 — CLAUDE CODE NA CONSTRUÇÃO -->
+<section id="cc-na-vtria">
+  <div class="wrap">
+    <p class="kicker"><span class="num">05</span> Onde o Claude Code entra</p>
+    <h2>Tudo o que precisa <span class="accent">ser construído</span> — na velocidade certa.</h2>
+    <p class="big">O "construtor de loja guiado por IA" da sua página 3 não é o teto do Claude Code — é o piso. Claude Code é o que constrói o construtor, a loja, o app, a integração, o dashboard. Código real, em qualquer stack, sem lock-in, em ritmo de agência grande.</p>
+
+    <div class="grid g3">
+      <div class="card"><div class="ic">🌐</div><h4>Web da loja</h4><p>Domínio próprio, performance, SEO, hospedagem onde fizer sentido. Pronto para indexar, escalar e personalizar por lojista.</p></div>
+      <div class="card"><div class="ic">📱</div><h4>App de venda VTRIA</h4><p>iOS + Android — Flutter, React Native ou nativo, conforme decisão arquitetural. Pronto para a loja oficial das stores.</p></div>
+      <div class="card"><div class="ic">🛵</div><h4>App do motoentregador</h4><p>Rotas, ganhos, suporte IA integrado, clube de benefícios. App próprio, identidade VTRIA, GPS confiável.</p></div>
+      <div class="card"><div class="ic">⚙️</div><h4>Gestão do lojista</h4><p>Dashboard web + comandos por voz/WhatsApp via Superclawman. Tudo o que a página 6 promete, em produção.</p></div>
+      <div class="card"><div class="ic">🔌</div><h4>Integrações</h4><p>ERP, SEFAZ, Correios, WhatsApp Business (Hermes, Cloud API ou outro), banco digital com <em>split</em> em tempo real.</p></div>
+      <div class="card"><div class="ic">📈</div><h4>Dashboard VTRIA central</h4><p>Tempo real para centenas de lojas. Métricas, alertas inteligentes, ações cruzadas. Conectado ao agente da rede.</p></div>
+    </div>
+
+    <p class="quote">Construído na <span class="grad">velocidade de uma agência grande</span> — por um time muito menor. É essa a virada que o Claude Code permite.</p>
+  </div>
+</section>
+
+<!-- 06 — LOVABLE vs CLAUDE CODE -->
+<section id="lovable">
+  <div class="wrap">
+    <p class="kicker"><span class="num">06</span> Lovable vs Claude Code</p>
+    <h2>Lovable foi a escolha certa para <span class="accent">chegar até aqui</span>.</h2>
+    <p class="big">É honesto reconhecer: Lovable abriu uma janela real — colocou a primeira loja no ar, validou tese, deu velocidade no estágio de protótipo. Mas o teto vem em produção. As análises públicas convergem: ~60–70% de prontidão para produção, <em>lock-in</em> no Supabase, abstrações que limitam customização, fragilidade conforme o produto cresce. Funciona até a primeira loja. Trava no salto para mil.</p>
+
+    <div class="split">
+      <div class="col old">
+        <h3>Lovable (e similares)</h3>
+        <div class="tag">Constrói para você por <em>prompt</em></div>
+        <ul>
+          <li>Excelente até o MVP — vitrine, painel simples, primeira loja</li>
+          <li>Teto ~60–70% de prontidão de produção</li>
+          <li>Backend amarrado ao Supabase — você não é dono do dado</li>
+          <li>Customização limitada pelo modelo da plataforma</li>
+          <li>Cresce frágil — lógica concentrada onde não devia</li>
+          <li>Difícil chegar à App Store e a integrações complexas</li>
+        </ul>
+      </div>
+      <div class="col new">
+        <h3>Claude Code</h3>
+        <div class="tag">Escreve código real <em>com você</em></div>
+        <ul>
+          <li>Código real, em qualquer stack que você escolher</li>
+          <li>Produção 100% — App Store, Play Store, web e backend</li>
+          <li>Sem <em>lock-in</em> — banco, hospedagem e dados são seus</li>
+          <li>Arquitetura sob medida para a VTRIA (multi-tenant, ERP, banco, split)</li>
+          <li>Escala para milhares de lojas sem reescrita</li>
+          <li>Time pequeno entregando como agência grande, em ritmo de IA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 — HERMES vs SUPERCLAWMAN -->
+<section id="hermes">
+  <div class="wrap">
+    <p class="kicker"><span class="num">07</span> Hermes (ou qualquer BSP) vs Superclawman</p>
+    <h2>O <span class="accent">cano</span> é commodity. O <span class="accent">cérebro</span> não é.</h2>
+    <p class="big">Hermes — como qualquer provedor de WhatsApp Business — entrega o canal: mensagens entram e saem, números aprovados pela Meta, infra de envio. É plumbing. Necessário, mas commodity. O <em>diferencial competitivo da VTRIA</em> não mora aí.</p>
+    <p class="big">Superclawman mora <em>em cima</em> do canal. Mantém a memória, conduz a conversa, executa com aprovação, aprende cada loja. É o cérebro multi-tenant que transforma o WhatsApp da loja em produto. E a melhor parte: <strong class="strong">você não precisa trocar nada por baixo</strong> — SC anda em cima do Hermes hoje, da Cloud API da Meta amanhã, do que vier depois. O agente é seu. O canal segue sendo escolha sua.</p>
+  </div>
+</section>
+
+<!-- 08 — EMBEDDED -->
+<section id="embedded">
+  <div class="wrap">
+    <p class="kicker"><span class="num">08</span> O ângulo <em>embedded</em></p>
+    <h2>Sua monetização <span class="accent">sobe um andar</span>.</h2>
+    <p class="big">Olhando a sua tabela de planos: o tier de R$ 399 — "IA, Meta e marketing integrado" — hoje é mais promessa do que produto. Com Superclawman por dentro, vira o produto premium de fato: cada loja contratante ganha <em>seu próprio agente</em>, sob a marca VTRIA, integrado ao ERP, ao WhatsApp e à operação. White-label completo.</p>
+
+    <div class="grid g3">
+      <div class="card"><div class="ic">🏷️</div><h4>Marca VTRIA</h4><p>O agente aparece como produto da VTRIA. Identidade, voz, posicionamento — seus. A tecnologia, nossa.</p></div>
+      <div class="card"><div class="ic">💰</div><h4>ARPU sobe</h4><p>Lojistas migram do tier básico para o de IA — porque o produto agora justifica o preço. Receita recorrente sua.</p></div>
+      <div class="card"><div class="ic">🚀</div><h4>Defensável</h4><p>Concorrência <em>no-code</em> não chega aqui. O moat passa a ser produto, não só catálogo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 — COMO COMEÇA -->
+<section id="piloto">
+  <div class="wrap">
+    <p class="kicker"><span class="num">09</span> Como começa</p>
+    <h2>Uma loja viva. <span class="accent">Três a quatro semanas.</span></h2>
+    <p class="big">Sem reescrever a VTRIA. Sem mexer com o time que você já tem. Pegamos uma loja já no ar — Ellamoove ou outra — e plugamos o agente Superclawman. O que faltar para fechar o fluxo <em>end-to-end</em> (do WhatsApp do cliente ao <em>split</em> no banco passando pela gestão do lojista) a gente constrói com Claude Code, na frente. Você vê funcionando antes de comprometer escala.</p>
+
+    <div class="timeline">
+      <div class="phase">
+        <div class="when">Semana 1<small>Instalação</small></div>
+        <div><h4>Setup do agente e do escopo</h4><p>Instância Superclawman dedicada para a loja-piloto. Conexão com o WhatsApp da loja (Hermes ou Cloud API). Integração inicial com o ERP, catálogo e estoque. Definimos juntos os fluxos críticos do piloto.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Semanas 2–3<small>Operação real</small></div>
+        <div><h4>Cliente, loja e operação rodando</h4><p>Atendimento + venda pelo WhatsApp da loja com IA. Comandos de voz da gestora funcionando. O que faltar de UI, app ou integração — Claude Code constrói em paralelo, com você acompanhando. Métricas acompanhadas dia a dia.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Semana 4<small>Veredito</small></div>
+        <div><h4>Você decide se escala</h4><p>Dado em mãos, fluxo gravado, lojista entrevistado. Você decide se faz sentido ativar mais cinco lojas, ou mais cinquenta. Se não fizer sentido, a instância é desligada e seguimos colegas. Sem compromisso de continuidade pra descobrir se vale.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 — FECHAMENTO -->
+<section id="fechamento" style="border-bottom:none">
+  <div class="wrap">
+    <p class="kicker"><span class="num">10</span> Por que agora</p>
+    <h2>A VTRIA já está no ar. <span class="accent">A 44 vem em 120 dias.</span></h2>
+    <p class="big">Você mesmo escreveu: "VTRIA já está em funcionamento e pronta para escalar." A janela de ativação na Região 44 é a próxima estação — e depois dela, a tração vai bater forte. Se o motor técnico subir <em>agora</em>, a curva tem onde aterrissar. Se não, o gargalo vai aparecer exatamente no pico. Por isso vale conversar nessas próximas semanas, não nas próximas seis.</p>
+
+    <div class="cta">
+      <h2>Trinta minutos. <span class="accent">Sem <em>deck</em>.</span></h2>
+      <p class="big" style="margin:0 auto">Você abre o seu fluxo da VTRIA, eu mostro onde Superclawman e Claude Code se plugam. Se fizer sentido, partimos para o piloto de uma loja. Se não, ficou só a conversa — e duas pessoas que se conhecem melhor.</p>
+      <a class="btn" href="https://wa.me/5511994917618?text=Ol%C3%A1%20Paulo%2C%20sou%20o%20Leo%20da%20VTRIA.%20Vi%20a%20proposta%20Superclawman%20%2B%20Claude%20Code%20e%20gostaria%20de%20marcar%20a%20conversa%20de%2030%20min." target="_blank" rel="noopener">Marcar a conversa no WhatsApp →</a>
+      <div class="contact">
+        <b>Paulo Ovídio</b> · Superclawman<br>
+        <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a> · <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="em">🧠⚡🦀🤘</div>
+    <p>VTRIA × Superclawman + Claude Code · Proposta para Leo Monteiro · Confidencial · Maio de 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
