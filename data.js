@@ -204,7 +204,7 @@ window.INVENTORY = {
             sandman: "Sandman — Master Blueprint + Sandman — Canonical Architecture in Notion.",
             superclawman: "Superclawman — Master Blueprint (Canonical) in Notion. SUPERCLAWMAN_FINAL_WHATSAPP_CANONICAL_v1.md on disk.",
             ktulu: "KTULU_CANONICAL_v1.0.md (30KB, 2026-05-15) on Superclawman + Notion mirror. Sibling to Superclawman canonical.",
-            jr: "Superclawman Watchdog v2 / Jr — Canonical Architecture v1.36 in Notion (LIVE page 364085df-9ff8-8187-bc86-d2c69168799a; two earlier duplicate pages — v1.30 362085df + v1.32 363085df — consolidated + trashed 2026-05-18). Source of truth is the workspace markdown SUPERCLAWMAN_WATCHDOG_JR_CANONICAL_v1.md (Notion = read-only published view). Recent arc: lighter-SC port sprint (v1.32) → Phase 0d.7 design decisions (v1.35) → pre-0d.7 hardening (v1.36, capability inventory + primary-centric framing + WA round-trip detection)."
+            jr: "Superclawman Watchdog v2 / Jr — Canonical Architecture v1.44 in Notion (LIVE page 364085df-9ff8-8187-bc86-d2c69168799a; two earlier duplicate pages — v1.30 362085df + v1.32 363085df — consolidated + trashed 2026-05-18). Source of truth is the workspace markdown SUPERCLAWMAN_WATCHDOG_JR_CANONICAL_v1.md (Notion = read-only published view; v1.38–v1.43 intermediate entries backfill into Notion is queued). Recent arc: lighter-SC port sprint (v1.32) → Phase 0d.7 design decisions (v1.35) → pre-0d.7 hardening (v1.36) → Phase 0d.7 multi-primary work + stall-watch fix (v1.38–v1.44, through 2026-05-28)."
           }
         },
         {
@@ -401,7 +401,7 @@ window.INVENTORY = {
         { name: "Inbound style observers / commitment tracker", status: { sandman: "no", superclawman: "yes", ktulu: "planned", jr: "no" },
           notes: { default: "Per-contact style learning + promise tracking.", sandman: "Not installed.", superclawman: "Both active.", ktulu: "Phase 2.", jr: "N/A — single operator." } },
         { name: "Per-agent provenance scopes (memory_scopes.py)", status: { sandman: "no", superclawman: "yes", ktulu: "no", jr: "no" },
-          notes: { default: "agent_scope as provenance metadata on every memory row (NOT cross-agent ACL — each agent has its own brain).", sandman: "Own brain — separate store.", superclawman: "memory_scopes.py + migrate_agent_scope.py + memory_scopes_cli.py + memory-engine-v2 --agent wiring. 40,634 rows backfilled to [tenant:default:org] 2026-05-16. Doctrinal reframe (post-multi-session coord): scope is who-wrote-this, not who-can-read-this. Strict reader rule still useful within-store for asymmetric reads (e.g. Jr→Sandman in failover). `tenant:<id>:<agent>` namespace composes for §C.3 SaaS prep. Memory canonical v1.41 + post-plan v1.10. Phase 4 Stages 1+2 shipped (code); Stages 3+4 are observation (not code).", ktulu: "Own brain — separate store.", jr: "Own brain — separate store." } }
+          notes: { default: "agent_scope as provenance metadata on every memory row (NOT cross-agent ACL — each agent has its own brain).", sandman: "Own brain — separate store.", superclawman: "memory_scopes.py + migrate_agent_scope.py + memory_scopes_cli.py + memory-engine-v2 --agent wiring. 40,634 rows backfilled to [tenant:default:org] 2026-05-16. Doctrinal reframe (post-multi-session coord): scope is who-wrote-this, not who-can-read-this. Strict reader rule still useful within-store for asymmetric reads (e.g. Jr→Sandman in failover). `tenant:<id>:<agent>` namespace composes for §C.3 SaaS prep. Memory canonical v1.49 + post-plan v1.10 🔒 CLOSED (v1.42–v1.49 added daily learning-health daemon + sleep_consolidate outage fix + chat_index dedup + §C.1 verdict gate; live store 41,085 rows). Phase 4 Stages 1+2 shipped (code); Stages 3+4 are observation (not code).", ktulu: "Own brain — separate store.", jr: "Own brain — separate store." } }
       ]
     },
 
@@ -560,7 +560,7 @@ window.INVENTORY = {
         { name: "Sales pipeline (beautiful-websites kit)", status: { sandman: "partial", superclawman: "yes", ktulu: "yes", jr: "no" },
           notes: { default: "5-skill sales pipeline.", sandman: "Provides google-maps + firecrawl-cli + gog skills.", superclawman: "Lives here. Drives Ktulu via dispatcher.", ktulu: "RECEIVES prospect queue from BW kit + drips outbound (the destination for the pipeline's WhatsApp follow-ups).", jr: "Out of scope." } },
         { name: "Notion Docs hub", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
-          notes: { default: "Canonical docs hub.", sandman: "Sandman Docs page in Notion.", superclawman: "Superclawman Docs hub at 355085df9ff88122b7fdfa633a08a7b3.", ktulu: "Mirror under Superclawman Docs (planned).", jr: "Canonical at 'Superclawman Watchdog v2 / Jr — Canonical Architecture v1.36' (live page 364085df…; duplicate v1.30+v1.32 pages trashed 2026-05-18)." } }
+          notes: { default: "Canonical docs hub.", sandman: "Sandman Docs page in Notion.", superclawman: "Superclawman Docs hub at 355085df9ff88122b7fdfa633a08a7b3.", ktulu: "Mirror under Superclawman Docs (planned).", jr: "Canonical at 'Superclawman Watchdog v2 / Jr — Canonical Architecture v1.44' (live page 364085df…; duplicate v1.30+v1.32 pages trashed 2026-05-18)." } }
       ]
     }
   ],
