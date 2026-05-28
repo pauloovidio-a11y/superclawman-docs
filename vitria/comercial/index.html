@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>VTRIA × Superclawman + Claude Code · Proposta Comercial · Leo Monteiro</title>
+<style>
+  :root{
+    --bg:#050508;--bg-2:#0a0a12;--panel:#0e0e18;--panel-2:#12121f;--line:#1e1e2e;
+    --txt:#e8e8f0;--muted:#9a9ab0;--faint:#6a6a82;
+    --cyan:#2fe6e0;--teal:#22d3b0;--purple:#a06bff;--amber:#ffb547;--pink:#ff5d8f;
+    --glow-cyan:rgba(47,230,224,.35);--glow-purple:rgba(160,107,255,.35);
+    --radius:16px;--maxw:980px;font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;
+    background:
+      radial-gradient(1100px 700px at 80% -10%, rgba(160,107,255,.10), transparent 60%),
+      radial-gradient(900px 600px at -10% 10%, rgba(47,230,224,.08), transparent 55%),
+      var(--bg);
+    color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased;letter-spacing:.1px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:96px 0 72px;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(600px 300px at 50% 0%, rgba(47,230,224,.12), transparent 70%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
+    letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);
+    border:1px solid rgba(47,230,224,.25);background:rgba(47,230,224,.05);
+    padding:7px 14px;border-radius:999px;margin-bottom:28px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--glow-cyan)}
+  h1.title{font-size:clamp(40px,7vw,72px);line-height:1.04;margin:0 0 14px;font-weight:800;letter-spacing:-1.5px}
+  h1.title .grad{background:linear-gradient(100deg,var(--cyan),var(--purple) 55%,var(--amber));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(18px,2.3vw,22px);color:var(--muted);max-width:740px;margin:18px 0 0}
+  .sig{margin-top:34px;font-size:14px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+  .sig b{color:var(--txt);font-weight:600}
+  .sig .em{font-size:18px;letter-spacing:2px}
+
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--purple);
+    margin:0 0 14px;display:flex;align-items:center;gap:12px}
+  .kicker .num{font-variant-numeric:tabular-nums;color:var(--faint);
+    border:1px solid var(--line);border-radius:8px;padding:2px 9px;font-size:11px}
+  h2{font-size:clamp(26px,3.8vw,38px);line-height:1.15;margin:0 0 18px;font-weight:800;letter-spacing:-.6px}
+  h2 .accent{color:var(--cyan)}
+  p.big{font-size:clamp(17px,1.9vw,19px);color:var(--muted);max-width:760px}
+  p{color:var(--muted)}
+  .strong{color:var(--txt);font-weight:600}
+
+  /* included list */
+  .included{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}
+  .included li{list-style:none;padding:14px 16px 14px 44px;border:1px solid var(--line);border-radius:12px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));color:var(--txt);font-size:15px;position:relative}
+  .included li::before{content:"✓";position:absolute;left:16px;top:13px;color:var(--teal);font-weight:800}
+  .included li small{display:block;color:var(--faint);font-size:13px;margin-top:4px;font-weight:400}
+
+  /* PRICE CARDS */
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .price{border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));position:relative;overflow:hidden;text-align:center}
+  .price.mensal{border-color:rgba(47,230,224,.30);box-shadow:0 0 50px -22px var(--glow-cyan)}
+  .price.ativacao{border-color:rgba(160,107,255,.28);box-shadow:0 0 50px -22px var(--glow-purple)}
+  .price::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.7}
+  .price.ativacao::after{background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+  .price .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);font-weight:700}
+  .price .amount{margin:18px 0 6px;font-size:clamp(46px,8vw,72px);font-weight:800;letter-spacing:-2.5px;line-height:1}
+  .price.mensal .amount{background:linear-gradient(120deg,var(--cyan),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .price.ativacao .amount{background:linear-gradient(120deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .price .unit{font-size:15px;color:var(--muted);margin-bottom:18px}
+  .price .unit b{color:var(--txt)}
+  .price .note{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);font-style:italic}
+
+  .scaletier{margin-top:18px;padding:18px 22px;border:1px dashed var(--line);border-radius:12px;
+    background:rgba(255,255,255,.015);font-size:14px;color:var(--muted);text-align:center}
+  .scaletier strong{color:var(--cyan)}
+
+  .allin{margin-top:30px;text-align:center;padding:22px;border:1px solid rgba(47,230,224,.20);border-radius:12px;
+    background:linear-gradient(180deg,rgba(47,230,224,.04),transparent);color:var(--txt);font-size:15px}
+  .allin b{color:var(--cyan)}
+
+  /* RESALE TABLE */
+  .tablewrap{margin-top:28px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+  thead th{background:var(--panel-2);color:var(--cyan);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(160,107,255,.04)}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;color:var(--txt);font-weight:600}
+  .hl-row td{background:rgba(47,230,224,.06);color:var(--txt);font-weight:700}
+  .note{font-size:12.5px;color:var(--faint);margin-top:12px;font-style:italic}
+
+  /* TERMS list */
+  .terms{margin-top:30px;display:grid;gap:14px}
+  .term{display:grid;grid-template-columns:48px 1fr;gap:18px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 22px;background:linear-gradient(180deg,var(--panel),var(--bg-2));align-items:start}
+  .term .ic{font-size:22px;line-height:1.2}
+  .term h4{margin:0 0 4px;color:var(--txt);font-size:16px;font-weight:700}
+  .term p{margin:0;color:var(--muted);font-size:14px}
+
+  /* phase */
+  .timeline{margin-top:30px;display:grid;gap:14px}
+  .phase{display:grid;grid-template-columns:130px 1fr;gap:20px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;background:linear-gradient(180deg,var(--panel),var(--bg-2))}
+  .phase .when{color:var(--purple);font-weight:800;font-size:14px}
+  .phase .when small{display:block;color:var(--faint);font-weight:500;font-size:12px;margin-top:4px}
+  .phase h4{margin:0 0 6px;font-size:17px;color:var(--txt)}
+  .phase p{margin:0;font-size:14px}
+
+  /* CTA */
+  .cta{margin-top:30px;text-align:center;border:1px solid rgba(47,230,224,.25);border-radius:var(--radius);
+    padding:50px 28px;background:
+      radial-gradient(500px 220px at 50% 0%, rgba(160,107,255,.10), transparent 70%),
+      linear-gradient(180deg,var(--panel),var(--bg))}
+  .cta h2{margin-bottom:10px}
+  .btn{display:inline-block;margin-top:22px;padding:15px 32px;border-radius:999px;font-weight:800;font-size:16px;color:#06121a;
+    background:linear-gradient(100deg,var(--cyan),var(--teal));box-shadow:0 10px 40px -12px var(--glow-cyan)}
+  .btn:hover{text-decoration:none;filter:brightness(1.07)}
+  .contact{margin-top:22px;font-size:14px;color:var(--muted)}
+  .contact b{color:var(--txt)}
+
+  footer{padding:40px 0 64px;text-align:center;color:var(--faint);font-size:12.5px}
+  footer .em{font-size:16px;letter-spacing:2px}
+
+  @media(max-width:860px){
+    .included{grid-template-columns:1fr}
+    .prices{grid-template-columns:1fr}
+    .phase{grid-template-columns:1fr;gap:8px}
+  }
+  @media(max-width:520px){
+    section{padding:48px 0}
+    .term{grid-template-columns:1fr;gap:6px}
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .price,.term,.phase,.cta,.tablewrap{box-shadow:none}
+    .btn{display:none}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Proposta Comercial · Confidencial</span>
+    <h1 class="title">A proposta <span class="grad">comercial</span> para a parceria.</h1>
+    <p class="lead">Estrutura simples, encapsulada e transparente. <strong class="strong">Você paga uma ativação única e uma mensalidade por loja ativa</strong> — nós absorvemos tudo o resto: Anthropic, infraestrutura, WhatsApp, voz, atualizações e suporte.</p>
+
+    <div class="sig">
+      <span>Preparado para <b>Leo Monteiro</b> · VTRIA · Ellamoove</span>
+      <span>Maio de 2026</span>
+      <span class="em">🧠⚡🦀🤘</span>
+    </div>
+  </div>
+</header>
+
+<!-- 01 — TUDO INCLUSO -->
+<section id="incluso">
+  <div class="wrap">
+    <p class="kicker"><span class="num">01</span> Tudo encapsulado</p>
+    <h2>Um preço, <span class="accent">zero surpresa</span>.</h2>
+    <p class="big">Nada de "taxa Anthropic separada", "infra à parte" ou "voz extra". A mensalidade por loja ativa cobre toda a operação da camada de IA + engenharia da VTRIA. O que entra no escopo:</p>
+
+    <ul class="included">
+      <li>Agente Superclawman por loja, dedicado<small>Memória, voz, multimodal, multi-tenant, aprovação humana por arquitetura</small></li>
+      <li>Engenharia Claude Code contínua<small>Manutenção, ajustes finos e novas integrações dentro do escopo do produto</small></li>
+      <li>Tokens da Anthropic API<small>Sonnet 4.6 (orquestrador) + Haiku 4.5 (roteador) — incluídos</small></li>
+      <li>WhatsApp Business Platform<small>Mensagens, templates e tarifas da Meta — por nossa conta</small></li>
+      <li>Transcrição de voz<small>Whisper (português brasileiro) para comandos do lojista e clientes</small></li>
+      <li>Infraestrutura dedicada à VTRIA<small>Servidores, armazenamento, backups, monitoramento — tudo gerido por nós</small></li>
+      <li>Atualizações e melhorias<small>Cada nova versão do agente entra automaticamente na sua rede</small></li>
+      <li>Suporte técnico ao seu time<small>Canal direto, em horário comercial, para o seu time operacional</small></li>
+    </ul>
+
+    <div class="allin"><b>Nada de pass-through.</b> O que você vê na mensalidade é o que você paga. Nenhuma fatura adicional de provedor externo.</div>
+  </div>
+</section>
+
+<!-- 02 — ESTRUTURA -->
+<section id="estrutura">
+  <div class="wrap">
+    <p class="kicker"><span class="num">02</span> A estrutura comercial</p>
+    <h2>Duas linhas. <span class="accent">Sem letra miúda.</span></h2>
+    <p class="big">A estrutura espelha o modelo da VTRIA: você paga proporcional ao tamanho da rede. Lança uma loja, paga uma loja. Lança vinte, paga vinte. Sem mínimos artificiais, sem fidelidade.</p>
+
+    <div class="prices">
+      <div class="price ativacao">
+        <div class="label">Ativação · Uma única vez</div>
+        <div class="amount">R$ 30.000</div>
+        <div class="unit">pagos na assinatura do contrato</div>
+        <div class="note">Cobre o <em>embed</em> do Superclawman na VTRIA, o <em>onboarding</em> da primeira loja e a construção das integrações iniciais (ERP, WhatsApp, banco digital). Período: 3–4 semanas.</div>
+      </div>
+      <div class="price mensal">
+        <div class="label">Mensal · Por loja ativa</div>
+        <div class="amount">R$ 4.000</div>
+        <div class="unit"><b>por loja ativa</b> · cobrança mensal antecipada</div>
+        <div class="note">Loja "ativa" = loja com agente operando em produção no mês. Acesso suspenso ou cancelado não conta na fatura do mês seguinte.</div>
+      </div>
+    </div>
+
+    <div class="scaletier">A partir de <strong>25 lojas ativas simultaneamente</strong>, entra a <strong>faixa de escala</strong> — em torno de R$ 3.500/loja, a combinar quando a curva chegar lá. Conforme a VTRIA cresce, o custo unitário cai.</div>
+  </div>
+</section>
+
+<!-- 03 — RESALE / ECONOMIA PARA VOCÊ -->
+<section id="economia">
+  <div class="wrap">
+    <p class="kicker"><span class="num">03</span> Como você lucra</p>
+    <h2>O que sobra para a <span class="accent">VTRIA</span>.</h2>
+    <p class="big">O Superclawman entra na VTRIA como o produto do <em>tier</em> de IA — você cobra do lojista e fica com a diferença. Abaixo, três cenários ilustrativos de quanto você cobra do lojista e quanto sobra de margem para você, considerando R$ 4.000 de wholesale.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Você cobra do lojista</th><th>Sua margem / loja / mês</th><th>10 lojas ativas</th><th>25 lojas ativas</th><th>50 lojas ativas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R$ 5.990/mês</td><td class="num">R$ 1.990</td><td class="num">R$ 19.900</td><td class="num">R$ 49.750</td><td class="num">R$ 99.500</td></tr>
+          <tr class="hl-row"><td>R$ 7.990/mês</td><td class="num">R$ 3.990</td><td class="num">R$ 39.900</td><td class="num">R$ 99.750</td><td class="num">R$ 199.500</td></tr>
+          <tr><td>R$ 9.990/mês</td><td class="num">R$ 5.990</td><td class="num">R$ 59.900</td><td class="num">R$ 149.750</td><td class="num">R$ 299.500</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Valores ilustrativos. Você define o preço de varejo conforme o perfil do lojista (a partir de 25 lojas a wholesale entra na faixa de escala — sua margem cresce mais).</p>
+  </div>
+</section>
+
+<!-- 04 — TERMOS -->
+<section id="termos">
+  <div class="wrap">
+    <p class="kicker"><span class="num">04</span> Termos</p>
+    <h2>Sem amarra. <span class="accent">Você no controle.</span></h2>
+
+    <div class="terms">
+      <div class="term"><div class="ic">🤝</div><div><h4>Sem fidelidade</h4><p>Contrato mensal. Você pode encerrar a qualquer momento — basta aviso prévio de 30 dias para encerrarmos os agentes em produção com segurança.</p></div></div>
+      <div class="term"><div class="ic">🚪</div><div><h4>Sem multa de saída</h4><p>Zero <em>exit fee</em>. Saiu, saiu. Os dados das lojas são exportados e entregues a você antes do desligamento.</p></div></div>
+      <div class="term"><div class="ic">💳</div><div><h4>Cobrança mensal antecipada</h4><p>Faturamento até o dia 5 de cada mês, vencimento até o dia 15. PIX, transferência ou boleto. Ativação na assinatura do contrato.</p></div></div>
+      <div class="term"><div class="ic">📈</div><div><h4>Reajuste anual por IPCA</h4><p>Reajuste único por ano, no aniversário do contrato, pelo IPCA acumulado dos últimos 12 meses. Nenhuma alteração no meio do ciclo.</p></div></div>
+      <div class="term"><div class="ic">🔒</div><div><h4>Seus dados são seus</h4><p>Memória de cada loja, conversas e logs ficam em ambiente dedicado à VTRIA. Exportação disponível a qualquer momento, sem fricção.</p></div></div>
+      <div class="term"><div class="ic">🧩</div><div><h4>Escopo do produto</h4><p>Mensalidade cobre operação, ajustes finos e novas integrações dentro do escopo definido na assinatura. Novos módulos significativos (ex: app de cliente do zero, ERP customizado) são orçados à parte como serviços profissionais.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — COMO COMEÇA -->
+<section id="cronograma">
+  <div class="wrap">
+    <p class="kicker"><span class="num">05</span> O cronograma</p>
+    <h2>Da assinatura à <span class="accent">primeira loja viva</span> em 3–4 semanas.</h2>
+    <p class="big">A ativação cobre a fase abaixo. A mensalidade só começa a ser cobrada quando a primeira loja entra em produção.</p>
+
+    <div class="timeline">
+      <div class="phase">
+        <div class="when">Semana 0<small>Assinatura</small></div>
+        <div><h4>Contrato assinado, ativação paga</h4><p>Definimos juntos o escopo do <em>embed</em>, identidade visual VTRIA aplicada, primeira loja escolhida (sugerimos Ellamoove ou uma da Região 44).</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Semanas 1–3<small>Construção</small></div>
+        <div><h4>Engenharia Claude Code + setup Superclawman</h4><p>Provisionamos a infraestrutura dedicada, plugamos o agente no WhatsApp da loja-piloto, integramos com ERP/SEFAZ/Correios/banco digital. Você acompanha o que está sendo construído em ritmo semanal.</p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Semana 4<small>Go-live</small></div>
+        <div><h4>Loja-piloto em produção</h4><p>Cliente final começa a comprar via WhatsApp com IA. Lojista usa comandos de voz e dashboard. Métricas acompanhadas. <strong class="strong">A partir daqui, mensalidade da primeira loja começa.</strong></p></div>
+      </div>
+      <div class="phase">
+        <div class="when">Mês 2+<small>Escala</small></div>
+        <div><h4>Próximas lojas no mesmo trilho</h4><p>Cada nova loja segue um <em>playbook</em> de onboarding já provado. Mensalidade incrementada conforme cada loja entra em produção. Sem nova ativação por loja.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — PROXIMOS PASSOS -->
+<section id="proximo" style="border-bottom:none">
+  <div class="wrap">
+    <p class="kicker"><span class="num">06</span> Próximos passos</p>
+    <h2>Combinar uma conversa <span class="accent">para fechar</span>.</h2>
+    <p class="big">Se a estrutura faz sentido, próximo passo é uma conversa rápida para alinhar o contrato e definir a loja-piloto. Tudo o que segue depois disso já está no cronograma acima.</p>
+
+    <div class="cta">
+      <h2>Vamos fechar?</h2>
+      <p class="big" style="margin:0 auto">Uma conversa de 30 minutos para alinhar contrato, escopo e loja-piloto. Topando a estrutura, assinamos e começamos a Semana 0 já na semana seguinte.</p>
+      <a class="btn" href="https://wa.me/5511994917618?text=Ol%C3%A1%20Paulo%2C%20sou%20o%20Leo%20da%20VTRIA.%20Vi%20a%20proposta%20comercial%20%E2%80%94%20vamos%20fechar%3F" target="_blank" rel="noopener">Fechar pelo WhatsApp →</a>
+      <div class="contact">
+        <b>Paulo Ovídio</b> · Superclawman<br>
+        <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a> · <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="em">🧠⚡🦀🤘</div>
+    <p>VTRIA × Superclawman + Claude Code · Proposta Comercial para Leo Monteiro · Confidencial · Maio de 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
