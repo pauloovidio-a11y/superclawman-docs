@@ -67,7 +67,10 @@ probe_superclawman() {
 }
 
 probe_ktulu() {
-  ssh -o ConnectTimeout=8 ktulu-mac 'bash -s' <<'REMOTE' 2>/dev/null || echo "OFFLINE"
+  # Use the `ktulu` user (not `ktulu-mac` admin): the .openclaw tree is owned by
+  # the ktulu user, so the admin alias returned 0 for every workspace count
+  # (2026-05-30 fix). /Library/LaunchDaemons stays world-readable for any user.
+  ssh -o ConnectTimeout=8 ktulu-mac-ktulu 'bash -s' <<'REMOTE' 2>/dev/null || echo "OFFLINE"
 set +e
 hw=$(sysctl -n machdep.cpu.brand_string 2>/dev/null)
 cores=$(sysctl -n hw.ncpu 2>/dev/null)
@@ -77,7 +80,7 @@ oc=$(openclaw --version 2>/dev/null | head -1 || true)
 base=/Volumes/KtuluDisk/ktulu/.openclaw
 doctrine=$(find $base/workspace -maxdepth 1 -name '*.md' 2>/dev/null | wc -l | tr -d ' ')
 skills=$(ls $base/workspace/skills/ 2>/dev/null | wc -l)
-pipeline=$(ls $base/workspace/clawman-bus/*.py 2>/dev/null | wc -l)
+pipeline=$(ls $base/workspace/clawman-bus/*.py 2>/dev/null | grep -vE '/test_' | wc -l | tr -d ' ')
 playbooks=$(ls $base/workspace/playbooks/ 2>/dev/null | wc -l)
 subagents=$(ls $base/agents/ 2>/dev/null | wc -l)
 daemons=$(ls /Library/LaunchDaemons/ai.openclaw.ktulu.* 2>/dev/null | wc -l | tr -d ' ')
