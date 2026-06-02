@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-06-02T20:15:00-03:00",
+  generated_at: "2026-06-02T20:30:00-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.37",
+  doc_status: "Canonical · v1.38",
 
   agents: [
     {
@@ -13,7 +13,7 @@ window.INVENTORY = {
       name: "Sandman",
       emoji: "💀",
       color: "#9333EA",
-      avatar_url: "https://pauloovidio-a11y.github.io/superclawman-docs/avatars/sandman.png",
+      avatar_url: "avatars/social/sandman-badge-640.png",
       role: "NUC · 192.168.1.82 · Heimdall-watched",
       host: "ssh nuc · root@192.168.1.82",
       paths: "/root/.openclaw/ · /root/sandman-po/",
@@ -31,7 +31,7 @@ window.INVENTORY = {
       name: "Superclawman",
       emoji: "🧠⚡🦀🤘",
       color: "#10B981",
-      avatar_url: "https://pauloovidio-a11y.github.io/superclawman-docs/avatars/superclawman.png",
+      avatar_url: "avatars/social/superclawman-badge-640.png",
       role: "Mac mini · Paulo's primary assistant",
       host: "local · clawman@Paulos-Mac-mini",
       paths: "~/.openclaw/",
@@ -49,7 +49,7 @@ window.INVENTORY = {
       name: "Ktulu",
       emoji: "🦀📨⚡🤘",
       color: "#EA580C",
-      avatar_url: "https://pauloovidio-a11y.github.io/superclawman-docs/avatars/ktulu.png",
+      avatar_url: "avatars/social/ktulu-badge-640.png",
       role: "Intel Mac mini i7 · outreach only",
       host: "ssh ktulu-mac · ssh ktulu-mac-ktulu",
       paths: "/Volumes/KtuluDisk/ktulu/.openclaw/",
@@ -67,7 +67,7 @@ window.INVENTORY = {
       name: "Superclawman Jr",
       emoji: "💀🧠",
       color: "#B45309",
-      avatar_url: "https://pauloovidio-a11y.github.io/superclawman-docs/avatars/jr.png",
+      avatar_url: "avatars/social/jr-badge-640.png",
       role: "Hetzner VPS · multi-tenant watchdog tier",
       host: "ssh superclawman-jr",
       paths: "/usr/local/lib/openclaw-jr/ · /var/lib/openclaw-jr/tenants/paulo/ · /root/.openclaw-jr-paulo/",
@@ -625,6 +625,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-06-02 evening", note: "**Front-page agent cards now render the canonical branded badges.** Closes the operator's `'avatars on the front page are not updated per the canonical'` flag. **What changed:** **(1) `data.js` `avatar_url` retargeted** from the multi-MB standalone v2-Higgsfield raws (`avatars/{agent}.png`, ~24MB each — never web-suitable) to the canonical branded 640px badges (`avatars/social/{agent}-badge-640.png`, ~470KB each — round, SUPERCLAWMAN.AI wordmark, exactly the assets shown in the Agent Avatars canonical `365085df…81a8…`). **(2) `index.html` agent-card template** now renders `<img class=\"avatar\">` from `avatar_url` if present (graceful fallback to text-only via `onerror=hide` if the file 404s, plus `loading=\"lazy\"`). **(3) CSS for the round badge**: 56×56px circle, `object-fit:cover`, agent-color halo (`box-shadow: 0 0 0 1.5px var(--c)`), subtle scale-up on `.agent:hover`. **(4) Card header restructured** to a flex row: badge left, name + emoji stacked right; existing role/phase/specblk/summary/stats unchanged below. **(5) Asset hygiene** — copied the 2 source-only files (`superclawman-leadership-512.{gif,mp4}` from `/Users/clawman/Claude/output/avatars/branded/`) into `avatars/social/` for asset-set parity with the rest of the powermove/cast/closer/bodyguard animation set. **Verification:** all 25 common badge/sticker/animation files between `/Users/clawman/Claude/output/avatars/branded/` (source generation folder) and `~/Claude/projects/superclawman-docs/avatars/social/` (published) are byte-identical (SHA-matched) — content was already current; the gap was purely that `index.html` never wired them into the card render. GitHub Pages will auto-rebuild on push; first browser load may need a hard-refresh (CDN cache). **Matrix v1.37 → v1.38.**" },
     { agent: "superclawman", at: "2026-06-02 evening", note: "**Notion IA finalization + avatar reconcile per canonical.** **(1) Matrix mirror moved into the single docs hub.** The Matrix mirror page `361085df…b55c` (previously parented at workspace root under Welcome to Notion) moved to `🧠⚡🦀🤘 Superclawman Docs` hub `355085df…fa63` via `notion-move-pages`. Sub-pages (`📜 Cross-Agent Doctrine` `361085df…6976` + `📖 Documentation System Policy` `361085df…0e52`) came along as children of the matrix, preserving the IA. SC Docs hub now holds **25 child pages** = all 4-agent canonicals + cross-cutting references + the matrix itself. **(2) WhatsApp duplicate cleaned up** (already done by parallel session, confirmed today): live page is `373085df-9ff8-8177-ba36-ef177d4dca70` v1.23 (matches workspace `SUPERCLAWMAN_FINAL_WHATSAPP_CANONICAL_v1.md` v1.23 via §A.55–A.61 progression); old `36f085df…3633` v1.19 page is in_trash; `workspace/notion-registry.json` `wa-canonical` entry points at the live page. **(3) Avatar identity reconciled to `🎨 Agent Avatars — v2 Higgsfield Brand Pack` canonical** (`365085df-9ff8-81a8-9c6f-c95bd97e96ef`). Per-agent `color` + `emoji` in `data.js` were drifted from the canonical palette since the v2 Higgsfield regen 2026-05-19. Reconciled: **Sandman** color `#6B8FB5` blue-gray → `#9333EA` deep purple (canonical 'purple galaxy + magenta circuits'); **Superclawman** `#7CA56A` sage → `#10B981` emerald (canonical 'obsidian + emerald-green circuits + cyan-emerald lightning'); **Ktulu** `#E3A04A` orange-tan → `#EA580C` orange-red (canonical 'bright orange-red pincer claws'), emoji `🦞📨⚡🤘` lobster → `🦀📨⚡🤘` crab (canonical species), signature `[Ktulu 🦞📨⚡🤘]` → `[Ktulu 🦀📨⚡🤘]` (replace_all); **Jr** `#D45D5D` red-pink → `#B45309` amber-700 (canonical 'dark bronze/copper + amber-orange circuits'). Added new `avatar_url` field per agent pointing to the canonical PNG at `pauloovidio-a11y.github.io/superclawman-docs/avatars/{agent}.png` so the matrix UI can render the actual avatars in a future `index.html` refresh (current template uses emoji+color only). **Matrix v1.36 → v1.37.**" },
     { agent: "superclawman", at: "2026-06-01 evening", note: "**Notion topology consolidation — single docs hub for all 4 agents.** The standalone `💀 Sandman Docs` hub (`355085df-9ff8-8199-88ca-c11602a40560`, previously parented under `Welcome to Notion` at workspace root) is tombstoned. All 5 of its child canonicals moved to the `🧠⚡🦀🤘 Superclawman Docs` hub (`355085df-9ff8-8122-b7fd-fa633a08a7b3`) via `notion-move-pages`: (1) `💀 Sandman — Master Blueprint (Canonical)` 35f085df…8196 (actively edited today via the sandman-blueprint git repo); (2) `🎛️ Central Control Center — Canonical Reference` 364085df…4719a5 (source-of-truth `sandman-blueprint/docs/central-control-center-canonical.md`); (3) `Heimdall — Canonical Reference` 35d085df…7772 (Notion-authored); (4) `🗄️ NAS Backup — Canonical Blueprint` 358085df…8971 (Notion-authored v1.3, NUC-side `openclaw-backup.sh`); (5) `Sandman — Canonical Architecture` (legacy mirror) 356085df…e9e8 (already tombstoned 2026-05-28). Old hub body replaced with a redirect callout pointing to Superclawman Docs + per-page links so any inbound URLs still resolve. **Rationale:** single Notion location for all 4-agent canonicals — easier cross-linking, single permission scope, single search root. Doctrine codified in `project_docs_system_standard.md` memory + this matrix row 563 reframed (sandman cell now says 'moved to SC Docs hub 2026-06-01'). **Two housekeeping items flagged** (not auto-fixed; await operator decision): (a) duplicate WhatsApp canonical pages under SC Docs — `36f085df…3633` v1.19 vs newer `373085df…dca70` v1.23; one needs to be trashed and registry resynced. (b) Matrix mirror page `361085df…b55c` + Cross-Agent Doctrine + Documentation System Policy still sit at workspace root / under Matrix mirror — if 'all agent documentation' extends there, they could move in a follow-up. **Matrix v1.35→v1.36.**" },
     { agent: "superclawman", at: "2026-06-01 nightly", note: "**Nightly docs audit (22:45 BRT) — structural refresh.** Structural triggers: (1) OpenClaw 5.22 (a374c3a) → **5.28 (e932160)** fleet-wide on all 4 agents (2026-06-01). (2) Superclawman plugins.allow 9→**10**: +bash-guard (2026-06-01). (3) Jr systemd_units 40→**42**: +openclaw-jr-walprune.service + openclaw-jr-walprune.timer (2026-06-01). Jr shared_scripts 31→**35** (+jr-wal-autoprune.py + jr-memory-watch.py today; +jr-sandman-jobwatch.py + jr-sc-jobwatch.py prior days). Ktulu launchdaemons corrected 28→**29** (23 active plists + 6 bak files; +gateway.plist.bak-pre-prestart-20260530). Sandman scripts corrected 103→**105** (stale). Workspace canonicals committed: workspace/memory/2026-06-01.md. Matrix v1.34→v1.35." },

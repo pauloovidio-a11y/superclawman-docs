@@ -41,8 +41,12 @@
   .agent:hover{transform:translateY(-2px);border-color:var(--c)}
   .agent.active{border-color:var(--c);box-shadow:0 0 0 1px var(--c) inset, 0 8px 24px -8px rgba(0,0,0,0.5)}
   body:not([data-filter="all"]) .agent:not(.active){opacity:0.35;filter:saturate(0.5)}
-  .agent .nm{font-family:var(--serif);font-size:20px;color:var(--slate);font-weight:500;margin-bottom:3px;line-height:1.15}
+  .agent .nm{font-family:var(--serif);font-size:20px;color:var(--slate);font-weight:500;margin-bottom:3px;line-height:1.15;display:flex;align-items:center;gap:12px}
   .agent .nm .emo{font-size:15px;margin-right:5px;letter-spacing:-0.05em}
+  .agent .nm .avatar{width:56px;height:56px;border-radius:50%;flex:0 0 56px;object-fit:cover;background:#0b0d12;box-shadow:0 0 0 1.5px var(--c), 0 4px 12px -4px rgba(0,0,0,0.4);transition:transform 0.18s ease}
+  .agent:hover .nm .avatar{transform:scale(1.06)}
+  .agent .nm .name-text{display:flex;flex-direction:column;line-height:1.15;min-width:0;flex:1 1 auto}
+  .agent .nm .name-text .emo-row{font-size:13px;letter-spacing:-0.05em;color:var(--g500);margin-top:1px}
   .agent .role{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--g500);margin-bottom:10px;line-height:1.4}
   .agent .specblk{font-family:var(--mono);font-size:10px;line-height:1.55;color:var(--g700);margin-bottom:10px;padding:8px 0;border-top:1px dashed var(--g300);border-bottom:1px dashed var(--g300)}
   .agent .specblk .row{display:flex;gap:6px;align-items:baseline}
@@ -225,7 +229,10 @@
   // Agent cards
   document.getElementById('agents').innerHTML = D.agents.map(a => `
     <button class="agent" data-agent="${a.id}" style="--c:${a.color}">
-      <div class="nm"><span class="emo">${a.emoji}</span>${esc(a.name)}</div>
+      <div class="nm">
+        ${a.avatar_url ? `<img class="avatar" src="${esc(a.avatar_url)}" alt="${esc(a.name)} avatar" loading="lazy" onerror="this.style.display='none'">` : ''}
+        <span class="name-text"><span>${esc(a.name)}</span><span class="emo-row">${a.emoji}</span></span>
+      </div>
       <div class="role">${esc(a.role)}</div>
       <div class="phase">${esc(a.status_phase)}</div>
       <div class="specblk">
