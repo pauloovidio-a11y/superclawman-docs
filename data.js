@@ -3,9 +3,9 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-06-03T22:46:06-03:00",
+  generated_at: "2026-06-04T22:46:07-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
-  doc_status: "Canonical · v1.40",
+  doc_status: "Canonical · v1.41",
 
   agents: [
     {
@@ -22,9 +22,9 @@ window.INVENTORY = {
       hardware: "Intel i7-13620H · 16 cores · 30GB RAM",
       os: "Ubuntu 26.04 LTS · kernel 7.0.0",
       openclaw_version: "2026.5.28 (e932160) — fleet-wide 5.28 upgrade 2026-06-01",
-      status_phase: "Entry 96 stable · codex-sandman 3-layer pipeline live · OpenClaw 5.22→5.28 (e932160) 2026-06-01 · plugins.allow now explicit 69-item list (was *; 68→69 +opencode-go 2026-06-02)",
+      status_phase: "Entry 96 stable · codex-sandman 3-layer pipeline live · OpenClaw 5.22→5.28 (e932160) 2026-06-01 · plugins.allow 69→71: +sandman-location (location context plugin, location-utils/place-registry/sandman-roundtrip-probe suite 2026-06-03) + sandman-a2a (Agent-to-Agent comms plugin, a2a_governor/a2a_shadow/a2a_history 2026-06-04) · was: 68→69 +opencode-go 2026-06-02",
       summary: "Bedtime/personal-assistant + general OpenClaw harness on the NUC. The oldest + heaviest of the cast. Runs Mission Control Dashboard, Skill Tree, QMD MCP, WhatsApp watcher, plus Sandmanpo (the VPS-side gmail/sales pipeline) as a sibling. Plugin allowlist is now an explicit 68-plugin list (effective unrestricted) — tightening is canonical TODO.",
-      stats: { skills: 29, scripts: 108, subagents: 3, hooks: 2, doctrine: 34 }
+      stats: { skills: 29, scripts: 115, subagents: 3, hooks: 2, doctrine: 34 }
     },
     {
       id: "superclawman",
@@ -40,9 +40,9 @@ window.INVENTORY = {
       hardware: "Apple M2 Pro · 32GB RAM",
       os: "macOS 15.7.4 Sequoia · Darwin 24.6.0 · arm64",
       openclaw_version: "2026.5.28 (e932160) — fleet-wide 5.28 upgrade 2026-06-01",
-      status_phase: "Production · canonical authoring host · launchagents 22→23 (+ai.openclaw.mcp-health-probe 2026-06-03, MCP health probe 1200s) · +bash-guard plugin 2026-06-01 (10 plugins total) · OpenClaw 5.22→5.28 (e932160) 2026-06-01",
+      status_phase: "Production · canonical authoring host · launchagents 22→23 (+ai.openclaw.mcp-health-probe 2026-06-03, MCP health probe 1200s) · plugins.allow 10→11: +sc-location-context (location context plugin, installed as extensions/sc-location-context/ 2026-06-04) · +bash-guard plugin 2026-06-01 (10 plugins total) · OpenClaw 5.22→5.28 (e932160) 2026-06-01",
       summary: "Cost-optimized M-series harness. Powers Paulo's WhatsApp life — Sandman/Xisto/CareHTSA/DryCleaner/family routing, plus the 31k-vector position-locked memory store with the 5-skill learning loop. Authors all canonical docs (Ktulu canonical v1.0 was written here today). Stricter doctrine surface than Sandman by design.",
-      stats: { skills: 7, scripts: 138, subagents: 7, playbooks: 7, launchagents: 23, plugins: 10 }
+      stats: { skills: 7, scripts: 143, subagents: 7, playbooks: 7, launchagents: 23, plugins: 11 }
     },
     {
       id: "ktulu",
@@ -625,6 +625,7 @@ window.INVENTORY = {
   ],
 
   recent_activity: [
+    { agent: "superclawman", at: "2026-06-04 nightly", note: "**Nightly docs audit (22:45 BRT) — structural refresh.** Structural triggers: (1) Sandman plugins.allow 69→**71** (+sandman-location 2026-06-03: location plugin suite — location-utils.mjs, place-registry.mjs, location-leave-monitor.mjs, sandman-roundtrip-probe.mjs; +sandman-a2a 2026-06-04: Agent-to-Agent comms plugin — a2a_governor.py, a2a_shadow.py, a2a_history.py, a2a-standup/drain/verify scripts). (2) Superclawman plugins.allow 10→**11**: +sc-location-context (location context plugin, installed as extensions/sc-location-context/ 2026-06-04). Cosmetic: Sandman scripts 108→115; Superclawman scripts 138→143 (A2A + location script suite: a2a_governor.py, a2a_shadow.py, a2a_history.py, a2a-drain-sc.sh, sc-place-learn.py, sc-calendar-snapshot.py, location-dossier.py + more). All 4 Blueprint repos clean — zero doc-class files pending. Notion queue drained 2026-05-30 (no patches replayed). Skipped (operator review): `~/.openclaw/SESSION_HANDOFF_2026-06-03_AGENT-TO-AGENT-CHAT.md` (A2A Phase A1–A3 handoff MD at .openclaw root instead of workspace/handoffs/ — content: shadow+governor shipped into soak 2026-06-04; needs relocation decision). Matrix v1.40→v1.41." },
     { agent: "superclawman", at: "2026-06-03 nightly", note: "**Nightly docs audit (22:45 BRT) — structural refresh.** Structural triggers: (1) Superclawman launchagents 22→**23**: +`ai.openclaw.mcp-health-probe.plist` (2026-06-03 10:27 BRT, MCP health probe daemon, StartInterval 1200s). (2) Ktulu launchdaemons 32→**34** (27 active plists + 7 bak files): +`ai.openclaw.ktulu.email-ingest` (ktulu_email_ingest.py, 300s interval, WatchPaths email_events.jsonl — email memory ingestion pipeline) + `ai.openclaw.ktulu.media-transcribe` (ktulu_media_transcribe.py backfill, 300s interval, WatchPaths media/inbound+handoff/events/inbound.jsonl — inbound media transcription). (3) KTULU_CANONICAL_v2.0.md detected in Ktulu recent files 2026-06-03 (confirmed by stat: file exists, permission-restricted to ktulu session; major version vs last noted v1.7.1 — operator should confirm scope of v2.0 bump). Cosmetic: Sandman scripts 105→108; Superclawman scripts 133→138. Git: all 4 Blueprint repos clean — zero doc-class files pending. Notion queue already drained 2026-05-30 (no patches replayed). Matrix v1.39→v1.40." },
     { agent: "superclawman", at: "2026-06-02 nightly", note: "**Nightly docs audit (22:45 BRT) — structural refresh.** Structural triggers: (1) Ktulu launchdaemons 29→**32** (25 active + 7 bak): +`ai.openclaw.ktulu.contact-ingest` (ktulu_contact_ingest.py, WatchPaths on events/inbound+outbound.jsonl, 3-min interval — contact memory ingestion pipeline) + `ai.openclaw.ktulu.embed-server` (llama-server embeddinggemma-300M-Q8_0 on :8199, KeepAlive — local vector embedding inference server, Phase 2 vector memory substrate) both added 2026-06-02; +qmd-refresh.plist.bak-pre-wrap-20260602 (new bak). (2) Sandman plugins.allow 68→**69** (+opencode-go 2026-06-02). Cosmetic: Superclawman scripts 132→133; Jr shared_scripts 35→36 (+jr-ktulu-jobwatch.py 2026-06-02); Ktulu doctrine 8→9. Workspace canonicals committed: memory/2026-06-02.md. Matrix v1.38→v1.39." },
     { agent: "superclawman", at: "2026-06-02 evening", note: "**Front-page agent cards now render the canonical branded badges.** Closes the operator's `'avatars on the front page are not updated per the canonical'` flag. **What changed:** **(1) `data.js` `avatar_url` retargeted** from the multi-MB standalone v2-Higgsfield raws (`avatars/{agent}.png`, ~24MB each — never web-suitable) to the canonical branded 640px badges (`avatars/social/{agent}-badge-640.png`, ~470KB each — round, SUPERCLAWMAN.AI wordmark, exactly the assets shown in the Agent Avatars canonical `365085df…81a8…`). **(2) `index.html` agent-card template** now renders `<img class=\"avatar\">` from `avatar_url` if present (graceful fallback to text-only via `onerror=hide` if the file 404s, plus `loading=\"lazy\"`). **(3) CSS for the round badge**: 56×56px circle, `object-fit:cover`, agent-color halo (`box-shadow: 0 0 0 1.5px var(--c)`), subtle scale-up on `.agent:hover`. **(4) Card header restructured** to a flex row: badge left, name + emoji stacked right; existing role/phase/specblk/summary/stats unchanged below. **(5) Asset hygiene** — copied the 2 source-only files (`superclawman-leadership-512.{gif,mp4}` from `/Users/clawman/Claude/output/avatars/branded/`) into `avatars/social/` for asset-set parity with the rest of the powermove/cast/closer/bodyguard animation set. **Verification:** all 25 common badge/sticker/animation files between `/Users/clawman/Claude/output/avatars/branded/` (source generation folder) and `~/Claude/projects/superclawman-docs/avatars/social/` (published) are byte-identical (SHA-matched) — content was already current; the gap was purely that `index.html` never wired them into the card render. GitHub Pages will auto-rebuild on push; first browser load may need a hard-refresh (CDN cache). **Matrix v1.37 → v1.38.**" },
