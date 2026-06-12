@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Agent's Manual — SuperClawman for Meetings</title>
+  <meta name="description" content="How to use your SuperClawman meeting agent: calling it by voice, what arrives after every call, how its memory works, and how to ask about past meetings." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://superclawman.ai/meetings-guide.html" />
+  <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --neon: #00ffe0; --neon-dim: rgba(0,255,224,0.15); --bg: #050508;
+      --panel: rgba(255,255,255,0.025); --line: rgba(255,255,255,0.07);
+      --text: #e8e8f0; --muted: #8b8ba8; --ok: #3fb950;
+    }
+    html { scroll-behavior: smooth; }
+    html, body { background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px; animation: gridMove 20s linear infinite; z-index: 0;
+    }
+    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .topnav {
+      position: relative; z-index: 1; display: flex; align-items: center; gap: 0.8rem;
+      max-width: 860px; margin: 0 auto; padding: 1.6rem 2rem 0;
+    }
+    .topnav img { width: 36px; height: 36px; border-radius: 50%; }
+    .topnav a { color: var(--text); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; opacity: 0.9; }
+    .topnav .crumb { color: var(--muted); font-size: 0.85rem; font-weight: 400; }
+    .hero { padding: 3.5rem 0 1rem; text-align: center; }
+    .eyebrow {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--neon); border: 1px solid rgba(0,255,224,0.3); border-radius: 100px;
+      padding: 0.45rem 1.1rem; background: var(--neon-dim); margin-bottom: 1.4rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .hero p { color: var(--muted); max-width: 56ch; margin: 0 auto; line-height: 1.6; }
+    h2 {
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; margin: 3rem 0 1rem;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    h2 .n {
+      flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #03110e; background: var(--neon); box-shadow: 0 0 16px rgba(0,255,224,0.4);
+    }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem 1.7rem; margin-bottom: 1rem; }
+    .card p, .card li { font-size: 0.95rem; color: var(--text); opacity: 0.9; line-height: 1.65; }
+    .card p + p { margin-top: 0.8rem; }
+    .card ul { margin: 0.6rem 0 0 1.2rem; }
+    .card li { padding: 0.25rem 0; }
+    .card b { color: var(--neon); font-weight: 700; }
+    .say {
+      display: block; margin: 0.9rem 0; padding: 0.9rem 1.2rem; border-left: 3px solid var(--neon);
+      background: rgba(0,255,224,0.05); border-radius: 0 10px 10px 0; font-size: 0.95rem; color: var(--text);
+    }
+    .say i { color: var(--muted); font-style: normal; font-size: 0.8rem; display: block; margin-top: 0.25rem; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.6rem; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+    th { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    td:first-child { color: var(--text); font-weight: 700; }
+    .yes { color: var(--ok); font-weight: 700; }
+    .custom { color: #ffc850; font-weight: 700; }
+    .footer { position: relative; z-index: 1; padding: 2rem 1rem 3rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+    a { color: var(--neon); }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <a href="index.html">
+      <img src="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" alt="SuperClawman" />
+      SuperClawman <span class="crumb">/ Meetings / Guide</span>
+    </a>
+  </nav>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Customer guide</div>
+      <h1>Your agent's manual.</h1>
+      <p>Everything about living with your SuperClawman meeting agent — how it joins, how to call on it, what arrives after every call, and how its memory works for you.</p>
+    </header>
+
+    <h2><span class="n">1</span>It joins on its own — just let it in</h2>
+    <div class="card">
+      <p>Once your calendar is connected, your agent watches it and joins your Google Meet, Zoom, or Teams calls about <b>2 minutes before start</b>. You'll see a participant named <b>Superclawman</b> in the waiting room — admit it like any guest (or set your meetings to auto-admit and never think about it again).</p>
+      <p>When it enters, it <b>announces itself to the room</b> in the meeting's language. That's by design: everyone always knows it's there. It then stays completely silent unless called by name.</p>
+      <p class="muted">Ad-hoc meeting that's not on the calendar? Send us the meeting link on WhatsApp and the agent joins on demand.</p>
+    </div>
+
+    <h2><span class="n">2</span>Helping you live — just say its name</h2>
+    <div class="card">
+      <p>Talk to it the way you'd talk to a colleague sitting next to you:</p>
+      <span class="say">"Hey Superclawman, what's the current price of X?"<i>It searches the web live and speaks the answer to the room (~10 seconds).</i></span>
+      <span class="say">"Hey Superclawman, what did we agree with this client last time?"<i>It recalls your past meetings with this account — mid-call.</i></span>
+      <span class="say">"Ei Superclawman, resume o que foi discutido até agora."<i>English and Portuguese work — even mixed in the same call.</i></span>
+      <p>Prefer to keep it quiet? <b>Type in the meeting chat</b> instead — it answers there without speaking.</p>
+      <p class="muted">Live voice assist is a Full Seat feature. On the Briefs plan the agent records, briefs, and remembers, but doesn't speak.</p>
+    </div>
+
+    <h2><span class="n">3</span>After the call — the follow-up does itself</h2>
+    <div class="card">
+      <p>Within minutes of hanging up:</p>
+      <ul>
+        <li><b>A structured brief</b> — summary, decisions, action items with owners — lands in your account record.</li>
+        <li><b>A recap email draft</b> addressed to the attendees is prepared for you. <b>Nothing is ever sent without your approval</b> — you review, then it goes.</li>
+        <li><b>Full Seat:</b> after a sales-shaped call, ask for the proposal — you'll get a draft grounded in what was actually said, ready to polish.</li>
+      </ul>
+    </div>
+
+    <h2><span class="n">4</span>Your agent remembers — and you can ask it anything</h2>
+    <div class="card">
+      <p>Every meeting becomes part of your agent's <b>account memory</b>: decisions, commitments, objections, numbers. It walks into your next call with that account already briefed. The memory is <b>stored securely in storage dedicated to your account</b> — never mixed with anyone else's, exportable any time, deleted on request.</p>
+      <p>Need to check something from a past call? Two ways, both included:</p>
+      <span class="say">In any meeting: "Hey Superclawman, what was discussed about the delivery timeline with ACME?"<i>Instant, by voice, grounded in your call records.</i></span>
+      <span class="say">Between meetings: reply to any recap email, or WhatsApp us your question.<i>Your agent answers from your account memory — typically within minutes.</i></span>
+    </div>
+
+    <h2><span class="n">5</span>What's included — and what's custom</h2>
+    <div class="card">
+      <table>
+        <tr><th>Capability</th><th>Briefs</th><th>Full Seat</th></tr>
+        <tr><td>Auto-join from calendar (Meet · Zoom · Teams)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Brief + recap draft minutes after every call</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Account memory + ask-about-past-calls</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Live voice &amp; chat assist in the room</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><td>Proposal drafts from sales calls (on request)</td><td>—</td><td class="yes">✓</td></tr>
+      </table>
+      <p style="margin-top:1.1rem;">Want it to go further? These are <b class="custom">custom add-ons</b> — tell us what you need and we'll scope it:</p>
+      <ul>
+        <li>Automated follow-up sequences (the agent chases the action items for you)</li>
+        <li>Branded quotes, presentations, and documents produced end-to-end</li>
+        <li>CRM integration — every call filed into your pipeline automatically</li>
+        <li>Workflows beyond meetings — see <a href="business.html">SuperClawman for Business</a></li>
+      </ul>
+    </div>
+
+    <h2><span class="n">6</span>The ground rules it never breaks</h2>
+    <div class="card">
+      <ul>
+        <li><b>It announces itself</b> on every call — no silent recording, ever.</li>
+        <li><b>It never sends anything on your behalf</b> without your approval — recaps and proposals are drafts until you say go.</li>
+        <li><b>It only speaks when called by name.</b></li>
+        <li><b>Your data is yours</b> — isolated per account, exportable, removable on request.</li>
+      </ul>
+    </div>
+
+    <h2><span class="n">7</span>Need anything?</h2>
+    <div class="card">
+      <p>You talk straight to the founder. Reply to any email from us, or WhatsApp <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>. Questions, tweaks, "can it also do…" — all welcome. Founding customers shape this product.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="meetings.html">SuperClawman for Meetings</a> &nbsp;·&nbsp; <a href="index.html">superclawman.ai</a>
+  </div>
+</body>
+</html>
