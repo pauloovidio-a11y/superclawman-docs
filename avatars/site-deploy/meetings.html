@@ -221,6 +221,11 @@
     .tier li.dim { opacity: 0.45; }
     .tier li.dim::before { content: '—'; color: var(--muted); }
     .tier .btn { text-align: center; }
+    .tier .annual {
+      display: block; text-align: center; margin-top: 0.75rem; font-size: 0.84rem;
+      color: var(--neon); text-decoration: underline; text-underline-offset: 3px;
+    }
+    .tier .annual b { color: #ffc850; }
 
     /* ACTIVATION */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; counter-reset: act; }
@@ -368,7 +373,7 @@
           <h3>Briefs</h3>
           <div class="for">Every meeting captured, briefed and remembered — automatically.</div>
           <div class="price">$99<span>/mo</span></div>
-          <div class="cycle">up to 20 meeting-hours / month</div>
+          <div class="cycle">billed monthly · cancel anytime · up to 20 meeting-hrs/mo</div>
           <ul>
             <li>Auto-join from your calendar (Meet · Zoom · Teams)</li>
             <li>Hi-fi transcript &amp; structured brief minutes after every call</li>
@@ -378,6 +383,7 @@
             <li class="dim">Call → proposal drafts</li>
           </ul>
           <a class="btn ghost" href="https://buy.stripe.com/fZu14m7noc9E0EH11uao800">Start with Briefs</a>
+          <a class="annual" href="https://buy.stripe.com/aFadR8ePQehMdrt11uao802">or $69/mo billed annually — <b>save 30%</b></a>
         </div>
 
         <!-- FULL SEAT -->
@@ -386,7 +392,7 @@
           <h3>Full Seat</h3>
           <div class="for">The complete AI participant — it helps you live and does the follow-up.</div>
           <div class="price">$299<span>/mo</span></div>
-          <div class="cycle">up to 40 meeting-hours / month</div>
+          <div class="cycle">billed monthly · cancel anytime · up to 40 meeting-hrs/mo</div>
           <ul>
             <li>Everything in Briefs</li>
             <li>Live voice assist — ask it anything, it answers the room</li>
@@ -396,6 +402,7 @@
             <li>Multilingual voice — English &amp; Portuguese today</li>
           </ul>
           <a class="btn primary" href="https://buy.stripe.com/fZueVcazAb5A2MPfWoao801">Claim a Full Seat</a>
+          <a class="annual" href="https://buy.stripe.com/7sY00i6jk4Hc3QTdOgao803">or $199/mo billed annually — <b>save 33%</b></a>
         </div>
 
         <!-- AAAS -->
