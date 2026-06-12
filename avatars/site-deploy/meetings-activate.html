@@ -62,6 +62,28 @@
     .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
     .note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); }
     .note a { color: var(--neon); }
+    /* onboarding form */
+    .frow { display: grid; gap: 0.9rem; margin-bottom: 0.9rem; }
+    .frow.two { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 560px) { .frow.two { grid-template-columns: 1fr; } }
+    #onboard-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    #onboard-form label .opt { font-weight: 400; color: var(--muted); }
+    #onboard-form .ffull { margin-bottom: 1.1rem; }
+    #onboard-form input[type="text"], #onboard-form input[type="email"],
+    #onboard-form select, #onboard-form textarea {
+      font: inherit; font-weight: 400; color: var(--text);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+      border-radius: 10px; padding: 0.7rem 0.85rem; outline: none; width: 100%;
+      transition: border-color 0.2s;
+    }
+    #onboard-form input:focus, #onboard-form select:focus, #onboard-form textarea:focus { border-color: rgba(0,255,224,0.5); }
+    #onboard-form select { appearance: none; -webkit-appearance: none; }
+    #onboard-form button.btn { border: none; cursor: pointer; font: inherit; font-weight: 700; }
+    #onboard-form button.btn[disabled] { opacity: 0.55; cursor: wait; }
+    #onboard-status.ok { color: var(--ok); display: block; }
+    #onboard-status.err { color: #ff8a8a; display: block; }
+    .alt { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+    .alt a { color: var(--neon); }
     .footer { position: relative; z-index: 1; padding: 2rem 1rem 3rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
     .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
   </style>
@@ -76,20 +98,47 @@
       <strong>in your calls within 48 hours</strong>.
     </p>
 
-    <div class="card">
+    <div class="card" id="onboard-card">
       <h2><span class="n">1</span>Send us your onboarding details</h2>
-      <p>Message us on WhatsApp (or email) with these five things — it takes about 5 minutes:</p>
-      <ul>
-        <li><b>Your name &amp; company</b></li>
-        <li><b>The calendar</b> your meetings live on (Google Calendar / Outlook)</li>
-        <li><b>The email address</b> recaps should be drafted from</li>
-        <li><b>Meeting platforms</b> you use (Meet / Zoom / Teams)</li>
-        <li><b>Language(s)</b> of your meetings (English / Portuguese / both)</li>
-      </ul>
-      <div class="cta-row">
-        <a class="btn primary" href="https://wa.me/5511994917618?text=Founding%20seat%20confirmed!%20Here%20are%20my%20onboarding%20details%3A%0A%0A1.%20Name%20%26%20company%3A%20%0A2.%20Calendar%20(Google%2FOutlook)%3A%20%0A3.%20Recap%20email%20address%3A%20%0A4.%20Platforms%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Meeting%20language(s)%3A%20" target="_blank" rel="noopener">Send via WhatsApp</a>
-        <a class="btn ghost" href="mailto:paulo.ovidio@superclawman.ai?subject=Founding%20seat%20—%20onboarding%20details&body=1.%20Name%20%26%20company%3A%20%0A2.%20Calendar%20(Google%2FOutlook)%3A%20%0A3.%20Recap%20email%20address%3A%20%0A4.%20Platforms%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Meeting%20language(s)%3A%20">Send via email</a>
-      </div>
+      <p>Five quick fields — this is everything we need to provision your agent.</p>
+      <form id="onboard-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0;" />
+        <div class="frow two">
+          <label>Your name<input type="text" name="name" required placeholder="Jane Smith" /></label>
+          <label>Company<input type="text" name="company" placeholder="Acme Staffing" /></label>
+        </div>
+        <div class="frow two">
+          <label>Recap email address<input type="email" name="email" required placeholder="jane@acme.com" /></label>
+          <label>Calendar
+            <select name="calendar">
+              <option value="">Choose…</option>
+              <option>Google Calendar</option>
+              <option>Outlook</option>
+              <option>Other / not sure</option>
+            </select>
+          </label>
+        </div>
+        <div class="frow two">
+          <label>Meeting platforms<input type="text" name="platforms" placeholder="Meet, Zoom, Teams…" /></label>
+          <label>Meeting language(s)
+            <select name="languages">
+              <option value="">Choose…</option>
+              <option>English</option>
+              <option>Portuguese</option>
+              <option>English + Portuguese</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label class="ffull">Anything else we should know? <span class="opt">(optional)</span>
+          <textarea name="notes" rows="2" placeholder="e.g. most meetings are client discovery calls"></textarea>
+        </label>
+        <div class="cta-row" style="justify-content:flex-start;">
+          <button class="btn primary" type="submit" id="onboard-submit">Send onboarding details</button>
+        </div>
+        <p id="onboard-status" role="status" style="display:none;margin-top:1rem;font-size:0.9rem;"></p>
+      </form>
+      <p class="alt">Prefer chat? <a href="https://wa.me/5511994917618?text=Founding%20seat%20confirmed!%20Here%20are%20my%20onboarding%20details%3A%0A%0A1.%20Name%20%26%20company%3A%20%0A2.%20Calendar%20(Google%2FOutlook)%3A%20%0A3.%20Recap%20email%20address%3A%20%0A4.%20Platforms%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Meeting%20language(s)%3A%20" target="_blank" rel="noopener">WhatsApp us</a> or email <a href="mailto:paulo.ovidio@superclawman.ai?subject=Founding%20seat%20—%20onboarding%20details">paulo.ovidio@superclawman.ai</a> with the same five things.</p>
     </div>
 
     <div class="card">
@@ -108,5 +157,52 @@
   <div class="footer">
     &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="meetings.html">SuperClawman for Meetings</a> &nbsp;·&nbsp; <a href="index.html">superclawman.ai</a>
   </div>
+  <script>
+    (function () {
+      var form = document.getElementById('onboard-form');
+      var status = document.getElementById('onboard-status');
+      var btn = document.getElementById('onboard-submit');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = Object.fromEntries(new FormData(form).entries());
+        if (!data.name || !data.email) {
+          status.className = 'err';
+          status.textContent = 'Please fill in your name and recap email address.';
+          return;
+        }
+        data.session_id = new URLSearchParams(location.search).get('session_id') || '';
+        btn.disabled = true;
+        status.className = ''; status.style.display = 'none';
+        fetch('https://sc-meetings-stripe-hooks.superclawman.workers.dev/onboard', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
+          .then(function (x) {
+            if (x.r.ok && x.j.ok) {
+              var card = document.getElementById('onboard-card');
+              card.innerHTML =
+                '<div style="text-align:center;padding:1.6rem 0.5rem;">' +
+                '<div style="font-size:3rem;margin-bottom:0.9rem;">✅</div>' +
+                '<h2 style="margin-bottom:0.7rem;">Details received — we’re on it.</h2>' +
+                '<p style="color:var(--muted);font-size:0.95rem;line-height:1.65;max-width:42ch;margin:0 auto;">' +
+                'You’ll hear from us today on WhatsApp or email, and your agent will be live in your meetings within 48 hours.</p></div>';
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              btn.disabled = false;
+              status.className = 'err';
+              status.textContent = (x.j && x.j.error ? x.j.error + ' — ' : '') + 'Couldn’t send. Try again, or use the WhatsApp/email options below.';
+              status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          })
+          .catch(function () {
+            btn.disabled = false;
+            status.className = 'err';
+            status.textContent = 'Network error — try again, or use the WhatsApp/email options below.';
+            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          });
+      });
+    })();
+  </script>
 </body>
 </html>
