@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperClawman for Meetings — A IA que participa das suas reuniões</title>
+  <meta name="description" content="Uma IA que entra nas suas chamadas de Google Meet, Zoom e Teams como participante — ajuda ao vivo por voz e transforma cada conversa em resumo, memória e a próxima entrega. Automaticamente." />
+  <meta name="keywords" content="assistente IA reuniões, IA entra na reunião, IA voz reunião, Google Meet IA, Zoom IA, Teams IA, resumo reunião IA, ata automática, IA que fala na reunião, agente como serviço, proposta a partir da reunião" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://superclawman.ai/meetings-pt.html" />
+  <meta property="og:title" content="SuperClawman for Meetings — A IA que participa das suas reuniões" />
+  <meta property="og:description" content="Entra nas suas chamadas, ajuda ao vivo por voz e entrega o resumo, o follow-up e a proposta — minutos depois de você desligar." />
+  <meta property="og:url" content="https://superclawman.ai/meetings-pt.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <link rel="apple-touch-icon" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <link rel="alternate" hreflang="en" href="https://superclawman.ai/meetings.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://superclawman.ai/meetings-pt.html" />
+  <link rel="alternate" hreflang="es" href="https://superclawman.ai/meetings-es.html" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --neon: #00ffe0;
+      --neon-dim: rgba(0, 255, 224, 0.15);
+      --bg: #050508;
+      --panel: rgba(255,255,255,0.025);
+      --line: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --muted: #8b8ba8;
+      --ok: #3fb950;
+    }
+
+    html { scroll-behavior: smooth; }
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      z-index: 0;
+    }
+    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+
+    .scanline {
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      pointer-events: none; z-index: 0;
+    }
+
+    .lang-switch { position: fixed; top: 1.2rem; right: 1.5rem; z-index: 100; display: flex; gap: 0.4rem; }
+    .lang-switch a {
+      text-decoration: none; font-size: 1.4rem; line-height: 1; cursor: pointer;
+      transition: transform 0.2s; filter: drop-shadow(0 0 6px rgba(0,255,224,0.3));
+      border: 1px solid rgba(0,255,224,0.25); border-radius: 8px; padding: 4px 8px;
+      background: rgba(0,255,224,0.06);
+    }
+    .lang-switch a:hover { transform: translateY(-2px); }
+
+    .wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+
+    .topnav {
+      position: relative; z-index: 1; display: flex; align-items: center; gap: 0.8rem;
+      max-width: 1120px; margin: 0 auto; padding: 1.6rem 2rem 0;
+    }
+    .topnav img { width: 36px; height: 36px; border-radius: 50%; }
+    .topnav a.home {
+      color: var(--text); text-decoration: none; font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; gap: 0.6rem; opacity: 0.9;
+    }
+    .topnav a.home:hover { opacity: 1; }
+    .topnav .crumb { color: var(--muted); font-size: 0.85rem; }
+
+    .hero { padding: 4.5rem 0 3rem; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--neon); border: 1px solid rgba(0,255,224,0.3); border-radius: 100px;
+      padding: 0.5rem 1.2rem; background: var(--neon-dim); margin-bottom: 1.6rem;
+    }
+    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); animation: blink 1.2s ease-in-out infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+    h1 {
+      font-size: clamp(2.4rem, 6.5vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1.4rem;
+    }
+    .hero p.sub {
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 300; max-width: 720px;
+      margin: 0 auto 2.4rem; line-height: 1.65; opacity: 0.92;
+    }
+    .hero p.sub strong { color: var(--neon); font-weight: 700; }
+
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
+      padding: 0.95rem 2.2rem; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary {
+      color: #03110e; background: var(--neon);
+      box-shadow: 0 0 30px rgba(0,255,224,0.35);
+    }
+    .btn.primary:hover { box-shadow: 0 0 45px rgba(0,255,224,0.55); }
+    .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
+    .btn.ghost:hover { background: rgba(0,255,224,0.1); }
+
+    .hero .note { margin-top: 1.1rem; font-size: 0.82rem; color: var(--muted); }
+
+    section { padding: 3.6rem 0 1rem; }
+    .sec-eyebrow {
+      text-align: center; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--neon); opacity: 0.85; margin-bottom: 0.7rem;
+    }
+    .sec-title {
+      text-align: center; font-size: clamp(1.7rem, 4.2vw, 2.7rem); font-weight: 800; letter-spacing: -0.02em;
+      line-height: 1.1; margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 70%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .sec-sub { text-align: center; color: var(--muted); max-width: 640px; margin: 0 auto 2.6rem; line-height: 1.55; font-size: 1rem; }
+
+    .loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .loop { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .loop { grid-template-columns: 1fr; } }
+    .loop .step {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 1.5rem 1.4rem; backdrop-filter: blur(8px); position: relative;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .loop .step:hover { transform: translateY(-4px); border-color: rgba(0,255,224,0.3); }
+    .loop .n { font-size: 0.72rem; color: var(--neon); font-weight: 700; letter-spacing: 0.18em; margin-bottom: 0.6rem; }
+    .loop h4 { font-size: 1.1rem; margin-bottom: 0.45rem; }
+    .loop p { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
+
+    .caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    @media (max-width: 900px) { .caps { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .caps { grid-template-columns: 1fr; } }
+    .cap {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+      padding: 1.7rem 1.5rem; backdrop-filter: blur(8px);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .cap:hover { transform: translateY(-4px); border-color: rgba(0,255,224,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+    .cap .ico { font-size: 1.7rem; margin-bottom: 0.8rem; }
+    .cap h3 { font-size: 1.12rem; margin-bottom: 0.5rem; }
+    .cap p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    .proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .proof { grid-template-columns: repeat(2, 1fr); } }
+    .stat {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 1.5rem 1.3rem; text-align: center;
+    }
+    .stat .big { font-size: 2rem; font-weight: 800; color: var(--neon); letter-spacing: -0.02em; text-shadow: 0 0 20px rgba(0,255,224,0.4); }
+    .stat .lab { color: var(--muted); font-size: 0.82rem; margin-top: 0.4rem; line-height: 1.45; }
+    .quote {
+      margin: 2rem auto 0; max-width: 760px; border: 1px solid rgba(0,255,224,0.2);
+      background: rgba(0,255,224,0.04); border-radius: 16px; padding: 1.4rem 1.7rem;
+      font-size: 0.95rem; line-height: 1.6; color: var(--text);
+    }
+    .quote b { color: var(--neon); }
+
+    .founding {
+      text-align: center; margin: 0 auto 2.4rem; max-width: 640px;
+      border: 1px solid rgba(255,200,80,0.35); background: rgba(255,200,80,0.06);
+      border-radius: 14px; padding: 0.9rem 1.4rem; font-size: 0.9rem; color: #ffd9a8;
+    }
+    .founding b { color: #ffc850; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+    @media (max-width: 940px) { .tiers { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    .tier {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+      padding: 2rem 1.7rem 1.8rem; display: flex; flex-direction: column;
+      backdrop-filter: blur(8px); transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .tier:hover { transform: translateY(-4px); }
+    .tier.hot { border-color: rgba(0,255,224,0.45); box-shadow: 0 0 50px rgba(0,255,224,0.12); }
+    .tier .flag {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #03110e; background: var(--neon); border-radius: 100px; padding: 0.35rem 1rem;
+      box-shadow: 0 0 20px rgba(0,255,224,0.4); white-space: nowrap;
+    }
+    .tier h3 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+    .tier .for { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem; min-height: 2.4em; }
+    .tier .price { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; }
+    .tier .price span { font-size: 0.95rem; font-weight: 400; color: var(--muted); }
+    .tier .cycle { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.4rem; }
+    .tier ul { list-style: none; margin: 0 0 1.8rem; flex: 1; }
+    .tier li { font-size: 0.87rem; padding: 0.4rem 0 0.4rem 1.5rem; position: relative; line-height: 1.45; color: var(--text); opacity: 0.88; }
+    .tier li::before { content: '✓'; position: absolute; left: 0; color: var(--neon); font-weight: 700; }
+    .tier li.dim { opacity: 0.45; }
+    .tier li.dim::before { content: '—'; color: var(--muted); }
+    .tier .btn { text-align: center; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    @media (max-width: 800px) { .steps { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    .astep {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+      padding: 1.7rem 1.5rem; position: relative;
+    }
+    .astep .num {
+      width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.05rem; color: #03110e; background: var(--neon);
+      box-shadow: 0 0 18px rgba(0,255,224,0.4); margin-bottom: 1rem;
+    }
+    .astep h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .astep p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; }
+
+    .trust { max-width: 820px; margin: 0 auto; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .trow { display: grid; grid-template-columns: 220px 1fr; border-top: 1px solid var(--line); }
+    .trow:first-child { border-top: none; }
+    .trow .c { padding: 1.1rem 1.4rem; font-size: 0.9rem; line-height: 1.5; }
+    .trow .c:first-child { color: var(--neon); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(0,255,224,0.03); }
+    .trow .c b { color: var(--text); }
+    .trow .c:last-child { color: var(--muted); }
+    @media (max-width: 620px) { .trow { grid-template-columns: 1fr; } .trow .c:first-child { padding-bottom: 0.2rem; } .trow .c:last-child { padding-top: 0.3rem; } }
+
+    .faq { max-width: 780px; margin: 0 auto; }
+    .faq details {
+      border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+      padding: 1.1rem 1.4rem; margin-bottom: 0.8rem;
+    }
+    .faq summary { cursor: pointer; font-weight: 700; font-size: 0.97rem; list-style: none; position: relative; padding-right: 2rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; position: absolute; right: 0.2rem; top: 0; color: var(--neon); font-size: 1.2rem; font-weight: 400; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { margin-top: 0.8rem; font-size: 0.89rem; color: var(--muted); line-height: 1.6; }
+    .faq details p b { color: var(--text); }
+
+    .final {
+      text-align: center; margin: 4rem auto 0; max-width: 760px;
+      border: 1px solid rgba(0,255,224,0.25); border-radius: 24px;
+      background: radial-gradient(120% 160% at 50% 0%, rgba(0,255,224,0.08) 0%, rgba(255,255,255,0.02) 60%);
+      padding: 3rem 2rem;
+    }
+    .final h2 { font-size: clamp(1.5rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.7rem; }
+    .final p { color: var(--muted); margin-bottom: 1.8rem; font-size: 0.95rem; }
+
+    .footer {
+      position: relative; z-index: 1; padding: 3rem 1rem; text-align: center;
+      color: var(--muted); font-size: 0.8rem; letter-spacing: 0.05em; margin-top: 3rem;
+    }
+    .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+  <div class="lang-switch">
+    <a href="meetings.html" title="View in English">🇺🇸</a>
+    <a href="meetings-es.html" title="Ver en Español">🇪🇸</a>
+  </div>
+
+  <nav class="topnav">
+    <a class="home" href="pt.html">
+      <img src="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" alt="SuperClawman" />
+      SuperClawman <span class="crumb">/ Meetings</span>
+    </a>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow"><span class="dot"></span> No ar — comprovado em chamadas reais com clientes</div>
+      <h1>A IA que participa<br/>das suas reuniões.</h1>
+      <p class="sub">
+        O SuperClawman entra nas suas chamadas de <strong>Google Meet, Zoom e Teams</strong> como participante.
+        Pergunte qualquer coisa em voz alta, no meio da call — ele responde para a sala, por voz. E minutos depois de você desligar,
+        o resumo, o e-mail de follow-up e o rascunho da proposta <strong>já estão prontos</strong>.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#pricing">Garantir uma vaga fundadora</a>
+        <a class="btn ghost" href="#how">Ver como funciona</a>
+      </div>
+      <p class="note">10 vagas fundadoras · preço fundador travado para sempre · no ar em 48 horas</p>
+    </header>
+
+    <!-- THE LOOP -->
+    <section id="how">
+      <div class="sec-eyebrow">O ciclo</div>
+      <h2 class="sec-title">Da agenda ao follow-up enviado</h2>
+      <p class="sec-sub">Uma aprovação humana. Zero trabalho manual.</p>
+      <div class="loop">
+        <div class="step"><div class="n">01 · ENTRA</div><h4>Entra sozinho</h4><p>Acompanha sua agenda e entra no Meet, Zoom ou Teams dois minutos antes do início. Cole um link e ele entra na hora também.</p></div>
+        <div class="step"><div class="n">02 · AJUDA</div><h4>Ajuda ao vivo</h4><p>"Ei Superclawman, …" — ele responde para a sala por voz, ou discretamente no chat. Pesquisa na web e consulta reuniões anteriores durante a call.</p></div>
+        <div class="step"><div class="n">03 · LEMBRA</div><h4>Guarda tudo</h4><p>Cada chamada vira um resumo estruturado — síntese, decisões, ações — arquivado por conta numa memória que é sua.</p></div>
+        <div class="step"><div class="n">04 · ENTREGA</div><h4>Faz o follow-up</h4><p>Um e-mail de recap rascunhado para os participantes, e uma proposta sob demanda — minutos depois da call, não dias.</p></div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section>
+      <div class="sec-eyebrow">O que ele faz</div>
+      <h2 class="sec-title">Seis capacidades, todas funcionando hoje</h2>
+      <p class="sec-sub">Não é roadmap — tudo abaixo está no ar e comprovado em chamadas reais.</p>
+      <div class="caps">
+        <div class="cap"><div class="ico">📅</div><h3>Entra sozinho pela sua agenda</h3><p>Lê sua agenda e entra nas reuniões marcadas por conta própria — sem link para colar, sem bot para acionar. Reuniões recorrentes incluídas.</p></div>
+        <div class="cap"><div class="ico">🎙️</div><h3>Ajuda ao vivo por voz e chat</h3><p>Chame pelo nome no meio da call e ele responde para a sala por voz; ou escreva no chat para uma resposta discreta. Só fala quando chamado.</p></div>
+        <div class="cap"><div class="ico">🌎</div><h3>Multilíngue de verdade</h3><p>Reconhecimento de voz próprio que entende sotaques, inglês e português onde as legendas genéricas falham. Espanhol sob demanda.</p></div>
+        <div class="cap"><div class="ico">🧠</div><h3>Memória por conta</h3><p>Cada chamada é arquivada por conta num diário pesquisável. Ele entra na próxima reunião já sabendo o histórico — decisões, objeções, compromissos.</p></div>
+        <div class="cap"><div class="ico">✉️</div><h3>O recap se escreve sozinho</h3><p>Minutos depois da call: síntese, decisões, ações com responsáveis, e um e-mail de recap rascunhado para os participantes. Você aprova, ele envia.</p></div>
+        <div class="cap"><div class="ico">📄</div><h3>Da call à proposta</h3><p>"Prepare a proposta daquela reunião" — um rascunho baseado no que foi realmente dito, pronto para virar um documento com a sua marca.</p></div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section>
+      <div class="sec-eyebrow">Comprovado, ao vivo</div>
+      <h2 class="sec-title">Medido em chamadas reais, não em demos</h2>
+      <p class="sec-sub">Incluindo uma reunião real de 65 minutos com cliente, em português, de ponta a ponta.</p>
+      <div class="proof">
+        <div class="stat"><div class="big">~2 min</div><div class="lab">do fim da call ao resumo pronto — sem nenhum comando</div></div>
+        <div class="stat"><div class="big">65 min</div><div class="lab">reunião real com cliente capturada, resumida e transformada em proposta</div></div>
+        <div class="stat"><div class="big">PT + EN</div><div class="lab">respostas por voz nos dois idiomas, na mesma chamada</div></div>
+        <div class="stat"><div class="big">0</div><div class="lab">quedas de conexão na infraestrutura sempre ativa</div></div>
+      </div>
+      <div class="quote">
+        Uma troca real: "<b>Ei Superclawman, pesquise o valor dos chips da NVIDIA</b>" — ele respondeu por voz, em português, para a sala.
+        E em inglês: "<b>Hey Superclawman, check the latest cost for NVIDIA GPUs</b>" — respondeu com os preços atuais.
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="sec-eyebrow">Oferta fundadora</div>
+      <h2 class="sec-title">Garanta uma das 10 vagas fundadoras</h2>
+      <p class="sec-sub">Cada vaga é um agente dedicado, provisionado para você, com atendimento white-glove. O preço fundador fica travado enquanto você for assinante.</p>
+
+      <div class="founding"><b>Turma fundadora:</b> apenas 10 vagas. Seu preço nunca aumenta enquanto sua assinatura estiver ativa.</div>
+
+      <div class="tiers">
+        <!-- BRIEFS -->
+        <div class="tier">
+          <h3>Briefs</h3>
+          <div class="for">Toda reunião capturada, resumida e lembrada — automaticamente.</div>
+          <div class="price">US$ 99<span>/mês</span></div>
+          <div class="cycle">até 20 horas de reunião / mês</div>
+          <ul>
+            <li>Entrada automática pela agenda (Meet · Zoom · Teams)</li>
+            <li>Transcrição hi-fi e resumo estruturado minutos após cada call</li>
+            <li>E-mail de recap rascunhado — você aprova e envia</li>
+            <li>Diário de memória por conta, que é seu</li>
+            <li class="dim">Assistência ao vivo por voz e chat</li>
+            <li class="dim">Rascunhos de proposta a partir da call</li>
+          </ul>
+          <a class="btn ghost" href="https://buy.stripe.com/fZu14m7noc9E0EH11uao800">Começar com Briefs</a>
+        </div>
+
+        <!-- FULL SEAT -->
+        <div class="tier hot">
+          <div class="flag">Mais completo</div>
+          <h3>Full Seat</h3>
+          <div class="for">O participante de IA completo — ajuda ao vivo e faz o follow-up.</div>
+          <div class="price">US$ 299<span>/mês</span></div>
+          <div class="cycle">até 40 horas de reunião / mês</div>
+          <ul>
+            <li>Tudo do Briefs</li>
+            <li>Voz ao vivo — pergunte qualquer coisa, ele responde para a sala</li>
+            <li>Respostas discretas no chat durante a call</li>
+            <li>Pesquisa na web e memória de reuniões anteriores em tempo real</li>
+            <li>Propostas rascunhadas com base no que foi dito</li>
+            <li>Voz multilíngue — português e inglês hoje</li>
+          </ul>
+          <a class="btn primary" href="https://buy.stripe.com/fZueVcazAb5A2MPfWoao801">Garantir um Full Seat</a>
+        </div>
+
+        <!-- AAAS -->
+        <div class="tier">
+          <h3>Agent as a Service</h3>
+          <div class="for">Um engajamento SuperClawman completo — reuniões mais automação de ponta a ponta do seu negócio.</div>
+          <div class="price">Sob medida</div>
+          <div class="cycle">escopo por engajamento</div>
+          <ul>
+            <li>Tudo do Full Seat</li>
+            <li>Automação de ponta a ponta dos fluxos da sua operação</li>
+            <li>Plataforma dedicada on-prem ou na nuvem, monitorada 24/7</li>
+            <li>Seus dados ficam em infraestrutura que é sua</li>
+            <li>Preço de parceria atrelado à sua escala</li>
+          </ul>
+          <a class="btn ghost" href="https://wa.me/5511994917618?text=Oi%20—%20tenho%20interesse%20no%20SuperClawman%20Agent%20as%20a%20Service" target="_blank" rel="noopener">Fale com a gente</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVATION -->
+    <section>
+      <div class="sec-eyebrow">Ativação</div>
+      <h2 class="sec-title">Nas suas reuniões em até 48 horas</h2>
+      <p class="sec-sub">Cada vaga é provisionada white-glove. Nenhum app para instalar, nenhuma configuração para brigar.</p>
+      <div class="steps">
+        <div class="astep"><div class="num">1</div><h4>Assine</h4><p>Escolha sua vaga e pague com segurança via Stripe. Você cai na sua página de ativação na hora.</p></div>
+        <div class="astep"><div class="num">2</div><h4>Conte sobre suas reuniões</h4><p>Um onboarding de 5 minutos: sua agenda, seu e-mail, suas plataformas, seu idioma. É tudo de que precisamos.</p></div>
+        <div class="astep"><div class="num">3</div><h4>Ele entra na sua próxima call</h4><p>Em até 48 horas seu agente está de olho na sua agenda e entra na primeira reunião — anunciado, com consentimento, pronto.</p></div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section>
+      <div class="sec-eyebrow">Confiança e controle</div>
+      <h2 class="sec-title">Parte do projeto, não um remendo</h2>
+      <p class="sec-sub">O que torna o produto usável por uma empresa séria.</p>
+      <div class="trust">
+        <div class="trow"><div class="c">Consentimento de gravação</div><div class="c">O assistente <b>se anuncia</b> ao entrar, no idioma da reunião. Nunca grava em silêncio.</div></div>
+        <div class="trow"><div class="c">Envios em seu nome</div><div class="c">Recaps são <b>rascunhados, nunca enviados sozinhos</b>. Um humano aprova toda mensagem que sai.</div></div>
+        <div class="trow"><div class="c">Propriedade dos dados</div><div class="c">A memória das reuniões fica em <b>armazenamento que você controla</b> — não numa caixa-preta de fornecedor. Exporte ou apague quando quiser.</div></div>
+        <div class="trow"><div class="c">Quando ele fala</div><div class="c"><b>Só quando chamado pelo nome.</b> Fica em silêncio a menos que seja endereçado diretamente.</div></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="sec-eyebrow">FAQ</div>
+      <h2 class="sec-title">Perguntas, respondidas</h2>
+      <p class="sec-sub"></p>
+      <div class="faq">
+        <details>
+          <summary>Quais plataformas de reunião ele suporta?</summary>
+          <p><b>Google Meet, Zoom e Microsoft Teams.</b> Ele entra pela sua agenda automaticamente, ou por qualquer link de reunião que você enviar.</p>
+        </details>
+        <details>
+          <summary>Os outros participantes sabem que ele está lá?</summary>
+          <p>Sim — por princípio. Ele entra como participante identificado e <b>se anuncia</b> ao entrar. Transparência é parte do produto, não uma configuração.</p>
+        </details>
+        <details>
+          <summary>Em quais idiomas ele funciona?</summary>
+          <p>A voz ao vivo funciona em <b>português e inglês</b> hoje — inclusive os dois na mesma chamada. Resumos e recaps seguem o idioma da reunião. Voz em espanhol disponível sob demanda para clientes fundadores.</p>
+        </details>
+        <details>
+          <summary>O que acontece se eu passar das horas mensais?</summary>
+          <p>Nada quebra — a gente entra em contato para ajustar o plano. Clientes fundadores têm flexibilidade enquanto aprendemos juntos o seu uso real.</p>
+        </details>
+        <details>
+          <summary>Por que só 10 vagas fundadoras?</summary>
+          <p>Cada vaga é um <b>agente dedicado, provisionado white-glove</b>, não uma conta self-service. Limitamos a turma fundadora para que cada cliente tenha atenção direta do time enquanto escalamos a plataforma. O preço fundador fica travado enquanto você for assinante.</p>
+        </details>
+        <details>
+          <summary>Ele realmente escreve uma proposta a partir de uma call?</summary>
+          <p>Sim. Depois de uma conversa com cara de venda, peça a proposta e ele rascunha uma <b>baseada no que foi realmente dito</b> — as dores, os números, os compromissos. Você lapida e envia. Esse fluxo exato fechou nosso primeiro engajamento real.</p>
+        </details>
+        <details>
+          <summary>Onde ficam os dados das minhas reuniões?</summary>
+          <p>Em <b>armazenamento dedicado à sua conta</b>, sem misturar com mais ninguém. Os diários por conta são exportáveis, e apagamos tudo mediante pedido. Engajamentos enterprise podem rodar inteiramente em infraestrutura sua.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="final">
+      <h2>Sua próxima reunião pode terminar<br/>com o follow-up já pronto.</h2>
+      <p>10 vagas fundadoras. No ar em 48 horas. Preço travado para sempre.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#pricing">Garantir uma vaga fundadora</a>
+        <a class="btn ghost" href="https://wa.me/5511994917618?text=Oi%20—%20tenho%20uma%20pergunta%20sobre%20o%20SuperClawman%20for%20Meetings" target="_blank" rel="noopener">Pergunte qualquer coisa</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="pt.html">superclawman.ai</a> &nbsp;·&nbsp; <a href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">Fale no WhatsApp</a>
+  </div>
+</body>
+</html>

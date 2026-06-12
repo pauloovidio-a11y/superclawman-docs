@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome aboard — SuperClawman for Meetings</title>
+  <meta name="description" content="Your founding seat is confirmed. Complete the 5-minute onboarding and your agent joins its first meeting within 48 hours." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://superclawman.ai/meetings-activate.html" />
+  <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --neon: #00ffe0; --neon-dim: rgba(0,255,224,0.15); --bg: #050508;
+      --panel: rgba(255,255,255,0.025); --line: rgba(255,255,255,0.07);
+      --text: #e8e8f0; --muted: #8b8ba8; --ok: #3fb950;
+    }
+    html, body { background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px; animation: gridMove 20s linear infinite; z-index: 0;
+    }
+    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+    .wrap { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 4rem 2rem 5rem; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--ok);
+      border: 1px solid rgba(63,185,80,0.4); border-radius: 100px; padding: 0.5rem 1.2rem;
+      background: rgba(63,185,80,0.08); margin-bottom: 1.8rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1.2rem;
+    }
+    .sub { font-size: 1.05rem; font-weight: 300; color: var(--text); opacity: 0.9; line-height: 1.65; margin-bottom: 2.6rem; }
+    .sub strong { color: var(--neon); font-weight: 700; }
+    .card {
+      text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+      padding: 2rem 1.9rem; margin-bottom: 1.2rem; backdrop-filter: blur(8px);
+    }
+    .card h2 { font-size: 1.15rem; margin-bottom: 1rem; }
+    .card h2 .n {
+      display: inline-flex; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center;
+      font-size: 0.95rem; font-weight: 800; color: #03110e; background: var(--neon); margin-right: 0.7rem;
+      box-shadow: 0 0 16px rgba(0,255,224,0.4); vertical-align: middle;
+    }
+    .card p, .card li { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+    .card ul { margin: 0.8rem 0 0 1.2rem; }
+    .card li { padding: 0.25rem 0; }
+    .card li b { color: var(--text); }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
+      padding: 0.95rem 2.2rem; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { color: #03110e; background: var(--neon); box-shadow: 0 0 30px rgba(0,255,224,0.35); }
+    .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
+    .note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); }
+    .note a { color: var(--neon); }
+    .footer { position: relative; z-index: 1; padding: 2rem 1rem 3rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="badge">✓ Founding seat confirmed</div>
+    <h1>Welcome aboard.</h1>
+    <p class="sub">
+      Your payment went through and your seat is reserved.
+      One short step left — tell us about your meetings, and your agent will be
+      <strong>in your calls within 48 hours</strong>.
+    </p>
+
+    <div class="card">
+      <h2><span class="n">1</span>Send us your onboarding details</h2>
+      <p>Message us on WhatsApp (or email) with these five things — it takes about 5 minutes:</p>
+      <ul>
+        <li><b>Your name &amp; company</b></li>
+        <li><b>The calendar</b> your meetings live on (Google Calendar / Outlook)</li>
+        <li><b>The email address</b> recaps should be drafted from</li>
+        <li><b>Meeting platforms</b> you use (Meet / Zoom / Teams)</li>
+        <li><b>Language(s)</b> of your meetings (English / Portuguese / both)</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn primary" href="https://wa.me/5511994917618?text=Founding%20seat%20confirmed!%20Here%20are%20my%20onboarding%20details%3A%0A%0A1.%20Name%20%26%20company%3A%20%0A2.%20Calendar%20(Google%2FOutlook)%3A%20%0A3.%20Recap%20email%20address%3A%20%0A4.%20Platforms%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Meeting%20language(s)%3A%20" target="_blank" rel="noopener">Send via WhatsApp</a>
+        <a class="btn ghost" href="mailto:paulo.ovidio@superclawman.ai?subject=Founding%20seat%20—%20onboarding%20details&body=1.%20Name%20%26%20company%3A%20%0A2.%20Calendar%20(Google%2FOutlook)%3A%20%0A3.%20Recap%20email%20address%3A%20%0A4.%20Platforms%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Meeting%20language(s)%3A%20">Send via email</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="n">2</span>We provision your agent</h2>
+      <p>Within 48 hours we set up your dedicated agent: calendar watch, your platforms, your language, your account memory. We'll confirm on WhatsApp when it's live — and walk you through the wake-word and your first brief.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="n">3</span>It joins your next meeting</h2>
+      <p>Your agent announces itself when it enters, helps when called by name, and minutes after the call your first brief and recap draft arrive. That's it — the follow-up does itself from now on.</p>
+    </div>
+
+    <p class="note">Questions any time: <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a></p>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="meetings.html">SuperClawman for Meetings</a> &nbsp;·&nbsp; <a href="index.html">superclawman.ai</a>
+  </div>
+</body>
+</html>
