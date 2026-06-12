@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome aboard — SuperClawman for Meetings</title>
-  <meta name="description" content="Your founding seat is confirmed. Complete the 5-minute onboarding and your agent joins its first meeting within 48 hours." />
+  <title>Bienvenido a bordo — SuperClawman for Meetings</title>
+  <meta name="description" content="Tu asiento fundador está confirmado. Completa el onboarding de 5 minutos y tu agente entra a su primera reunión en 48 horas." />
   <meta name="robots" content="noindex, follow" />
-  <link rel="canonical" href="https://superclawman.ai/meetings-activate.html" />
+  <link rel="canonical" href="https://superclawman.ai/meetings-activate-es.html" />
   <link rel="alternate" hreflang="en" href="https://superclawman.ai/meetings-activate.html" />
   <link rel="alternate" hreflang="pt-BR" href="https://superclawman.ai/meetings-activate-pt.html" />
   <link rel="alternate" hreflang="es" href="https://superclawman.ai/meetings-activate-es.html" />
@@ -27,6 +27,11 @@
       background-size: 60px 60px; animation: gridMove 20s linear infinite; z-index: 0;
     }
     @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+    .lang-switch { position: fixed; top: 1.2rem; right: 1.5rem; z-index: 100; display: flex; gap: 0.4rem; }
+    .lang-switch a {
+      text-decoration: none; font-size: 1.4rem; line-height: 1; cursor: pointer;
+      border: 1px solid rgba(0,255,224,0.25); border-radius: 8px; padding: 4px 8px; background: rgba(0,255,224,0.06);
+    }
     .wrap { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 4rem 2rem 5rem; text-align: center; }
     .badge {
       display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 700;
@@ -53,9 +58,6 @@
       box-shadow: 0 0 16px rgba(0,255,224,0.4); vertical-align: middle;
     }
     .card p, .card li { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
-    .card ul { margin: 0.8rem 0 0 1.2rem; }
-    .card li { padding: 0.25rem 0; }
-    .card li b { color: var(--text); }
     .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
     .btn {
       display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
@@ -66,7 +68,6 @@
     .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
     .note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); }
     .note a { color: var(--neon); }
-    /* onboarding form */
     .frow { display: grid; gap: 0.9rem; margin-bottom: 0.9rem; }
     .frow.two { grid-template-columns: 1fr 1fr; }
     @media (max-width: 560px) { .frow.two { grid-template-columns: 1fr; } }
@@ -93,77 +94,77 @@
   </style>
 </head>
 <body>
-  <div style="position:fixed;top:1.2rem;right:1.5rem;z-index:100;display:flex;gap:0.4rem;">
-    <a href="meetings-activate-pt.html" title="Ver em Português" style="text-decoration:none;font-size:1.4rem;line-height:1;border:1px solid rgba(0,255,224,0.25);border-radius:8px;padding:4px 8px;background:rgba(0,255,224,0.06);">🇧🇷</a>
-    <a href="meetings-activate-es.html" title="Ver en Español" style="text-decoration:none;font-size:1.4rem;line-height:1;border:1px solid rgba(0,255,224,0.25);border-radius:8px;padding:4px 8px;background:rgba(0,255,224,0.06);">🇪🇸</a>
+  <div class="lang-switch">
+    <a href="meetings-activate.html" title="View in English">🇺🇸</a>
+    <a href="meetings-activate-pt.html" title="Ver em Português">🇧🇷</a>
   </div>
   <div class="wrap">
-    <div class="badge">✓ Founding seat confirmed</div>
-    <h1>Welcome aboard.</h1>
+    <div class="badge">✓ Asiento fundador confirmado</div>
+    <h1>Bienvenido a bordo.</h1>
     <p class="sub">
-      Your payment went through and your seat is reserved.
-      One short step left — tell us about your meetings, and your agent will be
-      <strong>in your calls within 48 hours</strong>.
+      Tu pago fue aprobado y tu asiento está reservado.
+      Falta un paso corto — cuéntanos de tus reuniones, y tu agente estará
+      <strong>en tus llamadas en 48 horas</strong>.
     </p>
 
     <div class="card" id="onboard-card">
-      <h2><span class="n">1</span>Send us your onboarding details</h2>
-      <p>Five quick fields — this is everything we need to provision your agent.</p>
+      <h2><span class="n">1</span>Envíanos tus datos de onboarding</h2>
+      <p>Cinco campos rápidos — es todo lo que necesitamos para aprovisionar tu agente.</p>
       <form id="onboard-form" novalidate>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0;" />
         <div class="frow two">
-          <label>Your name<input type="text" name="name" required placeholder="Jane Smith" /></label>
-          <label>Company<input type="text" name="company" placeholder="Acme Staffing" /></label>
+          <label>Tu nombre<input type="text" name="name" required placeholder="María García" /></label>
+          <label>Empresa<input type="text" name="company" placeholder="Acme Servicios" /></label>
         </div>
         <div class="frow two">
-          <label>Recap email address<input type="email" name="email" required placeholder="jane@acme.com" /></label>
-          <label>Calendar
+          <label>Correo para los resúmenes<input type="email" name="email" required placeholder="maria@acme.com" /></label>
+          <label>Calendario
             <select name="calendar">
-              <option value="">Choose…</option>
+              <option value="">Elige…</option>
               <option>Google Calendar</option>
               <option>Outlook</option>
-              <option>Other / not sure</option>
+              <option>Otro / no sé</option>
             </select>
           </label>
         </div>
         <div class="frow two">
-          <label>Meeting platforms<input type="text" name="platforms" placeholder="Meet, Zoom, Teams…" /></label>
-          <label>Meeting language(s)
+          <label>Plataformas de reunión<input type="text" name="platforms" placeholder="Meet, Zoom, Teams…" /></label>
+          <label>Idioma(s) de las reuniones
             <select name="languages">
-              <option value="">Choose…</option>
-              <option>English</option>
-              <option>Portuguese</option>
-              <option>English + Portuguese</option>
-              <option>Other</option>
+              <option value="">Elige…</option>
+              <option>Español</option>
+              <option>Inglés</option>
+              <option>Portugués</option>
+              <option>Varios</option>
             </select>
           </label>
         </div>
-        <label class="ffull">Anything else we should know? <span class="opt">(optional)</span>
-          <textarea name="notes" rows="2" placeholder="e.g. most meetings are client discovery calls"></textarea>
+        <label class="ffull">¿Algo más que debamos saber? <span class="opt">(opcional)</span>
+          <textarea name="notes" rows="2" placeholder="p. ej., la mayoría son llamadas de descubrimiento con clientes"></textarea>
         </label>
         <div class="cta-row" style="justify-content:flex-start;">
-          <button class="btn primary" type="submit" id="onboard-submit">Send onboarding details</button>
+          <button class="btn primary" type="submit" id="onboard-submit">Enviar datos de onboarding</button>
         </div>
         <p id="onboard-status" role="status" style="display:none;margin-top:1rem;font-size:0.9rem;"></p>
       </form>
-      <p class="alt">Prefer chat? <a href="https://wa.me/5511994917618?text=Founding%20seat%20confirmed!%20Here%20are%20my%20onboarding%20details%3A%0A%0A1.%20Name%20%26%20company%3A%20%0A2.%20Calendar%20(Google%2FOutlook)%3A%20%0A3.%20Recap%20email%20address%3A%20%0A4.%20Platforms%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Meeting%20language(s)%3A%20" target="_blank" rel="noopener">WhatsApp us</a> or email <a href="mailto:paulo.ovidio@superclawman.ai?subject=Founding%20seat%20—%20onboarding%20details">paulo.ovidio@superclawman.ai</a> with the same five things.</p>
+      <p class="alt">¿Prefieres chatear? <a href="https://wa.me/5511994917618?text=%C2%A1Asiento%20fundador%20confirmado!%20Mis%20datos%20de%20onboarding%3A%0A%0A1.%20Nombre%20y%20empresa%3A%20%0A2.%20Calendario%20(Google%2FOutlook)%3A%20%0A3.%20Correo%20para%20res%C3%BAmenes%3A%20%0A4.%20Plataformas%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Idioma(s)%3A%20" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> o envía los mismos cinco datos a <a href="mailto:paulo.ovidio@superclawman.ai?subject=Asiento%20fundador%20—%20datos%20de%20onboarding">paulo.ovidio@superclawman.ai</a>.</p>
     </div>
 
     <div class="card">
-      <h2><span class="n">2</span>We provision your agent</h2>
-      <p>Within 48 hours we set up your dedicated agent: calendar watch, your platforms, your language, your account memory. We'll confirm on WhatsApp when it's live — and walk you through the wake-word and your first brief.</p>
+      <h2><span class="n">2</span>Aprovisionamos tu agente</h2>
+      <p>En 48 horas configuramos tu agente dedicado: vigilancia del calendario, tus plataformas, tu idioma, tu memoria de cuenta. Te confirmamos por WhatsApp cuando esté en vivo — y te mostramos la palabra de activación y tu primer resumen.</p>
     </div>
 
     <div class="card">
-      <h2><span class="n">3</span>It joins your next meeting</h2>
-      <p>Your agent announces itself when it enters, helps when called by name, and minutes after the call your first brief and recap draft arrive. That's it — the follow-up does itself from now on.</p>
+      <h2><span class="n">3</span>Entra a tu próxima reunión</h2>
+      <p>Tu agente se anuncia al entrar, ayuda cuando lo llaman por su nombre, y minutos después de la llamada llegan tu primer resumen y el borrador del recap. Listo — el follow-up se hace solo de aquí en adelante.</p>
     </div>
 
-    <p class="note">Questions any time: <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a></p>
+    <p class="note">Dudas en cualquier momento: <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a> · <a href="meetings-guide-es.html">El manual de tu agente</a></p>
   </div>
 
   <div class="footer">
-    &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="meetings.html">SuperClawman for Meetings</a> &nbsp;·&nbsp; <a href="index.html">superclawman.ai</a>
+    &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="meetings-es.html">SuperClawman for Meetings</a> &nbsp;·&nbsp; <a href="es.html">superclawman.ai</a>
   </div>
   <script>
     (function () {
@@ -175,7 +176,7 @@
         var data = Object.fromEntries(new FormData(form).entries());
         if (!data.name || !data.email) {
           status.className = 'err';
-          status.textContent = 'Please fill in your name and recap email address.';
+          status.textContent = 'Completa tu nombre y el correo para los resúmenes.';
           return;
         }
         data.session_id = new URLSearchParams(location.search).get('session_id') || '';
@@ -192,21 +193,21 @@
               card.innerHTML =
                 '<div style="text-align:center;padding:1.6rem 0.5rem;">' +
                 '<div style="font-size:3rem;margin-bottom:0.9rem;">✅</div>' +
-                '<h2 style="margin-bottom:0.7rem;">Details received — we’re on it.</h2>' +
+                '<h2 style="margin-bottom:0.7rem;">Datos recibidos — ya estamos en ello.</h2>' +
                 '<p style="color:var(--muted);font-size:0.95rem;line-height:1.65;max-width:42ch;margin:0 auto;">' +
-                'You’ll hear from us today on WhatsApp or email, and your agent will be live in your meetings within 48 hours.</p></div>';
+                'Tendrás noticias nuestras hoy mismo por WhatsApp o correo, y tu agente estará en tus reuniones en 48 horas.</p></div>';
               card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
               btn.disabled = false;
               status.className = 'err';
-              status.textContent = (x.j && x.j.error ? x.j.error + ' — ' : '') + 'Couldn’t send. Try again, or use the WhatsApp/email options below.';
+              status.textContent = (x.j && x.j.error ? x.j.error + ' — ' : '') + 'No se pudo enviar. Inténtalo de nuevo, o usa el WhatsApp/correo de abajo.';
               status.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
           })
           .catch(function () {
             btn.disabled = false;
             status.className = 'err';
-            status.textContent = 'Network error — try again, or use the WhatsApp/email options below.';
+            status.textContent = 'Error de red — inténtalo de nuevo, o usa el WhatsApp/correo de abajo.';
             status.scrollIntoView({ behavior: 'smooth', block: 'center' });
           });
       });
