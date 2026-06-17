@@ -299,9 +299,9 @@
       </p>
       <div class="cta-row">
         <a class="btn primary" href="#pricing">Reservar un asiento fundador</a>
-        <a class="btn ghost" href="#how">Ver cómo funciona</a>
+        <a class="btn ghost" href="#trial">Probar gratis</a>
       </div>
-      <p class="note">10 asientos fundadores · precio fundador fijo de por vida · en vivo en 48 horas</p>
+      <p class="note">Prueba gratis de 7 días · sin tarjeta · o reserva un asiento fundador (precio fijo de por vida)</p>
     </header>
 
     <!-- THE LOOP -->
@@ -347,6 +347,45 @@
         Un intercambio real: "<b>Hey Superclawman, check the latest cost for NVIDIA GPUs</b>" — dijo los precios actuales a la sala por voz.
         Y en portugués: "<b>Ei Superclawman, pesquise o valor dos chips da NVIDIA</b>" — respondió por voz, en portugués.
       </div>
+    </section>
+
+    <!-- PRUEBA GRATIS -->
+    <section id="trial">
+      <style>
+        #trial .trial-card { background: var(--panel); border: 1px solid rgba(0,255,224,0.25); border-radius: 20px; max-width: 560px; margin: 0 auto; padding: 2rem 2rem 2.2rem; }
+        #trial-form { display: grid; gap: 1rem; }
+        #trial-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; font-weight: 700; color: var(--text); }
+        #trial-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        #trial-form input { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.8rem; color: var(--text); font: inherit; font-weight: 400; }
+        #trial-form input:focus { outline: none; border-color: rgba(0,255,224,0.5); }
+        #trial-form button { margin-top: 0.3rem; }
+        #trial-status { font-size: 0.9rem; margin-top: 0.4rem; display: none; }
+        #trial-status.ok { color: var(--ok); display: block; }
+        #trial-status.err { color: #ff8a8a; display: block; }
+        #trial .perks { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin: 0 auto 1.8rem; color: var(--muted); font-size: 0.85rem; }
+        #trial .perks b { color: var(--neon); }
+        @media (max-width: 540px) { #trial-form .row2 { grid-template-columns: 1fr; } }
+      </style>
+      <div class="sec-eyebrow">Prueba gratis</div>
+      <h2 class="sec-title">¿Aún no quieres comprometerte? Pruébalo.</h2>
+      <p class="sec-sub">Prueba gratis de 7 días — todas las funciones, sin tarjeta de crédito. SuperClawman entra en tus llamadas reales, te ayuda en vivo y deja el resumen + seguimiento listos minutos después de colgar.</p>
+      <div class="perks"><span><b>7 días</b> · todas las funciones</span><span><b>3 horas de reunión</b> de cortesía</span><span><b>Sin tarjeta</b></span></div>
+      <div class="trial-card" id="trial-card">
+        <form id="trial-form" novalidate>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0;" />
+          <div class="row2">
+            <label>Tu nombre<input type="text" name="name" required placeholder="Juan Pérez" /></label>
+            <label>Empresa<input type="text" name="company" placeholder="Acme Staffing" /></label>
+          </div>
+          <div class="row2">
+            <label>Email de trabajo<input type="email" name="email" required placeholder="juan@acme.com" /></label>
+            <label>Plataformas<input type="text" name="platforms" placeholder="Meet, Zoom, Teams…" /></label>
+          </div>
+          <button class="btn primary" type="submit" id="trial-submit">Empezar mi prueba gratis →</button>
+          <p id="trial-status" role="status"></p>
+        </form>
+      </div>
+      <p class="note" style="text-align:center;margin-top:1.1rem;">Recibes los pasos por email en minutos — añade SuperClawman a una reunión y estás en vivo. Sin tarjeta ahora, sin cargo automático después.</p>
     </section>
 
     <!-- PRICING -->
@@ -490,5 +529,46 @@
   <div class="footer">
     &copy; 2026 SuperClawman &nbsp;·&nbsp; <a href="es.html">superclawman.ai</a> &nbsp;·&nbsp; <a href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">Contacto por WhatsApp</a>
   </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById('trial-form');
+      if (!form) return;
+      var status = document.getElementById('trial-status');
+      var btn = document.getElementById('trial-submit');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = {};
+        new FormData(form).forEach(function (v, k) { data[k] = v; });
+        if (!data.name || !data.email) {
+          status.className = 'err'; status.textContent = 'Indica tu nombre y un email de trabajo.'; return;
+        }
+        btn.disabled = true; btn.textContent = 'Empezando…';
+        status.className = ''; status.style.display = 'none';
+        fetch('https://sc-meetings-stripe-hooks.superclawman.workers.dev/trial', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+        }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (x) {
+            if (x.ok && x.j && x.j.ok) {
+              document.getElementById('trial-card').innerHTML =
+                '<div style="text-align:center;padding:1.4rem 0;">' +
+                '<div style="font-size:2.4rem;margin-bottom:0.6rem;">🎁</div>' +
+                '<h3 style="margin:0 0 0.6rem;font-size:1.3rem;color:var(--neon);">Listo — tu prueba va a empezar.</h3>' +
+                '<p style="color:var(--muted);line-height:1.6;margin:0;">Revisa tu bandeja en un minuto para los pasos de <b>superclawman@superclawman.ai</b>. ' +
+                'Añádelo a una invitación de reunión (o mándanos un enlace) y tu agente entra. Nos vemos en la llamada.</p></div>';
+            } else {
+              status.className = 'err';
+              status.textContent = (x.j && x.j.error) ? x.j.error : 'Algo salió mal — inténtalo de nuevo o escríbenos por WhatsApp.';
+              btn.disabled = false; btn.textContent = 'Empezar mi prueba gratis →';
+            }
+          })
+          .catch(function () {
+            status.className = 'err';
+            status.textContent = 'Error de red — inténtalo de nuevo, o WhatsApp +55 11 99491-7618.';
+            btn.disabled = false; btn.textContent = 'Empezar mi prueba gratis →';
+          });
+      });
+    })();
+  </script>
 </body>
 </html>
