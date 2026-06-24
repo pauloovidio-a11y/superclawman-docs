@@ -70,7 +70,11 @@ probe_ktulu() {
   # Use the `ktulu` user (not `ktulu-mac` admin): the .openclaw tree is owned by
   # the ktulu user, so the admin alias returned 0 for every workspace count
   # (2026-05-30 fix). /Library/LaunchDaemons stays world-readable for any user.
-  ssh -o ConnectTimeout=8 ktulu-mac-ktulu 'bash -s' <<'REMOTE' 2>/dev/null || echo "OFFLINE"
+  # 2026-06-23: try the LAN alias first, then fall back to the Tailscale alias
+  # (ktulu-mac-ktulu-ts) when Ktulu's LAN lease is dark — same out-of-band path
+  # the Nightwatch routine now uses (see machine-roles memory / LAN-event fix).
+  local remote out
+  remote=$(cat <<'REMOTE'
 set +e
 hw=$(sysctl -n machdep.cpu.brand_string 2>/dev/null)
 cores=$(sysctl -n hw.ncpu 2>/dev/null)
@@ -88,6 +92,11 @@ allow=$(python3 -c "import json;j=json.load(open('$base/openclaw.json'));print(j
 recent=$(find $base/workspace -maxdepth 2 -mtime -1 -type f 2>/dev/null | grep -vE '\.bak|\.log$|\.venv|\.git/' | head -8 | tr '\n' '|')
 echo "{\"hw\":\"$hw\",\"cores\":\"$cores\",\"mem\":\"$mem\",\"os\":\"$os\",\"oc\":\"$oc\",\"doctrine\":$doctrine,\"skills\":$skills,\"pipeline_modules\":$pipeline,\"playbooks\":$playbooks,\"subagents\":$subagents,\"launchdaemons\":$daemons,\"allow\":\"$allow\",\"recent\":\"$recent\"}"
 REMOTE
+)
+  out=$(ssh -o ConnectTimeout=8 ktulu-mac-ktulu 'bash -s' <<<"$remote" 2>/dev/null)
+  [ -z "$out" ] && out=$(ssh -o ConnectTimeout=8 ktulu-mac-ktulu-ts 'bash -s' <<<"$remote" 2>/dev/null)
+  [ -z "$out" ] && out="OFFLINE"
+  echo "$out"
 }
 
 probe_jr() {
