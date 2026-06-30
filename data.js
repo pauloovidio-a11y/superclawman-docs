@@ -3,7 +3,7 @@
 // Live: https://pauloovidio-a11y.github.io/superclawman-docs/
 // Refresh stats via refresh.sh; per-agent notes are human-curated.
 window.INVENTORY = {
-  generated_at: "2026-06-28T22:45:53-03:00",
+  generated_at: "2026-06-29T22:45:51-03:00",
   doc_title: "Sandman · Superclawman · Ktulu · Jr — Inventory Matrix",
   doc_status: "Canonical · v1.66",
 
