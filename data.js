@@ -363,7 +363,7 @@ window.INVENTORY = {
         { name: "main", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
           notes: { default: "Default agent identity.", sandman: "Active.", superclawman: "Active.", ktulu: "Active — only subagent.", jr: "Per-tenant via --profile jr-paulo." } },
         { name: "codex (OpenAI Codex)", status: { sandman: "yes", superclawman: "yes", ktulu: "yes", jr: "yes" },
-          notes: { default: "Code-focused agent.", sandman: "Active subagent + script-review reviewer.", superclawman: "Codex gpt-5.5 = primary script-review reviewer.", ktulu: "Script-review reviewer.", jr: "Logged in via `codex login --device-auth` 2026-05-29 — full Codex+Haiku script-review reviewer." } },
+          notes: { default: "Code-focused agent.", sandman: "Active subagent + script-review reviewer.", superclawman: "Codex gpt-5.6-sol = primary script-review reviewer.", ktulu: "Script-review reviewer.", jr: "Logged in via `codex login --device-auth` 2026-05-29 — full Codex+Haiku script-review reviewer." } },
         { name: "sonar (Perplexity research)", status: { sandman: "yes", superclawman: "no", ktulu: "no", jr: "no" },
           notes: { default: "Research subagent.", sandman: "Active.", superclawman: "Has researcher subagent.", ktulu: "Out of scope.", jr: "Direct perplexity plugin." } },
         { name: "coder / researcher / homeauto", status: { sandman: "no", superclawman: "yes", ktulu: "no", jr: "no" },
