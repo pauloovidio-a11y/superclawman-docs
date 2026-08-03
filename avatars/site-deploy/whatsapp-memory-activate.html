@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activate — WhatsApp Memory — SuperClawman</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --neon: #00ffe0; --neon-dim: rgba(0,255,224,0.15); --bg: #050508;
+      --panel: rgba(255,255,255,0.025); --line: rgba(255,255,255,0.07);
+      --text: #e8e8f0; --muted: #8b8ba8; --ok: #3fb950;
+    }
+    html, body { background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px; animation: gridMove 20s linear infinite; z-index: 0;
+    }
+    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+    .wrap { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 4rem 2rem 5rem; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--ok);
+      border: 1px solid rgba(63,185,80,0.4); border-radius: 100px; padding: 0.5rem 1.2rem;
+      background: rgba(63,185,80,0.08); margin-bottom: 1.8rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1.2rem;
+    }
+    .sub { font-size: 1.05rem; font-weight: 300; color: var(--text); opacity: 0.9; line-height: 1.65; margin-bottom: 2.6rem; }
+    .sub strong { color: var(--neon); font-weight: 700; }
+    .card {
+      text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+      padding: 2rem 1.9rem; margin-bottom: 1.2rem; backdrop-filter: blur(8px);
+    }
+    .card h2 { font-size: 1.15rem; margin-bottom: 1rem; }
+    .card h2 .n {
+      display: inline-flex; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center;
+      font-size: 0.95rem; font-weight: 800; color: #03110e; background: var(--neon); margin-right: 0.7rem;
+      box-shadow: 0 0 16px rgba(0,255,224,0.4); vertical-align: middle;
+    }
+    .card p, .card li { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+    .card ul { margin: 0.8rem 0 0 1.2rem; }
+    .card li { padding: 0.25rem 0; }
+    .card li b { color: var(--text); }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
+      padding: 0.95rem 2.2rem; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { color: #03110e; background: var(--neon); box-shadow: 0 0 30px rgba(0,255,224,0.35); }
+    .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
+    .note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); }
+    .note a { color: var(--neon); }
+    /* onboarding form */
+    .frow { display: grid; gap: 0.9rem; margin-bottom: 0.9rem; }
+    .frow.two { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 560px) { .frow.two { grid-template-columns: 1fr; } }
+    #onboard-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    #onboard-form label .opt { font-weight: 400; color: var(--muted); }
+    #onboard-form .ffull { margin-bottom: 1.1rem; }
+    #onboard-form input[type="text"], #onboard-form input[type="email"],
+    #onboard-form select, #onboard-form textarea {
+      font: inherit; font-weight: 400; color: var(--text);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+      border-radius: 10px; padding: 0.7rem 0.85rem; outline: none; width: 100%;
+      transition: border-color 0.2s;
+    }
+    #onboard-form input:focus, #onboard-form select:focus, #onboard-form textarea:focus { border-color: rgba(0,255,224,0.5); }
+    #onboard-form select { appearance: none; -webkit-appearance: none; }
+    #onboard-form button.btn { border: none; cursor: pointer; font: inherit; font-weight: 700; }
+    #onboard-form button.btn[disabled] { opacity: 0.55; cursor: wait; }
+    #onboard-status.ok { color: var(--ok); display: block; }
+    #onboard-status.err { color: #ff8a8a; display: block; }
+    .alt { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+    .alt a { color: var(--neon); }
+    .footer { position: relative; z-index: 1; padding: 2rem 1rem 3rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+  <nav class="topnav">
+    <a class="home" href="index.html">
+      <img src="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" alt="SuperClawman" />
+      SuperClawman <span class="crumb">/ WhatsApp Memory</span>
+    </a>
+  </nav>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow"><span class="dot"></span> ✅</div>
+      <h1>You're in. Let's get it running.</h1>
+      <p class="sub">Tell us where it should live and we'll set it up with you — usually same day, always within 48 hours.</p>
+    </header>
+    <section id="onboard-card" class="astep">
+      <form id="onboard-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0;" />
+        <div class="frow two">
+          <label>Your name<input type="text" name="name" required /></label>
+          <label>Company <span class="opt">(optional)</span><input type="text" name="company" /></label>
+        </div>
+        <div class="frow two">
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Where will it run?
+            <select name="machine">
+                <option value="">Choose…</option>
+                <option>macOS</option>
+                <option>Linux</option>
+                <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+        <label class="ffull">Which AI subscription?
+          <select name="ai_subscription">
+                <option value="">Choose…</option>
+                <option>Claude Code</option>
+                <option>OpenAI Codex</option>
+                <option>Both</option>
+                <option>Not sure yet</option>
+          </select>
+        </label>
+        <label class="ffull">Anything we should know? <span class="opt">(optional)</span>
+          <textarea name="notes" rows="3" placeholder="How far back you need, roughly how many chats, anything unusual…"></textarea>
+        </label>
+        <button class="btn primary" id="onboard-submit" type="submit">Send my details</button>
+        <p id="onboard-status" style="display:none"></p>
+      </form>
+    </section>
+  </div>
+  <script>
+    (function () {
+      var form = document.getElementById('onboard-form');
+      var status = document.getElementById('onboard-status');
+      var btn = document.getElementById('onboard-submit');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = Object.fromEntries(new FormData(form).entries());
+        if (!data.name || !data.email) {
+          status.className = 'err'; status.style.display = 'block';
+          status.textContent = 'Please fill in your name and email.'; return;
+        }
+        data.product = 'whatsapp-memory';
+        data.session_id = new URLSearchParams(location.search).get('session_id') || '';
+        btn.disabled = true;
+        status.className = ''; status.style.display = 'none';
+        fetch('https://sc-meetings-stripe-hooks.superclawman.workers.dev/onboard', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
+          .then(function (x) {
+            if (x.r.ok && x.j.ok) {
+              var card = document.getElementById('onboard-card');
+              card.innerHTML =
+                '<div style="text-align:center;padding:1.6rem 0.5rem;">' +
+                '<div style="font-size:3rem;margin-bottom:0.9rem;">✅</div>' +
+                '<h2 style="margin-bottom:0.7rem;">Got it — we're on it.</h2>' +
+                '<p style="color:var(--muted);font-size:0.95rem;line-height:1.65;max-width:46ch;margin:0 auto;">We'll reach out today by email to book your setup call. Have the phone with the WhatsApp you want to read nearby — pairing takes about a minute.</p></div>';
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              btn.disabled = false;
+              status.className = 'err'; status.style.display = 'block';
+              status.textContent = "Something went wrong. Please email paulo.ovidio@superclawman.ai and we'll sort it out.";
+            }
+          }).catch(function () {
+            btn.disabled = false;
+            status.className = 'err'; status.style.display = 'block';
+            status.textContent = "Something went wrong. Please email paulo.ovidio@superclawman.ai and we'll sort it out.";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

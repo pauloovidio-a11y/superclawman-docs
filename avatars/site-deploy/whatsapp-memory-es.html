@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memoria de WhatsApp para Claude Code — SuperClawman</title>
+  <meta name="description" content="Convierte todo tu historial de WhatsApp en memoria que TU propio Claude Code o Codex puede consultar. Corre en tu máquina, con tu suscripción. Nunca vemos tus mensajes. US$100, pago único." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://superclawman.ai/whatsapp-memory-es.html" />
+  <meta property="og:title" content="Memoria de WhatsApp para Claude Code — SuperClawman" />
+  <meta property="og:description" content="Convierte todo tu historial de WhatsApp en memoria que TU propio Claude Code o Codex puede consultar. Corre en tu máquina, con tu suscripción. Nunca vemos tus mensajes. US$100, pago único." />
+  <meta property="og:url" content="https://superclawman.ai/whatsapp-memory-es.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --neon: #00ffe0;
+      --neon-dim: rgba(0, 255, 224, 0.15);
+      --bg: #050508;
+      --panel: rgba(255,255,255,0.025);
+      --line: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --muted: #8b8ba8;
+      --ok: #3fb950;
+    }
+
+    html { scroll-behavior: smooth; }
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      z-index: 0;
+    }
+    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+
+    .scanline {
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      pointer-events: none; z-index: 0;
+    }
+
+    .lang-switch { position: fixed; top: 1.2rem; right: 1.5rem; z-index: 100; display: flex; gap: 0.4rem; }
+    .lang-switch a {
+      text-decoration: none; font-size: 1.4rem; line-height: 1; cursor: pointer;
+      transition: transform 0.2s; filter: drop-shadow(0 0 6px rgba(0,255,224,0.3));
+      border: 1px solid rgba(0,255,224,0.25); border-radius: 8px; padding: 4px 8px;
+      background: rgba(0,255,224,0.06);
+    }
+    .lang-switch a:hover { transform: translateY(-2px); }
+
+    .wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+
+    .topnav {
+      position: relative; z-index: 1; display: flex; align-items: center; gap: 0.8rem;
+      max-width: 1120px; margin: 0 auto; padding: 1.6rem 2rem 0;
+    }
+    .topnav img { width: 36px; height: 36px; border-radius: 50%; }
+    .topnav a.home {
+      color: var(--text); text-decoration: none; font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; gap: 0.6rem; opacity: 0.9;
+    }
+    .topnav a.home:hover { opacity: 1; }
+    .topnav .crumb { color: var(--muted); font-size: 0.85rem; }
+
+    /* HERO */
+    .hero { padding: 4.5rem 0 3rem; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--neon); border: 1px solid rgba(0,255,224,0.3); border-radius: 100px;
+      padding: 0.5rem 1.2rem; background: var(--neon-dim); margin-bottom: 1.6rem;
+    }
+    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); animation: blink 1.2s ease-in-out infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+    h1 {
+      font-size: clamp(2.4rem, 6.5vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1.4rem;
+    }
+    .hero p.sub {
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 300; max-width: 720px;
+      margin: 0 auto 2.4rem; line-height: 1.65; opacity: 0.92;
+    }
+    .hero p.sub strong { color: var(--neon); font-weight: 700; }
+
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
+      padding: 0.95rem 2.2rem; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary {
+      color: #03110e; background: var(--neon);
+      box-shadow: 0 0 30px rgba(0,255,224,0.35);
+    }
+    .btn.primary:hover { box-shadow: 0 0 45px rgba(0,255,224,0.55); }
+    .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
+    .btn.ghost:hover { background: rgba(0,255,224,0.1); }
+
+    .hero .note { margin-top: 1.1rem; font-size: 0.82rem; color: var(--muted); }
+
+    /* SECTIONS */
+    section { padding: 3.6rem 0 1rem; }
+    .sec-eyebrow {
+      text-align: center; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--neon); opacity: 0.85; margin-bottom: 0.7rem;
+    }
+    .sec-title {
+      text-align: center; font-size: clamp(1.7rem, 4.2vw, 2.7rem); font-weight: 800; letter-spacing: -0.02em;
+      line-height: 1.1; margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 70%, #fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .sec-sub { text-align: center; color: var(--muted); max-width: 640px; margin: 0 auto 2.6rem; line-height: 1.55; font-size: 1rem; }
+
+    /* LOOP */
+    .loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .loop { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .loop { grid-template-columns: 1fr; } }
+    .loop .step {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 1.5rem 1.4rem; backdrop-filter: blur(8px); position: relative;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .loop .step:hover { transform: translateY(-4px); border-color: rgba(0,255,224,0.3); }
+    .loop .n { font-size: 0.72rem; color: var(--neon); font-weight: 700; letter-spacing: 0.18em; margin-bottom: 0.6rem; }
+    .loop h4 { font-size: 1.1rem; margin-bottom: 0.45rem; }
+    .loop p { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
+
+    /* CAPABILITIES */
+    .caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    @media (max-width: 900px) { .caps { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .caps { grid-template-columns: 1fr; } }
+    .cap {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+      padding: 1.7rem 1.5rem; backdrop-filter: blur(8px);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .cap:hover { transform: translateY(-4px); border-color: rgba(0,255,224,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+    .cap .ico { font-size: 1.7rem; margin-bottom: 0.8rem; }
+    .cap h3 { font-size: 1.12rem; margin-bottom: 0.5rem; }
+    .cap p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    /* PROOF */
+    .proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .proof { grid-template-columns: repeat(2, 1fr); } }
+    .stat {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 1.5rem 1.3rem; text-align: center;
+    }
+    .stat .big { font-size: 2rem; font-weight: 800; color: var(--neon); letter-spacing: -0.02em; text-shadow: 0 0 20px rgba(0,255,224,0.4); }
+    .stat .lab { color: var(--muted); font-size: 0.82rem; margin-top: 0.4rem; line-height: 1.45; }
+    .quote {
+      margin: 2rem auto 0; max-width: 760px; border: 1px solid rgba(0,255,224,0.2);
+      background: rgba(0,255,224,0.04); border-radius: 16px; padding: 1.4rem 1.7rem;
+      font-size: 0.95rem; line-height: 1.6; color: var(--text);
+    }
+    .quote b { color: var(--neon); }
+
+    /* PRICING */
+    .founding {
+      text-align: center; margin: 0 auto 2.4rem; max-width: 640px;
+      border: 1px solid rgba(255,200,80,0.35); background: rgba(255,200,80,0.06);
+      border-radius: 14px; padding: 0.9rem 1.4rem; font-size: 0.9rem; color: #ffd9a8;
+    }
+    .founding b { color: #ffc850; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+    @media (max-width: 940px) { .tiers { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    .tier {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+      padding: 2rem 1.7rem 1.8rem; display: flex; flex-direction: column;
+      backdrop-filter: blur(8px); transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .tier:hover { transform: translateY(-4px); }
+    .tier.hot { border-color: rgba(0,255,224,0.45); box-shadow: 0 0 50px rgba(0,255,224,0.12); }
+    .tier .flag {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #03110e; background: var(--neon); border-radius: 100px; padding: 0.35rem 1rem;
+      box-shadow: 0 0 20px rgba(0,255,224,0.4); white-space: nowrap;
+    }
+    .tier h3 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+    .tier .for { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem; min-height: 2.4em; }
+    .tier .price { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; }
+    .tier .price span { font-size: 0.95rem; font-weight: 400; color: var(--muted); }
+    .tier .cycle { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.4rem; }
+    .tier ul { list-style: none; margin: 0 0 1.8rem; flex: 1; }
+    .tier li { font-size: 0.87rem; padding: 0.4rem 0 0.4rem 1.5rem; position: relative; line-height: 1.45; color: var(--text); opacity: 0.88; }
+    .tier li::before { content: '✓'; position: absolute; left: 0; color: var(--neon); font-weight: 700; }
+    .tier li.dim { opacity: 0.45; }
+    .tier li.dim::before { content: '—'; color: var(--muted); }
+    .tier .btn { text-align: center; }
+    .tier .annual {
+      display: block; text-align: center; margin-top: 0.75rem; font-size: 0.84rem;
+      color: var(--neon); text-decoration: underline; text-underline-offset: 3px;
+    }
+    .tier .annual b { color: #ffc850; }
+
+    /* ACTIVATION */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; counter-reset: act; }
+    @media (max-width: 800px) { .steps { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    .astep {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+      padding: 1.7rem 1.5rem; position: relative;
+    }
+    .astep .num {
+      width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.05rem; color: #03110e; background: var(--neon);
+      box-shadow: 0 0 18px rgba(0,255,224,0.4); margin-bottom: 1rem;
+    }
+    .astep h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .astep p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; }
+
+    /* TRUST */
+    .trust { max-width: 820px; margin: 0 auto; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .trow { display: grid; grid-template-columns: 220px 1fr; border-top: 1px solid var(--line); }
+    .trow:first-child { border-top: none; }
+    .trow .c { padding: 1.1rem 1.4rem; font-size: 0.9rem; line-height: 1.5; }
+    .trow .c:first-child { color: var(--neon); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(0,255,224,0.03); }
+    .trow .c b { color: var(--text); }
+    .trow .c:last-child { color: var(--muted); }
+    @media (max-width: 620px) { .trow { grid-template-columns: 1fr; } .trow .c:first-child { padding-bottom: 0.2rem; } .trow .c:last-child { padding-top: 0.3rem; } }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; }
+    .faq details {
+      border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+      padding: 1.1rem 1.4rem; margin-bottom: 0.8rem;
+    }
+    .faq summary { cursor: pointer; font-weight: 700; font-size: 0.97rem; list-style: none; position: relative; padding-right: 2rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; position: absolute; right: 0.2rem; top: 0; color: var(--neon); font-size: 1.2rem; font-weight: 400; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { margin-top: 0.8rem; font-size: 0.89rem; color: var(--muted); line-height: 1.6; }
+    .faq details p b { color: var(--text); }
+
+    /* FINAL CTA */
+    .final {
+      text-align: center; margin: 4rem auto 0; max-width: 760px;
+      border: 1px solid rgba(0,255,224,0.25); border-radius: 24px;
+      background: radial-gradient(120% 160% at 50% 0%, rgba(0,255,224,0.08) 0%, rgba(255,255,255,0.02) 60%);
+      padding: 3rem 2rem;
+    }
+    .final h2 { font-size: clamp(1.5rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.7rem; }
+    .final p { color: var(--muted); margin-bottom: 1.8rem; font-size: 0.95rem; }
+
+    .footer {
+      position: relative; z-index: 1; padding: 3rem 1rem; text-align: center;
+      color: var(--muted); font-size: 0.8rem; letter-spacing: 0.05em; margin-top: 3rem;
+    }
+    .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+  <div class="lang-switch">
+    <a href="whatsapp-memory.html" title="See in English">🇺🇸</a>
+    <a href="whatsapp-memory-pt.html" title="Ver em Português">🇧🇷</a>
+  </div>
+  <nav class="topnav">
+    <a class="home" href="index.html">
+      <img src="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" alt="SuperClawman" />
+      SuperClawman <span class="crumb">/ Memoria de WhatsApp</span>
+    </a>
+  </nav>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow"><span class="dot"></span> Licencias fundadoras — 20 cupos</div>
+      <h1>Tu IA conoce tu código.<br/>No tiene idea de lo que<br/>le prometiste a alguien.</h1>
+      <p class="sub">Cada decisión que de verdad importa está en <strong>WhatsApp</strong> — el presupuesto que enviaste, el plazo que acordaste, la factura que un proveedor mandó en marzo. Ninguna IA pudo leerlo jamás. Esto convierte tu historial completo en memoria que <strong>tu propio Claude Code o Codex</strong> puede consultar.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#pricing">Obtener licencia fundadora — US$100</a>
+        <a class="btn ghost" href="#how">Ver cómo funciona</a>
+      </div>
+      <p class="note">Pago único · corre en tu máquina, con tu suscripción de IA · nunca vemos tus mensajes</p>
+    </header>
+    <section id="how">
+      <div class="sec-eyebrow">El flujo</div>
+      <h2 class="sec-title">Instala, vincula una vez, y pregunta</h2>
+      <p class="sec-sub">Tres pasos. El más lento es la descarga.</p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Instala</h3><p>Corre local en tu Mac o Linux. Nada se sube, no se crea ninguna cuenta, ningún servidor nuestro participa.</p></div>
+        <div class="step"><div class="num">2</div><h3>Vincula una vez</h3><p>Un código vincula el dispositivo como compañero. Tu teléfono envía su historial — en nuestra prueba, <strong>6.267 mensajes de 17 meses en 23 segundos</strong>.</p></div>
+        <div class="step"><div class="num">3</div><h3>Pregúntale a tu IA</h3><p>El historial queda expuesto como herramientas para Claude Code o Codex. Pregunta en tu idioma: <em>“¿cuánto fue la factura que mandó el proveedor?”</em> — y recibes fecha, monto y archivo.</p></div>
+      </div>
+    </section>
+    <section id="what">
+      <div class="sec-eyebrow">Qué obtienes</div>
+      <h2 class="sec-title">Cuatro cosas que tu asistente no hace hoy</h2>
+      <div class="caps">
+        <div class="cap"><div class="ico">🔎</div><h3>Historial consultable</h3><p>Todas las conversaciones, indexadas por significado. No es búsqueda por palabra — pregunta como le preguntarías a un colega que estuvo ahí.</p></div>
+        <div class="cap"><div class="ico">📄</div><h3>Documentos, leídos</h3><p>Facturas, contratos y PDFs que te enviaron se vuelven texto del que tu IA extrae cifras.</p></div>
+        <div class="cap"><div class="ico">🎙️</div><h3>Audios transcritos</h3><p>Los mensajes de voz se vuelven texto consultable. Transcripción local — sin costo por minuto, nada sale de la máquina.</p></div>
+        <div class="cap"><div class="ico">⏳</div><h3>El escaneo de promesas</h3><p>Un comando responde la pregunta incómoda: <strong>¿qué dije que haría y nunca hice?</strong> Cada hallazgo cita el mensaje original.</p></div>
+      </div>
+    </section>
+    <section id="proof">
+      <div class="sec-eyebrow">Prueba</div>
+      <h2 class="sec-title">Mismo teléfono. Misma pregunta. 30 segundos de diferencia.</h2>
+      <p class="sec-sub">Le preguntamos al asistente integrado de WhatsApp, y luego al nuestro.</p>
+      <div class="proof">
+        <div class="quote"><p><strong>El asistente integrado:</strong> <em>“Revisé nuestras conversaciones aquí, pero no encontré el monto de la factura de agua. No tengo acceso a tus mensajes con él — ¿recuerdas más o menos cuándo la envió?”</em></p><p><strong>El nuestro:</strong> <em>“22/07/2026 — sabesp-fatura-…-508656.pdf. Total R$ 10.327,72, vence 03/08/2026, 175 m³ del período 20/06–21/07.”</em> Leído directo del PDF.</p></div>
+        <p class="note">La diferencia no es capacidad, es arquitectura. Los asistentes integrados en apps de mensajería tienen prohibido leer tus chats — un compromiso de privacidad que declaran públicamente. Responder esa pregunta exige leer tus mensajes, así que nunca lo harán. El nuestro corre en tu máquina; por eso puede.</p>
+      </div>
+      <div class="stat">
+        <div><span class="big">32</span><span class="lab">cabos sueltos hallados en un negocio real</span></div>
+        <div><span class="big">286</span><span class="lab">días detenidos, mediana</span></div>
+        <div><span class="big">23s</span><span class="lab">para capturar 17 meses</span></div>
+      </div>
+      <p class="note">De un escaneo real: un cliente que aceptó una prueba y <em>luego</em> firmar contrato — detenido hace 288 días. Dos prospectos preguntando, por escrito, si había representante en su ciudad — nunca respondidos. Nada requirió datos nuevos. Solo algo dispuesto a releer el registro completo.</p>
+    </section>
+    <section id="privacy">
+      <div class="sec-eyebrow">Privacidad</div>
+      <h2 class="sec-title">No podemos leer tus mensajes</h2>
+      <p class="sec-sub">No como política. Como arquitectura.</p>
+      <div class="trust">
+        <div class="trow"><strong>Tu máquina.</strong> El historial se captura y permanece en tu computadora. No existe paso de subida.</div>
+        <div class="trow"><strong>Tu suscripción de IA.</strong> El razonamiento corre con tu propio Claude Code o Codex. Nunca guardamos tu clave ni tu sesión.</div>
+        <div class="trow"><strong>Ningún servidor nuestro.</strong> No operamos nada en el camino. No hay cuenta, ni nube, ni bandeja que puedan exigirnos.</div>
+        <div class="trow"><strong>Nunca envía mensajes.</strong> Lee y te responde. No responde a tus contactos, y no se puede configurar para hacerlo.</div>
+      </div>
+    </section>
+    <section id="pricing">
+      <div class="sec-eyebrow">Precio</div>
+      <h2 class="sec-title">Un pago. Sin suscripción.</h2>
+      <p class="sec-sub">El primer escaneo lee un año de acumulación. El valor está concentrado al inicio — el precio también.</p>
+      <div class="tiers">
+        <div class="tier founding">
+          <div class="flag">Licencias fundadoras — 20 cupos</div>
+          <h3>Memoria de WhatsApp</h3>
+          <div class="price">$100 <span class="cycle">pago único</span></div>
+          <ul>
+            <li>Instalación local completa, configurada contigo en una llamada</li>
+            <li>Captura e indexación del historial completo</li>
+            <li>Herramientas MCP para Claude Code <em>y</em> Codex</li>
+            <li>Extracción de documentos + transcripción local de audio</li>
+            <li>El escaneo de promesas, con evidencia en cada hallazgo</li>
+            <li><strong>Versión principal actual + 12 meses de actualizaciones</strong></li>
+          </ul>
+          <a class="btn primary" href="https://buy.stripe.com/REPLACE_ME_WHATSAPP_MEMORY">Obtener licencia fundadora — US$100</a>
+          <p class="note">Precio fundador. WhatsApp cambia seguido — los 12 meses cubren mantenerlo funcionando.</p>
+        </div>
+      </div>
+      <p class="note" style="text-align:center"><strong>Necesitas:</strong> una suscripción activa de Claude Code u OpenAI Codex, una Mac o Linux que quede encendida, y el teléfono cuyo WhatsApp quieres leer. Si no tienes suscripción de IA, esto todavía no es para ti.</p>
+    </section>
+    <section id="faq">
+      <div class="sec-eyebrow">Preguntas</div>
+      <h2 class="sec-title">Las que vale la pena hacer</h2>
+      <div class="faq">
+        <details><summary>¿Ven mis mensajes?</summary><p>No. Captura, indexación y razonamiento ocurren en tu máquina con tu propia suscripción de IA. No operamos ningún servidor en el camino — no hay nada de nuestro lado que filtrar o que puedan requisar.</p></details>
+        <details><summary>¿Esto viola las reglas de WhatsApp?</summary><p>Se vincula como dispositivo compañero — el mismo mecanismo de WhatsApp Web y Desktop — y lee tus propios mensajes. Nunca envía mensajes, nunca contacta a nadie y no hace envíos masivos, que son las conductas que bloquean cuentas. Es tu dato, leído por software que tú ejecutas.</p></details>
+        <details><summary>¿Hasta cuándo llega hacia atrás?</summary><p>Hasta donde tu teléfono todavía guarde. En nuestra prueba fueron 17 meses y 6.267 mensajes. Nunca prometemos “todo tu historial” — prometemos todo lo que tu dispositivo aún conserva, y verás el número exacto durante la instalación.</p></details>
+        <details><summary>¿Responde por mí?</summary><p>No, y es deliberado. Lee y te responde <em>a ti</em>. Nada se envía a un contacto, que es lo que mantiene tu número seguro y esto simple.</p></details>
+        <details><summary>¿Claude Code o Codex?</summary><p>Cualquiera. Las herramientas se exponen por MCP, así que cualquier asistente que hable MCP puede usarlas. Claude Code es con el que trabajamos a diario.</p></details>
+        <details><summary>¿Qué significa “12 meses de actualizaciones”?</summary><p>WhatsApp cambia por dentro y las cosas se rompen. Tu compra cubre la versión principal actual y cada actualización durante 12 meses. Después sigue funcionando — solo dejas de recibir versiones nuevas.</p></details>
+        <details><summary>¿Por qué pago único y no suscripción?</summary><p>Porque la forma honesta del valor está concentrada al inicio. El primer escaneo revela un año de acumulación; el segundo mes encuentra mucho menos. Preferimos cobrar una vez por lo que realmente hace.</p></details>
+        <details><summary>¿Qué significa “fundador”?</summary><p>Los primeros 20 se configuran personalmente, en una llamada con nosotros, y su feedback define lo que sigue. Es limitado porque esa atención no escala.</p></details>
+        <details><summary>¿Reembolsos?</summary><p>Si la captura no funciona en tu entorno, te devolvemos el dinero. Solo escríbenos.</p></details>
+      </div>
+    </section>
+    <section class="final">
+      <h2>Tu historial ya es un activo.<br/>Nada ha podido leerlo.</h2>
+      <p class="sub">Un pago, una instalación, y la IA que ya pagas por fin sabe lo que acordaste.</p>
+      <div class="cta-row"><a class="btn primary" href="https://buy.stripe.com/REPLACE_ME_WHATSAPP_MEMORY">Obtener licencia fundadora — US$100</a></div>
+      <p class="note">¿Dudas primero? <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a></p>
+    </section>
+  </div>
+</body>
+</html>
