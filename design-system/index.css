@@ -1,0 +1,118 @@
+/* ---------- landing hero ---------- */
+.container{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:120px;padding-bottom:80px;max-width:1180px;
+}
+.emoji-row{
+  font-size:26px;line-height:1;letter-spacing:.28em;
+  margin-bottom:26px;display:flex;align-items:center;gap:18px;
+}
+.emoji-row::after{content:"";flex:1;height:1px;background:var(--ink-faint);max-width:200px;margin-left:4px}
+@media(max-width:767px){.emoji-row{font-size:21px;letter-spacing:.2em}}
+.brand{
+  font-family:var(--mono);font-weight:600;font-size:clamp(38px,6.4vw,84px);
+  line-height:1;letter-spacing:-.02em;margin-bottom:22px;
+}
+.tagline{
+  font-family:var(--sans);font-weight:300;font-size:clamp(15px,1.6vw,19px);
+  color:var(--ink-dim);max-width:52ch;margin-bottom:8px;line-height:1.65;
+}
+.tagline strong{color:var(--ink);font-weight:500;border-bottom:1px solid var(--amber);padding-bottom:1px}
+
+/* ---------- product callouts (drawing-sheet panels) ---------- */
+.meetings-star{
+  display:block;text-decoration:none;color:inherit;position:relative;
+  border:1.5px solid var(--ink-faint);background:var(--panel);
+  padding:34px 36px 32px;margin:36px 0 0;max-width:none;
+  transition:border-color .4s,background .4s,transform .4s cubic-bezier(.3,.7,.2,1);
+}
+.meetings-star:first-of-type{margin-top:46px}
+.meetings-star::before{
+  content:"";position:absolute;top:-1.5px;left:-1.5px;width:14px;height:14px;
+  border-top:1.5px solid var(--amber);border-left:1.5px solid var(--amber);
+  opacity:0;transition:opacity .35s;
+}
+.meetings-star::after{
+  content:"";position:absolute;bottom:-1.5px;right:-1.5px;width:14px;height:14px;
+  border-bottom:1.5px solid var(--amber);border-right:1.5px solid var(--amber);
+  opacity:0;transition:opacity .35s;
+}
+.meetings-star:hover{border-color:var(--amber-dim);background:var(--panel-hi);transform:translateY(-2px)}
+.meetings-star:hover::before,.meetings-star:hover::after{opacity:1}
+.meetings-badge{
+  display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--blue-deep);background:var(--amber);
+  padding:4px 10px;margin-bottom:18px;font-weight:500;
+}
+.meetings-eyebrow{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.28em;color:var(--ink-dim);
+  text-transform:uppercase;margin-bottom:12px;display:block;
+}
+.meetings-eyebrow::after{display:none}
+.meetings-title{
+  font-family:var(--mono);font-weight:500;font-size:clamp(21px,2.5vw,29px);
+  margin-bottom:12px;letter-spacing:.01em;color:var(--ink);
+}
+.meetings-desc{font-size:14.5px;font-weight:300;color:var(--ink-dim);max-width:62ch;margin-bottom:22px;line-height:1.7}
+.meetings-cta{
+  display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--amber);border:1.5px solid var(--amber);
+  padding:11px 22px;transition:background .3s,color .3s;
+}
+.meetings-star:hover .meetings-cta{background:var(--amber);color:var(--blue-deep)}
+.meetings-seats{
+  display:block;margin-top:14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;color:var(--ink-mute);text-transform:uppercase;
+}
+@media(max-width:767px){.meetings-star{padding:26px 22px}}
+
+/* ---------- fleet section ---------- */
+.family{max-width:1180px;margin:0 auto;padding:110px 48px 40px;border-top:1px solid var(--ink-hair)}
+@media(max-width:767px){.family{padding:70px 22px 30px}}
+.family-head{margin-bottom:52px;max-width:64ch}
+.family-title{font-family:var(--mono);font-weight:500;font-size:clamp(24px,3.2vw,40px);margin-bottom:14px}
+.family-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(224px,1fr));gap:2px;
+  border:1.5px solid var(--ink-faint);background:var(--ink-faint);
+}
+.agent-card{
+  background:var(--blue);padding:30px 26px 26px;position:relative;
+  transition:background .4s;display:flex;flex-direction:column;
+}
+.agent-card:hover{background:var(--blue-deep)}
+.agent-card::before{
+  content:"";position:absolute;top:14px;right:14px;width:7px;height:7px;
+  border-top:1px solid var(--amber);border-right:1px solid var(--amber);opacity:.5;
+}
+.agent-portrait{
+  width:76px;height:76px;display:block;margin-bottom:20px;
+  border:1px solid var(--ink-faint);background:var(--sunken);
+  filter:grayscale(.85) contrast(1.05) brightness(1.05);transition:filter .45s,border-color .45s;
+}
+.agent-card:hover .agent-portrait{filter:grayscale(0) contrast(1) brightness(1);border-color:var(--amber-dim)}
+.agent-name{
+  font-family:var(--mono);font-weight:500;font-size:17px;letter-spacing:.05em;
+  margin-bottom:8px;color:var(--ink);
+}
+.agent-role{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--amber);
+  text-transform:uppercase;margin-bottom:14px;line-height:1.7;
+}
+.agent-tagline{font-size:13.5px;font-weight:300;color:var(--ink);margin-bottom:18px;line-height:1.6}
+.agent-skills{list-style:none;margin-bottom:22px;flex:1}
+.agent-skills li{
+  font-size:12.5px;font-weight:300;color:var(--ink-dim);line-height:1.55;
+  padding:7px 0 7px 15px;border-top:1px solid var(--ink-hair);position:relative;
+}
+.agent-skills li:first-child{border-top:none}
+.agent-skills li::before{
+  content:"";position:absolute;left:0;top:15px;width:6px;height:1px;background:var(--amber);opacity:.75;
+}
+.agent-channels{display:flex;gap:9px;flex-wrap:wrap;margin-top:auto}
+.channel{
+  width:32px;height:32px;display:grid;place-items:center;
+  border:1px solid var(--ink-faint);transition:border-color .3s,background .3s;
+}
+.channel svg{width:14px;height:14px;fill:var(--ink-dim);transition:fill .3s}
+.channel:hover{border-color:var(--amber);background:rgba(255,176,0,.12)}
+.channel:hover svg{fill:var(--amber)}

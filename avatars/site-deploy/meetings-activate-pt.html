@@ -13,87 +13,292 @@
   <link rel="alternate" hreflang="es" href="https://superclawman.ai/meetings-activate-es.html" />
   <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&display=swap');
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --neon: #00ffe0; --neon-dim: rgba(0,255,224,0.15); --bg: #050508;
-      --panel: rgba(255,255,255,0.025); --line: rgba(255,255,255,0.07);
-      --text: #e8e8f0; --muted: #8b8ba8; --ok: #3fb950;
-    }
-    html, body { background: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(0,255,224,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,224,0.04) 1px, transparent 1px);
-      background-size: 60px 60px; animation: gridMove 20s linear infinite; z-index: 0;
-    }
-    @keyframes gridMove { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
-    .lang-switch { position: fixed; top: 1.2rem; right: 1.5rem; z-index: 100; display: flex; gap: 0.4rem; }
-    .lang-switch a {
-      text-decoration: none; font-size: 1.4rem; line-height: 1; cursor: pointer;
-      border: 1px solid rgba(0,255,224,0.25); border-radius: 8px; padding: 4px 8px; background: rgba(0,255,224,0.06);
-    }
-    .wrap { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 4rem 2rem 5rem; text-align: center; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.25em; text-transform: uppercase; color: var(--ok);
-      border: 1px solid rgba(63,185,80,0.4); border-radius: 100px; padding: 0.5rem 1.2rem;
-      background: rgba(63,185,80,0.08); margin-bottom: 1.8rem;
-    }
-    h1 {
-      font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08;
-      background: linear-gradient(135deg, #ffffff 0%, var(--neon) 60%, #fff 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      margin-bottom: 1.2rem;
-    }
-    .sub { font-size: 1.05rem; font-weight: 300; color: var(--text); opacity: 0.9; line-height: 1.65; margin-bottom: 2.6rem; }
-    .sub strong { color: var(--neon); font-weight: 700; }
-    .card {
-      text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
-      padding: 2rem 1.9rem; margin-bottom: 1.2rem; backdrop-filter: blur(8px);
-    }
-    .card h2 { font-size: 1.15rem; margin-bottom: 1rem; }
-    .card h2 .n {
-      display: inline-flex; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center;
-      font-size: 0.95rem; font-weight: 800; color: #03110e; background: var(--neon); margin-right: 0.7rem;
-      box-shadow: 0 0 16px rgba(0,255,224,0.4); vertical-align: middle;
-    }
-    .card p, .card li { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
-    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
-    .btn {
-      display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
-      padding: 0.95rem 2.2rem; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn.primary { color: #03110e; background: var(--neon); box-shadow: 0 0 30px rgba(0,255,224,0.35); }
-    .btn.ghost { color: var(--neon); border: 1px solid rgba(0,255,224,0.4); background: rgba(0,255,224,0.05); }
-    .note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); }
-    .note a { color: var(--neon); }
-    .frow { display: grid; gap: 0.9rem; margin-bottom: 0.9rem; }
-    .frow.two { grid-template-columns: 1fr 1fr; }
-    @media (max-width: 560px) { .frow.two { grid-template-columns: 1fr; } }
-    #onboard-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; font-weight: 700; color: var(--text); }
-    #onboard-form label .opt { font-weight: 400; color: var(--muted); }
-    #onboard-form .ffull { margin-bottom: 1.1rem; }
-    #onboard-form input[type="text"], #onboard-form input[type="email"],
-    #onboard-form select, #onboard-form textarea {
-      font: inherit; font-weight: 400; color: var(--text);
-      background: rgba(255,255,255,0.04); border: 1px solid var(--line);
-      border-radius: 10px; padding: 0.7rem 0.85rem; outline: none; width: 100%;
-      transition: border-color 0.2s;
-    }
-    #onboard-form input:focus, #onboard-form select:focus, #onboard-form textarea:focus { border-color: rgba(0,255,224,0.5); }
-    #onboard-form select { appearance: none; -webkit-appearance: none; }
-    #onboard-form button.btn { border: none; cursor: pointer; font: inherit; font-weight: 700; }
-    #onboard-form button.btn[disabled] { opacity: 0.55; cursor: wait; }
-    #onboard-status.ok { color: var(--ok); display: block; }
-    #onboard-status.err { color: #ff8a8a; display: block; }
-    .alt { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
-    .alt a { color: var(--neon); }
-    .footer { position: relative; z-index: 1; padding: 2rem 1rem 3rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
-    .footer a { color: var(--neon); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
-  </style>
-</head>
-<body>
+/* ============================================================
+   SuperClawman — Blackprint design system
+   Derived from RoboNuggets fable/21-blueprint (type pairing,
+   spacing rhythm, linework, drafting-sheet language) on a black
+   ground instead of the reference's blue. Structure and copy ours.
+   ============================================================ */
+:root{
+  /* ---- ground: "blackprint" ----
+     The drafting-sheet ground. Swapping these five values re-skins the whole
+     site; nothing below hardcodes a surface colour. The original reference
+     (fable/21-blueprint) used a #0b3d91 blue ground — black lifts every text
+     contrast ratio by roughly 2x while keeping the same drafting language. */
+  --ground:#0a0a0c;        /* page */
+  --ground-2:#131316;      /* raised: card hover, active tier, nav pill */
+  --panel:#111114;         /* panel / card surface */
+  --panel-hi:#1a1a1f;      /* panel hover */
+  --sunken:#0e0e11;        /* form inputs, insets */
+  --sunken-hi:#161619;     /* input focus */
+
+  --ink:rgba(255,255,255,.92);
+  --ink-dim:rgba(255,255,255,.62);
+  /* --ink-mute is for small SECONDARY TEXT (seat counts, billing cycle, opt
+     labels, placeholders). --ink-faint is for RULES AND BORDERS only — at
+     .30 it measures 2.6:1, fine for a drawn line, not for words. */
+  --ink-mute:rgba(255,255,255,.54);
+  --ink-faint:rgba(255,255,255,.30);
+  --ink-hair:rgba(255,255,255,.13);
+  /* grid reads harder on black than on blue — pulled back so it stays a
+     drafting texture and never competes with the type */
+  --grid-major:rgba(255,255,255,.10);
+  --grid-minor:rgba(255,255,255,.038);
+  --amber:#ffb000;
+  --amber-dim:rgba(255,176,0,.55);
+  --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+
+  /* aliases — kept so older selectors and legacy inline styles still resolve */
+  --blue:var(--ground);
+  --blue-deep:var(--ground-2);
+  --blue-deeper:var(--ground);
+  --panel-solid:var(--panel);
+  --neon:#ffb000;
+  --bg:var(--ground);
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.62);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background-color:var(--blue);
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid-minor) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+  background-attachment:fixed;
+  line-height:1.6;
+  overflow-x:hidden;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--amber);color:var(--blue-deep)}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---------- drawing-sheet frame ---------- */
+.sheet-frame{position:fixed;inset:10px;border:1.5px solid var(--ink-faint);pointer-events:none;z-index:60}
+.sheet-frame::before,.sheet-frame::after{content:"";position:absolute;background:var(--ink-faint)}
+.sheet-frame::before{left:-1.5px;top:50%;width:8px;height:1.5px}
+.sheet-frame::after{right:-1.5px;top:50%;width:8px;height:1.5px}
+.frame-tick{position:absolute;font-family:var(--mono);font-size:9px;color:var(--ink-faint);letter-spacing:.1em;white-space:nowrap}
+.frame-tick.t{top:2px;left:50%;transform:translateX(-50%)}
+.frame-tick.b{bottom:2px;left:50%;transform:translateX(-50%)}
+@media(max-width:1023px){.frame-tick.b{display:none}}
+@media(max-width:767px){.sheet-frame{display:none}}
+
+/* legacy scanline element — retired, the grid replaces it */
+.scanline{display:none}
+
+/* ---------- language switcher ----------
+   Careful: .lang-switch is the CONTAINER on most pages but the individual
+   ANCHOR inside .lang-row on business.html. Scope by element, not class alone,
+   or the flags stack on top of each other. */
+div.lang-switch,.lang-row{position:fixed;top:18px;right:22px;z-index:80;display:flex;gap:8px}
+div.lang-switch > a,.lang-row > a{
+  text-decoration:none;font-size:1rem;line-height:1;display:grid;place-items:center;
+  width:34px;height:26px;border:1px solid var(--ink-faint);background:var(--sunken);
+  transition:border-color .3s,background .3s,transform .3s;filter:none;border-radius:0;padding:0;
+  position:static;
+}
+div.lang-switch > a:hover,.lang-row > a:hover{border-color:var(--amber);background:rgba(255,176,0,.12);transform:translateY(-1px)}
+@media(max-width:767px){
+  div.lang-switch,.lang-row{top:10px;right:12px}
+  div.lang-switch > a,.lang-row > a{width:30px;height:23px;font-size:.85rem}
+}
+
+/* ---------- top nav ---------- */
+nav.topnav,.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
+  justify-content:space-between;padding:20px 40px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;background:linear-gradient(180deg,rgba(10,10,12,.96) 30%,rgba(10,10,12,0));
+}
+/* match ANY direct anchor — meetings-guide's nav link carries no .home class,
+   and an unconstrained 256px logo otherwise lands on top of the hero. */
+.topnav > a,.topnav .home,.topnav a.home{
+  display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;
+  font-size:12px;letter-spacing:.16em;color:var(--ink);
+}
+.topnav a img,.topnav .home img{
+  width:22px;height:22px;display:block;flex:0 0 22px;
+  filter:grayscale(1) brightness(1.6) contrast(1.1);opacity:.85;
+}
+.topnav .crumb{color:var(--amber);font-weight:400;letter-spacing:.2em}
+.topnav .back-link,.back-link{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-dim);text-decoration:none;transition:color .3s}
+.back-link:hover{color:var(--amber)}
+@media(max-width:767px){nav.topnav,.topnav{padding:14px 18px}.topnav .home{font-size:10.5px;gap:8px}.topnav .home img{width:18px;height:18px}}
+
+/* ---------- page shell ---------- */
+.wrap,.wrapper,.container{max-width:1180px;margin:0 auto;padding:0 48px;position:relative}
+@media(max-width:767px){.wrap,.wrapper,.container{padding:0 22px}}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--mono);font-weight:500;letter-spacing:.01em;line-height:1.16}
+h1{font-weight:600;font-size:clamp(32px,4.4vw,58px);line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(24px,3.2vw,40px)}
+h3{font-size:clamp(17px,1.6vw,20px)}
+strong,b{font-weight:500;color:var(--ink)}
+p{font-weight:300}
+
+/* section eyebrow — the blueprint rule-line tag */
+.eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label,.meetings-eyebrow{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:var(--amber);
+  display:flex;align-items:center;gap:14px;margin-bottom:16px;text-transform:uppercase;font-weight:400;
+}
+.eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,.family-eyebrow::after,.cta-label::after{
+  content:"";flex:0 0 56px;height:1px;background:var(--amber);opacity:.55;
+}
+.eyebrow .dot,.dot{
+  width:6px;height:6px;background:var(--amber);border-radius:0;display:inline-block;flex:0 0 6px;
+  box-shadow:0 0 8px rgba(255,176,0,.7);animation:bp-pulse 2.4s ease-in-out infinite;
+}
+@keyframes bp-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.sub,.sec-sub,.section-sub,.family-sub,.subheadline,.tagline{
+  color:var(--ink-dim);font-weight:300;font-size:clamp(14px,1.25vw,16.5px);max-width:60ch;
+}
+
+/* ---------- buttons ---------- */
+.btn,.cta-btn,.meetings-cta,.vertical-link{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-decoration:none;
+  padding:13px 26px;border:1.5px solid var(--ink);color:var(--ink);display:inline-block;
+  transition:background .3s cubic-bezier(.3,.7,.2,1),color .3s,border-color .3s;
+  position:relative;text-transform:uppercase;background:transparent;cursor:pointer;
+}
+.btn::before,.btn::after,.cta-btn::before,.cta-btn::after{
+  content:"";position:absolute;width:7px;height:7px;opacity:0;transition:opacity .3s,transform .3s;
+}
+.btn::before,.cta-btn::before{top:-5px;left:-5px;border-top:1.5px solid var(--amber);border-left:1.5px solid var(--amber);transform:translate(4px,4px)}
+.btn::after,.cta-btn::after{bottom:-5px;right:-5px;border-bottom:1.5px solid var(--amber);border-right:1.5px solid var(--amber);transform:translate(-4px,-4px)}
+.btn:hover::before,.btn:hover::after,.cta-btn:hover::before,.cta-btn:hover::after{opacity:1;transform:translate(0,0)}
+.btn:hover,.cta-btn:hover{background:var(--ink);color:var(--blue-deep);border-color:var(--ink)}
+.btn.primary,.cta-btn,.meetings-cta{border-color:var(--amber);color:var(--amber)}
+.btn.primary:hover,.cta-btn:hover,.meetings-cta:hover{background:var(--amber);color:var(--blue-deep);border-color:var(--amber)}
+.btn.ghost{border-color:var(--ink-faint);color:var(--ink-dim)}
+.btn.ghost:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* ---------- panels / cards ---------- */
+.card,.trial-card,.tier,.step,.cap,.vertical,.stat,.quote,.faq{
+  border:1.5px solid var(--ink-faint);background:var(--panel);position:relative;
+  transition:border-color .4s,background .4s;
+}
+.card:hover,.tier:hover,.cap:hover,.vertical:hover,.step:hover{border-color:var(--amber-dim);background:var(--panel-hi)}
+
+/* mono meta / numerals */
+.n,.num,.num-label,.step-duration,.meetings-seats,.note,.trow,.caps .ico{font-family:var(--mono)}
+.n,.num{color:var(--amber);font-size:11px;letter-spacing:.25em;font-weight:500}
+
+/* a .n directly inside a heading is a step NUMBER — render it as a boxed
+   drawing-callout, not as inline meta text */
+h2 > .n,h3 > .n{
+  flex:0 0 30px;width:30px;height:30px;display:inline-grid;place-items:center;
+  font-size:12px;letter-spacing:0;border:1.5px solid var(--amber);color:var(--amber);
+  margin-right:14px;vertical-align:middle;
+}
+h2:has(> .n),h3:has(> .n){display:flex;align-items:center;gap:0}
+@media(max-width:600px){h2 > .n,h3 > .n{flex:0 0 26px;width:26px;height:26px;font-size:11px;margin-right:11px}}
+
+/* eyebrow rule-line looks broken once the label wraps — drop it when narrow */
+@media(max-width:600px){
+  .eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,
+  .family-eyebrow::after,.cta-label::after{display:none}
+  .eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label{flex-wrap:wrap}
+}
+.note{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-dim);line-height:1.9}
+
+/* ---------- sections ---------- */
+section{padding:100px 0;position:relative}
+@media(max-width:767px){section{padding:66px 0}}
+section+section{border-top:1px solid var(--ink-hair)}
+
+/* ---------- footer ---------- */
+.footer,footer{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-dim);
+  text-align:center;padding:44px 22px 54px;border-top:1px solid var(--ink-hair);margin-top:20px;
+}
+.footer a,footer a{color:var(--amber);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
+.footer a:hover,footer a:hover{border-bottom-color:var(--amber)}
+
+/* ---------- reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
+
+/* ===== activate ===== */
+/* meetings-activate.html + whatsapp-memory-activate.html (EN/PT/ES) */
+
+.hero{padding:132px 0 44px}
+.hero h1{margin-bottom:18px}
+.hero .sub{max-width:58ch;font-size:15px;line-height:1.72}
+@media(max-width:767px){.hero{padding:104px 0 34px}}
+
+/* numbered onboarding cards — drawing-sheet panels */
+.card{
+  border:1.5px solid var(--ink-faint);background:var(--panel);
+  padding:36px 34px 38px;margin-bottom:26px;position:relative;
+}
+.card:hover{background:var(--panel);border-color:var(--ink-faint)}
+.card h2{
+  display:flex;align-items:center;gap:16px;font-family:var(--mono);font-weight:500;
+  font-size:clamp(17px,2vw,21px);margin-bottom:12px;letter-spacing:.02em;
+}
+.card h2 .n{
+  flex:0 0 30px;height:30px;display:grid;place-items:center;font-size:12px;
+  color:var(--amber);border:1.5px solid var(--amber);letter-spacing:0;font-weight:500;
+}
+.card > p{font-size:14px;font-weight:300;color:var(--ink-dim);line-height:1.7;margin-bottom:24px;max-width:64ch}
+.card ul,.card ol{margin:0 0 20px 18px}
+.card li{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.8}
+.card li b{color:var(--ink);font-weight:500}
+@media(max-width:640px){.card{padding:26px 20px 28px}}
+
+/* forms */
+.frow{display:grid;gap:18px 26px;margin-bottom:20px}
+.frow.two{grid-template-columns:1fr 1fr}
+.frow.ffull,.ffull{grid-template-columns:1fr}
+@media(max-width:640px){.frow.two{grid-template-columns:1fr}}
+label{
+  display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-dim);
+}
+input,textarea,select{
+  width:100%;margin-top:8px;background:var(--sunken);border:1px solid var(--ink-faint);
+  color:var(--ink);font-family:var(--sans);font-size:14px;font-weight:300;padding:11px 13px;
+  transition:border-color .3s,background .3s;border-radius:0;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--amber);background:var(--sunken-hi)}
+input::placeholder,textarea::placeholder{color:var(--ink-mute)}
+select option{background:var(--blue-deeper);color:var(--ink)}
+.opt{color:var(--ink-mute);font-size:9.5px;letter-spacing:.14em;text-transform:none}
+button{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  padding:13px 28px;border:1.5px solid var(--amber);background:transparent;color:var(--amber);
+  cursor:pointer;transition:background .3s,color .3s;
+}
+button:hover{background:var(--amber);color:var(--blue-deep)}
+
+/* step callouts */
+.astep{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--ink-dim);
+  padding:12px 0 12px 18px;border-left:2px solid var(--amber);line-height:1.85;margin-bottom:16px;
+}
+.astep b{color:var(--ink);font-weight:500}
+.alt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-mute);line-height:1.9}
+.badge{
+  display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--blue-deep);background:var(--amber);padding:4px 10px;margin-bottom:16px;font-weight:500;
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></head>
+<body><div class="sheet-frame" aria-hidden="true"><span class="frame-tick t">SUPERCLAWMAN · SHEET A-05 · PT-BR</span><span class="frame-tick b">SCALE 1:1 · REV 2026.08</span></div>
   <div class="lang-switch">
     <a href="meetings-activate.html" title="View in English">🇺🇸</a>
     <a href="meetings-activate-es.html" title="Ver en Español">🇪🇸</a>

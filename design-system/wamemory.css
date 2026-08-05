@@ -1,0 +1,58 @@
+/* whatsapp-memory.html (EN/PT/ES) — overrides on the product base.
+   Same class names as meetings.html, genuinely different structures. */
+
+/* .proof here is a side-by-side comparison of two .quote blocks,
+   not a row of stat tiles. */
+.proof{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;
+  border:none;background:transparent;margin-bottom:34px;
+}
+.proof .quote{
+  border:1.5px solid var(--ink-faint);border-left:2px solid var(--ink-faint);
+  background:var(--panel);padding:26px 26px 24px;margin:0;max-width:none;
+}
+.proof .quote:last-child{border-left-color:var(--amber)}
+.proof .quote p{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.72;margin-bottom:12px}
+.proof .quote p:last-child{margin-bottom:0}
+.proof .quote strong{
+  display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px;font-weight:500;
+}
+.proof .quote:last-child strong{color:var(--amber)}
+.proof .quote em{font-style:normal;color:var(--ink)}
+
+/* .stat here is a CONTAINER of three big/lab pairs, not a single tile. */
+.stat{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;
+  border:1.5px solid var(--ink-faint);background:var(--ink-faint);padding:0;
+}
+.stat > div{background:var(--blue);padding:28px 24px;transition:background .4s}
+.stat > div:hover{background:var(--blue-deep)}
+.stat .big{
+  display:block;font-family:var(--mono);font-weight:600;font-size:clamp(24px,3vw,34px);
+  color:var(--amber);line-height:1.1;margin-bottom:10px;letter-spacing:-.01em;
+}
+.stat .lab{display:block;font-size:12.5px;font-weight:300;color:var(--ink-dim);line-height:1.55}
+
+/* .trow here is a prose row with a leading <strong>, not a 2-cell table row. */
+.trow{
+  display:block;grid-template-columns:none;padding:19px 24px;
+  font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.7;
+}
+.trow strong{
+  display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:7px;font-weight:500;
+}
+
+/* single founding tier — don't let it stretch the full width */
+.tiers{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:440px}
+.tier .flag{
+  display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--blue-deep);background:var(--amber);
+  padding:4px 10px;margin-bottom:18px;font-weight:500;
+}
+.tier .price .cycle{
+  display:inline;font-size:13px;font-weight:400;color:var(--ink-dim);
+  letter-spacing:.1em;margin:0;
+}
+.tier ul li em{font-style:normal;color:var(--ink)}
