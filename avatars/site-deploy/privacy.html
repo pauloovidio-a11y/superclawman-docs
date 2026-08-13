@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — SuperClawman</title>
+  <meta name="description" content="How SuperClawman handles data, including data accessed through the eBay API." />
+  <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <link rel="apple-touch-icon" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
+  <style>
+:root{
+  --ground:#0a0a0c;
+  --ground-2:#131316;
+  --panel:#111114;
+  --panel-hi:#1a1a1f;
+  --ink:rgba(255,255,255,.92);
+  --ink-dim:rgba(255,255,255,.62);
+  --ink-mute:rgba(255,255,255,.54);
+  --ink-faint:rgba(255,255,255,.30);
+  --ink-hair:rgba(255,255,255,.13);
+  --grid-major:rgba(255,255,255,.10);
+  --grid-minor:rgba(255,255,255,.038);
+  --amber:#ffb000;
+  --amber-dim:rgba(255,176,0,.55);
+  --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{max-width:100%;overflow-x:hidden}
+body{
+  overflow-wrap:break-word;
+  font-family:var(--sans);
+  color:var(--ink);
+  background-color:var(--ground);
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid-minor) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+  background-attachment:fixed;
+  line-height:1.65;
+  font-weight:300;
+  min-height:100vh;
+  padding:64px 20px 96px;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--amber);color:var(--ground-2)}
+a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber-dim)}
+a:hover{color:var(--ink);border-color:var(--ink-hair)}
+
+.sheet-frame{position:fixed;inset:10px;border:1.5px solid var(--ink-faint);pointer-events:none;z-index:60}
+.sheet-frame::before,.sheet-frame::after{content:"";position:absolute;background:var(--ink-faint)}
+.sheet-frame::before{left:-1.5px;top:50%;width:8px;height:1.5px}
+.sheet-frame::after{right:-1.5px;top:50%;width:8px;height:1.5px}
+.frame-tick{position:absolute;font-family:var(--mono);font-size:9px;color:var(--ink-faint);letter-spacing:.1em;white-space:nowrap}
+.frame-tick.t{top:2px;left:50%;transform:translateX(-50%)}
+.frame-tick.b{bottom:2px;left:50%;transform:translateX(-50%)}
+@media(max-width:1023px){.frame-tick.b{display:none}}
+@media(max-width:767px){.sheet-frame{display:none}}
+
+.wrap{width:100%;max-width:760px;margin:0 auto}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--amber);
+}
+h1{
+  font-family:var(--mono);
+  font-size:clamp(24px,5vw,36px);
+  font-weight:400;
+  letter-spacing:.02em;
+  margin-top:14px;
+  line-height:1.2;
+}
+.meta{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.08em;
+  color:var(--ink-mute);
+  margin-top:14px;
+}
+.rule{height:1px;background:var(--ink-hair);margin:34px 0}
+
+p{color:var(--ink-dim);margin-top:14px}
+p.lede{font-size:17px;color:var(--ink);margin-top:20px}
+
+h2{
+  font-family:var(--mono);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-top:44px;
+  padding-top:18px;
+  border-top:1px solid var(--ink-hair);
+}
+h2 .num{color:var(--amber);margin-right:10px}
+h3{
+  font-family:var(--sans);
+  font-size:15px;
+  font-weight:500;
+  color:var(--ink);
+  margin-top:24px;
+}
+
+ul{margin:14px 0 0 0;padding:0;list-style:none}
+li{
+  color:var(--ink-dim);
+  padding-left:20px;
+  position:relative;
+  margin-top:9px;
+}
+li::before{
+  content:"—";
+  position:absolute;
+  left:0;
+  color:var(--amber-dim);
+}
+li strong{color:var(--ink);font-weight:500}
+
+.callout{
+  border:1px solid var(--ink-hair);
+  background:var(--panel);
+  padding:20px 22px;
+  margin-top:22px;
+}
+.callout .tag{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--amber);
+}
+.callout p{margin-top:8px}
+
+.footer{
+  margin-top:56px;
+  padding-top:22px;
+  border-top:1px solid var(--ink-hair);
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.08em;
+  color:var(--ink-mute);
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+.footer a{border-bottom:none;color:var(--ink-mute)}
+.footer a:hover{color:var(--amber)}
+.footer span{opacity:.4}
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="sheet-frame" aria-hidden="true">
+    <span class="frame-tick t">SUPERCLAWMAN · SHEET P-001 · PRIVACY · EN</span>
+    <span class="frame-tick b">SCALE 1:1 · REV 2026.08</span>
+  </div>
+
+  <main class="wrap">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Effective 13 August 2026 · Last updated 13 August 2026</div>
+
+    <p class="lede">SuperClawman is a personal automation system run by one person for his own use. It is not a product, it has no user accounts, and it collects nothing from visitors to this website.</p>
+
+    <div class="rule"></div>
+
+    <h2><span class="num">01</span>Who operates this</h2>
+    <p>SuperClawman is built and run by Paulo Ovídio on his own machines and his own accounts. It is not a company and has no customers. Nobody else is given access to the data described below.</p>
+
+    <h2><span class="num">02</span>This website</h2>
+    <p>superclawman.ai is a set of static pages. It runs no analytics, no advertising, no tracking pixels, and no third-party scripts of that kind. It sets no cookies of its own and does not build visitor profiles.</p>
+    <p>The site loads web fonts from Google Fonts and images from GitHub Pages. Those providers will see the requesting IP address as a normal consequence of serving a file, as they would for any website. Standard server logs may be retained by the hosting provider (Cloudflare Pages) for security and reliability.</p>
+
+    <h2><span class="num">03</span>eBay integration</h2>
+    <p>SuperClawman connects to the eBay API to help list <strong>personal used items</strong> on the operator's <strong>own</strong> eBay account. This is a private seller account, not a business or storefront. The application does not offer sign-in to other eBay members, does not serve other sellers, and does not collect anyone's eBay username or password.</p>
+
+    <h3>What is accessed</h3>
+    <p>Using the operator's own authorization, the application may access:</p>
+    <ul>
+      <li><strong>Inventory and offers</strong> — listings, SKUs, descriptions, photos, prices and quantities.</li>
+      <li><strong>Account settings</strong> — business policies (payment, returns, shipping) and inventory locations.</li>
+      <li><strong>Order fulfilment</strong> — orders placed against the operator's listings, including the buyer's name and shipping address, strictly to pack, ship and support that order.</li>
+      <li><strong>Marketing</strong> — the operator's own promotions and campaigns on their listings.</li>
+      <li><strong>Public catalogue data</strong> — active listings from eBay's public search, used to research pricing.</li>
+    </ul>
+
+    <h3>Why</h3>
+    <p>Only to list the operator's own second-hand items and to ship what sells. The data is not used for advertising, not used to train models, not sold, not rented, and not shared with anyone else.</p>
+
+    <h3>Buyer information</h3>
+    <div class="callout">
+      <div class="tag">Note on third-party data</div>
+      <p>When someone buys one of the operator's items, eBay supplies the buyer's name and delivery address so the order can be shipped. That information is used only to fulfil and support that order, is kept only as long as needed for shipping, returns, tax and accounting obligations, and is never used for marketing or disclosed to anyone beyond the carrier and authorities where required by law.</p>
+    </div>
+
+    <h3>How credentials and data are stored</h3>
+    <ul>
+      <li>OAuth tokens are stored in a permission-restricted file on the operator's own machine. They are excluded from version control and are never published.</li>
+      <li>Listing records are stored locally on operator-controlled systems.</li>
+      <li>The application requests only the API scopes it needs to list items and fulfil orders.</li>
+    </ul>
+
+    <h3>Withdrawing access</h3>
+    <p>Authorization can be revoked at any time from <strong>My eBay → Account settings → Sign in and security → Third-party app access</strong>. Revoking access immediately stops the application from acting on the account. Tokens also expire on their own and must be renewed.</p>
+
+    <h2><span class="num">04</span>If you bought something</h2>
+    <p>You can ask what information is held about you, ask for it to be corrected, or ask for it to be deleted once it is no longer needed for shipping, returns or tax records. Just email the address below and it will be sorted out.</p>
+
+    <h2><span class="num">05</span>Changes</h2>
+    <p>If this page changes, the new version is published here with a new date.</p>
+
+    <h2><span class="num">06</span>Contact</h2>
+    <p>Questions about this policy, or requests concerning your data: <a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a></p>
+
+    <div class="footer">
+      <a href="/">superclawman.ai</a><span>·</span><span>Sheet P-001</span><span>·</span><span>Rev 2026.08</span>
+    </div>
+  </main>
+</body>
+</html>
