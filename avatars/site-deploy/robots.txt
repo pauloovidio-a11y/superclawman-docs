@@ -1,4 +1,8 @@
+# Everything is crawlable except the rule below.
+# Cloudflare Email Obfuscation rewrites mailto: into /cdn-cgi/l/email-protection,
+# a JS endpoint rather than a page — Googlebot follows it and gets a 404.
+# /cdn-cgi/scripts/ stays crawlable so the renderer can still fetch email-decode.min.js.
 User-agent: *
-Allow: /
+Disallow: /cdn-cgi/l/
 
 Sitemap: https://superclawman.ai/sitemap.xml
