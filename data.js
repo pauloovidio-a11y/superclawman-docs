@@ -69,10 +69,10 @@ window.INVENTORY = {
       color: "#B45309",
       avatar_url: "avatars/social/jr-badge-640.png",
       role: "Hetzner VPS · multi-tenant watchdog tier",
-      host: "ssh superclawman-jr",
+      host: "ssh jrmax — Superclawman Jr Max (the original superclawman-jr box was deleted 2026-09)",
       paths: "/usr/local/lib/openclaw-jr/ · /var/lib/openclaw-jr/tenants/paulo/ · /root/.openclaw-jr-paulo/",
       channel: "Telegram (chat 8735701356)",
-      signature: "[SC Jr 💀 🧠]",
+      signature: "[SC Jr Max 💀 🧠] — canonical since 2026-09-06",
       hardware: "AMD EPYC-Genoa · 4 vCPU · 7.6GB RAM · Hetzner Cloud",
       os: "Ubuntu 24.04.4 LTS",
       openclaw_version: "2026.7.1-2 (0790d9f) — fleet-wide 7.1 upgrade 2026-07-19 (Ktulu still on 6.11 — lagging)",
@@ -97,7 +97,7 @@ window.INVENTORY = {
             sandman: "/root/.openclaw/workspace/IDENTITY.md. Defines Sandman 💀 + Sandmanpo VPS sibling.",
             superclawman: "~/.openclaw/workspace/IDENTITY.md. 🧠⚡🦀🤘 + Jr architecture reference.",
             ktulu: "/Volumes/KtuluDisk/ktulu/.openclaw/workspace/IDENTITY.md. 🦀📨⚡🤘. Reply label [Ktulu 🦀📨⚡🤘].",
-            jr: "Per-tenant overlay at /var/lib/openclaw-jr/tenants/paulo/jr-state/IDENTITY.md. Signature [SC Jr 💀 🧠]. Overlaid after every nightly snapshot import."
+            jr: "Per-tenant overlay at /var/lib/openclaw-jr/tenants/paulo/jr-state/IDENTITY.md. Signature [SC Jr Max 💀 🧠] (renamed 2026-09-06). Overlaid after every nightly snapshot import."
           }
         },
         {
@@ -107,7 +107,7 @@ window.INVENTORY = {
             sandman: "Lobster + Sandman voice. Heavier ops focus.",
             superclawman: "Lobster + pt-BR/EN tonal map. Source-of-truth voice.",
             ktulu: "Lobster preserved verbatim. EN with Paulo (debug tone), pt-BR with prospects (colloquial, never reveals AI). No AI-disclosure rule — identity-check inbound triggers escalation.",
-            jr: "Lobster + signature [SC Jr 💀 🧠] + Telegram-formatted brevity rules. Per-tenant overlay."
+            jr: "Lobster + signature [SC Jr Max 💀 🧠] (renamed 2026-09-06) + Telegram-formatted brevity rules. Per-tenant overlay."
           }
         },
         {
