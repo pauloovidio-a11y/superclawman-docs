@@ -352,35 +352,43 @@ button:hover{background:var(--amber);color:var(--blue-deep)}
         var data = Object.fromEntries(new FormData(form).entries());
         if (!data.name || !data.email) {
           status.className = 'err'; status.style.display = 'block';
-          status.textContent = 'Please fill in your name and email.'; return;
+          status.textContent = "Please fill in your name and email."; return;
         }
         data.product = 'whatsapp-memory';
         data.session_id = new URLSearchParams(location.search).get('session_id') || '';
-        btn.disabled = true;
+        var esc = function (v) { return String(v || '').replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+        var fail = function () {
+          btn.disabled = false; btn.textContent = btn.getAttribute('data-label');
+          status.className = 'err'; status.style.display = 'block';
+          status.innerHTML = "We could not send your details (the request did not reach us). Please email <a href=\"mailto:superclawman@superclawman.ai\">superclawman@superclawman.ai</a> or WhatsApp <a href=\"https://wa.me/5511994917618\">+55 11 99491-7618</a> and we sort it out today.";
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+        btn.setAttribute('data-label', btn.textContent); btn.disabled = true; btn.textContent = "Sending…";
         status.className = ''; status.style.display = 'none';
+        var ctrl = ('AbortController' in window) ? new AbortController() : null;
+        var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
         fetch('https://sc-meetings-stripe-hooks.superclawman.workers.dev/onboard', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined
         }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
           .then(function (x) {
+            clearTimeout(timer);
             if (x.r.ok && x.j.ok) {
               var card = document.getElementById('onboard-card');
+              var rows = [["Name", data.name], ["Email", data.email], ["Company", data.company], ["Runs on", data.machine], ["AI subscription", data.ai_subscription], ["Notes", data.notes]]
+                .filter(function (r) { return r[1]; })
+                .map(function (r) { return '<tr><td style="color:var(--muted);padding:0.35rem 1rem 0.35rem 0;white-space:nowrap;vertical-align:top">' + r[0] + '</td><td style="padding:0.35rem 0">' + esc(r[1]) + '</td></tr>'; }).join('');
               card.innerHTML =
-                '<div style="text-align:center;padding:1.6rem 0.5rem;">' +
-                '<div style="font-size:3rem;margin-bottom:0.9rem;">✅</div>' +
-                '<h2 style="margin-bottom:0.7rem;">Got it — we're on it.</h2>' +
-                '<p style="color:var(--muted);font-size:0.95rem;line-height:1.65;max-width:46ch;margin:0 auto;">We'll reach out today by email to book your setup call. Have the phone with the WhatsApp you want to read nearby — pairing takes about a minute.</p></div>';
-              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-              btn.disabled = false;
-              status.className = 'err'; status.style.display = 'block';
-              status.textContent = "Something went wrong. Please email superclawman@superclawman.ai and we'll sort it out.";
-            }
-          }).catch(function () {
-            btn.disabled = false;
-            status.className = 'err'; status.style.display = 'block';
-            status.textContent = "Something went wrong. Please email superclawman@superclawman.ai and we'll sort it out.";
-          });
+                '<div style="padding:1.4rem 0.5rem;">' +
+                '<div style="font-size:2.6rem;margin-bottom:0.6rem;">\u2705</div>' +
+                '<h2 style="margin-bottom:0.9rem;">' + "Got it, {name} — we’re on it.".replace('{name}', esc(data.name.split(' ')[0])) + '</h2>' +
+                '<p style="color:var(--muted);font-size:0.9rem;margin:0 0 0.4rem">' + "Here is what you sent us:" + '</p>' +
+                '<table style="font-size:0.95rem;border-collapse:collapse;margin:0 0 1.2rem">' + rows + '</table>' +
+                '<ol style="font-size:0.95rem;line-height:1.65;padding-left:1.2rem;margin:0 0 1rem">' + "<li>We prepare your install — usually the same day, always within 48 hours.</li><li>We email you at <b>{email}</b> to book a 20-minute setup call.</li><li>On the call we pair your WhatsApp. Keep that phone nearby — pairing takes about a minute.</li>".split('{email}').join(esc(data.email)) + '</ol>' +
+                '<p style="color:var(--muted);font-size:0.9rem;margin:0">' + "A confirmation is on its way to {email}. Nothing else to do now.".replace('{email}', esc(data.email)) + '</p></div>';
+              card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else { fail(); }
+          }).catch(function () { clearTimeout(timer); fail(); });
       });
     })();
   </script>
