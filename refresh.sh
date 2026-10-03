@@ -27,9 +27,11 @@ for arg in "$@"; do
 done
 
 # --- ssh probes ---------------------------------------------------------
+# A host that does not answer prints "OFFLINE" WITH its quotes, so the snapshot stays valid JSON
+# ("jr": "OFFLINE"). Unquoted, it wrote `"jr": OFFLINE` and broke the file (2026-10-03).
 
 probe_sandman() {
-  ssh -o ConnectTimeout=8 nuc 'bash -s' <<'REMOTE' 2>/dev/null || echo "OFFLINE"
+  ssh -o ConnectTimeout=8 nuc 'bash -s' <<'REMOTE' 2>/dev/null || echo '"OFFLINE"'
 set +e
 hw=$(lscpu 2>/dev/null | grep "Model name" | head -1 | sed "s/.*:\s*//")
 cores=$(lscpu 2>/dev/null | grep "^CPU(s):" | awk "{print \$2}")
@@ -95,26 +97,31 @@ REMOTE
 )
   out=$(ssh -o ConnectTimeout=8 ktulu-mac-ktulu 'bash -s' <<<"$remote" 2>/dev/null)
   [ -z "$out" ] && out=$(ssh -o ConnectTimeout=8 ktulu-mac-ktulu-ts 'bash -s' <<<"$remote" 2>/dev/null)
-  [ -z "$out" ] && out="OFFLINE"
+  [ -z "$out" ] && out='"OFFLINE"'
   echo "$out"
 }
 
 probe_jr() {
-  ssh -o ConnectTimeout=8 superclawman-jr 'bash -s' <<'REMOTE' 2>/dev/null || echo "OFFLINE"
+  # Jr = Superclawman Jr Max (`ssh jrmax`). The original superclawman-jr box was deleted on
+  # 2026-09-05, so that alias never answers (Paulo, TG 18265, 2026-10-03: "Jr is long gone. It was
+  # replaced by Jr Max"). Jr Max is a Claude Code agent, not openclaw: no openclaw binary and no
+  # plugins.allow, so it reports `cc` (the Claude Code version) and user-level skills instead. Its
+  # systemd units carry four prefixes: jr-, jr2-, jrmax-, and openclaw-jr- (kept from Jr).
+  ssh -o ConnectTimeout=8 jrmax 'bash -s' <<'REMOTE' 2>/dev/null || echo '"OFFLINE"'
 set +e
 hw=$(lscpu 2>/dev/null | grep "Model name" | head -1 | sed "s/.*:\s*//")
 [ -z "$hw" ] && hw=$(grep -m1 "model name" /proc/cpuinfo | sed "s/.*:\s*//")
 cores=$(lscpu 2>/dev/null | grep "^CPU(s):" | awk "{print \$2}")
 mem=$(free -h 2>/dev/null | awk "/^Mem:/ {print \$2}")
 os=$(lsb_release -d 2>/dev/null | sed "s/Description:\s*//")
-oc=$(openclaw --version 2>/dev/null | head -1)
+cc=$(/usr/local/bin/claude --version 2>/dev/null | head -1)
 scripts=$(ls /usr/local/lib/openclaw-jr/*.py 2>/dev/null | wc -l)
 mcps=$(ls /usr/local/lib/openclaw-jr/*-mcp.py 2>/dev/null | wc -l)
-systemd=$(ls /etc/systemd/system/openclaw-jr-*.service /etc/systemd/system/openclaw-jr-*.timer 2>/dev/null | wc -l)
+skills=$(ls /home/jrmax/.claude/skills/ 2>/dev/null | wc -l)
+systemd=$(ls /etc/systemd/system/ 2>/dev/null | grep -E '^(jr-|jr2-|jrmax-|openclaw-jr-).*\.(service|timer)$' | wc -l)
 tenants=$(ls /var/lib/openclaw-jr/tenants/ 2>/dev/null | wc -l)
-allow=$(python3 -c "import json;j=json.load(open('/root/.openclaw-jr-paulo/openclaw.json'));print(j.get('plugins',{}).get('allow',[]))" 2>/dev/null)
-recent=$(find /usr/local/lib/openclaw-jr/ /var/lib/openclaw-jr/tenants/paulo/jr-state/ -maxdepth 3 -mtime -1 -type f 2>/dev/null | grep -vE '__pycache__|\.log$|jr-vectors|\.lock' | head -8 | tr '\n' '|')
-echo "{\"hw\":\"$hw\",\"cores\":\"$cores\",\"mem\":\"$mem\",\"os\":\"$os\",\"oc\":\"$oc\",\"shared_scripts\":$scripts,\"mcps\":$mcps,\"systemd_units\":$systemd,\"tenants\":$tenants,\"allow\":\"$allow\",\"recent\":\"$recent\"}"
+recent=$(find /usr/local/lib/openclaw-jr/ /home/jrmax/jrmax-workspace/ -maxdepth 2 -mtime -1 -type f 2>/dev/null | grep -vE '__pycache__|\.log$|\.bak|\.lock|/evidence/' | head -8 | tr '\n' '|')
+echo "{\"hw\":\"$hw\",\"cores\":\"$cores\",\"mem\":\"$mem\",\"os\":\"$os\",\"cc\":\"$cc\",\"shared_scripts\":$scripts,\"mcps\":$mcps,\"skills\":$skills,\"systemd_units\":$systemd,\"tenants\":$tenants,\"recent\":\"$recent\"}"
 REMOTE
 }
 
@@ -126,7 +133,7 @@ echo "→ Probing Superclawman (local)…"
 S_SC=$(probe_superclawman); echo "  $S_SC"
 echo "→ Probing Ktulu (ktulu-mac)…"
 S_K=$(probe_ktulu); echo "  $S_K"
-echo "→ Probing Jr (superclawman-jr)…"
+echo "→ Probing Jr Max (jrmax)…"
 S_J=$(probe_jr); echo "  $S_J"
 
 NOW=$(date +"%Y-%m-%dT%H:%M:%S%z" | sed 's/\(..\)$/:\1/')
