@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El manual de tu agente — SuperClawman for Meetings</title>
+  <title>El manual de tu agente, SuperClawman for Meetings</title>
   <meta name="description" content="Cómo usar tu agente de reuniones SuperClawman: llamarlo por voz, qué llega después de cada llamada, cómo funciona su memoria y cómo preguntar sobre reuniones pasadas." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://superclawman.ai/meetings-guide-es" />
@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
   <style>
 /* ============================================================
-   SuperClawman — Blackprint design system
+   SuperClawman, Blackprint design system
    Derived from RoboNuggets fable/21-blueprint (type pairing,
    spacing rhythm, linework, drafting-sheet language) on a black
    ground instead of the reference's blue. Structure and copy ours.
@@ -23,7 +23,7 @@
   /* ---- ground: "blackprint" ----
      The drafting-sheet ground. Swapping these five values re-skins the whole
      site; nothing below hardcodes a surface colour. The original reference
-     (fable/21-blueprint) used a #0b3d91 blue ground — black lifts every text
+     (fable/21-blueprint) used a #0b3d91 blue ground, black lifts every text
      contrast ratio by roughly 2x while keeping the same drafting language. */
   --ground:#0a0a0c;        /* page */
   --ground-2:#131316;      /* raised: card hover, active tier, nav pill */
@@ -35,12 +35,12 @@
   --ink:rgba(255,255,255,.92);
   --ink-dim:rgba(255,255,255,.62);
   /* --ink-mute is for small SECONDARY TEXT (seat counts, billing cycle, opt
-     labels, placeholders). --ink-faint is for RULES AND BORDERS only — at
+     labels, placeholders). --ink-faint is for RULES AND BORDERS only, at
      .30 it measures 2.6:1, fine for a drawn line, not for words. */
   --ink-mute:rgba(255,255,255,.54);
   --ink-faint:rgba(255,255,255,.30);
   --ink-hair:rgba(255,255,255,.13);
-  /* grid reads harder on black than on blue — pulled back so it stays a
+  /* grid reads harder on black than on blue, pulled back so it stays a
      drafting texture and never competes with the type */
   --grid-major:rgba(255,255,255,.10);
   --grid-minor:rgba(255,255,255,.038);
@@ -49,7 +49,7 @@
   --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 
-  /* aliases — kept so older selectors and legacy inline styles still resolve */
+  /* aliases, kept so older selectors and legacy inline styles still resolve */
   --blue:var(--ground);
   --blue-deep:var(--ground-2);
   --blue-deeper:var(--ground);
@@ -92,7 +92,7 @@ img{max-width:100%}
 @media(max-width:1023px){.frame-tick.b{display:none}}
 @media(max-width:767px){.sheet-frame{display:none}}
 
-/* legacy scanline element — retired, the grid replaces it */
+/* legacy scanline element, retired, the grid replaces it */
 .scanline{display:none}
 
 /* ---------- language switcher ----------
@@ -118,7 +118,7 @@ nav.topnav,.topnav{
   justify-content:space-between;padding:20px 40px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;background:linear-gradient(180deg,rgba(10,10,12,.96) 30%,rgba(10,10,12,0));
 }
-/* match ANY direct anchor — meetings-guide's nav link carries no .home class,
+/* match ANY direct anchor, meetings-guide's nav link carries no .home class,
    and an unconstrained 256px logo otherwise lands on top of the hero. */
 .topnav > a,.topnav .home,.topnav a.home{
   display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;
@@ -145,7 +145,7 @@ h3{font-size:clamp(17px,1.6vw,20px)}
 strong,b{font-weight:500;color:var(--ink)}
 p{font-weight:300}
 
-/* section eyebrow — the blueprint rule-line tag */
+/* section eyebrow, the blueprint rule-line tag */
 .eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label,.meetings-eyebrow{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:var(--amber);
   display:flex;align-items:center;gap:14px;margin-bottom:16px;text-transform:uppercase;font-weight:400;
@@ -194,7 +194,7 @@ p{font-weight:300}
 .n,.num,.num-label,.step-duration,.meetings-seats,.note,.trow,.caps .ico{font-family:var(--mono)}
 .n,.num{color:var(--amber);font-size:11px;letter-spacing:.25em;font-weight:500}
 
-/* a .n directly inside a heading is a step NUMBER — render it as a boxed
+/* a .n directly inside a heading is a step NUMBER, render it as a boxed
    drawing-callout, not as inline meta text */
 h2 > .n,h3 > .n{
   flex:0 0 30px;width:30px;height:30px;display:inline-grid;place-items:center;
@@ -204,7 +204,7 @@ h2 > .n,h3 > .n{
 h2:has(> .n),h3:has(> .n){display:flex;align-items:center;gap:0}
 @media(max-width:600px){h2 > .n,h3 > .n{flex:0 0 26px;width:26px;height:26px;font-size:11px;margin-right:11px}}
 
-/* eyebrow rule-line looks broken once the label wraps — drop it when narrow */
+/* eyebrow rule-line looks broken once the label wraps, drop it when narrow */
 @media(max-width:600px){
   .eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,
   .family-eyebrow::after,.cta-label::after{display:none}
@@ -262,7 +262,7 @@ section+section{border-top:1px solid var(--ink-hair)}
 .card a:hover{border-bottom-color:var(--amber)}
 @media(max-width:640px){.card{padding:26px 20px 24px}}
 
-/* included-vs-custom comparison table — spec-sheet ruling */
+/* included-vs-custom comparison table, spec-sheet ruling */
 .card table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13.5px}
 .card table th{
   font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
@@ -283,7 +283,7 @@ section+section{border-top:1px solid var(--ink-hair)}
   .card table th:not(:first-child),.card table td:not(:first-child){width:72px}
 }
 
-/* spoken-command examples — the blueprint annotation callout */
+/* spoken-command examples, the blueprint annotation callout */
 .say{
   display:block;border-left:2px solid var(--amber);background:var(--sunken);
   padding:15px 20px;margin-bottom:12px;font-family:var(--mono);font-size:13px;
@@ -315,76 +315,81 @@ section+section{border-top:1px solid var(--ink-hair)}
     <header class="hero">
       <div class="eyebrow">Guía del cliente</div>
       <h1>El manual de tu agente.</h1>
-      <p>Todo sobre convivir con tu agente de reuniones SuperClawman — cómo entra, cómo llamarlo, qué llega después de cada llamada y cómo su memoria trabaja para ti.</p>
+      <p>Todo sobre convivir con tu agente de reuniones SuperClawman, cómo entra, cómo llamarlo, qué llega después de cada llamada y cómo su memoria trabaja para ti.</p>
     </header>
 
-    <h2><span class="n">1</span>Entra solo — solo déjalo pasar</h2>
+    <h2><span class="n">1</span>Entra solo, solo déjalo pasar</h2>
     <div class="card">
-      <p>Con tu calendario conectado, el agente vigila tus compromisos y entra a las llamadas de Google Meet, Zoom o Teams unos <b>2 minutos antes del inicio</b>. Verás un participante llamado <b>Superclawman</b> en la sala de espera — admítelo como a cualquier invitado (o configura tus reuniones para admitir automáticamente y olvídate del tema).</p>
+      <p>Con tu calendario conectado, el agente vigila tus compromisos y entra a las llamadas de Google Meet, Zoom o Teams unos <b>2 minutos antes del inicio</b>. Verás un participante llamado <b>Superclawman</b> en la sala de espera, admítelo como a cualquier invitado (o configura tus reuniones para admitir automáticamente y olvídate del tema).</p>
       <p>Al entrar, <b>se anuncia a la sala</b> en el idioma de la reunión. Es a propósito: todos saben siempre que está ahí. Luego permanece en silencio total salvo que lo llamen por su nombre.</p>
-      <p class="muted">¿Reunión improvisada fuera del calendario? Envíanos el enlace por WhatsApp y el agente entra al momento.</p>
+      <p class="muted">¿Una reunión fuera del calendario? Reenvía la invitación, o pega el enlace, a superclawman@superclawman.ai desde el correo de tu cuenta. Entra a esa llamada.</p>
     </div>
 
-    <h2><span class="n">2</span>Ayuda en vivo — solo di su nombre</h2>
+    <h2><span class="n">2</span>Ayuda en vivo, solo di su nombre</h2>
     <div class="card">
       <p>Háblale como le hablarías a un colega sentado a tu lado:</p>
       <span class="say">"Hey Superclawman, ¿cuál es el precio actual de X?"<i>Busca en la web en vivo y dice la respuesta a la sala (~10 segundos).</i></span>
-      <span class="say">"Hey Superclawman, ¿qué acordamos con este cliente la última vez?"<i>Recupera tus reuniones anteriores con esa cuenta — en plena llamada.</i></span>
-      <span class="say">"Ei Superclawman, resume o que foi discutido até agora."<i>Inglés y portugués funcionan — incluso mezclados en la misma llamada. Voz en español a pedido para clientes fundadores.</i></span>
-      <p>¿Prefieres discreción? <b>Escribe en el chat de la reunión</b> — responde por ahí, sin hablar.</p>
-      <p class="muted">La asistencia de voz en vivo es del plan Full Seat. En el plan Briefs el agente graba, resume y recuerda, pero no habla.</p>
+      <span class="say">"Hey Superclawman, ¿qué acordamos con este cliente la última vez?"<i>Recupera tus reuniones anteriores con esa cuenta, en plena llamada.</i></span>
+      <span class="say">"Ei Superclawman, resume o que foi discutido até agora."<i>Inglés y portugués funcionan, incluso mezclados en la misma llamada. Voz en español en todos los planes.</i></span>
+      <p>¿Prefieres discreción? <b>Escribe en el chat de la reunión</b>, responde por ahí, sin hablar.</p>
+      <p class="muted">Voz y chat en vivo vienen en todos los planes, en español, inglés y portugués.</p>
     </div>
 
-    <h2><span class="n">3</span>Después de la llamada — el follow-up se hace solo</h2>
+    <h2><span class="n">3</span>Después de la llamada, el follow-up se hace solo</h2>
     <div class="card">
       <p>Minutos después de colgar:</p>
       <ul>
-        <li><b>Un resumen estructurado</b> — síntesis, decisiones, acciones con responsables — queda en el registro de tu cuenta.</li>
-        <li><b>Un borrador de correo de recap</b> dirigido a los participantes queda listo para ti. <b>Nada se envía sin tu aprobación</b> — revisas, y sale.</li>
-        <li><b>Full Seat:</b> tras una llamada con perfil de venta, pide la propuesta — recibirás un borrador basado en lo que realmente se dijo, listo para pulir.</li>
+        <li><b>Un resumen estructurado</b>, síntesis, decisiones, acciones con responsables, queda en el registro de tu cuenta.</li>
+        <li><b>Un borrador de correo de recap</b> dirigido a los participantes queda listo para ti. <b>Nada se envía sin tu aprobación</b>, revisas, y sale.</li>
+        <li><b>Pro y Full Seat:</b> después de una llamada de venta, pide la propuesta. Recibes un borrador según lo que realmente se dijo, listo para ajustar.</li>
       </ul>
     </div>
 
-    <h2><span class="n">4</span>Tu agente recuerda — y puedes preguntarle lo que sea</h2>
+    <h2><span class="n">4</span>Tu agente recuerda, y puedes preguntarle lo que sea</h2>
     <div class="card">
-      <p>Cada reunión pasa a formar parte de la <b>memoria de cuenta</b> de tu agente: decisiones, compromisos, objeciones, números. Llega a la siguiente llamada con esa cuenta ya estudiada. La memoria se <b>guarda de forma segura en un espacio dedicado a tu cuenta</b> — nunca mezclada con la de nadie más, exportable en cualquier momento, eliminada a pedido.</p>
+      <p>Cada reunión pasa a formar parte de la <b>memoria de cuenta</b> de tu agente: decisiones, compromisos, objeciones, números. Llega a la siguiente llamada con esa cuenta ya estudiada. La memoria se <b>guarda de forma segura en un espacio dedicado a tu cuenta</b>, nunca mezclada con la de nadie más, exportable en cualquier momento, eliminada a pedido.</p>
       <p>¿Necesitas verificar algo de una llamada pasada? Dos caminos, ambos incluidos:</p>
       <span class="say">En cualquier reunión: "Hey Superclawman, ¿qué se discutió sobre el plazo de entrega con ACME?"<i>Al instante, por voz, basado en los registros de tus llamadas.</i></span>
-      <span class="say">Entre reuniones: responde a cualquier correo de recap, o envía la pregunta por WhatsApp.<i>Tu agente responde desde la memoria de tu cuenta — normalmente en minutos.</i></span>
+      <span class="say">Entre reuniones: responde a cualquier correo de recap, o envía la pregunta por WhatsApp.<i>Tu agente responde desde la memoria de tu cuenta, normalmente en minutos.</i></span>
     </div>
 
-    <h2><span class="n">5</span>Qué está incluido — y qué es a medida</h2>
+    <h2><span class="n">5</span>Qué está incluido, y qué es a medida</h2>
     <div class="card">
       <table>
-        <tr><th>Capacidad</th><th>Briefs</th><th>Full Seat</th></tr>
-        <tr><td>Entrada automática desde el calendario (Meet · Zoom · Teams)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Resumen + borrador de recap minutos después de cada llamada</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Memoria de cuenta + preguntas sobre llamadas pasadas</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Asistencia en vivo por voz y chat en la sala</td><td>—</td><td class="yes">✓</td></tr>
-        <tr><td>Borradores de propuesta de llamadas de venta (a pedido)</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><th>Lo que recibes</th><th>Starter</th><th>Pro</th><th>Full Seat</th></tr>
+        <tr><td>Horas de reunión al mes</td><td>10</td><td>30</td><td>60</td></tr>
+        <tr><td>Entra desde tu calendario (Meet · Zoom · Teams)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Voz y chat en vivo en la llamada</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Resumen y borrador del correo minutos después de cada llamada</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Memoria por cliente, preguntas sobre llamadas anteriores</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Borradores de propuesta desde llamadas de venta</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Informe semanal de cada cliente</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Voz en español, inglés y portugués</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Configuración</td><td>Tú, en minutos</td><td>Contigo, 48 h</td><td>Prioritaria, el mismo día</td></tr>
       </table>
-      <p style="margin-top:1.1rem;">¿Quieres ir más allá? Estos son <b class="custom">complementos a medida</b> — cuéntanos qué necesitas y lo dimensionamos:</p>
+      <p class="muted" style="margin-top:.8rem">La hora extra cuesta US$ 4. Nunca sale de una llamada por el límite, y te llega un correo al 80%.</p>
+      <p style="margin-top:1.1rem;">¿Quieres ir más allá? Estos son <b class="custom">complementos a medida</b>, cuéntanos qué necesitas y lo dimensionamos:</p>
       <ul>
         <li>Secuencias de follow-up automatizadas (el agente persigue las acciones por ti)</li>
         <li>Cotizaciones, presentaciones y documentos con tu marca, de principio a fin</li>
-        <li>Integración con CRM — cada llamada archivada en tu pipeline automáticamente</li>
-        <li>Flujos más allá de las reuniones — mira <a href="/business-es">SuperClawman for Business</a></li>
+        <li>Integración con CRM, cada llamada archivada en tu pipeline automáticamente</li>
+        <li>Flujos más allá de las reuniones, mira <a href="/business-es">SuperClawman for Business</a></li>
       </ul>
     </div>
 
     <h2><span class="n">6</span>Las reglas que nunca rompe</h2>
     <div class="card">
       <ul>
-        <li><b>Se anuncia</b> en cada llamada — nunca graba en silencio.</li>
-        <li><b>Nunca envía nada en tu nombre</b> sin aprobación — recaps y propuestas son borradores hasta que tú digas adelante.</li>
+        <li><b>Se anuncia</b> en cada llamada, nunca graba en silencio.</li>
+        <li><b>Nunca envía nada en tu nombre</b> sin aprobación, recaps y propuestas son borradores hasta que tú digas adelante.</li>
         <li><b>Solo habla cuando lo llaman por su nombre.</b></li>
-        <li><b>Tus datos son tuyos</b> — aislados por cuenta, exportables, eliminables a pedido.</li>
+        <li><b>Tus datos son tuyos</b>, aislados por cuenta, exportables, eliminables a pedido.</li>
       </ul>
     </div>
 
     <h2><span class="n">7</span>¿Necesitas algo?</h2>
     <div class="card">
-      <p>Hablas directo con el fundador. Responde a cualquier correo nuestro, o escribe por WhatsApp al <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>. Dudas, ajustes, "¿también puede hacer…?" — todo es bienvenido. Los clientes fundadores moldean este producto.</p>
+      <p>Hablas directo con el fundador. Responde a cualquier correo nuestro, o escribe por WhatsApp al <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>. Dudas, ajustes, "¿también puede hacer…?": todo es bienvenido. Los primeros clientes ayudan a dar forma a este producto.</p>
     </div>
   </div>
 

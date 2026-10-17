@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienvenido a bordo — SuperClawman for Meetings</title>
-  <meta name="description" content="Tu asiento fundador está confirmado. Completa el onboarding de 5 minutos y tu agente entra a su primera reunión en 48 horas." />
+  <title>Bienvenido a bordo, SuperClawman for Meetings</title>
+  <meta name="description" content="Tu plan de SuperClawman for Meetings está activo. Conecta tu calendario y tu agente entra solo a tus llamadas." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://superclawman.ai/meetings-activate-es" />
   <link rel="alternate" hreflang="en" href="https://superclawman.ai/meetings-activate" />
@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
   <style>
 /* ============================================================
-   SuperClawman — Blackprint design system
+   SuperClawman, Blackprint design system
    Derived from RoboNuggets fable/21-blueprint (type pairing,
    spacing rhythm, linework, drafting-sheet language) on a black
    ground instead of the reference's blue. Structure and copy ours.
@@ -23,7 +23,7 @@
   /* ---- ground: "blackprint" ----
      The drafting-sheet ground. Swapping these five values re-skins the whole
      site; nothing below hardcodes a surface colour. The original reference
-     (fable/21-blueprint) used a #0b3d91 blue ground — black lifts every text
+     (fable/21-blueprint) used a #0b3d91 blue ground, black lifts every text
      contrast ratio by roughly 2x while keeping the same drafting language. */
   --ground:#0a0a0c;        /* page */
   --ground-2:#131316;      /* raised: card hover, active tier, nav pill */
@@ -35,12 +35,12 @@
   --ink:rgba(255,255,255,.92);
   --ink-dim:rgba(255,255,255,.62);
   /* --ink-mute is for small SECONDARY TEXT (seat counts, billing cycle, opt
-     labels, placeholders). --ink-faint is for RULES AND BORDERS only — at
+     labels, placeholders). --ink-faint is for RULES AND BORDERS only, at
      .30 it measures 2.6:1, fine for a drawn line, not for words. */
   --ink-mute:rgba(255,255,255,.54);
   --ink-faint:rgba(255,255,255,.30);
   --ink-hair:rgba(255,255,255,.13);
-  /* grid reads harder on black than on blue — pulled back so it stays a
+  /* grid reads harder on black than on blue, pulled back so it stays a
      drafting texture and never competes with the type */
   --grid-major:rgba(255,255,255,.10);
   --grid-minor:rgba(255,255,255,.038);
@@ -49,7 +49,7 @@
   --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 
-  /* aliases — kept so older selectors and legacy inline styles still resolve */
+  /* aliases, kept so older selectors and legacy inline styles still resolve */
   --blue:var(--ground);
   --blue-deep:var(--ground-2);
   --blue-deeper:var(--ground);
@@ -92,7 +92,7 @@ img{max-width:100%}
 @media(max-width:1023px){.frame-tick.b{display:none}}
 @media(max-width:767px){.sheet-frame{display:none}}
 
-/* legacy scanline element — retired, the grid replaces it */
+/* legacy scanline element, retired, the grid replaces it */
 .scanline{display:none}
 
 /* ---------- language switcher ----------
@@ -118,7 +118,7 @@ nav.topnav,.topnav{
   justify-content:space-between;padding:20px 40px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;background:linear-gradient(180deg,rgba(10,10,12,.96) 30%,rgba(10,10,12,0));
 }
-/* match ANY direct anchor — meetings-guide's nav link carries no .home class,
+/* match ANY direct anchor, meetings-guide's nav link carries no .home class,
    and an unconstrained 256px logo otherwise lands on top of the hero. */
 .topnav > a,.topnav .home,.topnav a.home{
   display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;
@@ -145,7 +145,7 @@ h3{font-size:clamp(17px,1.6vw,20px)}
 strong,b{font-weight:500;color:var(--ink)}
 p{font-weight:300}
 
-/* section eyebrow — the blueprint rule-line tag */
+/* section eyebrow, the blueprint rule-line tag */
 .eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label,.meetings-eyebrow{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:var(--amber);
   display:flex;align-items:center;gap:14px;margin-bottom:16px;text-transform:uppercase;font-weight:400;
@@ -194,7 +194,7 @@ p{font-weight:300}
 .n,.num,.num-label,.step-duration,.meetings-seats,.note,.trow,.caps .ico{font-family:var(--mono)}
 .n,.num{color:var(--amber);font-size:11px;letter-spacing:.25em;font-weight:500}
 
-/* a .n directly inside a heading is a step NUMBER — render it as a boxed
+/* a .n directly inside a heading is a step NUMBER, render it as a boxed
    drawing-callout, not as inline meta text */
 h2 > .n,h3 > .n{
   flex:0 0 30px;width:30px;height:30px;display:inline-grid;place-items:center;
@@ -204,7 +204,7 @@ h2 > .n,h3 > .n{
 h2:has(> .n),h3:has(> .n){display:flex;align-items:center;gap:0}
 @media(max-width:600px){h2 > .n,h3 > .n{flex:0 0 26px;width:26px;height:26px;font-size:11px;margin-right:11px}}
 
-/* eyebrow rule-line looks broken once the label wraps — drop it when narrow */
+/* eyebrow rule-line looks broken once the label wraps, drop it when narrow */
 @media(max-width:600px){
   .eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,
   .family-eyebrow::after,.cta-label::after{display:none}
@@ -239,7 +239,7 @@ section+section{border-top:1px solid var(--ink-hair)}
 .hero .sub{max-width:58ch;font-size:15px;line-height:1.72}
 @media(max-width:767px){.hero{padding:104px 0 34px}}
 
-/* numbered onboarding cards — drawing-sheet panels */
+/* numbered onboarding cards, drawing-sheet panels */
 .card{
   border:1.5px solid var(--ink-faint);background:var(--panel);
   padding:36px 34px 38px;margin-bottom:26px;position:relative;
@@ -304,68 +304,71 @@ button:hover{background:var(--amber);color:var(--blue-deep)}
     <a href="/meetings-activate-pt" title="Ver em Português">🇧🇷</a>
   </div>
   <div class="wrap">
-    <div class="badge">✓ Asiento fundador confirmado</div>
+    <style>
+      .onlyst,.onlyhand{display:none} body.plan-st .onlyst{display:block} body.plan-hand .onlyhand{display:block}
+      body:not(.plan-st):not(.plan-hand) .onlyhand{display:block}
+      #onboard-form > label.ffull, #onboard-form > .ffull{display:block;margin-bottom:20px}
+      #onboard-form .help{font-size:12.5px;color:var(--ink-dim);line-height:1.6;margin:-12px 0 20px}
+      #onboard-form .help summary{cursor:pointer;color:var(--amber);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em}
+      #onboard-form .help p{margin:8px 0 0;font-size:12.5px}
+      #onboard-form .modes{display:grid;gap:10px;margin-top:10px}
+      #onboard-form .modes label{display:flex;align-items:flex-start;gap:10px;font-family:var(--sans);font-size:13.5px;letter-spacing:normal;text-transform:none;color:var(--ink);font-weight:300;line-height:1.5}
+      #onboard-form .modes input{width:auto;flex:none;margin:3px 0 0;padding:0;accent-color:var(--amber)}
+      #onboard-card p.alt{font-family:var(--sans);font-size:13px;letter-spacing:normal;line-height:1.6;color:var(--ink-dim)}
+    </style>
+    <div class="badge">✓ Pago confirmado</div>
     <h1>Bienvenido a bordo.</h1>
     <p class="sub">
-      Tu pago fue aprobado y tu asiento está reservado.
-      Falta un paso corto — cuéntanos de tus reuniones, y tu agente estará
-      <strong>en tus llamadas en 48 horas</strong>.
+      Tu plan está activo. Falta un paso: <strong>conectar tu calendario</strong>, y tu agente entra solo a tus llamadas.
     </p>
 
     <div class="card" id="onboard-card">
-      <h2><span class="n">1</span>Envíanos tus datos de onboarding</h2>
-      <p>Cinco campos rápidos — es todo lo que necesitamos para aprovisionar tu agente.</p>
+      <h2><span class="n">1</span>Conecta tu calendario</h2>
+      <p>Seis campos rápidos. El enlace del calendario es el más importante.</p>
       <form id="onboard-form" novalidate>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0;" />
         <div class="frow two">
-          <label>Tu nombre<input type="text" name="name" required placeholder="María García" /></label>
-          <label>Empresa<input type="text" name="company" placeholder="Acme Servicios" /></label>
+          <label>Tu nombre<input type="text" name="name" required placeholder="Jane Smith" /></label>
+          <label>Empresa<input type="text" name="company" placeholder="Acme Staffing" /></label>
         </div>
-        <div class="frow two">
-          <label>Correo para los resúmenes<input type="email" name="email" required placeholder="maria@acme.com" /></label>
-          <label>Calendario
-            <select name="calendar">
-              <option value="">Elige…</option>
-              <option>Google Calendar</option>
-              <option>Outlook</option>
-              <option>Otro / no sé</option>
-            </select>
-          </label>
+        <label class="ffull">Correo para los resúmenes (el que revisas)<input type="email" name="email" required placeholder="jane@acme.com" /></label>
+        <label class="ffull">Enlace privado de tu calendario (iCal)<input type="url" name="calendar_ics" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://calendar.google.com/calendar/ical/…/basic.ics" /></label>
+        <details class="help"><summary>¿Dónde encuentro este enlace?</summary><p><b>Google Calendar:</b> Configuración → tu calendario a la izquierda → Integrar el calendario → copia la <i>Dirección secreta en formato iCal</i>.</p><p><b>Outlook:</b> Configuración → Calendario → Calendarios compartidos → Publicar un calendario → elige <i>Puede ver todos los detalles</i> → copia el enlace ICS.</p><p>Este enlace es privado. Lo usamos solo para saber cuándo empiezan tus llamadas. Puedes cortar nuestro acceso cuando quieras: restablece el enlace privado en la configuración del calendario.</p></details>
+        <div class="ffull"><label style="display:block">¿A qué llamadas debe entrar?</label>
+          <div class="modes">
+            <label><input type="radio" name="join_mode" value="all" checked /> <span>A toda llamada con enlace de video (escribe <i>no bot</i> en el título para saltar una llamada)</span></label>
+            <label><input type="radio" name="join_mode" value="invited" /> <span>Solo a las llamadas a las que invite a superclawman@superclawman.ai</span></label>
+          </div>
         </div>
         <div class="frow two">
           <label>Plataformas de reunión<input type="text" name="platforms" placeholder="Meet, Zoom, Teams…" /></label>
           <label>Idioma(s) de las reuniones
-            <select name="languages">
-              <option value="">Elige…</option>
-              <option>Español</option>
-              <option>Inglés</option>
-              <option>Portugués</option>
-              <option>Varios</option>
-            </select>
+            <select name="languages"><option value="">Elige…</option><option>Español</option><option>Inglés</option><option>Portugués</option><option>Español + Inglés</option><option>Español + Portugués</option><option>Otro</option></select>
           </label>
         </div>
         <label class="ffull">¿Algo más que debamos saber? <span class="opt">(opcional)</span>
-          <textarea name="notes" rows="2" placeholder="p. ej., la mayoría son llamadas de descubrimiento con clientes"></textarea>
+          <textarea name="notes" rows="2" placeholder="ej.: la mayoría son llamadas de descubrimiento con clientes"></textarea>
         </label>
         <div class="cta-row" style="justify-content:flex-start;">
-          <button class="btn primary" type="submit" id="onboard-submit">Enviar datos de onboarding</button>
+          <button class="btn primary" type="submit" id="onboard-submit">Conectar mi calendario</button>
         </div>
         <p id="onboard-status" role="status" style="display:none;margin-top:1rem;font-size:0.9rem;"></p>
       </form>
-      <p class="alt">¿Prefieres chatear? <a href="https://wa.me/5511994917618?text=%C2%A1Asiento%20fundador%20confirmado!%20Mis%20datos%20de%20onboarding%3A%0A%0A1.%20Nombre%20y%20empresa%3A%20%0A2.%20Calendario%20(Google%2FOutlook)%3A%20%0A3.%20Correo%20para%20res%C3%BAmenes%3A%20%0A4.%20Plataformas%20(Meet%2FZoom%2FTeams)%3A%20%0A5.%20Idioma(s)%3A%20" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> o envía los mismos cinco datos a <a href="mailto:paulo.ovidio@superclawman.ai?subject=Asiento%20fundador%20—%20datos%20de%20onboarding">paulo.ovidio@superclawman.ai</a>.</p>
+      <p class="alt">¿No tienes el enlace ahora? No pasa nada. Reenvía cualquier invitación a <a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a> desde tu correo de resúmenes y entra a esa llamada.</p>
     </div>
 
     <div class="card">
-      <h2><span class="n">2</span>Aprovisionamos tu agente</h2>
-      <p>En 48 horas configuramos tu agente dedicado: vigilancia del calendario, tus plataformas, tu idioma, tu memoria de cuenta. Te confirmamos por WhatsApp cuando esté en vivo — y te mostramos la palabra de activación y tu primer resumen.</p>
+      <h2><span class="n">2</span>Después</h2>
+      <p class="onlyst">Tu agente ya está encendido. Revisa tu calendario cada pocos minutos y entra unos 2 minutos antes de cada llamada. Admite a <b>Superclawman</b> desde la sala de espera y sigue como siempre.</p>
+      <p class="onlyhand">Configuramos tu agente contigo: <b>Full Seat el mismo día, Pro en 48 horas</b>. Te avisamos por WhatsApp o correo cuando esté en vivo, y te mostramos la palabra de activación y tu primer resumen.</p>
     </div>
 
     <div class="card">
-      <h2><span class="n">3</span>Entra a tu próxima reunión</h2>
-      <p>Tu agente se anuncia al entrar, ayuda cuando lo llaman por su nombre, y minutos después de la llamada llegan tu primer resumen y el borrador del recap. Listo — el follow-up se hace solo de aquí en adelante.</p>
+      <h2><span class="n">3</span>Después de cada llamada</h2>
+      <p>Se anuncia al entrar, ayuda cuando lo llamas por su nombre, y minutos después de la llamada llegan el resumen y el borrador del correo. No se envía nada sin tu OK.</p>
     </div>
 
-    <p class="note">Dudas en cualquier momento: <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:paulo.ovidio@superclawman.ai">paulo.ovidio@superclawman.ai</a> · <a href="/meetings-guide-es">El manual de tu agente</a></p>
+    <p class="note">Dudas en cualquier momento: <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a></p>
   </div>
 
   <div class="footer">
@@ -374,48 +377,38 @@ button:hover{background:var(--amber);color:var(--blue-deep)}
   <div style="margin-top:12px">SUPERCLAWMAN LLC · Miami, Florida · <!--email_off--><a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a><!--/email_off--></div></div>
   <script>
     (function () {
+      var q = new URLSearchParams(location.search);
+      // One Stripe link serves all 3 languages: utm_content carries the buyer's language here.
+      var want = {pt: '/meetings-activate-pt', es: '/meetings-activate-es', en: '/meetings-activate'}[q.get('utm_content') || ''];
+      if (want && location.pathname.replace(/\.html$/, '') !== want) { location.replace(want + location.search); return; }
+      var plan = q.get('plan') || '';
+      document.body.classList.add(plan === 'starter' ? 'plan-st' : (plan ? 'plan-hand' : 'plan-none'));
       var form = document.getElementById('onboard-form');
       var status = document.getElementById('onboard-status');
       var btn = document.getElementById('onboard-submit');
+      function fail(msg) { btn.disabled = false; status.className = 'err'; status.style.display = 'block'; status.textContent = msg; status.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var data = Object.fromEntries(new FormData(form).entries());
-        if (!data.name || !data.email) {
-          status.className = 'err';
-          status.textContent = 'Completa tu nombre y el correo para los resúmenes.';
-          return;
-        }
-        data.session_id = new URLSearchParams(location.search).get('session_id') || '';
-        btn.disabled = true;
-        status.className = ''; status.style.display = 'none';
+        if (!data.name || !data.email) return fail("Completa tu nombre y el correo para los res\u00famenes.");
+        if (data.calendar_ics && !/^(https|webcal):\/\/\S+$/i.test(data.calendar_ics.trim())) return fail("Eso no parece un enlace de calendario. Debe empezar con https:// y suele terminar en .ics.");
+        data.session_id = q.get('session_id') || '';
+        data.plan = plan; data.lang = "es";
+        btn.disabled = true; status.style.display = 'none';
         fetch('https://sc-meetings-stripe-hooks.superclawman.workers.dev/onboard', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
         }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
           .then(function (x) {
-            if (x.r.ok && x.j.ok) {
-              var card = document.getElementById('onboard-card');
-              card.innerHTML =
-                '<div style="text-align:center;padding:1.6rem 0.5rem;">' +
-                '<div style="font-size:3rem;margin-bottom:0.9rem;">✅</div>' +
-                '<h2 style="margin-bottom:0.7rem;">Datos recibidos — ya estamos en ello.</h2>' +
-                '<p style="color:var(--muted);font-size:0.95rem;line-height:1.65;max-width:42ch;margin:0 auto;">' +
-                'Tendrás noticias nuestras hoy mismo por WhatsApp o correo, y tu agente estará en tus reuniones en 48 horas.</p></div>';
-              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-              btn.disabled = false;
-              status.className = 'err';
-              status.textContent = (x.j && x.j.error ? x.j.error + ' — ' : '') + 'No se pudo enviar. Inténtalo de nuevo, o usa el WhatsApp/correo de abajo.';
-              status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+            if (!(x.r.ok && x.j.ok)) return fail((x.j && x.j.error ? x.j.error + ' · ' : '') + "No se pudo enviar. Int\u00e9ntalo de nuevo, o escr\u00edbenos abajo.");
+            var card = document.getElementById('onboard-card');
+            var st = plan === 'starter' && data.calendar_ics;
+            card.innerHTML = '<div style="text-align:center;padding:1.6rem 0.5rem;"><div style="font-size:3rem;margin-bottom:0.9rem;">✅</div>' +
+              '<h2 style="margin-bottom:0.7rem;">' + (st ? "Calendario conectado." : '✓') + '</h2>' +
+              '<p style="color:var(--muted);font-size:0.95rem;line-height:1.65;max-width:42ch;margin:0 auto;">' +
+              (st ? "Tu agente entra a tu pr\u00f3xima llamada con enlace de video. El primer resumen llega pocos minutos despu\u00e9s de que termine." : "Recibimos tus datos. Tendr\u00e1s noticias nuestras hoy, por WhatsApp o correo.") + '</p></div>';
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
           })
-          .catch(function () {
-            btn.disabled = false;
-            status.className = 'err';
-            status.textContent = 'Error de red — inténtalo de nuevo, o usa el WhatsApp/correo de abajo.';
-            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          });
+          .catch(function () { fail("Error de red. Int\u00e9ntalo de nuevo, o escr\u00edbenos abajo."); });
       });
     })();
   </script>

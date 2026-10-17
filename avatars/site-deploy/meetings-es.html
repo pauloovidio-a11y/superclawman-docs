@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SuperClawman for Meetings — La IA que participa en tus reuniones</title>
-  <meta name="description" content="Una IA que entra a tus llamadas de Google Meet, Zoom y Teams como participante — te ayuda en vivo por voz y convierte cada conversación en un resumen, una memoria y el próximo entregable. Automáticamente." />
+  <title>SuperClawman for Meetings | La IA que participa en tus reuniones</title>
+  <meta name="description" content="Más que un tomador de notas. SuperClawman entra a tus llamadas de Google Meet, Zoom y Teams, responde a la sala por voz cuando se lo pides, recuerda a cada cliente y redacta el resumen minutos después de colgar." />
   <meta name="keywords" content="asistente IA reuniones, IA entra a la reunión, IA voz reunión, Google Meet IA, Zoom IA, Teams IA, resumen reunión IA, acta automática, IA que habla en la reunión, agente como servicio, propuesta desde la reunión" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://superclawman.ai/meetings-es" />
-  <meta property="og:title" content="SuperClawman for Meetings — La IA que participa en tus reuniones" />
-  <meta property="og:description" content="Entra a tus llamadas, te ayuda en vivo por voz y entrega el resumen, el follow-up y la propuesta — minutos después de colgar." />
+  <meta property="og:title" content="SuperClawman for Meetings | La IA que participa en tus reuniones" />
+  <meta property="og:description" content="Responde en la llamada cuando se lo pides, recuerda a cada cliente y redacta el resumen minutos después de colgar." />
   <meta property="og:url" content="https://superclawman.ai/meetings-es" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
@@ -25,7 +25,7 @@
   <link rel="alternate" hreflang="es" href="https://superclawman.ai/meetings-es" />
   <style>
 /* ============================================================
-   SuperClawman — Blackprint design system
+   SuperClawman, Blackprint design system
    Derived from RoboNuggets fable/21-blueprint (type pairing,
    spacing rhythm, linework, drafting-sheet language) on a black
    ground instead of the reference's blue. Structure and copy ours.
@@ -34,7 +34,7 @@
   /* ---- ground: "blackprint" ----
      The drafting-sheet ground. Swapping these five values re-skins the whole
      site; nothing below hardcodes a surface colour. The original reference
-     (fable/21-blueprint) used a #0b3d91 blue ground — black lifts every text
+     (fable/21-blueprint) used a #0b3d91 blue ground, black lifts every text
      contrast ratio by roughly 2x while keeping the same drafting language. */
   --ground:#0a0a0c;        /* page */
   --ground-2:#131316;      /* raised: card hover, active tier, nav pill */
@@ -46,12 +46,12 @@
   --ink:rgba(255,255,255,.92);
   --ink-dim:rgba(255,255,255,.62);
   /* --ink-mute is for small SECONDARY TEXT (seat counts, billing cycle, opt
-     labels, placeholders). --ink-faint is for RULES AND BORDERS only — at
+     labels, placeholders). --ink-faint is for RULES AND BORDERS only, at
      .30 it measures 2.6:1, fine for a drawn line, not for words. */
   --ink-mute:rgba(255,255,255,.54);
   --ink-faint:rgba(255,255,255,.30);
   --ink-hair:rgba(255,255,255,.13);
-  /* grid reads harder on black than on blue — pulled back so it stays a
+  /* grid reads harder on black than on blue, pulled back so it stays a
      drafting texture and never competes with the type */
   --grid-major:rgba(255,255,255,.10);
   --grid-minor:rgba(255,255,255,.038);
@@ -60,7 +60,7 @@
   --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 
-  /* aliases — kept so older selectors and legacy inline styles still resolve */
+  /* aliases, kept so older selectors and legacy inline styles still resolve */
   --blue:var(--ground);
   --blue-deep:var(--ground-2);
   --blue-deeper:var(--ground);
@@ -103,7 +103,7 @@ img{max-width:100%}
 @media(max-width:1023px){.frame-tick.b{display:none}}
 @media(max-width:767px){.sheet-frame{display:none}}
 
-/* legacy scanline element — retired, the grid replaces it */
+/* legacy scanline element, retired, the grid replaces it */
 .scanline{display:none}
 
 /* ---------- language switcher ----------
@@ -129,7 +129,7 @@ nav.topnav,.topnav{
   justify-content:space-between;padding:20px 40px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;background:linear-gradient(180deg,rgba(10,10,12,.96) 30%,rgba(10,10,12,0));
 }
-/* match ANY direct anchor — meetings-guide's nav link carries no .home class,
+/* match ANY direct anchor, meetings-guide's nav link carries no .home class,
    and an unconstrained 256px logo otherwise lands on top of the hero. */
 .topnav > a,.topnav .home,.topnav a.home{
   display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;
@@ -156,7 +156,7 @@ h3{font-size:clamp(17px,1.6vw,20px)}
 strong,b{font-weight:500;color:var(--ink)}
 p{font-weight:300}
 
-/* section eyebrow — the blueprint rule-line tag */
+/* section eyebrow, the blueprint rule-line tag */
 .eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label,.meetings-eyebrow{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:var(--amber);
   display:flex;align-items:center;gap:14px;margin-bottom:16px;text-transform:uppercase;font-weight:400;
@@ -205,7 +205,7 @@ p{font-weight:300}
 .n,.num,.num-label,.step-duration,.meetings-seats,.note,.trow,.caps .ico{font-family:var(--mono)}
 .n,.num{color:var(--amber);font-size:11px;letter-spacing:.25em;font-weight:500}
 
-/* a .n directly inside a heading is a step NUMBER — render it as a boxed
+/* a .n directly inside a heading is a step NUMBER, render it as a boxed
    drawing-callout, not as inline meta text */
 h2 > .n,h3 > .n{
   flex:0 0 30px;width:30px;height:30px;display:inline-grid;place-items:center;
@@ -215,7 +215,7 @@ h2 > .n,h3 > .n{
 h2:has(> .n),h3:has(> .n){display:flex;align-items:center;gap:0}
 @media(max-width:600px){h2 > .n,h3 > .n{flex:0 0 26px;width:26px;height:26px;font-size:11px;margin-right:11px}}
 
-/* eyebrow rule-line looks broken once the label wraps — drop it when narrow */
+/* eyebrow rule-line looks broken once the label wraps, drop it when narrow */
 @media(max-width:600px){
   .eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,
   .family-eyebrow::after,.cta-label::after{display:none}
@@ -335,7 +335,7 @@ section+section{border-top:1px solid var(--ink-hair)}
   color:var(--amber);border-right:1px solid var(--ink-hair);
 }
 .trow .c b{color:var(--ink);font-weight:500}
-/* a trust row with only one cell spans both tracks — no empty label column */
+/* a trust row with only one cell spans both tracks, no empty label column */
 .trow:has(> .c:only-child){grid-template-columns:1fr}
 .trow .c:only-child{font-family:var(--sans);font-size:13.5px;letter-spacing:normal;text-transform:none;color:var(--ink-dim);border-right:none}
 @media(max-width:700px){.trow{grid-template-columns:1fr}.trow .c:first-child{border-right:none;border-bottom:1px solid var(--ink-hair);padding-bottom:12px}}
@@ -412,19 +412,38 @@ section+section{border-top:1px solid var(--ink-hair)}
 
     <!-- HERO -->
     <header class="hero">
-      <div class="eyebrow"><span class="dot"></span> En vivo — probado en llamadas reales con clientes</div>
-      <h1>La IA que participa<br/>en tus reuniones.</h1>
+      <div class="eyebrow"><span class="dot"></span> En vivo · probado en llamadas reales con clientes</div>
+      <h1>Los tomadores de notas escuchan.<br/>Este responde.</h1>
       <p class="sub">
-        SuperClawman entra a tus llamadas de <strong>Google Meet, Zoom y Teams</strong> como participante.
-        Pregúntale lo que sea en voz alta, en plena llamada — responde a la sala por voz. Y minutos después de colgar,
-        el resumen, el correo de follow-up y el borrador de la propuesta <strong>ya están listos</strong>.
+        SuperClawman entra a tus llamadas de <strong>Google Meet, Zoom y Teams</strong> como participante con nombre.
+        Se queda en silencio hasta que dices "Hey Superclawman". Entonces responde a la sala, con búsqueda web en vivo y las llamadas anteriores de ese cliente.
+        Minutos después de colgar, el resumen para los participantes <strong>ya está redactado</strong>. Pide la propuesta y también la redacta.
       </p>
       <div class="cta-row">
-        <a class="btn primary" href="#pricing">Reservar un asiento fundador</a>
+        <a class="btn primary" href="#pricing">Ver los planes</a>
         <a class="btn ghost" href="#trial">Probar gratis</a>
       </div>
-      <p class="note">Prueba gratis de 7 días · sin tarjeta · o reserva un asiento fundador (precio fijo de por vida)</p>
+      <p class="note">Prueba gratis de 7 días · 3 horas de reunión · sin tarjeta · planes desde US$ 49/mes</p>
     </header>
+
+    <!-- VS NOTE-TAKERS -->
+    <section id="vs">
+      <style>
+        #vs .trow{grid-template-columns:190px 1fr 1fr}
+        #vs .trow .c+.c{border-left:1px solid var(--ink-hair)}
+        #vs .tag{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;color:var(--ink-dim)}
+        #vs .tag.us{color:var(--amber)}
+        @media(max-width:700px){#vs .trow{grid-template-columns:1fr}#vs .trow .c+.c{border-left:none}#vs .trow .c:nth-child(2){border-bottom:1px solid var(--ink-hair)}}
+      </style>
+      <div class="sec-eyebrow">No es otro tomador de notas</div>
+      <h2 class="sec-title">Un tomador de notas escribe la reunión. SuperClawman participa en ella.</h2>
+      <p class="sec-sub">Esto es lo que un tomador de notas todavía te deja por hacer.</p>
+      <div class="trust">
+        <div class="trow"><div class="c">En la llamada</div><div class="c"><span class="tag">Un tomador de notas</span>Se queda callado y anota lo que se dijo.</div><div class="c"><span class="tag us">SuperClawman</span>Responde en voz alta cuando se lo pides, con <b>búsqueda web en vivo y las llamadas anteriores del cliente</b>.</div></div>
+        <div class="trow"><div class="c">Memoria</div><div class="c"><span class="tag">Un tomador de notas</span>Tus notas, ordenadas por fecha.</div><div class="c"><span class="tag us">SuperClawman</span><b>Un archivo por cliente.</b> Llega a la próxima llamada ya al tanto de todo.</div></div>
+        <div class="trow"><div class="c">Después de la llamada</div><div class="c"><span class="tag">Un tomador de notas</span>Un resumen, para que tú actúes.</div><div class="c"><span class="tag us">SuperClawman</span>Un <b>resumen redactado para los participantes</b>, y una propuesta cuando la pides. Tú apruebas, él envía.</div></div>
+      </div>
+    </section>
 
     <!-- THE LOOP -->
     <section id="how">
@@ -433,9 +452,9 @@ section+section{border-top:1px solid var(--ink-hair)}
       <p class="sec-sub">Una aprobación humana. Cero tareas manuales.</p>
       <div class="loop">
         <div class="step"><div class="n">01 · ENTRA</div><h4>Entra solo</h4><p>Vigila tu calendario y entra a Meet, Zoom o Teams dos minutos antes del inicio. Pega un enlace y también entra al momento.</p></div>
-        <div class="step"><div class="n">02 · AYUDA</div><h4>Te ayuda en vivo</h4><p>"Hey Superclawman, …" — responde a la sala por voz, o discretamente en el chat. Busca en la web y consulta reuniones anteriores en plena llamada.</p></div>
-        <div class="step"><div class="n">03 · RECUERDA</div><h4>Lo guarda todo</h4><p>Cada llamada se convierte en un resumen estructurado — síntesis, decisiones, acciones — archivado por cuenta en una memoria que es tuya.</p></div>
-        <div class="step"><div class="n">04 · ENTREGA</div><h4>Hace el follow-up</h4><p>Un correo de resumen redactado para los participantes, y una propuesta a pedido — minutos después de la llamada, no días.</p></div>
+        <div class="step"><div class="n">02 · AYUDA</div><h4>Te ayuda en vivo</h4><p>"Hey Superclawman, …", responde a la sala por voz, o discretamente en el chat. Busca en la web y consulta reuniones anteriores en plena llamada.</p></div>
+        <div class="step"><div class="n">03 · RECUERDA</div><h4>Lo guarda todo</h4><p>Cada llamada se convierte en un resumen estructurado (síntesis, decisiones, acciones), archivado por cuenta en una memoria que es tuya.</p></div>
+        <div class="step"><div class="n">04 · ENTREGA</div><h4>Hace el follow-up</h4><p>Un correo de resumen redactado para los participantes, y una propuesta a pedido, minutos después de la llamada, no días.</p></div>
       </div>
     </section>
 
@@ -443,14 +462,14 @@ section+section{border-top:1px solid var(--ink-hair)}
     <section>
       <div class="sec-eyebrow">Lo que hace</div>
       <h2 class="sec-title">Seis capacidades, todas funcionando hoy</h2>
-      <p class="sec-sub">No es un roadmap — todo lo de abajo está en vivo y probado en llamadas reales.</p>
+      <p class="sec-sub">No es un roadmap. Todo lo de abajo está en vivo y probado en llamadas reales.</p>
       <div class="caps">
-        <div class="cap"><div class="ico">📅</div><h3>Entra solo desde tu calendario</h3><p>Lee tu calendario y entra a las reuniones programadas por su cuenta — sin enlaces que pegar, sin bots que lanzar. Reuniones recurrentes incluidas.</p></div>
+        <div class="cap"><div class="ico">📅</div><h3>Entra solo desde tu calendario</h3><p>Lee tu calendario y entra a las reuniones programadas por su cuenta, sin enlaces que pegar, sin bots que lanzar. Reuniones recurrentes incluidas.</p></div>
         <div class="cap"><div class="ico">🎙️</div><h3>Asistencia en vivo por voz y chat</h3><p>Llámalo por su nombre en plena llamada y responde a la sala por voz; o escribe en el chat para una respuesta discreta. Solo habla cuando lo llaman.</p></div>
-        <div class="cap"><div class="ico">🌎</div><h3>Multilingüe de verdad</h3><p>Reconocimiento de voz propio que entiende acentos, inglés y portugués donde los subtítulos genéricos fallan. Español a pedido.</p></div>
-        <div class="cap"><div class="ico">🧠</div><h3>Memoria por cuenta</h3><p>Cada llamada se archiva por cuenta en un diario consultable. Llega a la siguiente reunión ya con el historial — decisiones, objeciones, compromisos.</p></div>
+        <div class="cap"><div class="ico">🌎</div><h3>Multilingüe de verdad</h3><p>Reconocimiento de voz propio que entiende acentos, inglés y portugués donde los subtítulos genéricos fallan. Español también, en todos los planes.</p></div>
+        <div class="cap"><div class="ico">🧠</div><h3>Memoria por cuenta</h3><p>Cada llamada se archiva por cuenta en un diario consultable. Llega a la siguiente reunión ya con el historial, decisiones, objeciones, compromisos.</p></div>
         <div class="cap"><div class="ico">✉️</div><h3>El resumen se escribe solo</h3><p>Minutos después de la llamada: síntesis, decisiones, acciones con responsables, y un correo de resumen redactado para los participantes. Tú apruebas, él envía.</p></div>
-        <div class="cap"><div class="ico">📄</div><h3>De la llamada a la propuesta</h3><p>"Prepara la propuesta de esa reunión" — un borrador basado en lo que realmente se dijo, listo para convertirse en un documento con tu marca.</p></div>
+        <div class="cap"><div class="ico">📄</div><h3>De la llamada a la propuesta</h3><p>"Prepara la propuesta de esa reunión", un borrador basado en lo que realmente se dijo, listo para convertirse en un documento con tu marca.</p></div>
       </div>
     </section>
 
@@ -460,14 +479,14 @@ section+section{border-top:1px solid var(--ink-hair)}
       <h2 class="sec-title">Medido en llamadas reales, no en demos</h2>
       <p class="sec-sub">Incluida una reunión real de 65 minutos con un cliente, de principio a fin.</p>
       <div class="proof">
-        <div class="stat"><div class="big">~2 min</div><div class="lab">del fin de la llamada al resumen listo — sin ningún comando</div></div>
+        <div class="stat"><div class="big">~2 min</div><div class="lab">del fin de la llamada al resumen listo, sin ningún comando</div></div>
         <div class="stat"><div class="big">65 min</div><div class="lab">reunión real con cliente capturada, resumida y convertida en propuesta</div></div>
         <div class="stat"><div class="big">EN + PT</div><div class="lab">respuestas por voz en ambos idiomas, en la misma llamada</div></div>
         <div class="stat"><div class="big">0</div><div class="lab">caídas de conexión en la infraestructura siempre activa</div></div>
       </div>
       <div class="quote">
-        Un intercambio real: "<b>Hey Superclawman, check the latest cost for NVIDIA GPUs</b>" — dijo los precios actuales a la sala por voz.
-        Y en portugués: "<b>Ei Superclawman, pesquise o valor dos chips da NVIDIA</b>" — respondió por voz, en portugués.
+        Un intercambio real: "<b>Hey Superclawman, check the latest cost for NVIDIA GPUs</b>", dijo los precios actuales a la sala por voz.
+        Y en portugués: "<b>Ei Superclawman, pesquise o valor dos chips da NVIDIA</b>", respondió por voz, en portugués.
       </div>
     </section>
 
@@ -490,7 +509,7 @@ section+section{border-top:1px solid var(--ink-hair)}
       </style>
       <div class="sec-eyebrow">Prueba gratis</div>
       <h2 class="sec-title">¿Aún no quieres comprometerte? Pruébalo.</h2>
-      <p class="sec-sub">Prueba gratis de 7 días — todas las funciones, sin tarjeta de crédito. SuperClawman entra en tus llamadas reales, te ayuda en vivo y deja el resumen + seguimiento listos minutos después de colgar.</p>
+      <p class="sec-sub">Prueba gratis de 7 días, todas las funciones, sin tarjeta de crédito. SuperClawman entra en tus llamadas reales, te ayuda en vivo y deja el resumen + seguimiento listos minutos después de colgar.</p>
       <div class="perks"><span><b>7 días</b> · todas las funciones</span><span><b>3 horas de reunión</b> de cortesía</span><span><b>Sin tarjeta</b></span></div>
       <div class="trial-card" id="trial-card">
         <form id="trial-form" novalidate>
@@ -508,59 +527,80 @@ section+section{border-top:1px solid var(--ink-hair)}
           <p id="trial-status" role="status"></p>
         </form>
       </div>
-      <p class="note" style="text-align:center;margin-top:1.1rem;">Recibes los pasos por email en minutos — añade SuperClawman a una reunión y estás en vivo. Sin tarjeta ahora, sin cargo automático después.</p>
+      <p class="note" style="text-align:center;margin-top:1.1rem;">Recibes los pasos por email en minutos, añade SuperClawman a una reunión y estás en vivo. Sin tarjeta ahora, sin cargo automático después.</p>
     </section>
 
     <!-- PRICING -->
     <section id="pricing">
-      <div class="sec-eyebrow">Oferta fundadora</div>
-      <h2 class="sec-title">Reserva uno de los 10 asientos fundadores</h2>
-      <p class="sec-sub">Cada asiento es un agente dedicado, aprovisionado para ti, con servicio white-glove. El precio fundador queda fijo mientras seas suscriptor.</p>
+      <style>
+        #pricing .tiers{grid-template-columns:repeat(auto-fit,minmax(236px,1fr))}
+        #pricing .tier .flag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+        #pricing .every{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-dim);line-height:1.9;margin:0 0 22px}
+        #pricing .every b{color:var(--amber);font-weight:500}
+      </style>
+      <div class="sec-eyebrow">Planes</div>
+      <h2 class="sec-title">Elige las horas que necesitas. Todos los planes responden en la llamada.</h2>
+      <p class="sec-sub">Voz en vivo, memoria por cliente y el borrador del resumen vienen en todos los planes. Pruébalo gratis 7 días antes: 3 horas de reunión, sin tarjeta.</p>
 
-      <div class="founding"><b>Cohorte fundadora:</b> solo 10 asientos. Tu precio nunca sube mientras tu suscripción esté activa.</div>
+      <div class="every"><b>Todos los planes:</b> hora extra a US$ 4 · pago anual = 2 meses gratis · cancela cuando quieras · nunca sale de una llamada por el límite</div>
 
       <div class="tiers">
-        <!-- BRIEFS -->
+        <!-- STARTER -->
         <div class="tier">
-          <h3>Briefs</h3>
-          <div class="for">Cada reunión capturada, resumida y recordada — automáticamente.</div>
-          <div class="price">US$ 99<span>/mes</span></div>
-          <div class="cycle">facturación mensual · cancela cuando quieras · hasta 20h de reunión/mes</div>
+          <h3>Starter</h3>
+          <div class="for">Para una persona con algunas llamadas con clientes por semana. Lo activas tú, en vivo en minutos.</div>
+          <div class="price">US$ 49<span>/mes</span></div>
+          <div class="cycle">pago mensual · cancela cuando quieras · 10 horas de reunión al mes (~15 llamadas)</div>
           <ul>
-            <li>Entrada automática desde tu calendario (Meet · Zoom · Teams)</li>
-            <li>Transcripción hi-fi y resumen estructurado minutos después de cada llamada</li>
-            <li>Correo de resumen redactado — tú apruebas y envías</li>
-            <li>Diario de memoria por cuenta, que es tuyo</li>
-            <li class="dim">Asistencia en vivo por voz y chat</li>
-            <li class="dim">Borradores de propuesta desde la llamada</li>
+            <li>Voz y chat en vivo: di "Hey Superclawman" y responde</li>
+            <li>Búsqueda web en vivo y las llamadas anteriores del cliente, en plena llamada</li>
+            <li>Entra a Meet, Zoom y Teams desde tu calendario</li>
+            <li>Transcripción y resumen unos 2 minutos después de la llamada</li>
+            <li>Resumen redactado para los participantes. Tú apruebas, él envía.</li>
+            <li>Un archivo de memoria por cliente</li>
+            <li>Voz en español, inglés y portugués</li>
           </ul>
-          <a class="btn ghost" href="https://buy.stripe.com/fZu14m7noc9E0EH11uao800">Empezar con Briefs</a>
-          <a class="annual" href="https://buy.stripe.com/aFadR8ePQehMdrt11uao802">o US$ 69/mes con pago anual — <b>ahorra 30%</b></a>
+          <a class="btn ghost" href="https://buy.stripe.com/7sY9AS8rsehM3QT9y0ao80a?client_reference_id=lang_es&amp;locale=es&amp;utm_content=es">Contratar Starter</a>
+          <a class="annual" href="https://buy.stripe.com/8x28wO8rsflQ735cKcao80b?client_reference_id=lang_es&amp;locale=es&amp;utm_content=es">o US$ 41/mes con pago anual: <b>2 meses gratis</b></a>
+        </div>
+
+        <!-- PRO -->
+        <div class="tier hot">
+          <div class="flag">Recomendado</div>
+          <h3>Pro</h3>
+          <div class="for">Para quien vende en llamadas todos los días. Suma la propuesta y el informe semanal.</div>
+          <div class="price">US$ 129<span>/mes</span></div>
+          <div class="cycle">pago mensual · cancela cuando quieras · 30 horas de reunión al mes (~45 llamadas)</div>
+          <ul>
+            <li>Todo lo de Starter, con 3x las horas</li>
+            <li>Borradores de propuesta según lo que se dijo</li>
+            <li>Un informe semanal de cada cliente</li>
+            <li>Configurado contigo en 48 horas</li>
+          </ul>
+          <a class="btn primary" href="https://buy.stripe.com/28EeVc7no4Hc1ILeSkao80c?client_reference_id=lang_es&amp;locale=es&amp;utm_content=es">Contratar Pro</a>
+          <a class="annual" href="https://buy.stripe.com/14AbJ04bcc9Eafh7pSao80d?client_reference_id=lang_es&amp;locale=es&amp;utm_content=es">o US$ 107.50/mes con pago anual: <b>2 meses gratis</b></a>
         </div>
 
         <!-- FULL SEAT -->
-        <div class="tier hot">
-          <div class="flag">Más completo</div>
+        <div class="tier">
+          <div class="flag">Para quien vende mucho</div>
           <h3>Full Seat</h3>
-          <div class="for">El participante de IA completo — te ayuda en vivo y hace el follow-up.</div>
-          <div class="price">US$ 299<span>/mes</span></div>
-          <div class="cycle">facturación mensual · cancela cuando quieras · hasta 40h de reunión/mes</div>
+          <div class="for">Para quien vive en llamadas. El doble de horas que Pro y atención prioritaria.</div>
+          <div class="price">US$ 249<span>/mes</span></div>
+          <div class="cycle">pago mensual · cancela cuando quieras · 60 horas de reunión al mes (~90 llamadas)</div>
           <ul>
-            <li>Todo lo de Briefs</li>
-            <li>Voz en vivo — pregunta lo que sea, responde a la sala</li>
-            <li>Respuestas discretas en el chat durante la llamada</li>
-            <li>Búsqueda web y memoria de reuniones anteriores en tiempo real</li>
-            <li>Propuestas redactadas según lo que se dijo</li>
-            <li>Voz multilingüe — inglés y portugués hoy; español a pedido</li>
+            <li>Todo lo de Pro, con el doble de horas</li>
+            <li>Configuración prioritaria, el mismo día</li>
+            <li>Soporte prioritario, atendido primero</li>
           </ul>
-          <a class="btn primary" href="https://buy.stripe.com/fZueVcazAb5A2MPfWoao801">Reservar un Full Seat</a>
-          <a class="annual" href="https://buy.stripe.com/7sY00i6jk4Hc3QTdOgao803">o US$ 199/mes con pago anual — <b>ahorra 33%</b></a>
+          <a class="btn ghost" href="https://buy.stripe.com/bJe14m8rsc9EafhdOgao80e?client_reference_id=lang_es&amp;locale=es&amp;utm_content=es">Contratar Full Seat</a>
+          <a class="annual" href="https://buy.stripe.com/fZu5kC234flQbjlbG8ao80f?client_reference_id=lang_es&amp;locale=es&amp;utm_content=es">o US$ 207.50/mes con pago anual: <b>2 meses gratis</b></a>
         </div>
 
         <!-- AAAS -->
         <div class="tier">
           <h3>Agent as a Service</h3>
-          <div class="for">Un compromiso SuperClawman completo — reuniones más automatización integral de tu negocio.</div>
+          <div class="for">Un compromiso SuperClawman completo, reuniones más automatización integral de tu negocio.</div>
           <div class="price">A medida</div>
           <div class="cycle">alcance por compromiso</div>
           <ul>
@@ -578,13 +618,13 @@ section+section{border-top:1px solid var(--ink-hair)}
 
     <!-- ACTIVATION -->
     <section>
-      <div class="sec-eyebrow">Activación</div>
-      <h2 class="sec-title">En tus reuniones en 48 horas</h2>
-      <p class="sec-sub">Cada asiento se aprovisiona white-glove. Sin apps que instalar, sin configuraciones que pelear.</p>
+      <div class="sec-eyebrow">Cómo empezar</div>
+      <h2 class="sec-title">Starter queda en vivo en minutos. Pro y Full Seat se configuran contigo.</h2>
+      <p class="sec-sub">Nada que instalar. Nada que configurar.</p>
       <div class="steps">
-        <div class="astep"><div class="num">1</div><h4>Suscríbete</h4><p>Elige tu asiento y paga de forma segura con Stripe. Llegas a tu página de activación al instante.</p></div>
-        <div class="astep"><div class="num">2</div><h4>Cuéntanos de tus reuniones</h4><p>Un onboarding de 5 minutos: tu calendario, tu correo, tus plataformas, tu idioma. Es todo lo que necesitamos.</p></div>
-        <div class="astep"><div class="num">3</div><h4>Entra a tu próxima llamada</h4><p>En 48 horas tu agente vigila tu calendario y entra a su primera reunión — anunciado, con consentimiento, listo.</p></div>
+        <div class="astep"><div class="num">1</div><h4>Contrata</h4><p>Elige un plan y paga con Stripe. Llegas directo a tu página de activación.</p></div>
+        <div class="astep"><div class="num">2</div><h4>Conecta tu calendario</h4><p>Pega el enlace privado de tu calendario y entra solo a tus videollamadas. O reenvía cualquier invitación a superclawman@superclawman.ai.</p></div>
+        <div class="astep"><div class="num">3</div><h4>Entra a tu próxima llamada</h4><p>Starter empieza en tu próxima reunión. Pro se configura contigo en 48 horas, Full Seat el mismo día.</p></div>
       </div>
     </section>
 
@@ -596,7 +636,7 @@ section+section{border-top:1px solid var(--ink-hair)}
       <div class="trust">
         <div class="trow"><div class="c">Consentimiento de grabación</div><div class="c">El asistente <b>se anuncia</b> al entrar, en el idioma de la reunión. Nunca graba en silencio.</div></div>
         <div class="trow"><div class="c">Envíos en tu nombre</div><div class="c">Los resúmenes se <b>redactan, nunca se envían solos</b>. Un humano aprueba cada mensaje que sale.</div></div>
-        <div class="trow"><div class="c">Propiedad de los datos</div><div class="c">La memoria de las reuniones vive en <b>almacenamiento que tú controlas</b> — no en una caja negra de un proveedor. Exporta o borra cuando quieras.</div></div>
+        <div class="trow"><div class="c">Propiedad de los datos</div><div class="c">La memoria de las reuniones vive en <b>almacenamiento que tú controlas</b>, no en una caja negra de un proveedor. Exporta o borra cuando quieras.</div></div>
         <div class="trow"><div class="c">Cuándo habla</div><div class="c"><b>Solo cuando lo llaman por su nombre.</b> Permanece en silencio salvo que se le dirija directamente.</div></div>
       </div>
     </section>
@@ -608,28 +648,32 @@ section+section{border-top:1px solid var(--ink-hair)}
       <p class="sec-sub"></p>
       <div class="faq">
         <details>
+          <summary>Ya uso un tomador de notas con IA. ¿Por qué sumar este?</summary>
+          <p>Quédate con él si te gusta. Un tomador de notas escribe lo que se dijo, para ti. SuperClawman <b>participa</b>: responde a la sala cuando se lo pides, guarda una memoria por cliente y redacta el resumen para los participantes después de la llamada, además de la propuesta cuando la pides.</p>
+        </details>
+        <details>
           <summary>¿Qué plataformas de reuniones soporta?</summary>
           <p><b>Google Meet, Zoom y Microsoft Teams.</b> Entra desde tu calendario automáticamente, o desde cualquier enlace de reunión que le envíes.</p>
         </details>
         <details>
           <summary>¿Los demás participantes saben que está ahí?</summary>
-          <p>Sí — por diseño. Entra como participante identificado y <b>se anuncia</b> al entrar. La transparencia es parte del producto, no una opción.</p>
+          <p>Sí, por diseño. Entra como participante identificado y <b>se anuncia</b> al entrar. La transparencia es parte del producto, no una opción.</p>
         </details>
         <details>
           <summary>¿En qué idiomas funciona?</summary>
-          <p>La voz en vivo funciona hoy en <b>inglés y portugués</b> — incluso ambos en la misma llamada. Los resúmenes siguen el idioma de la reunión. Voz en español disponible a pedido para clientes fundadores.</p>
+          <p>La voz en vivo funciona en <b>español, inglés y portugués</b> en todos los planes. Inglés y portugués pueden incluso mezclarse en la misma llamada. Los resúmenes siguen el idioma de la reunión.</p>
         </details>
         <details>
-          <summary>¿Qué pasa si supero mis horas mensuales?</summary>
-          <p>Nada se rompe — te contactamos para ajustar tu plan. Los clientes fundadores tienen flexibilidad mientras aprendemos juntos tu uso real.</p>
+          <summary>¿Qué pasa si me paso de las horas del plan?</summary>
+          <p>Sigue entrando. <b>Nunca sale de una llamada por el límite.</b> Al 80% te llega un correo. Pasado el 100% te ofrecemos horas extra a US$ 4 cada una, o un plan mayor. No se cobra nada sin tu OK.</p>
         </details>
         <details>
-          <summary>¿Por qué solo 10 asientos fundadores?</summary>
-          <p>Cada asiento es un <b>agente dedicado, aprovisionado white-glove</b>, no una cuenta self-service. Limitamos la cohorte fundadora para que cada cliente reciba atención directa del equipo mientras escalamos la plataforma. El precio fundador queda fijo mientras te quedes.</p>
+          <summary>¿Puedo cambiar de plan o cancelar?</summary>
+          <p>Sí, cuando quieras, por tu cuenta. El enlace de facturación de tu correo de bienvenida cambia el plan o lo cancela en dos clics. Si cancelas, el plan sigue hasta el final del período que ya pagaste.</p>
         </details>
         <details>
-          <summary>¿De verdad puede escribir una propuesta a partir de una llamada?</summary>
-          <p>Sí. Tras una conversación con perfil de venta, pídele la propuesta y redacta una <b>basada en lo que realmente se dijo</b> — los dolores, los números, los compromisos. Tú la pules y la envías. Ese flujo exacto cerró nuestro primer compromiso real.</p>
+          <summary>¿De verdad escribe una propuesta a partir de una llamada?</summary>
+          <p>Sí, en Pro y Full Seat. Después de una llamada de venta, pide la propuesta y redacta una <b>según lo que realmente se dijo</b>: los dolores, los números, los compromisos. Tú la ajustas y la envías. Este flujo exacto cerró nuestro primer contrato real.</p>
         </details>
         <details>
           <summary>¿Dónde viven los datos de mis reuniones?</summary>
@@ -641,9 +685,9 @@ section+section{border-top:1px solid var(--ink-hair)}
     <!-- FINAL CTA -->
     <div class="final">
       <h2>Tu próxima reunión puede terminar<br/>con el follow-up ya hecho.</h2>
-      <p>10 asientos fundadores. En vivo en 48 horas. Precio fijo de por vida.</p>
+      <p>Planes desde US$ 49/mes. Starter queda en vivo en minutos. Prueba gratis de 7 días, sin tarjeta.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#pricing">Reservar un asiento fundador</a>
+        <a class="btn primary" href="#pricing">Ver los planes</a>
         <a class="btn ghost" href="https://wa.me/5511994917618?text=Hola%20—%20tengo%20una%20pregunta%20sobre%20SuperClawman%20for%20Meetings" target="_blank" rel="noopener">Pregúntanos lo que sea</a>
       </div>
     </div>
@@ -678,18 +722,18 @@ section+section{border-top:1px solid var(--ink-hair)}
               document.getElementById('trial-card').innerHTML =
                 '<div style="text-align:center;padding:1.4rem 0;">' +
                 '<div style="font-size:2.4rem;margin-bottom:0.6rem;">🎁</div>' +
-                '<h3 style="margin:0 0 0.6rem;font-size:1.3rem;color:var(--neon);">Listo — tu prueba va a empezar.</h3>' +
+                '<h3 style="margin:0 0 0.6rem;font-size:1.3rem;color:var(--neon);">Listo, tu prueba va a empezar.</h3>' +
                 '<p style="color:var(--muted);line-height:1.6;margin:0;">Revisa tu bandeja en un minuto para los pasos de <b>superclawman@superclawman.ai</b>. ' +
                 'Añádelo a una invitación de reunión (o mándanos un enlace) y tu agente entra. Nos vemos en la llamada.</p></div>';
             } else {
               status.className = 'err';
-              status.textContent = (x.j && x.j.error) ? x.j.error : 'Algo salió mal — inténtalo de nuevo o escríbenos por WhatsApp.';
+              status.textContent = (x.j && x.j.error) ? x.j.error : 'Algo salió mal, inténtalo de nuevo o escríbenos por WhatsApp.';
               btn.disabled = false; btn.textContent = 'Empezar mi prueba gratis →';
             }
           })
           .catch(function () {
             status.className = 'err';
-            status.textContent = 'Error de red — inténtalo de nuevo, o WhatsApp +55 11 99491-7618.';
+            status.textContent = 'Error de red, inténtalo de nuevo, o WhatsApp +55 11 99491-7618.';
             btn.disabled = false; btn.textContent = 'Empezar mi prueba gratis →';
           });
       });

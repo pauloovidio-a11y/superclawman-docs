@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SuperClawman for Meetings — The AI That Sits In Your Meetings</title>
-  <meta name="description" content="An AI that joins your Google Meet, Zoom and Teams calls as a participant — helps you live by voice, then turns every conversation into a brief, a memory, and the next deliverable. Automatically." />
+  <title>SuperClawman for Meetings | The AI that takes part in your calls</title>
+  <meta name="description" content="More than a note-taker. SuperClawman joins your Google Meet, Zoom and Teams calls, answers the room by voice when you ask, remembers every client, and drafts the recap minutes after you hang up." />
   <meta name="keywords" content="AI meeting assistant, AI joins meetings, meeting AI voice, Google Meet AI, Zoom AI assistant, Teams AI, meeting brief AI, AI note taker, AI that speaks in meetings, agent as a service, meeting recap AI, proposal from meeting" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://superclawman.ai/meetings" />
-  <meta property="og:title" content="SuperClawman for Meetings — The AI That Sits In Your Meetings" />
-  <meta property="og:description" content="It joins your calls, helps you live by voice, and delivers the brief, the recap and the proposal — minutes after you hang up." />
+  <meta property="og:title" content="SuperClawman for Meetings | The AI that takes part in your calls" />
+  <meta property="og:description" content="It answers in the call when you ask, remembers every client, and drafts the recap minutes after you hang up." />
   <meta property="og:url" content="https://superclawman.ai/meetings" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
@@ -25,7 +25,7 @@
   <link rel="alternate" hreflang="es" href="https://superclawman.ai/meetings-es" />
   <style>
 /* ============================================================
-   SuperClawman — Blackprint design system
+   SuperClawman, Blackprint design system
    Derived from RoboNuggets fable/21-blueprint (type pairing,
    spacing rhythm, linework, drafting-sheet language) on a black
    ground instead of the reference's blue. Structure and copy ours.
@@ -34,7 +34,7 @@
   /* ---- ground: "blackprint" ----
      The drafting-sheet ground. Swapping these five values re-skins the whole
      site; nothing below hardcodes a surface colour. The original reference
-     (fable/21-blueprint) used a #0b3d91 blue ground — black lifts every text
+     (fable/21-blueprint) used a #0b3d91 blue ground, black lifts every text
      contrast ratio by roughly 2x while keeping the same drafting language. */
   --ground:#0a0a0c;        /* page */
   --ground-2:#131316;      /* raised: card hover, active tier, nav pill */
@@ -46,12 +46,12 @@
   --ink:rgba(255,255,255,.92);
   --ink-dim:rgba(255,255,255,.62);
   /* --ink-mute is for small SECONDARY TEXT (seat counts, billing cycle, opt
-     labels, placeholders). --ink-faint is for RULES AND BORDERS only — at
+     labels, placeholders). --ink-faint is for RULES AND BORDERS only, at
      .30 it measures 2.6:1, fine for a drawn line, not for words. */
   --ink-mute:rgba(255,255,255,.54);
   --ink-faint:rgba(255,255,255,.30);
   --ink-hair:rgba(255,255,255,.13);
-  /* grid reads harder on black than on blue — pulled back so it stays a
+  /* grid reads harder on black than on blue, pulled back so it stays a
      drafting texture and never competes with the type */
   --grid-major:rgba(255,255,255,.10);
   --grid-minor:rgba(255,255,255,.038);
@@ -60,7 +60,7 @@
   --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 
-  /* aliases — kept so older selectors and legacy inline styles still resolve */
+  /* aliases, kept so older selectors and legacy inline styles still resolve */
   --blue:var(--ground);
   --blue-deep:var(--ground-2);
   --blue-deeper:var(--ground);
@@ -103,7 +103,7 @@ img{max-width:100%}
 @media(max-width:1023px){.frame-tick.b{display:none}}
 @media(max-width:767px){.sheet-frame{display:none}}
 
-/* legacy scanline element — retired, the grid replaces it */
+/* legacy scanline element, retired, the grid replaces it */
 .scanline{display:none}
 
 /* ---------- language switcher ----------
@@ -129,7 +129,7 @@ nav.topnav,.topnav{
   justify-content:space-between;padding:20px 40px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;background:linear-gradient(180deg,rgba(10,10,12,.96) 30%,rgba(10,10,12,0));
 }
-/* match ANY direct anchor — meetings-guide's nav link carries no .home class,
+/* match ANY direct anchor, meetings-guide's nav link carries no .home class,
    and an unconstrained 256px logo otherwise lands on top of the hero. */
 .topnav > a,.topnav .home,.topnav a.home{
   display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;
@@ -156,7 +156,7 @@ h3{font-size:clamp(17px,1.6vw,20px)}
 strong,b{font-weight:500;color:var(--ink)}
 p{font-weight:300}
 
-/* section eyebrow — the blueprint rule-line tag */
+/* section eyebrow, the blueprint rule-line tag */
 .eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label,.meetings-eyebrow{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:var(--amber);
   display:flex;align-items:center;gap:14px;margin-bottom:16px;text-transform:uppercase;font-weight:400;
@@ -205,7 +205,7 @@ p{font-weight:300}
 .n,.num,.num-label,.step-duration,.meetings-seats,.note,.trow,.caps .ico{font-family:var(--mono)}
 .n,.num{color:var(--amber);font-size:11px;letter-spacing:.25em;font-weight:500}
 
-/* a .n directly inside a heading is a step NUMBER — render it as a boxed
+/* a .n directly inside a heading is a step NUMBER, render it as a boxed
    drawing-callout, not as inline meta text */
 h2 > .n,h3 > .n{
   flex:0 0 30px;width:30px;height:30px;display:inline-grid;place-items:center;
@@ -215,7 +215,7 @@ h2 > .n,h3 > .n{
 h2:has(> .n),h3:has(> .n){display:flex;align-items:center;gap:0}
 @media(max-width:600px){h2 > .n,h3 > .n{flex:0 0 26px;width:26px;height:26px;font-size:11px;margin-right:11px}}
 
-/* eyebrow rule-line looks broken once the label wraps — drop it when narrow */
+/* eyebrow rule-line looks broken once the label wraps, drop it when narrow */
 @media(max-width:600px){
   .eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,
   .family-eyebrow::after,.cta-label::after{display:none}
@@ -335,7 +335,7 @@ section+section{border-top:1px solid var(--ink-hair)}
   color:var(--amber);border-right:1px solid var(--ink-hair);
 }
 .trow .c b{color:var(--ink);font-weight:500}
-/* a trust row with only one cell spans both tracks — no empty label column */
+/* a trust row with only one cell spans both tracks, no empty label column */
 .trow:has(> .c:only-child){grid-template-columns:1fr}
 .trow .c:only-child{font-family:var(--sans);font-size:13.5px;letter-spacing:normal;text-transform:none;color:var(--ink-dim);border-right:none}
 @media(max-width:700px){.trow{grid-template-columns:1fr}.trow .c:first-child{border-right:none;border-bottom:1px solid var(--ink-hair);padding-bottom:12px}}
@@ -412,19 +412,38 @@ section+section{border-top:1px solid var(--ink-hair)}
 
     <!-- HERO -->
     <header class="hero">
-      <div class="eyebrow"><span class="dot"></span> Live — proven in real client calls</div>
-      <h1>The AI that sits<br/>in your meetings.</h1>
+      <div class="eyebrow"><span class="dot"></span> Live · proven in real client calls</div>
+      <h1>Note-takers listen.<br/>This one answers.</h1>
       <p class="sub">
-        SuperClawman joins your <strong>Google Meet, Zoom and Teams</strong> calls as a participant.
-        Ask it anything out loud, mid-call — it answers the room by voice. And minutes after you hang up,
-        the brief, the recap email and the proposal draft are <strong>already done</strong>.
+        SuperClawman joins your <strong>Google Meet, Zoom and Teams</strong> calls as a named participant.
+        It stays silent until you say "Hey Superclawman". Then it answers the room, with live web search and the client's past calls.
+        Minutes after you hang up, the recap to the attendees is <strong>already drafted</strong>. Ask for the proposal and it drafts that too.
       </p>
       <div class="cta-row">
-        <a class="btn primary" href="#pricing">Claim a founding seat</a>
+        <a class="btn primary" href="#pricing">See the plans</a>
         <a class="btn ghost" href="#trial">Start a free trial</a>
       </div>
-      <p class="note">Free 7-day trial · no credit card · or claim a founding seat (price locked for life)</p>
+      <p class="note">Free 7-day trial · 3 meeting-hours · no card · plans from $49/mo</p>
     </header>
+
+    <!-- VS NOTE-TAKERS -->
+    <section id="vs">
+      <style>
+        #vs .trow{grid-template-columns:190px 1fr 1fr}
+        #vs .trow .c+.c{border-left:1px solid var(--ink-hair)}
+        #vs .tag{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;color:var(--ink-dim)}
+        #vs .tag.us{color:var(--amber)}
+        @media(max-width:700px){#vs .trow{grid-template-columns:1fr}#vs .trow .c+.c{border-left:none}#vs .trow .c:nth-child(2){border-bottom:1px solid var(--ink-hair)}}
+      </style>
+      <div class="sec-eyebrow">Not another note-taker</div>
+      <h2 class="sec-title">A note-taker writes the meeting down. SuperClawman takes part in it.</h2>
+      <p class="sec-sub">Here is what a note-taker still leaves for you to do.</p>
+      <div class="trust">
+        <div class="trow"><div class="c">In the call</div><div class="c"><span class="tag">A note-taker</span>Stays quiet and writes down what was said.</div><div class="c"><span class="tag us">SuperClawman</span>Answers out loud when you ask, with <b>live web search and the client's past calls</b>.</div></div>
+        <div class="trow"><div class="c">Memory</div><div class="c"><span class="tag">A note-taker</span>Your notes, sorted by date.</div><div class="c"><span class="tag us">SuperClawman</span><b>One file per client.</b> It walks into the next call already briefed.</div></div>
+        <div class="trow"><div class="c">After the call</div><div class="c"><span class="tag">A note-taker</span>A summary, for you to act on.</div><div class="c"><span class="tag us">SuperClawman</span>A <b>recap drafted to the attendees</b>, and a proposal when you ask. You approve, it sends.</div></div>
+      </div>
+    </section>
 
     <!-- THE LOOP -->
     <section id="how">
@@ -433,9 +452,9 @@ section+section{border-top:1px solid var(--ink-hair)}
       <p class="sec-sub">One human approval. Zero human chores.</p>
       <div class="loop">
         <div class="step"><div class="n">01 · JOIN</div><h4>Dials itself in</h4><p>Watches your calendar and joins Meet, Zoom or Teams two minutes before start. Paste a link and it joins ad-hoc too.</p></div>
-        <div class="step"><div class="n">02 · ASSIST</div><h4>Helps you live</h4><p>"Hey Superclawman, …" — it answers the room by voice, or quietly in chat. It can search the web and recall past meetings mid-call.</p></div>
-        <div class="step"><div class="n">03 · REMEMBER</div><h4>Saves everything</h4><p>Every call becomes a structured brief — summary, decisions, action items — filed by account in a memory you own.</p></div>
-        <div class="step"><div class="n">04 · DELIVER</div><h4>Does the follow-up</h4><p>A recap email drafted to the attendees, and a proposal on request — minutes after the call, not days.</p></div>
+        <div class="step"><div class="n">02 · ASSIST</div><h4>Helps you live</h4><p>"Hey Superclawman, …", it answers the room by voice, or quietly in chat. It can search the web and recall past meetings mid-call.</p></div>
+        <div class="step"><div class="n">03 · REMEMBER</div><h4>Saves everything</h4><p>Every call becomes a structured brief (summary, decisions, action items), filed by account in a memory you own.</p></div>
+        <div class="step"><div class="n">04 · DELIVER</div><h4>Does the follow-up</h4><p>A recap email drafted to the attendees, and a proposal on request, minutes after the call, not days.</p></div>
       </div>
     </section>
 
@@ -443,14 +462,14 @@ section+section{border-top:1px solid var(--ink-hair)}
     <section>
       <div class="sec-eyebrow">What it does</div>
       <h2 class="sec-title">Six capabilities, all working today</h2>
-      <p class="sec-sub">Not a roadmap — everything below is live and proven in real calls.</p>
+      <p class="sec-sub">Not a roadmap. Everything below is live and proven in real calls.</p>
       <div class="caps">
-        <div class="cap"><div class="ico">📅</div><h3>Auto-join from your calendar</h3><p>Reads your calendar and joins scheduled calls on its own — no link to paste, no bot to launch. Recurring meetings handled.</p></div>
-        <div class="cap"><div class="ico">🎙️</div><h3>Live voice &amp; chat assist</h3><p>Address it out loud mid-call and it answers the room by voice; or type in the chat for a quiet reply. Wake-word only — silent unless called.</p></div>
-        <div class="cap"><div class="ico">🌎</div><h3>Truly multilingual</h3><p>Its own speech recognition handles accents, English and Portuguese where generic captions collapse. Spanish on request.</p></div>
-        <div class="cap"><div class="ico">🧠</div><h3>Per-account memory</h3><p>Every call is filed by account into a searchable journal. It walks into the next meeting already briefed — decisions, objections, commitments.</p></div>
+        <div class="cap"><div class="ico">📅</div><h3>Auto-join from your calendar</h3><p>Reads your calendar and joins scheduled calls on its own, no link to paste, no bot to launch. Recurring meetings handled.</p></div>
+        <div class="cap"><div class="ico">🎙️</div><h3>Live voice &amp; chat assist</h3><p>Address it out loud mid-call and it answers the room by voice; or type in the chat for a quiet reply. Wake-word only, silent unless called.</p></div>
+        <div class="cap"><div class="ico">🌎</div><h3>Truly multilingual</h3><p>Its own speech recognition handles accents, English and Portuguese where generic captions collapse. Spanish too, on every plan.</p></div>
+        <div class="cap"><div class="ico">🧠</div><h3>Per-account memory</h3><p>Every call is filed by account into a searchable journal. It walks into the next meeting already briefed, decisions, objections, commitments.</p></div>
         <div class="cap"><div class="ico">✉️</div><h3>The recap writes itself</h3><p>Minutes after the call: summary, decisions, action items with owners, and a recap email drafted to the attendees. You approve, it sends.</p></div>
-        <div class="cap"><div class="ico">📄</div><h3>Call → proposal</h3><p>"Prepare the proposal from that meeting" — a draft grounded in what was actually said, ready to polish into a branded document.</p></div>
+        <div class="cap"><div class="ico">📄</div><h3>Call → proposal</h3><p>"Prepare the proposal from that meeting", a draft grounded in what was actually said, ready to polish into a branded document.</p></div>
       </div>
     </section>
 
@@ -460,14 +479,14 @@ section+section{border-top:1px solid var(--ink-hair)}
       <h2 class="sec-title">Measured in real calls, not demos</h2>
       <p class="sec-sub">Including a real 65-minute client discovery call, in Portuguese, end to end.</p>
       <div class="proof">
-        <div class="stat"><div class="big">~2 min</div><div class="lab">from call-end to a finished brief — no command given</div></div>
+        <div class="stat"><div class="big">~2 min</div><div class="lab">from call-end to a finished brief, no command given</div></div>
         <div class="stat"><div class="big">65 min</div><div class="lab">real client call captured, briefed &amp; turned into a proposal</div></div>
         <div class="stat"><div class="big">EN + PT</div><div class="lab">voice answers in both languages, in the same call</div></div>
         <div class="stat"><div class="big">0</div><div class="lab">dropped connections on the always-on infrastructure</div></div>
       </div>
       <div class="quote">
-        A real exchange: "<b>Hey Superclawman, check the latest cost for NVIDIA GPUs</b>" — it spoke current prices to the room.
-        Then in Portuguese: "<b>Ei Superclawman, pesquise o valor dos chips da NVIDIA</b>" — it answered by voice, in Portuguese.
+        A real exchange: "<b>Hey Superclawman, check the latest cost for NVIDIA GPUs</b>", it spoke current prices to the room.
+        Then in Portuguese: "<b>Ei Superclawman, pesquise o valor dos chips da NVIDIA</b>", it answered by voice, in Portuguese.
       </div>
     </section>
 
@@ -490,7 +509,7 @@ section+section{border-top:1px solid var(--ink-hair)}
       </style>
       <div class="sec-eyebrow">Try it free</div>
       <h2 class="sec-title">Not ready to commit? Take it for a spin.</h2>
-      <p class="sec-sub">A free 7-day trial — full features, no credit card. SuperClawman joins your real calls, helps you live, and has the brief + follow-up ready minutes after you hang up.</p>
+      <p class="sec-sub">A free 7-day trial, full features, no credit card. SuperClawman joins your real calls, helps you live, and has the brief + follow-up ready minutes after you hang up.</p>
       <div class="perks"><span><b>7 days</b> · full features</span><span><b>3 meeting-hours</b> on us</span><span><b>No credit card</b></span></div>
       <div class="trial-card" id="trial-card">
         <form id="trial-form" novalidate>
@@ -508,59 +527,80 @@ section+section{border-top:1px solid var(--ink-hair)}
           <p id="trial-status" role="status"></p>
         </form>
       </div>
-      <p class="note" style="text-align:center;margin-top:1.1rem;">We'll email you setup in minutes — add SuperClawman to a meeting and you're live. No card now, no auto-charge later.</p>
+      <p class="note" style="text-align:center;margin-top:1.1rem;">We'll email you setup in minutes, add SuperClawman to a meeting and you're live. No card now, no auto-charge later.</p>
     </section>
 
     <!-- PRICING -->
     <section id="pricing">
-      <div class="sec-eyebrow">Founding offer</div>
-      <h2 class="sec-title">Claim one of 10 founding seats</h2>
-      <p class="sec-sub">Each seat is a dedicated agent, provisioned for you, white-glove. Founding pricing is locked for as long as you stay.</p>
+      <style>
+        #pricing .tiers{grid-template-columns:repeat(auto-fit,minmax(236px,1fr))}
+        #pricing .tier .flag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+        #pricing .every{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-dim);line-height:1.9;margin:0 0 22px}
+        #pricing .every b{color:var(--amber);font-weight:500}
+      </style>
+      <div class="sec-eyebrow">Plans</div>
+      <h2 class="sec-title">Pick the hours you need. Every plan answers in the call.</h2>
+      <p class="sec-sub">Live voice, client memory and the recap draft come with every plan. Try it free for 7 days first: 3 meeting-hours, no card.</p>
 
-      <div class="founding"><b>Founding cohort:</b> 10 seats only. Your price never increases while your subscription is active.</div>
+      <div class="every"><b>Every plan:</b> extra hours $4 each · yearly billing = 2 months free · cancel any time · it never leaves a call because of the limit</div>
 
       <div class="tiers">
-        <!-- BRIEFS -->
+        <!-- STARTER -->
         <div class="tier">
-          <h3>Briefs</h3>
-          <div class="for">Every meeting captured, briefed and remembered — automatically.</div>
-          <div class="price">$99<span>/mo</span></div>
-          <div class="cycle">billed monthly · cancel anytime · up to 20 meeting-hrs/mo</div>
+          <h3>Starter</h3>
+          <div class="for">For one person with a few client calls a week. Self-serve, live in minutes.</div>
+          <div class="price">$49<span>/mo</span></div>
+          <div class="cycle">billed monthly · cancel any time · 10 meeting-hours a month (~15 calls)</div>
           <ul>
-            <li>Auto-join from your calendar (Meet · Zoom · Teams)</li>
-            <li>Hi-fi transcript &amp; structured brief minutes after every call</li>
-            <li>Recap email drafted to attendees — you approve &amp; send</li>
-            <li>Per-account memory journal you own</li>
-            <li class="dim">Live in-call voice &amp; chat assist</li>
-            <li class="dim">Call → proposal drafts</li>
+            <li>Live voice and chat: say "Hey Superclawman" and it answers</li>
+            <li>Live web search and the client's past calls, mid-call</li>
+            <li>Joins Meet, Zoom and Teams from your calendar</li>
+            <li>Transcript and brief about 2 minutes after the call</li>
+            <li>Recap drafted to the attendees. You approve, it sends.</li>
+            <li>One memory file per client</li>
+            <li>Voice in English, Portuguese and Spanish</li>
           </ul>
-          <a class="btn ghost" href="https://buy.stripe.com/fZu14m7noc9E0EH11uao800">Start with Briefs</a>
-          <a class="annual" href="https://buy.stripe.com/aFadR8ePQehMdrt11uao802">or $69/mo billed annually — <b>save 30%</b></a>
+          <a class="btn ghost" href="https://buy.stripe.com/7sY9AS8rsehM3QT9y0ao80a?client_reference_id=lang_en&amp;locale=en&amp;utm_content=en">Get Starter</a>
+          <a class="annual" href="https://buy.stripe.com/8x28wO8rsflQ735cKcao80b?client_reference_id=lang_en&amp;locale=en&amp;utm_content=en">or $41/mo billed yearly: <b>2 months free</b></a>
+        </div>
+
+        <!-- PRO -->
+        <div class="tier hot">
+          <div class="flag">Recommended</div>
+          <h3>Pro</h3>
+          <div class="for">For people who sell on calls every day. Adds the proposal and the weekly report.</div>
+          <div class="price">$129<span>/mo</span></div>
+          <div class="cycle">billed monthly · cancel any time · 30 meeting-hours a month (~45 calls)</div>
+          <ul>
+            <li>Everything in Starter, with 3x the hours</li>
+            <li>Proposal drafts based on what was said</li>
+            <li>A weekly report on each client</li>
+            <li>Set up with you within 48 hours</li>
+          </ul>
+          <a class="btn primary" href="https://buy.stripe.com/28EeVc7no4Hc1ILeSkao80c?client_reference_id=lang_en&amp;locale=en&amp;utm_content=en">Get Pro</a>
+          <a class="annual" href="https://buy.stripe.com/14AbJ04bcc9Eafh7pSao80d?client_reference_id=lang_en&amp;locale=en&amp;utm_content=en">or $107.50/mo billed yearly: <b>2 months free</b></a>
         </div>
 
         <!-- FULL SEAT -->
-        <div class="tier hot">
-          <div class="flag">Most powerful</div>
+        <div class="tier">
+          <div class="flag">For heavy sellers</div>
           <h3>Full Seat</h3>
-          <div class="for">The complete AI participant — it helps you live and does the follow-up.</div>
-          <div class="price">$299<span>/mo</span></div>
-          <div class="cycle">billed monthly · cancel anytime · up to 40 meeting-hrs/mo</div>
+          <div class="for">For sellers who live on calls. Twice the Pro hours and priority care.</div>
+          <div class="price">$249<span>/mo</span></div>
+          <div class="cycle">billed monthly · cancel any time · 60 meeting-hours a month (~90 calls)</div>
           <ul>
-            <li>Everything in Briefs</li>
-            <li>Live voice assist — ask it anything, it answers the room</li>
-            <li>Quiet chat answers during the call</li>
-            <li>Live web search &amp; prior-meeting recall mid-call</li>
-            <li>Call → proposal drafts grounded in what was said</li>
-            <li>Multilingual voice — English &amp; Portuguese today</li>
+            <li>Everything in Pro, with twice the hours</li>
+            <li>Priority setup, the same day</li>
+            <li>Priority support, answered first</li>
           </ul>
-          <a class="btn primary" href="https://buy.stripe.com/fZueVcazAb5A2MPfWoao801">Claim a Full Seat</a>
-          <a class="annual" href="https://buy.stripe.com/7sY00i6jk4Hc3QTdOgao803">or $199/mo billed annually — <b>save 33%</b></a>
+          <a class="btn ghost" href="https://buy.stripe.com/bJe14m8rsc9EafhdOgao80e?client_reference_id=lang_en&amp;locale=en&amp;utm_content=en">Get Full Seat</a>
+          <a class="annual" href="https://buy.stripe.com/fZu5kC234flQbjlbG8ao80f?client_reference_id=lang_en&amp;locale=en&amp;utm_content=en">or $207.50/mo billed yearly: <b>2 months free</b></a>
         </div>
 
         <!-- AAAS -->
         <div class="tier">
           <h3>Agent as a Service</h3>
-          <div class="for">A full SuperClawman engagement — meetings plus end-to-end business automation.</div>
+          <div class="for">A full SuperClawman engagement, meetings plus end-to-end business automation.</div>
           <div class="price">Custom</div>
           <div class="cycle">scoped per engagement</div>
           <ul>
@@ -578,13 +618,13 @@ section+section{border-top:1px solid var(--ink-hair)}
 
     <!-- ACTIVATION -->
     <section>
-      <div class="sec-eyebrow">Activation</div>
-      <h2 class="sec-title">Live in your meetings within 48 hours</h2>
-      <p class="sec-sub">Every seat is provisioned white-glove. No app to install, no settings to fight.</p>
+      <div class="sec-eyebrow">Getting started</div>
+      <h2 class="sec-title">Starter is live in minutes. Pro and Full Seat are set up with you.</h2>
+      <p class="sec-sub">No app to install. Nothing to configure.</p>
       <div class="steps">
-        <div class="astep"><div class="num">1</div><h4>Subscribe</h4><p>Pick your seat and check out securely with Stripe. You'll land on your activation page immediately.</p></div>
-        <div class="astep"><div class="num">2</div><h4>Tell us about your meetings</h4><p>A 5-minute onboarding: your calendar, your email, your platforms, your language. That's everything we need.</p></div>
-        <div class="astep"><div class="num">3</div><h4>It joins your next call</h4><p>Within 48 hours your agent is watching your calendar and joins its first meeting — announced, consented, ready.</p></div>
+        <div class="astep"><div class="num">1</div><h4>Check out</h4><p>Pick a plan and pay with Stripe. You land on your activation page right away.</p></div>
+        <div class="astep"><div class="num">2</div><h4>Connect your calendar</h4><p>Paste your calendar's private link and it joins your video calls by itself. Or forward any invite to superclawman@superclawman.ai.</p></div>
+        <div class="astep"><div class="num">3</div><h4>It joins your next call</h4><p>Starter starts with your next meeting. Pro is set up with you within 48 hours, Full Seat the same day.</p></div>
       </div>
     </section>
 
@@ -596,7 +636,7 @@ section+section{border-top:1px solid var(--ink-hair)}
       <div class="trust">
         <div class="trow"><div class="c">Recording consent</div><div class="c">The assistant <b>announces itself</b> when it joins, in the meeting's language. No silent recording, ever.</div></div>
         <div class="trow"><div class="c">Sending on your behalf</div><div class="c">Recaps are <b>drafted, never auto-sent</b>. A human approves every message that leaves.</div></div>
-        <div class="trow"><div class="c">Data ownership</div><div class="c">Meeting memory lives in <b>storage you control</b> — not a vendor black box. Export or delete any time.</div></div>
+        <div class="trow"><div class="c">Data ownership</div><div class="c">Meeting memory lives in <b>storage you control</b>, not a vendor black box. Export or delete any time.</div></div>
         <div class="trow"><div class="c">When it speaks</div><div class="c"><b>Wake-word only.</b> It stays silent unless directly addressed by name.</div></div>
       </div>
     </section>
@@ -608,28 +648,32 @@ section+section{border-top:1px solid var(--ink-hair)}
       <p class="sec-sub"></p>
       <div class="faq">
         <details>
+          <summary>I already use an AI note-taker. Why add this?</summary>
+          <p>Keep it if you like it. A note-taker writes down what was said, for you. SuperClawman <b>takes part</b>: it answers the room when you ask, keeps one memory per client, and drafts the recap to the attendees after the call, plus the proposal when you ask.</p>
+        </details>
+        <details>
           <summary>Which meeting platforms does it support?</summary>
           <p><b>Google Meet, Zoom and Microsoft Teams.</b> It joins from your calendar automatically, or from any meeting link you send it.</p>
         </details>
         <details>
           <summary>Do the other participants know it's there?</summary>
-          <p>Yes — by design. It joins as a named participant and <b>announces itself</b> when it enters. Transparency is part of the product, not a setting.</p>
+          <p>Yes, by design. It joins as a named participant and <b>announces itself</b> when it enters. Transparency is part of the product, not a setting.</p>
         </details>
         <details>
           <summary>What languages does it work in?</summary>
-          <p>Live voice works in <b>English and Portuguese</b> today — including both in the same call. Briefs and recaps follow the language of the meeting. Spanish voice is available on request for founding customers.</p>
+          <p>Live voice works in <b>English, Portuguese and Spanish</b> on every plan. English and Portuguese can even mix in the same call. Briefs and recaps follow the language of the meeting.</p>
         </details>
         <details>
-          <summary>What happens if I go over my monthly meeting-hours?</summary>
-          <p>Nothing breaks — we'll reach out to right-size your plan. Founding customers get flexibility while we learn your real usage together.</p>
+          <summary>What happens if I go over my meeting-hours?</summary>
+          <p>It keeps joining. <b>It never leaves a call because of the limit.</b> At 80% you get an email. Past 100% we offer extra hours at $4 each, or a bigger plan. Nothing is charged without your OK.</p>
         </details>
         <details>
-          <summary>Why only 10 founding seats?</summary>
-          <p>Each seat is a <b>dedicated, white-glove-provisioned agent</b>, not a self-serve account. We cap the founding cohort so every customer gets direct attention from the team while we scale the platform. Founding pricing is locked for as long as you stay.</p>
+          <summary>Can I change plans or cancel?</summary>
+          <p>Yes, any time, on your own. The billing link in your welcome email lets you switch plans or cancel in two clicks. If you cancel, your plan runs to the end of the period you paid for.</p>
         </details>
         <details>
           <summary>Can it really write a proposal from a call?</summary>
-          <p>Yes. After a sales-shaped conversation, ask for the proposal and it drafts one <b>grounded in what was actually said</b> — the pains, the numbers, the commitments. You polish and send. This exact flow closed our first real engagement.</p>
+          <p>Yes, on Pro and Full Seat. After a sales call, ask for the proposal and it drafts one <b>based on what was actually said</b>: the pains, the numbers, the commitments. You polish it and send it. This exact flow closed our first real engagement.</p>
         </details>
         <details>
           <summary>Where does my meeting data live?</summary>
@@ -641,9 +685,9 @@ section+section{border-top:1px solid var(--ink-hair)}
     <!-- FINAL CTA -->
     <div class="final">
       <h2>Your next meeting could end<br/>with the follow-up already done.</h2>
-      <p>10 founding seats. Live within 48 hours. Price locked for life.</p>
+      <p>Plans from $49/mo. Starter is live in minutes. Free 7-day trial, no card.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#pricing">Claim a founding seat</a>
+        <a class="btn primary" href="#pricing">See the plans</a>
         <a class="btn ghost" href="https://wa.me/5511994917618?text=Hi%20—%20I%20have%20a%20question%20about%20SuperClawman%20for%20Meetings" target="_blank" rel="noopener">Ask us anything</a>
       </div>
     </div>
@@ -678,18 +722,18 @@ section+section{border-top:1px solid var(--ink-hair)}
               document.getElementById('trial-card').innerHTML =
                 '<div style="text-align:center;padding:1.4rem 0;">' +
                 '<div style="font-size:2.4rem;margin-bottom:0.6rem;">🎁</div>' +
-                '<h3 style="margin:0 0 0.6rem;font-size:1.3rem;color:var(--neon);">You’re in — trial starting.</h3>' +
+                '<h3 style="margin:0 0 0.6rem;font-size:1.3rem;color:var(--neon);">You’re in, trial starting.</h3>' +
                 '<p style="color:var(--muted);line-height:1.6;margin:0;">Check your inbox in a minute for setup from <b>superclawman@superclawman.ai</b>. ' +
                 'Add it to a meeting invite (or paste us a link) and your agent joins. See you in the room.</p></div>';
             } else {
               status.className = 'err';
-              status.textContent = (x.j && x.j.error) ? x.j.error : 'Something went wrong — please try again or WhatsApp us.';
+              status.textContent = (x.j && x.j.error) ? x.j.error : 'Something went wrong, please try again or WhatsApp us.';
               btn.disabled = false; btn.textContent = 'Start my free trial →';
             }
           })
           .catch(function () {
             status.className = 'err';
-            status.textContent = 'Network error — please try again, or WhatsApp +55 11 99491-7618.';
+            status.textContent = 'Network error, please try again, or WhatsApp +55 11 99491-7618.';
             btn.disabled = false; btn.textContent = 'Start my free trial →';
           });
       });

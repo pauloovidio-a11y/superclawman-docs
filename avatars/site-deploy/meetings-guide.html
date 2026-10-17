@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Agent's Manual — SuperClawman for Meetings</title>
+  <title>Your Agent's Manual, SuperClawman for Meetings</title>
   <meta name="description" content="How to use your SuperClawman meeting agent: calling it by voice, what arrives after every call, how its memory works, and how to ask about past meetings." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://superclawman.ai/meetings-guide" />
@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="256x256" href="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" />
   <style>
 /* ============================================================
-   SuperClawman — Blackprint design system
+   SuperClawman, Blackprint design system
    Derived from RoboNuggets fable/21-blueprint (type pairing,
    spacing rhythm, linework, drafting-sheet language) on a black
    ground instead of the reference's blue. Structure and copy ours.
@@ -23,7 +23,7 @@
   /* ---- ground: "blackprint" ----
      The drafting-sheet ground. Swapping these five values re-skins the whole
      site; nothing below hardcodes a surface colour. The original reference
-     (fable/21-blueprint) used a #0b3d91 blue ground — black lifts every text
+     (fable/21-blueprint) used a #0b3d91 blue ground, black lifts every text
      contrast ratio by roughly 2x while keeping the same drafting language. */
   --ground:#0a0a0c;        /* page */
   --ground-2:#131316;      /* raised: card hover, active tier, nav pill */
@@ -35,12 +35,12 @@
   --ink:rgba(255,255,255,.92);
   --ink-dim:rgba(255,255,255,.62);
   /* --ink-mute is for small SECONDARY TEXT (seat counts, billing cycle, opt
-     labels, placeholders). --ink-faint is for RULES AND BORDERS only — at
+     labels, placeholders). --ink-faint is for RULES AND BORDERS only, at
      .30 it measures 2.6:1, fine for a drawn line, not for words. */
   --ink-mute:rgba(255,255,255,.54);
   --ink-faint:rgba(255,255,255,.30);
   --ink-hair:rgba(255,255,255,.13);
-  /* grid reads harder on black than on blue — pulled back so it stays a
+  /* grid reads harder on black than on blue, pulled back so it stays a
      drafting texture and never competes with the type */
   --grid-major:rgba(255,255,255,.10);
   --grid-minor:rgba(255,255,255,.038);
@@ -49,7 +49,7 @@
   --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 
-  /* aliases — kept so older selectors and legacy inline styles still resolve */
+  /* aliases, kept so older selectors and legacy inline styles still resolve */
   --blue:var(--ground);
   --blue-deep:var(--ground-2);
   --blue-deeper:var(--ground);
@@ -92,7 +92,7 @@ img{max-width:100%}
 @media(max-width:1023px){.frame-tick.b{display:none}}
 @media(max-width:767px){.sheet-frame{display:none}}
 
-/* legacy scanline element — retired, the grid replaces it */
+/* legacy scanline element, retired, the grid replaces it */
 .scanline{display:none}
 
 /* ---------- language switcher ----------
@@ -118,7 +118,7 @@ nav.topnav,.topnav{
   justify-content:space-between;padding:20px 40px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;background:linear-gradient(180deg,rgba(10,10,12,.96) 30%,rgba(10,10,12,0));
 }
-/* match ANY direct anchor — meetings-guide's nav link carries no .home class,
+/* match ANY direct anchor, meetings-guide's nav link carries no .home class,
    and an unconstrained 256px logo otherwise lands on top of the hero. */
 .topnav > a,.topnav .home,.topnav a.home{
   display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:500;
@@ -145,7 +145,7 @@ h3{font-size:clamp(17px,1.6vw,20px)}
 strong,b{font-weight:500;color:var(--ink)}
 p{font-weight:300}
 
-/* section eyebrow — the blueprint rule-line tag */
+/* section eyebrow, the blueprint rule-line tag */
 .eyebrow,.sec-eyebrow,.section-eyebrow,.family-eyebrow,.cta-label,.meetings-eyebrow{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;color:var(--amber);
   display:flex;align-items:center;gap:14px;margin-bottom:16px;text-transform:uppercase;font-weight:400;
@@ -194,7 +194,7 @@ p{font-weight:300}
 .n,.num,.num-label,.step-duration,.meetings-seats,.note,.trow,.caps .ico{font-family:var(--mono)}
 .n,.num{color:var(--amber);font-size:11px;letter-spacing:.25em;font-weight:500}
 
-/* a .n directly inside a heading is a step NUMBER — render it as a boxed
+/* a .n directly inside a heading is a step NUMBER, render it as a boxed
    drawing-callout, not as inline meta text */
 h2 > .n,h3 > .n{
   flex:0 0 30px;width:30px;height:30px;display:inline-grid;place-items:center;
@@ -204,7 +204,7 @@ h2 > .n,h3 > .n{
 h2:has(> .n),h3:has(> .n){display:flex;align-items:center;gap:0}
 @media(max-width:600px){h2 > .n,h3 > .n{flex:0 0 26px;width:26px;height:26px;font-size:11px;margin-right:11px}}
 
-/* eyebrow rule-line looks broken once the label wraps — drop it when narrow */
+/* eyebrow rule-line looks broken once the label wraps, drop it when narrow */
 @media(max-width:600px){
   .eyebrow::after,.sec-eyebrow::after,.section-eyebrow::after,
   .family-eyebrow::after,.cta-label::after{display:none}
@@ -262,7 +262,7 @@ section+section{border-top:1px solid var(--ink-hair)}
 .card a:hover{border-bottom-color:var(--amber)}
 @media(max-width:640px){.card{padding:26px 20px 24px}}
 
-/* included-vs-custom comparison table — spec-sheet ruling */
+/* included-vs-custom comparison table, spec-sheet ruling */
 .card table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13.5px}
 .card table th{
   font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
@@ -283,7 +283,7 @@ section+section{border-top:1px solid var(--ink-hair)}
   .card table th:not(:first-child),.card table td:not(:first-child){width:72px}
 }
 
-/* spoken-command examples — the blueprint annotation callout */
+/* spoken-command examples, the blueprint annotation callout */
 .say{
   display:block;border-left:2px solid var(--amber);background:var(--sunken);
   padding:15px 20px;margin-bottom:12px;font-family:var(--mono);font-size:13px;
@@ -315,76 +315,81 @@ section+section{border-top:1px solid var(--ink-hair)}
     <header class="hero">
       <div class="eyebrow">Customer guide</div>
       <h1>Your agent's manual.</h1>
-      <p>Everything about living with your SuperClawman meeting agent — how it joins, how to call on it, what arrives after every call, and how its memory works for you.</p>
+      <p>Everything about living with your SuperClawman meeting agent, how it joins, how to call on it, what arrives after every call, and how its memory works for you.</p>
     </header>
 
-    <h2><span class="n">1</span>It joins on its own — just let it in</h2>
+    <h2><span class="n">1</span>It joins on its own, just let it in</h2>
     <div class="card">
-      <p>Once your calendar is connected, your agent watches it and joins your Google Meet, Zoom, or Teams calls about <b>2 minutes before start</b>. You'll see a participant named <b>Superclawman</b> in the waiting room — admit it like any guest (or set your meetings to auto-admit and never think about it again).</p>
+      <p>Once your calendar is connected, your agent watches it and joins your Google Meet, Zoom, or Teams calls about <b>2 minutes before start</b>. You'll see a participant named <b>Superclawman</b> in the waiting room, admit it like any guest (or set your meetings to auto-admit and never think about it again).</p>
       <p>When it enters, it <b>announces itself to the room</b> in the meeting's language. That's by design: everyone always knows it's there. It then stays completely silent unless called by name.</p>
-      <p class="muted">Ad-hoc meeting that's not on the calendar? Send us the meeting link on WhatsApp and the agent joins on demand.</p>
+      <p class="muted">A meeting that is not on your calendar? Forward the invite, or paste the link, to superclawman@superclawman.ai from your account email. It joins that call.</p>
     </div>
 
-    <h2><span class="n">2</span>Helping you live — just say its name</h2>
+    <h2><span class="n">2</span>Helping you live, just say its name</h2>
     <div class="card">
       <p>Talk to it the way you'd talk to a colleague sitting next to you:</p>
       <span class="say">"Hey Superclawman, what's the current price of X?"<i>It searches the web live and speaks the answer to the room (~10 seconds).</i></span>
-      <span class="say">"Hey Superclawman, what did we agree with this client last time?"<i>It recalls your past meetings with this account — mid-call.</i></span>
-      <span class="say">"Ei Superclawman, resume o que foi discutido até agora."<i>English and Portuguese work — even mixed in the same call.</i></span>
-      <p>Prefer to keep it quiet? <b>Type in the meeting chat</b> instead — it answers there without speaking.</p>
-      <p class="muted">Live voice assist is a Full Seat feature. On the Briefs plan the agent records, briefs, and remembers, but doesn't speak.</p>
+      <span class="say">"Hey Superclawman, what did we agree with this client last time?"<i>It recalls your past meetings with this account, mid-call.</i></span>
+      <span class="say">"Ei Superclawman, resume o que foi discutido até agora."<i>English and Portuguese work, even mixed in the same call.</i></span>
+      <p>Prefer to keep it quiet? <b>Type in the meeting chat</b> instead, it answers there without speaking.</p>
+      <p class="muted">Live voice and chat answers come with every plan, in English, Portuguese and Spanish.</p>
     </div>
 
-    <h2><span class="n">3</span>After the call — the follow-up does itself</h2>
+    <h2><span class="n">3</span>After the call, the follow-up does itself</h2>
     <div class="card">
       <p>Within minutes of hanging up:</p>
       <ul>
-        <li><b>A structured brief</b> — summary, decisions, action items with owners — lands in your account record.</li>
-        <li><b>A recap email draft</b> addressed to the attendees is prepared for you. <b>Nothing is ever sent without your approval</b> — you review, then it goes.</li>
-        <li><b>Full Seat:</b> after a sales-shaped call, ask for the proposal — you'll get a draft grounded in what was actually said, ready to polish.</li>
+        <li><b>A structured brief</b>, summary, decisions, action items with owners, lands in your account record.</li>
+        <li><b>A recap email draft</b> addressed to the attendees is prepared for you. <b>Nothing is ever sent without your approval</b>, you review, then it goes.</li>
+        <li><b>Pro and Full Seat:</b> after a sales call, ask for the proposal. You get a draft based on what was actually said, ready to polish.</li>
       </ul>
     </div>
 
-    <h2><span class="n">4</span>Your agent remembers — and you can ask it anything</h2>
+    <h2><span class="n">4</span>Your agent remembers, and you can ask it anything</h2>
     <div class="card">
-      <p>Every meeting becomes part of your agent's <b>account memory</b>: decisions, commitments, objections, numbers. It walks into your next call with that account already briefed. The memory is <b>stored securely in storage dedicated to your account</b> — never mixed with anyone else's, exportable any time, deleted on request.</p>
+      <p>Every meeting becomes part of your agent's <b>account memory</b>: decisions, commitments, objections, numbers. It walks into your next call with that account already briefed. The memory is <b>stored securely in storage dedicated to your account</b>, never mixed with anyone else's, exportable any time, deleted on request.</p>
       <p>Need to check something from a past call? Two ways, both included:</p>
       <span class="say">In any meeting: "Hey Superclawman, what was discussed about the delivery timeline with ACME?"<i>Instant, by voice, grounded in your call records.</i></span>
-      <span class="say">Between meetings: reply to any recap email, or WhatsApp us your question.<i>Your agent answers from your account memory — typically within minutes.</i></span>
+      <span class="say">Between meetings: reply to any recap email, or WhatsApp us your question.<i>Your agent answers from your account memory, typically within minutes.</i></span>
     </div>
 
-    <h2><span class="n">5</span>What's included — and what's custom</h2>
+    <h2><span class="n">5</span>What's included, and what's custom</h2>
     <div class="card">
       <table>
-        <tr><th>Capability</th><th>Briefs</th><th>Full Seat</th></tr>
-        <tr><td>Auto-join from calendar (Meet · Zoom · Teams)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Brief + recap draft minutes after every call</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Account memory + ask-about-past-calls</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Live voice &amp; chat assist in the room</td><td>—</td><td class="yes">✓</td></tr>
-        <tr><td>Proposal drafts from sales calls (on request)</td><td>—</td><td class="yes">✓</td></tr>
+        <tr><th>What you get</th><th>Starter</th><th>Pro</th><th>Full Seat</th></tr>
+        <tr><td>Meeting-hours a month</td><td>10</td><td>30</td><td>60</td></tr>
+        <tr><td>Joins from your calendar (Meet · Zoom · Teams)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Live voice and chat answers in the call</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Brief and recap draft minutes after every call</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Memory per client, ask about past calls</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Proposal drafts from sales calls</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Weekly report on each client</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Voice in English, Portuguese and Spanish</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Setup</td><td>You, in minutes</td><td>With you, 48 h</td><td>Priority, same day</td></tr>
       </table>
-      <p style="margin-top:1.1rem;">Want it to go further? These are <b class="custom">custom add-ons</b> — tell us what you need and we'll scope it:</p>
+      <p class="muted" style="margin-top:.8rem">Extra hours are $4 each. It never leaves a call because of the limit, and you get an email at 80%.</p>
+      <p style="margin-top:1.1rem;">Want it to go further? These are <b class="custom">custom add-ons</b>, tell us what you need and we'll scope it:</p>
       <ul>
         <li>Automated follow-up sequences (the agent chases the action items for you)</li>
         <li>Branded quotes, presentations, and documents produced end-to-end</li>
-        <li>CRM integration — every call filed into your pipeline automatically</li>
-        <li>Workflows beyond meetings — see <a href="/business">SuperClawman for Business</a></li>
+        <li>CRM integration, every call filed into your pipeline automatically</li>
+        <li>Workflows beyond meetings, see <a href="/business">SuperClawman for Business</a></li>
       </ul>
     </div>
 
     <h2><span class="n">6</span>The ground rules it never breaks</h2>
     <div class="card">
       <ul>
-        <li><b>It announces itself</b> on every call — no silent recording, ever.</li>
-        <li><b>It never sends anything on your behalf</b> without your approval — recaps and proposals are drafts until you say go.</li>
+        <li><b>It announces itself</b> on every call, no silent recording, ever.</li>
+        <li><b>It never sends anything on your behalf</b> without your approval, recaps and proposals are drafts until you say go.</li>
         <li><b>It only speaks when called by name.</b></li>
-        <li><b>Your data is yours</b> — isolated per account, exportable, removable on request.</li>
+        <li><b>Your data is yours</b>, isolated per account, exportable, removable on request.</li>
       </ul>
     </div>
 
     <h2><span class="n">7</span>Need anything?</h2>
     <div class="card">
-      <p>You talk straight to the founder. Reply to any email from us, or WhatsApp <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>. Questions, tweaks, "can it also do…" — all welcome. Founding customers shape this product.</p>
+      <p>You talk straight to the founder. Reply to any email from us, or WhatsApp <a href="https://wa.me/5511994917618" target="_blank" rel="noopener">+55 11 99491-7618</a>. Questions, tweaks, "can it also do…": all welcome. Early customers shape this product.</p>
     </div>
   </div>
 
