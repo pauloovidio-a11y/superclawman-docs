@@ -311,7 +311,7 @@ button:hover{background:var(--amber);color:var(--blue-deep)}
   <div class="wrap-narrow">
     <div id="ok" style="display:none">
       <h1>Pronto! 🎉</h1>
-      <p>Sua conta do Google foi conectada. Falta só <strong>um passo</strong>.</p>
+      <p>Sua conta do <span class="prov">Google</span> foi conectada. Falta só <strong>um passo</strong>.</p>
 
       <div class="code-box">
         <div class="code" id="code"></div>
@@ -343,6 +343,9 @@ button:hover{background:var(--amber);color:var(--blue-deep)}
   var p = new URLSearchParams(location.search);
   var code = p.get('code');
   var err  = p.get('error');
+  // Our Notion links send a state that starts with "notion." (Julia's notion.py); everything else is Google.
+  var prov = (p.get('state') || '').indexOf('notion.') === 0 ? 'Notion' : 'Google';
+  Array.prototype.forEach.call(document.querySelectorAll('.prov'), function (e) { e.textContent = prov; });
 
   if (code) {
     document.getElementById('ok').style.display = 'block';
@@ -372,8 +375,8 @@ button:hover{background:var(--amber);color:var(--blue-deep)}
     if (err) {
       document.getElementById('failmsg').textContent =
         err === 'access_denied'
-          ? 'A permissão foi recusada na tela do Google.'
-          : 'O Google respondeu: ' + err;
+          ? 'A permissão foi recusada na tela do ' + prov + '.'
+          : 'O ' + prov + ' respondeu: ' + err;
     }
   }
 })();
