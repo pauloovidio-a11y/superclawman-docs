@@ -1,7 +1,60 @@
 {
-  "generated_at": "2026-10-26T22:45:25-03:00",
-  "sandman": {"hw":"13th Gen Intel(R) Core(TM) i7-13620H","cores":"16","mem":"30Gi","os":"Ubuntu 26.04 LTS","kernel":"7.0.0-38-generic","oc":"OpenClaw 2026.10.2 (b8952d4)","skills":29,"scripts":172,"doctrine":32,"subagents":3,"hooks":2,"allow":"['alibaba', 'anthropic', 'arcee', 'azure-speech', 'browser', 'byteplus', 'canvas', 'cerebras', 'chutes', 'cloudflare-ai-gateway', 'codex', 'comfy', 'copilot-proxy', 'deepgram', 'deepinfra', 'deepseek', 'device-pair', 'document-extract', 'elevenlabs', 'fal', 'file-transfer', 'firecrawl', 'fireworks', 'github-copilot', 'google', 'groq', 'huggingface', 'inworld', 'kilocode', 'kimi', 'litellm', 'lmstudio', 'lossless-claw', 'memory-wiki', 'microsoft', 'microsoft-foundry', 'minimax', 'mistral', 'moonshot', 'neuralmemory', 'nvidia', 'ollama', 'openai', 'opencode', 'opencode-go', 'openrouter', 'qianfan', 'qwen', 'runway', 'senseaudio', 'sglang', 'stepfun', 'synthetic', 'talk-voice', 'tencent', 'together', 'tts-local-cli', 'venice', 'vercel-ai-gateway', 'vllm', 'volcengine', 'voyage', 'vydra', 'web-readability', 'whatsapp', 'xai', 'xiaomi', 'zai', 'sandman-location', 'sandman-a2a', 'tool-call-ledger', 'sandman-calendar-context', 'sandman-brain-route']","recent":"/root/.openclaw/workspace/.learnings/LEARNINGS.md|/root/.openclaw/workspace/diary/2026-10-25.md|/root/.openclaw/workspace/diary/INDEX.md|/root/.openclaw/workspace/logs/inter-agent.jsonl|/root/.openclaw/workspace/memory/heartbeat-state.json|/root/.openclaw/workspace/memory/script-review-state.json|/root/.openclaw/workspace/memory/2026-10-25.md|/root/.openclaw/workspace/memory/wa-watcher-state.json|"},
-  "superclawman": {"hw":"Apple M2 Pro","cores":"12","mem":"32GB","os":"macOS 27.0.1 · Darwin 27.0.0","oc":"OpenClaw 2026.10.2 (b8952d4)","skills":7,"scripts":476,"subagents":7,"playbooks":10,"launchagents":84,"allow":"['anthropic', 'browser', 'firecrawl', 'perplexity', 'whatsapp', 'memory-core', 'openai', 'codex', 'lossless-claw', 'bash-guard', 'sc-location-context', 'tool-call-ledger', 'google', 'sc-3p-guard', 'qwen']","recent":"/Users/clawman/.openclaw/workspace/memory/2026-10-26-1401.md|/Users/clawman/.openclaw/workspace/memory/qnap-monitor-state.json|/Users/clawman/.openclaw/workspace/memory/script-review-cards.jsonl|/Users/clawman/.openclaw/workspace/memory/script-review-state.json|/Users/clawman/.openclaw/workspace/memory/.udm-alerts.tmp|/Users/clawman/.openclaw/workspace/memory/script-review-sbt-state.json|/Users/clawman/.openclaw/workspace/memory/energy-watch-state.json|/Users/clawman/.openclaw/workspace/memory/2026-10-26-1111.md|"},
-  "ktulu": {"hw":"Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz","cores":"12","mem":"32GB","os":"macOS 15.8.1 · Darwin 24.6.0","oc":"","doctrine":9,"skills":       1,"pipeline_modules":29,"playbooks":       2,"subagents":       1,"launchdaemons":53,"allow":"['anthropic', 'browser', 'ktulu-sendguard', 'lossless-claw', 'memory-core', 'whatsapp', 'ktulu-a2a', 'tool-call-ledger']","recent":""},
-  "jr": {"hw":"AMD EPYC-Genoa Processor","cores":"4","mem":"7.6Gi","os":"Ubuntu 26.04.1 LTS","cc":"2.1.311 (Claude Code)","shared_scripts":53,"mcps":4,"skills":38,"systemd_units":69,"tenants":1,"recent":"/usr/local/lib/openclaw-jr/.git/index|/usr/local/lib/openclaw-jr/.git/COMMIT_EDITMSG|/usr/local/lib/openclaw-jr/jr2-vitals/gen_client_descriptors.py|"}
+  "generated_at": "2026-10-27T22:45:23-03:00",
+  "sandman": {
+    "hw": "13th Gen Intel(R) Core(TM) i7-13620H",
+    "cores": "16",
+    "mem": "30Gi",
+    "os": "Ubuntu 26.04 LTS",
+    "kernel": "7.0.0-38-generic",
+    "oc": "OpenClaw 2026.10.2 (b8952d4)",
+    "skills": 29,
+    "scripts": 172,
+    "doctrine": 32,
+    "subagents": 3,
+    "hooks": 2,
+    "allow": "['alibaba', 'anthropic', 'arcee', 'azure-speech', 'browser', 'byteplus', 'canvas', 'cerebras', 'chutes', 'cloudflare-ai-gateway', 'codex', 'comfy', 'copilot-proxy', 'deepgram', 'deepinfra', 'deepseek', 'device-pair', 'document-extract', 'elevenlabs', 'fal', 'file-transfer', 'firecrawl', 'fireworks', 'github-copilot', 'google', 'groq', 'huggingface', 'inworld', 'kilocode', 'kimi', 'litellm', 'lmstudio', 'lossless-claw', 'memory-wiki', 'microsoft', 'microsoft-foundry', 'minimax', 'mistral', 'moonshot', 'neuralmemory', 'nvidia', 'ollama', 'openai', 'opencode', 'opencode-go', 'openrouter', 'qianfan', 'qwen', 'runway', 'senseaudio', 'sglang', 'stepfun', 'synthetic', 'talk-voice', 'tencent', 'together', 'tts-local-cli', 'venice', 'vercel-ai-gateway', 'vllm', 'volcengine', 'voyage', 'vydra', 'web-readability', 'whatsapp', 'xai', 'xiaomi', 'zai', 'sandman-location', 'sandman-a2a', 'tool-call-ledger', 'sandman-calendar-context', 'sandman-brain-route']",
+    "recent": "/root/.openclaw/workspace/.learnings/LEARNINGS.md|/root/.openclaw/workspace/diary/2026-10-26.md|/root/.openclaw/workspace/diary/INDEX.md|/root/.openclaw/workspace/logs/sandman-1613-guard.jsonl|/root/.openclaw/workspace/logs/inter-agent.jsonl|/root/.openclaw/workspace/memory/heartbeat-state.json|/root/.openclaw/workspace/memory/media-indexer-state.json|/root/.openclaw/workspace/memory/script-review-state.json|"
+  },
+  "superclawman": {
+    "hw": "Apple M2 Pro",
+    "cores": "12",
+    "mem": "32GB",
+    "os": "macOS 27.0.1 \u00b7 Darwin 27.0.0",
+    "oc": "OpenClaw 2026.10.2 (b8952d4)",
+    "skills": 7,
+    "scripts": 477,
+    "subagents": 7,
+    "playbooks": 10,
+    "launchagents": 83,
+    "allow": "['anthropic', 'browser', 'firecrawl', 'perplexity', 'whatsapp', 'memory-core', 'openai', 'codex', 'lossless-claw', 'bash-guard', 'sc-location-context', 'tool-call-ledger', 'google', 'sc-3p-guard', 'qwen']",
+    "recent": "/Users/clawman/.openclaw/workspace/memory/qnap-monitor-state.json|/Users/clawman/.openclaw/workspace/memory/propostas-review-cards.jsonl|/Users/clawman/.openclaw/workspace/memory/script-review-cards.jsonl|/Users/clawman/.openclaw/workspace/memory/script-review-state.json|/Users/clawman/.openclaw/workspace/memory/.udm-alerts.tmp|/Users/clawman/.openclaw/workspace/memory/2026-10-27-1046.md|/Users/clawman/.openclaw/workspace/memory/2026-10-28.md|/Users/clawman/.openclaw/workspace/memory/script-review-sbt-state.json|"
+  },
+  "ktulu": {
+    "hw": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
+    "cores": "12",
+    "mem": "32GB",
+    "os": "macOS 15.8.1 \u00b7 Darwin 24.6.0",
+    "oc": "",
+    "doctrine": 9,
+    "skills": 1,
+    "pipeline_modules": 29,
+    "playbooks": 2,
+    "subagents": 1,
+    "launchdaemons": 53,
+    "allow": "['anthropic', 'browser', 'ktulu-sendguard', 'lossless-claw', 'memory-core', 'whatsapp', 'ktulu-a2a', 'tool-call-ledger']",
+    "recent": ""
+  },
+  "jr": {
+    "hw": "AMD EPYC-Genoa Processor",
+    "cores": "4",
+    "mem": "7.6Gi",
+    "os": "Ubuntu 26.04.1 LTS",
+    "cc": "2.1.312 (Claude Code)",
+    "shared_scripts": 53,
+    "mcps": 4,
+    "skills": 38,
+    "systemd_units": 69,
+    "tenants": 1,
+    "recent": "/usr/local/lib/openclaw-jr/.git/index|/usr/local/lib/openclaw-jr/.git/COMMIT_EDITMSG|/usr/local/lib/openclaw-jr/jr2-vitals/test_operator_hold.py|/usr/local/lib/openclaw-jr/jr2-vitals/jr2_sentinel.py|"
+  }
 }
