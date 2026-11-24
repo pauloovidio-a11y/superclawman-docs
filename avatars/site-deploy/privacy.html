@@ -161,15 +161,15 @@ li strong{color:var(--ink);font-weight:500}
 <body>
   <div class="sheet-frame" aria-hidden="true">
     <span class="frame-tick t">SUPERCLAWMAN · SHEET P-001 · PRIVACY · EN</span>
-    <span class="frame-tick b">SCALE 1:1 · REV 2026.09</span>
+    <span class="frame-tick b">SCALE 1:1 · REV 2026.11</span>
   </div>
 
   <main class="wrap">
     <div class="eyebrow">Legal</div>
     <h1>Privacy Policy</h1>
-    <div class="meta">Effective 12 September 2026 · Last updated 6 November 2026</div>
+    <div class="meta">Effective 12 September 2026 · Last updated 24 November 2026</div>
 
-    <p class="lede">SuperClawman began as one person's personal automation system and has grown into a product offering. This policy covers the whole of it: what the website sees, what payments involve, what the assistants touch, and what they never see.</p>
+    <p class="lede">SuperClawman began as one person's personal automation system and has grown into a service for customers. This policy covers the whole of it: what the website sees, what payments involve, what a customer's assistant handles, and who can see it.</p>
     <div class="rule"></div>
 
     <h2><span class="num">01</span>Who operates this</h2>
@@ -181,25 +181,36 @@ li strong{color:var(--ink);font-weight:500}
     <h2><span class="num">03</span>Payments</h2>
     <p>Card payments are processed by Stripe. Your card number goes to Stripe and never to us; we receive only what Stripe reports about the transaction (name, email, amount, status). Stripe handles that data under its own privacy policy as an independent controller. Billing records are kept as long as tax and accounting rules require.</p>
 
-    <h2><span class="num">04</span>The assistants</h2>
-    <p><strong>SuperClawman for Meetings</strong> joins calls only when you invite it. It processes audio while in the call and afterwards stores the brief and follow-ups in your own workspace; call audio is not kept beyond producing them. <strong>WhatsApp Memory</strong> runs on your machine against your own history; your messages never reach our systems. Founding-seat holders' contact details (name, email, WhatsApp handle where given) are used only to run the service and talk to you about it — never sold, never used for unrelated marketing without a separate opt-in.</p>
+    <h2 id="assistant"><span class="num">04</span>The personal assistant</h2>
+    <p><strong>Where it runs.</strong> Each customer's assistant runs on its own server, which we rent from Hetzner and operate for that customer. No other customer shares it.</p>
+    <p><strong>What it handles.</strong> The assistant works with the accounts the customer connects to it. For WhatsApp, that is the messages, voice notes, files and groups of the linked account, including what other people send to that account. For e-mail, calendar and cloud files, it is the content of the accounts connected. It also keeps what the customer tells it, the documents it makes, and its own memory and conversation history. All of this stays on that customer's server.</p>
+    <p><strong>What we use it for.</strong> Only to do what the customer asks of their own assistant. We do not sell it, use it for advertising, or use it to train AI models.</p>
+    <p><strong>Who else processes it.</strong> Our hosting providers (Hetzner, Cloudflare). Anthropic, which runs the Claude model, under the customer's own Claude account and Anthropic's terms. WhatsApp and the e-mail, calendar and file providers the customer connects, each for its own service. Voice notes the customer sends are turned into text on the customer's server. When the assistant answers with a voice note, the text of that answer goes to a speech provider (Google Cloud, or ElevenLabs if the customer picks one of its voices) to make the audio.</p>
+    <p><strong>Who can see it.</strong> Our team can reach the server, and so its content, only to operate, repair and support the assistant. Automatic checks watch that the assistant is healthy. We also look at how the assistant is used so that we can send the customer tips and make the service better.</p>
+    <p><strong>Removing access.</strong> The customer can unlink the assistant in WhatsApp (Linked devices) and remove its access at each provider at any time. This stops that access at once.</p>
+    <p><strong>How long we keep it.</strong> For as long as the plan runs. When it ends, we give the customer their data on request and delete the server within 30 days. The server's backups are deleted within 30 days after that. A customer can ask for an earlier deletion at the address below.</p>
+    <p><strong>If you wrote to someone who uses an assistant.</strong> Your messages to that person are handled as part of that person's own account, on their server, for their use. To ask what is held or to have it deleted, write to that person or to us at the address below. We act together with the account owner and answer within 30 days.</p>
+    <p><strong>Customer contact details</strong> (name, email, WhatsApp number) are used only to run the service and to talk to the customer about it. They are never sold, and never used for unrelated marketing without a separate opt-in.</p>
 
-    <h2><span class="num">05</span>eBay integration</h2>
+    <h2><span class="num">05</span>Earlier products</h2>
+    <p>SuperClawman for Meetings joins calls only when you invite it. It processes audio while in the call and afterwards stores the brief and follow-ups in your own workspace; call audio is not kept beyond producing them. WhatsApp Memory runs on your machine against your own history; your messages never reach our systems. These products are no longer offered to new customers. This paragraph still applies to people who hold them.</p>
+
+    <h2><span class="num">06</span>eBay integration</h2>
     <p>SuperClawman connects to the eBay API to help list <strong>personal used items</strong> on the operator's <strong>own</strong> eBay account. It is a private seller account, not a storefront; the application does not offer sign-in to other eBay members and collects no one's eBay credentials. When someone buys an item, eBay supplies the buyer's name and delivery address so the order can be shipped; that is used only to fulfil and support the order, kept only as long as shipping, returns, tax and accounting need, never used for marketing, and disclosed to no one beyond the carrier and authorities where law requires.</p>
 
-    <h2 id="instagram"><span class="num">06</span>Instagram business accounts</h2>
+    <h2 id="instagram"><span class="num">07</span>Instagram business accounts</h2>
     <p>Businesses can connect their Instagram professional account to a SuperClawman agent through Instagram's own business login. When they do, we receive through Meta's APIs: the account's user ID and username; the IDs and captions of its own posts; the Direct messages sent to the account and the comments on its posts (the sender's Instagram-scoped ID, username, text and time); and the replies the agent sends. We use this only to answer those messages and comments on the business's behalf and to show the business what was answered. We do not sell it, use it for advertising, or use it to train AI models. It is processed by our hosting providers (Hetzner, Cloudflare), by the AI model provider that writes the replies (Anthropic) and, for messages to our own @superclawman account, by Telegram, where our team reviews drafted replies. Messages and comments are kept for at most 12 months, then deleted. A business can disconnect at any time in Instagram (Settings → Website permissions → Apps and websites → Superclawman Intelligence), which stops all access at once.</p>
     <p id="data-deletion"><strong>Deleting your data.</strong> To delete the data we hold from your Instagram account, or from your conversation with a business that uses SuperClawman, email <a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a> with your Instagram username and the words "Delete my data". We delete it within 30 days and confirm by email.</p>
 
-    <h2 id="dropbox"><span class="num">07</span>Dropbox</h2>
+    <h2 id="dropbox"><span class="num">08</span>Dropbox</h2>
     <p>A customer can connect their own Dropbox account to their SuperClawman agent. They approve it on Dropbox's own screen, where our app appears as Superclawman Agentes, and the agent never sees their Dropbox password. Access is read-only: the agent can list, search and download, and it cannot write, change or delete anything in Dropbox. Once connected, the agent receives through Dropbox's API the account's name and email, the names, paths, sizes and dates of the files and folders that account can see, including folders other people share with it, and the content of the files it downloads.</p>
     <p>We use this only to do what the customer asks of their own agent, such as finding a file and sending it to them. We do not sell it, use it for advertising, or use it to train AI models. The access token and the downloaded copies stay on the server that runs that customer's agent, with restricted permissions, and what the agent reads can also stay in its conversation history and memory there. It is processed by our hosting providers (Hetzner, Cloudflare), by Anthropic under the customer's own Claude account and its terms, and by WhatsApp when a file is sent to the customer there. Our team can reach that server to run and support the service.</p>
     <p>A customer can disconnect at any time by asking the agent, or in Dropbox (Settings → Apps → Superclawman Agentes → Disconnect), which stops all access at once. Copies and history already on that server stay until the customer asks us to delete them at the address below. We delete them within 30 days and confirm by email, and the server's backups age out within 30 days after that.</p>
 
-    <h2><span class="num">08</span>Your rights</h2>
+    <h2><span class="num">09</span>Your rights</h2>
     <p>You may ask what we hold about you, have it corrected, or have it deleted when it is no longer needed — including the rights of access, rectification, erasure, portability and objection under the EU GDPR and, for residents of Brazil, the LGPD (Lei Geral de Proteção de Dados). Email the address below and it will be handled within the deadlines those laws set. OAuth tokens used by integrations are stored permission-restricted on operator-controlled machines, excluded from version control, and can be revoked by you at the provider at any time (for eBay: My eBay → Account settings → Sign in and security → Third-party app access).</p>
 
-    <h2><span class="num">09</span>Changes and contact</h2>
+    <h2><span class="num">10</span>Changes and contact</h2>
     <p>If this policy changes, the new version is published here with a new date. Questions, access requests or deletion requests: <a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a>. Purchases are covered by our <a href="/refund-policy.html">refund policy</a> and our <a href="/terms-of-service.html">terms of service</a>.</p>
 
     <div class="footer">
