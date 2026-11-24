@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SuperClawman for Business — AI That Acts, Not Just Answers</title>
-  <meta name="description" content="SuperClawman for Business: WhatsApp-resident AI that plugs into your CRM, ERP, and web systems. Policy-driven automation, deep memory, real verticals." />
+  <title>SuperClawman for Business | An assistant for you, agents for your company</title>
+  <meta name="description" content="A business assistant on WhatsApp for owners and executives at US$ 199 a month, server included. Agents for teams, customer service and company systems by custom quote." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://superclawman.ai/business" />
-  <meta property="og:title" content="SuperClawman for Business — AI That Acts, Not Just Answers" />
-  <meta property="og:description" content="WhatsApp-resident AI that plugs into your CRM, ERP, and web systems. Policy-driven automation, deep memory, real verticals." />
+  <meta property="og:title" content="SuperClawman for Business | An assistant for you, agents for your company" />
+  <meta property="og:description" content="A business assistant on WhatsApp at US$ 199 a month, server included. Team and company agents by custom quote." />
   <meta property="og:url" content="https://superclawman.ai/business" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
@@ -22,6 +22,8 @@
   <link rel="alternate" hreflang="en" href="https://superclawman.ai/business" />
   <link rel="alternate" hreflang="pt-BR" href="https://superclawman.ai/business-pt" />
   <link rel="alternate" hreflang="es" href="https://superclawman.ai/business-es" />
+  <link rel="alternate" hreflang="x-default" href="https://superclawman.ai/business" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who owns the Claude subscription?", "acceptedAnswer": {"@type": "Answer", "text": "You do. Each assistant uses a Claude subscription in your name or your company's, paid direct to Anthropic. Claude Pro is the minimum. We do not resell it."}}, {"@type": "Question", "name": "What does US$ 199 cover?", "acceptedAnswer": {"@type": "Answer", "text": "One business assistant, its own server, the installation, the connection of your accounts, 24-hour monitoring, weekly updates and support."}}, {"@type": "Question", "name": "Can the US$ 199 assistant answer our customers?", "acceptedAnswer": {"@type": "Answer", "text": "No. It works for one person and writes only to the people that person allows. An agent that answers customers on the company line is a custom project."}}, {"@type": "Question", "name": "How does it reach our company e-mail and files?", "acceptedAnswer": {"@type": "Answer", "text": "Through the access you give it, on Google Workspace or Microsoft 365. Your IT team approves it and can remove it at any time."}}, {"@type": "Question", "name": "Where does our data stay?", "acceptedAnswer": {"@type": "Answer", "text": "On a server that is only yours. No other customer shares it. Our team reaches it only to operate and support your agents."}}, {"@type": "Question", "name": "Do you integrate with our ERP or CRM?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, as a custom project. We scope each connection with you, test it, and price it before you commit."}}, {"@type": "Question", "name": "Is there a discount for several assistants?", "acceptedAnswer": {"@type": "Answer", "text": "Ask for a custom quote. A team deal has one price for the whole group."}}, {"@type": "Question", "name": "Is there a contract?", "acceptedAnswer": {"@type": "Answer", "text": "The business assistant is month to month, with no lock-in. A custom project follows the scope we sign with you."}}, {"@type": "Question", "name": "How do we pay?", "acceptedAnswer": {"@type": "Answer", "text": "By card, once a month, in US dollars, through a secure Stripe link. SUPERCLAWMAN LLC, a US company, sends the invoice."}}]}</script>
   <style>
 /* ============================================================
    SuperClawman — Blackprint design system
@@ -241,269 +243,153 @@ section+section{border-top:1px solid var(--ink-hair)}
 }
 
 
-/* ===== business ===== */
-/* business.html (EN/PT/ES) */
 
-.hero{padding:150px 0 84px}
-.headline{font-family:var(--mono);font-weight:600;font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.01em;margin-bottom:24px}
-.subheadline{max-width:58ch;font-size:clamp(14.5px,1.4vw,17px);line-height:1.72;color:var(--ink-dim)}
-.subheadline strong{color:var(--ink);font-weight:500;border-bottom:1px solid var(--amber-dim)}
-@media(max-width:767px){.hero{padding:112px 0 56px}}
+/* ===== offer pages (2026-11) ===== */
+nav.topnav{padding-right:150px}
+.navlinks{display:flex;gap:26px}
+.navlinks a{color:var(--ink-dim);text-decoration:none;transition:color .3s;text-transform:uppercase}
+.navlinks a:hover{color:var(--amber)}
+@media(max-width:900px){.navlinks{display:none}nav.topnav{padding-right:18px}}
+@media(max-width:600px){.hero .eyebrow{flex-wrap:nowrap;letter-spacing:.2em;font-size:9.5px}}
+.hero{padding:170px 0 96px;border-top:none}
+@media(max-width:767px){.hero{padding:104px 0 60px}}
+.hero h1{max-width:20ch;margin-bottom:26px}
+.hero .sub{font-size:clamp(15px,1.5vw,18.5px);line-height:1.7;max-width:56ch;margin-bottom:22px}
+.price-line{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink-dim);line-height:1.9;
+  border-left:2px solid var(--amber);padding:4px 0 4px 16px;margin-bottom:34px;max-width:60ch}
+.price-line strong{color:var(--amber);font-weight:500}
+.back-link{display:inline-block;margin-bottom:26px}
+.sec-head{margin-bottom:44px;max-width:66ch}
+.sec-head h2{margin-bottom:14px}
 
-.section-head{margin-bottom:44px;max-width:66ch}
-.section-title{font-family:var(--mono);font-weight:500;font-size:clamp(23px,3vw,38px);margin-bottom:14px}
+/* chat examples */
+.asks{display:grid;gap:10px;max-width:720px}
+.ask{border:1.5px solid var(--ink-faint);background:var(--panel);padding:15px 20px;max-width:88%;font-size:14.5px;line-height:1.6}
+.ask .who{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:5px}
+.ask.me{justify-self:end;border-color:var(--amber-dim)}
+.ask.me .who{color:var(--amber)}
+.ask.bot{justify-self:start;background:var(--ground-2)}
+@media(max-width:600px){.ask{max-width:100%}}
 
-/* ---------- value cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:2px;border:1.5px solid var(--ink-faint);background:var(--ink-faint)}
-.card{background:var(--blue);border:none;padding:32px 28px 34px}
-.card:hover{background:var(--blue-deep)}
-.card-icon{font-size:20px;margin-bottom:18px;display:block;filter:grayscale(.3)}
-.card-title{font-family:var(--mono);font-weight:500;font-size:16px;margin-bottom:11px;letter-spacing:.02em;color:var(--ink)}
-.card-body{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.68}
+/* grids */
+.grid{display:grid;gap:2px;border:1.5px solid var(--ink-faint);background:var(--ink-faint)}
+.grid.g4{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.grid.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.cell{background:var(--ground);padding:30px 26px 32px;transition:background .4s;display:flex;flex-direction:column}
+.cell:hover{background:var(--ground-2)}
+.cell .n{display:block;margin-bottom:14px}
+.cell h3{margin-bottom:10px;font-size:16px;letter-spacing:.02em}
+.cell p{font-size:13.5px;color:var(--ink-dim);line-height:1.68}
+.cell .tag{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:block}
+.cell .vertical-link{align-self:flex-start;margin-top:20px;font-size:10px;padding:10px 18px;border-color:var(--ink-faint);color:var(--ink-dim)}
+.cell .vertical-link:hover{border-color:var(--amber);color:var(--amber)}
+.cell p{flex:1}
 
-/* ---------- engagement timeline ---------- */
-.timeline{border-left:1px solid var(--ink-faint);margin-left:8px;padding-left:0}
-.timeline .step{
-  background:transparent;border:none;position:relative;
-  padding:0 0 38px 34px;
-}
-.timeline .step:hover{background:transparent}
-.timeline .step::before{
-  content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;
-  background:var(--blue);border:1.5px solid var(--amber);
-}
-.timeline .step::after{
-  content:"";position:absolute;left:0;top:11px;width:22px;height:1px;background:var(--ink-faint);
-}
-.step-title{font-family:var(--mono);font-weight:500;font-size:16px;letter-spacing:.04em;color:var(--ink);margin-bottom:6px}
-.step-duration{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:11px;display:block}
-.step-body{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.68;max-width:62ch}
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;align-items:stretch}
+.tier{padding:34px 30px 32px;display:flex;flex-direction:column}
+.tier.featured{border-color:var(--amber);background:var(--ground-2)}
+.tier-name{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+.tier-price{font-family:var(--mono);font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1;color:var(--ink);margin-bottom:6px}
+.tier-price small{font-size:12px;font-weight:400;color:var(--ink-mute);letter-spacing:.08em;margin-left:6px}
+.tier-for{font-size:13.5px;color:var(--ink-dim);margin:12px 0 20px;min-height:2.9em}
+.tier ul{list-style:none;margin-bottom:22px;flex:1}
+.tier li{font-size:13.5px;color:var(--ink);line-height:1.5;padding:9px 0 9px 20px;border-top:1px solid var(--ink-hair);position:relative}
+.tier li::before{content:"";position:absolute;left:0;top:17px;width:9px;height:1.5px;background:var(--amber)}
+.tier-req{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-mute);line-height:1.75;margin-bottom:22px}
+.tier .btn{text-align:center}
+.after-note{margin-top:26px;max-width:74ch}
+.cross{margin-top:22px;font-size:14px;color:var(--ink-dim)}
+.cross a{color:var(--amber);font-weight:500;text-underline-offset:3px}
 
-/* ---------- verticals ---------- */
-.verticals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:2px;border:1.5px solid var(--ink-faint);background:var(--ink-faint)}
-.vertical{background:var(--blue);border:none;padding:32px 30px 34px;display:flex;flex-direction:column}
-.vertical:hover{background:var(--blue-deep)}
-.vertical-icon{font-size:20px;margin-bottom:16px;display:block;filter:grayscale(.3)}
-.vertical-name{
-  font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--amber);margin-bottom:12px;display:block;
-}
-.vertical-title{font-family:var(--mono);font-weight:500;font-size:15.5px;line-height:1.4;margin-bottom:14px;color:var(--ink)}
-.vertical-body{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.68;flex:1;margin-bottom:20px}
-.vertical-link{
-  align-self:flex-start;font-size:10px;padding:10px 18px;
-  border-color:var(--ink-faint);color:var(--ink-dim);
-}
-.vertical-link:hover{border-color:var(--amber);color:var(--amber);background:transparent}
+/* steps */
+.steps{border-left:1px solid var(--ink-faint);margin-left:8px;max-width:760px}
+.steps .st{position:relative;padding:0 0 34px 34px}
+.steps .st:last-child{padding-bottom:0}
+.steps .st::before{content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;background:var(--ground);border:1.5px solid var(--amber)}
+.steps .st::after{content:"";position:absolute;left:0;top:11px;width:22px;height:1px;background:var(--ink-faint)}
+.steps h3{font-size:16px;margin-bottom:6px}
+.steps .dur{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:9px;display:block}
+.steps p{font-size:13.5px;color:var(--ink-dim);line-height:1.68;max-width:62ch}
 
-/* ---------- final CTA block ---------- */
-.cta-block{
-  border:1.5px solid var(--ink-faint);background:var(--panel);
-  padding:52px 44px 54px;margin:20px 0 10px;position:relative;
-}
-.cta-block::before{
-  content:"";position:absolute;top:-1.5px;left:-1.5px;width:16px;height:16px;
-  border-top:1.5px solid var(--amber);border-left:1.5px solid var(--amber);
-}
-.cta-block::after{
-  content:"";position:absolute;bottom:-1.5px;right:-1.5px;width:16px;height:16px;
-  border-bottom:1.5px solid var(--amber);border-right:1.5px solid var(--amber);
-}
-.cta-headline{font-family:var(--mono);font-weight:500;font-size:clamp(20px,2.6vw,30px);margin-bottom:26px;color:var(--ink)}
+/* limits */
+.limits{list-style:none;max-width:760px;border-top:1px solid var(--ink-hair)}
+.limits li{padding:15px 0 15px 30px;border-bottom:1px solid var(--ink-hair);font-size:14.5px;color:var(--ink);position:relative;line-height:1.6}
+.limits li::before{content:"×";position:absolute;left:4px;top:13px;font-family:var(--mono);color:var(--amber);font-size:16px}
+
+/* faq */
+.faqs{max-width:820px;border-top:1.5px solid var(--ink-faint)}
+.faqs details{border-bottom:1px solid var(--ink-hair)}
+.faqs summary{cursor:pointer;list-style:none;padding:20px 44px 20px 0;font-family:var(--mono);font-weight:500;font-size:15px;line-height:1.45;position:relative;color:var(--ink);transition:color .3s}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";position:absolute;right:6px;top:17px;font-size:20px;color:var(--amber);font-weight:300;transition:transform .3s}
+.faqs details[open] summary::after{transform:rotate(45deg)}
+.faqs summary:hover{color:var(--amber)}
+.faqs summary:focus-visible{outline:1.5px solid var(--amber);outline-offset:4px}
+.faqs p{padding:0 44px 22px 0;font-size:14.5px;color:var(--ink-dim);line-height:1.72;max-width:70ch}
+
+/* final cta */
+.cta-block{border:1.5px solid var(--ink-faint);background:var(--panel);padding:52px 44px 54px;position:relative}
+.cta-block::before{content:"";position:absolute;top:-1.5px;left:-1.5px;width:16px;height:16px;border-top:1.5px solid var(--amber);border-left:1.5px solid var(--amber)}
+.cta-block::after{content:"";position:absolute;bottom:-1.5px;right:-1.5px;width:16px;height:16px;border-bottom:1.5px solid var(--amber);border-right:1.5px solid var(--amber)}
+.cta-block h2{margin-bottom:12px}
+.cta-block .sub{margin-bottom:28px}
 @media(max-width:640px){.cta-block{padding:32px 22px 34px}}
-
+.footer span{margin:0 6px}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></head>
-<body><div class="sheet-frame" aria-hidden="true"><span class="frame-tick t">SUPERCLAWMAN · SHEET A-04 · EN</span><span class="frame-tick b">SCALE 1:1 · REV 2026.08</span></div>
-  <div class="scanline"></div>
-  <div class="lang-row">
-    <a class="lang-switch" href="/business-pt" title="Ver em Português">🇧🇷</a>
-    <a class="lang-switch" href="/business-es" title="Ver en Español">🇪🇸</a>
-  </div>
-
-  <div class="wrapper">
-    <a class="back-link" href="/">← Back to SuperClawman</a>
-
-    <!-- HERO -->
-    <div class="hero">
-      <p class="eyebrow">SuperClawman for Business</p>
-      <h1 class="headline">Your AI that acts,<br/>not just answers</h1>
-      <p class="subheadline">
-        Most AI tools just <strong>talk</strong>. SuperClawman <strong>does</strong> —
-        inside the tools your team already uses, with the confidence to act on your behalf.
-        Built for both <strong>B2B</strong> and <strong>B2C</strong>, adaptable to your vertical,
-        learning from your operation every day.
-      </p>
-    </div>
-
-    <!-- CAPABILITIES -->
-    <div class="section-head">
-      <div class="section-eyebrow">What it does</div>
-      <h2 class="section-title">Eight capabilities, one assistant</h2>
-      <p class="section-sub">Not a chatbot. A resident operator that lives on WhatsApp and reaches across your stack.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="card-icon">💬</div>
-        <div class="card-title">Lives in WhatsApp</div>
-        <div class="card-body">No new app, no training. Your team and your customers keep the surface they already use — SuperClawman handles the work behind it.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <div class="card-title">Memory that compounds</div>
-        <div class="card-body">Every customer, every deal, every conversation indexed and recalled in real time. Context never gets lost between threads or shifts.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🔌</div>
-        <div class="card-title">Plugs into your stack</div>
-        <div class="card-body">CRM, ERP, e-commerce, custom databases, internal web systems. Reads and writes via API — orchestrates work across every system your team touches.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⚙️</div>
-        <div class="card-title">Policy-driven autonomy</div>
-        <div class="card-body">You set the rules. SuperClawman scores every action's confidence — below threshold it drafts for review, above it executes. Your team stays in control.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📚</div>
-        <div class="card-title">Learns your patterns</div>
-        <div class="card-body">Vocabulary, edge cases, workflows, escalation paths. Improves daily from every approved action and every override — no retraining cycles.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🎯</div>
-        <div class="card-title">Graceful escalation</div>
-        <div class="card-body">When it doesn't know, it hands off to a human with the full thread, a summary of what it tried, and a recommended next step. Agents become analysts, not order-takers.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <div class="card-title">Multilingual by default</div>
-        <div class="card-body">Picks up the customer's language — Portuguese, English, Spanish — and stays in it. Voice notes get transcribed, ambiguous meaning gets confirmed before acting.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">👥</div>
-        <div class="card-title">The fleet scales with you</div>
-        <div class="card-body">Outreach sells in your voice. Watchdog stands guard 24/7 and takes over when needed. The CEO drives. <a href="/" style="color:var(--neon);text-decoration:none;font-weight:700;">Meet them →</a></div>
-      </div>
-
-    </div>
-
-    <!-- VERTICALS -->
-    <div class="section-head">
-      <div class="section-eyebrow">Real verticals</div>
-      <h2 class="section-title">See it in operation</h2>
-      <p class="section-sub">Same architecture, adapted to each market. A few of the verticals it&rsquo;s already shaped for:</p>
-    </div>
-
-    <div class="verticals">
-
-      <div class="vertical">
-        <div class="vertical-icon">🏥</div>
-        <div class="vertical-name">Healthcare</div>
-        <div class="vertical-title">Bookings, intakes, escalations — directly in your medical-record system</div>
-        <div class="vertical-body">
-          Patients message in WhatsApp. The AI lists real available slots from your live calendar, books appointments, registers new patients, accepts exam PDFs and pushes them straight to the medical record. When it gets clinical, it escalates with full context.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Talk to us about healthcare →</a>
-      </div>
-
-      <div class="vertical">
-        <div class="vertical-icon">🏗️</div>
-        <div class="vertical-name">Facilities &amp; Operations</div>
-        <div class="vertical-title">Autonomous quote → contract close on WhatsApp</div>
-        <div class="vertical-body">
-          Customers ask about availability, dates, pricing. The AI checks your live inventory or fleet, generates the contract, handles the close — all in the WhatsApp thread. ROI calculator shows the operational savings vs. a full CLT support team. Operators become analysts.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Talk to us about operations →</a>
-      </div>
-
-      <div class="vertical">
-        <div class="vertical-icon">📸</div>
-        <div class="vertical-name">Retail &amp; e-commerce · Instagram</div>
-        <div class="vertical-title">Answers Instagram DMs and keyword comments</div>
-        <div class="vertical-body">
-          Customers DM your Instagram or comment a keyword on a post. The AI answers in Direct with your own catalog, prices and links, replies to the comment in public and sends the link in private — and your team can take over any conversation from the Instagram inbox. You connect your Instagram professional account once, with Instagram&rsquo;s own login. Live today for an online store in Brazil.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Talk to us about Instagram →</a>
-      </div>
-
-      <div class="vertical">
-        <div class="vertical-icon">🏘️</div>
-        <div class="vertical-name">Your vertical · Built to adapt</div>
-        <div class="vertical-title">Real estate · services · retail · whatever you run</div>
-        <div class="vertical-body">
-          The architecture stays the same; the integrations change. Real-estate CRM, professional-services scheduling, retail order management — SuperClawman adapts to your stack and your vocabulary. Both B2B and B2C in the same agent.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Tell us what you run →</a>
-      </div>
-
-    </div>
-
-    <!-- PATH TO GO-LIVE -->
-    <div class="section-head">
-      <div class="section-eyebrow">Path to go-live</div>
-      <h2 class="section-title">From day one to autopilot, on your terms</h2>
-      <p class="section-sub">Approval-gated at every step. You see what SuperClawman would do before it can do it.</p>
-    </div>
-
-    <div class="timeline">
-
-      <div class="step">
-        <div class="step-title">Discovery</div>
-        <div class="step-duration">~ 1–2 weeks</div>
-        <div class="step-body">We read your conversation patterns, your CRM schema, your edge cases — and a sample of anonymized threads. No commitments yet.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">Sandbox</div>
-        <div class="step-duration">~ 2–3 weeks</div>
-        <div class="step-body">Agent operates in a sandbox channel against staging systems. Every action is gated by your team's approval. You build trust before it touches a customer.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">Live · confidence-gated</div>
-        <div class="step-duration">~ 4–6 weeks</div>
-        <div class="step-body">Go live with low-confidence actions drafted for review and high-confidence actions on autopilot. Per-policy thresholds you control.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">Continuous learning</div>
-        <div class="step-duration">Ongoing</div>
-        <div class="step-body">Every approval, every override, every escalation teaches the model. Confidence rises, draft-rate drops, autopilot scope expands week over week.</div>
-      </div>
-
-    </div>
-
-    <!-- MEETINGS PROMO -->
-    <a href="/meetings" style="display:block;text-decoration:none;margin:4rem auto 0;max-width:680px;border:1px solid rgba(255,176,0,0.35);padding:1.5rem 1.8rem;background:rgba(255,176,0,0.05);box-shadow:0 0 30px rgba(255,176,0,0.08);">
-      <span style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#03110e;background:var(--amber);padding:0.25rem 0.8rem;margin-bottom:0.6rem;">New · Available now</span>
-      <span style="display:block;font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">SuperClawman for Meetings</span>
-      <span style="display:block;font-size:0.88rem;color:var(--ink-dim);line-height:1.55;">The AI that joins your Meet, Zoom &amp; Teams calls, helps you live by voice, and delivers the brief and the follow-up automatically. From $99/mo — <span style="color:var(--amber);font-weight:700;">10 founding seats →</span></span>
-    </a>
-
-    <!-- CTA -->
-    <div class="cta-block">
-      <p class="cta-label">Ready to put it to work?</p>
-      <h3 class="cta-headline">Start with a 30-minute discovery call</h3>
-      <a class="cta-btn" href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">
-        💬 Talk to us on WhatsApp
-      </a>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    &copy; 2026 SuperClawman &nbsp;·&nbsp;
-    <a href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a> &nbsp;·&nbsp;
-    <a href="/">Home</a>
-  <span>·</span><a href="/terms-of-service.html">Terms</a><span>·</span><a href="/privacy.html">Privacy</a><span>·</span><a href="/refund-policy.html">Refunds</a>
-  <div style="margin-top:12px">SUPERCLAWMAN LLC · Miami, Florida · <!--email_off--><a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a><!--/email_off--></div></div>
+<body><div class="sheet-frame" aria-hidden="true"><span class="frame-tick t">SUPERCLAWMAN · SHEET A-04 · EN</span><span class="frame-tick b">SCALE 1:1 · REV 2026.11</span></div>
+<nav class="topnav"><a class="home" href="/"><img src="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" alt="" width="22" height="22">SUPERCLAWMAN</a></nav>
+<div class="lang-row"><a href="/business-pt" title="Ver em Português" hreflang="pt">🇧🇷</a><a href="/business-es" title="Ver en Español" hreflang="es">🇪🇸</a></div>
+<section class="hero"><div class="wrap"><a class="back-link" href="/">← Back to SuperClawman</a><div class="eyebrow"><span class="dot"></span>SuperClawman for Business</div><h1>An assistant for you. Agents for your company.</h1><p class="sub">Start with one assistant that takes work off your own desk. Add agents for your team, your customers and your systems when you are ready.</p><p class="price-line"><strong>US$ 199 a month</strong> per business assistant. Server included. You bring a Claude Pro subscription.</p><div class="cta-row"><a class="btn primary" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20to%20know%20more%20about%20SuperClawman%20for%20business." target="_blank" rel="noopener">Talk to us on WhatsApp →</a><a class="btn ghost" href="#pricing">See pricing</a></div></div></section>
+<section id="does"><div class="wrap"><div class="sec-head"><div class="eyebrow">The business assistant</div><h2>What it takes off your desk</h2><p class="sub">It works for one person: you. It lives on your WhatsApp and reaches your work accounts.</p></div>
+<div class="grid g3">
+<div class="cell"><span class="n">01</span><h3>Your inbox, read for you</h3><p>It reads your company e-mail and shared files and tells you what needs an answer today.</p></div>
+<div class="cell"><span class="n">02</span><h3>Follow-ups that happen</h3><p>It writes to the clients, suppliers and team members you allow, and it chases the answers that are late.</p></div>
+<div class="cell"><span class="n">03</span><h3>Documents with your brand</h3><p>It builds proposals, spreadsheets, presentations and visual pieces with your logo and colours, ready to send.</p></div>
+<div class="cell"><span class="n">04</span><h3>Your day, built each morning</h3><p>Calendar, deadlines and open items arrive as one morning summary. It warns you before each meeting.</p></div>
+<div class="cell"><span class="n">05</span><h3>Memory of every conversation</h3><p>Ask what you agreed with a client three months ago. It answers with the conversation quoted.</p></div>
+<div class="cell"><span class="n">06</span><h3>Research on demand</h3><p>A competitor, a supplier, a price, a company and its owners. It comes back with the answer.</p></div>
+</div></div></section>
+<section><div class="wrap"><div class="sec-head"><div class="eyebrow">By custom quote</div><h2>When one assistant is not enough</h2><p class="sub">The same technology, shaped to your operation. We scope it with you and give you one price.</p></div>
+<div class="grid g2">
+<div class="cell"><span class="tag">Your team</span><h3>One assistant per person</h3><p>Each person on your team gets an assistant with its own memory and its own access. The owner gets a panel that shows who uses what.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20a%20custom%20quote%20from%20SuperClawman%20for%20my%20company." target="_blank" rel="noopener">Talk to us about your team →</a></div>
+<div class="cell"><span class="tag">Customer service and sales</span><h3>An agent that answers your customers</h3><p>It answers on your company&#x27;s WhatsApp line or Instagram with your catalog, prices and rules. It hands the conversation to a person when it should.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20a%20custom%20quote%20from%20SuperClawman%20for%20my%20company." target="_blank" rel="noopener">Talk to us about service →</a></div>
+<div class="cell"><span class="tag">Your systems</span><h3>Connected to your ERP and CRM</h3><p>It reads and writes in the systems your team already uses: orders, invoices, stock, schedules, records. Each connection is scoped and tested with you.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20a%20custom%20quote%20from%20SuperClawman%20for%20my%20company." target="_blank" rel="noopener">Talk to us about integration →</a></div>
+<div class="cell"><span class="tag">Your vertical</span><h3>Clinics, construction, retail, travel, law</h3><p>We run agents in these fields today. The base stays the same and the connections change with your business.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20a%20custom%20quote%20from%20SuperClawman%20for%20my%20company." target="_blank" rel="noopener">Tell us what you run →</a></div>
+</div></div></section>
+<section id="pricing"><div class="wrap"><div class="sec-head"><div class="eyebrow">Pricing</div><h2>One fixed price. The rest by quote.</h2><p class="sub">In US dollars, per month. No setup fee on the assistant. No lock-in.</p></div>
+<div class="tiers">
+<div class="tier featured"><div class="tier-name">Business assistant</div><div class="tier-price">US$ 199<small>/ month</small></div><p class="tier-for">For an owner, an executive or a professional.</p><ul><li>Company e-mail and shared files</li><li>Messages to clients, suppliers and team you allow</li><li>Documents and pieces with your brand</li><li>WhatsApp memory, calendar, research, voice</li><li>Your own server, monitoring and support</li></ul><p class="tier-req">Needs Claude Pro or higher, in your name or the company&#x27;s.</p><a class="btn primary" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20the%20SuperClawman%20Business%20assistant%20%28US%24%20199%20a%20month%29." target="_blank" rel="noopener">Start Business →</a></div>
+<div class="tier"><div class="tier-name">Team and company</div><div class="tier-price">Custom quote</div><p class="tier-for">For teams, departments and whole companies.</p><ul><li>Assistants for each person on the team</li><li>Customer service and sales agents</li><li>Integration with ERP, CRM and other systems</li><li>A panel for the owner</li><li>One scope, one price</li></ul><p class="tier-req">Tell us what you run. We answer with a scope and a price.</p><a class="btn" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20a%20custom%20quote%20from%20SuperClawman%20for%20my%20company." target="_blank" rel="noopener">Ask for a quote →</a></div>
+</div>
+<p class="note after-note">Billing starts on the day the assistant goes live. Each assistant uses a Claude subscription that belongs to you, paid direct to Anthropic.</p><p class="cross">Only need it for yourself? <a href="/#pricing">See the Personal plan at US$ 149 →</a></p></div></section>
+<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Path to go-live</div><h2>Fast for one assistant. Careful for a project.</h2><p class="sub">You see what an agent will do before it does it.</p></div>
+<div class="steps">
+<div class="st"><h3>Business assistant</h3><span class="dur">About 1 week</span><p>You subscribe to Claude Pro, we build the server, you scan a QR code. Company e-mail needs the approval of your IT team.</p></div>
+<div class="st"><h3>Custom project: discovery</h3><span class="dur">1 to 2 weeks</span><p>We learn your operation, your systems and your edge cases. You get a written scope and a price. No commitment before that.</p></div>
+<div class="st"><h3>Custom project: test</h3><span class="dur">2 to 3 weeks</span><p>The agent works in a test channel. Your team approves each kind of action before it reaches a customer.</p></div>
+<div class="st"><h3>Live, with a person in charge</h3><span class="dur">Ongoing</span><p>The agent works on its own where you trust it and asks a person where you do not. We monitor it 24 hours and update it weekly.</p></div>
+</div></div></section>
+<section id="faq"><div class="wrap"><div class="sec-head"><div class="eyebrow">FAQ</div><h2>Questions companies ask us</h2></div>
+<div class="faqs">
+<details><summary>Who owns the Claude subscription?</summary><p>You do. Each assistant uses a Claude subscription in your name or your company&#x27;s, paid direct to Anthropic. Claude Pro is the minimum. We do not resell it.</p></details>
+<details><summary>What does US$ 199 cover?</summary><p>One business assistant, its own server, the installation, the connection of your accounts, 24-hour monitoring, weekly updates and support.</p></details>
+<details><summary>Can the US$ 199 assistant answer our customers?</summary><p>No. It works for one person and writes only to the people that person allows. An agent that answers customers on the company line is a custom project.</p></details>
+<details><summary>How does it reach our company e-mail and files?</summary><p>Through the access you give it, on Google Workspace or Microsoft 365. Your IT team approves it and can remove it at any time.</p></details>
+<details><summary>Where does our data stay?</summary><p>On a server that is only yours. No other customer shares it. Our team reaches it only to operate and support your agents.</p></details>
+<details><summary>Do you integrate with our ERP or CRM?</summary><p>Yes, as a custom project. We scope each connection with you, test it, and price it before you commit.</p></details>
+<details><summary>Is there a discount for several assistants?</summary><p>Ask for a custom quote. A team deal has one price for the whole group.</p></details>
+<details><summary>Is there a contract?</summary><p>The business assistant is month to month, with no lock-in. A custom project follows the scope we sign with you.</p></details>
+<details><summary>How do we pay?</summary><p>By card, once a month, in US dollars, through a secure Stripe link. SUPERCLAWMAN LLC, a US company, sends the invoice.</p></details>
+</div>
+</div></section>
+<section><div class="wrap"><div class="cta-block"><div class="eyebrow">Ready to put it to work?</div><h2>Start with one message</h2><p class="sub">Tell us what your company does and where the time goes.</p><a class="btn primary" href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20to%20know%20more%20about%20SuperClawman%20for%20business." target="_blank" rel="noopener">Talk to us on WhatsApp →</a></div></div></section>
+<div class="footer">
+  &copy; 2026 SuperClawman <span>·</span> <a href="https://wa.me/5511994917618?text=Hi%21%20I%20want%20to%20know%20more%20about%20SuperClawman%20for%20business." target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a><span>·</span><a href="/">Home</a>
+  <span>·</span><a href="/terms-of-service">Terms</a><span>·</span><a href="/privacy">Privacy</a><span>·</span><a href="/refund-policy">Refunds</a>
+  <div style="margin-top:12px">SUPERCLAWMAN LLC · Miami, Florida · <!--email_off--><a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a><!--/email_off--></div>
+</div>
 </body>
 </html>

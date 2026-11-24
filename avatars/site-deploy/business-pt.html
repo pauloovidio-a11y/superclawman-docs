@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <script>if(location.hostname==='www.superclawman.ai')location.replace('https://superclawman.ai'+location.pathname+location.search+location.hash);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SuperClawman para Empresas — IA que Age, Não só Responde</title>
-  <meta name="description" content="SuperClawman para Empresas: IA residente no WhatsApp que se conecta ao seu CRM, ERP e sistemas web. Automação por política, memória profunda, verticais reais." />
+  <title>SuperClawman para Empresas | Um assistente para você, agentes para a sua empresa</title>
+  <meta name="description" content="Um assistente empresarial no WhatsApp para donos e executivos por US$ 199 por mês, com servidor incluído. Agentes para equipes, atendimento e sistemas da empresa sob consulta." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://superclawman.ai/business-pt" />
-  <meta property="og:title" content="SuperClawman para Empresas — IA que Age, Não só Responde" />
-  <meta property="og:description" content="IA residente no WhatsApp que se conecta ao seu CRM, ERP e sistemas web. Automação por política, memória profunda, verticais reais." />
+  <meta property="og:title" content="SuperClawman para Empresas | Um assistente para você, agentes para a sua empresa" />
+  <meta property="og:description" content="Um assistente empresarial no WhatsApp por US$ 199 por mês, com servidor incluído. Agentes para equipes e empresas sob consulta." />
   <meta property="og:url" content="https://superclawman.ai/business-pt" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/og-image-1200x630.png" />
@@ -22,6 +22,8 @@
   <link rel="alternate" hreflang="en" href="https://superclawman.ai/business" />
   <link rel="alternate" hreflang="pt-BR" href="https://superclawman.ai/business-pt" />
   <link rel="alternate" hreflang="es" href="https://superclawman.ai/business-es" />
+  <link rel="alternate" hreflang="x-default" href="https://superclawman.ai/business" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "De quem é a assinatura Claude?", "acceptedAnswer": {"@type": "Answer", "text": "É sua. Cada assistente usa uma assinatura Claude no seu nome ou no da empresa, paga direto à Anthropic. O Claude Pro é o mínimo. A gente não revende."}}, {"@type": "Question", "name": "O que os US$ 199 cobrem?", "acceptedAnswer": {"@type": "Answer", "text": "Um assistente empresarial, o servidor dele, a instalação, a conexão das suas contas, o monitoramento 24 horas, as atualizações semanais e o suporte."}}, {"@type": "Question", "name": "O assistente de US$ 199 atende os nossos clientes?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Ele trabalha para uma pessoa e escreve só para quem essa pessoa liberar. Um agente que atende clientes na linha da empresa é um projeto sob medida."}}, {"@type": "Question", "name": "Como ele acessa o e-mail e os arquivos da empresa?", "acceptedAnswer": {"@type": "Answer", "text": "Pelo acesso que você der, no Google Workspace ou no Microsoft 365. A sua TI aprova e pode remover quando quiser."}}, {"@type": "Question", "name": "Onde ficam os nossos dados?", "acceptedAnswer": {"@type": "Answer", "text": "Num servidor que é só seu. Nenhum outro cliente divide esse servidor. A nossa equipe acessa apenas para operar e dar suporte aos seus agentes."}}, {"@type": "Question", "name": "Vocês integram com o nosso ERP ou CRM?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, como projeto sob medida. Definimos cada conexão com você, testamos e passamos o preço antes de você se comprometer."}}, {"@type": "Question", "name": "Tem desconto para vários assistentes?", "acceptedAnswer": {"@type": "Answer", "text": "Peça um orçamento sob medida. Um acordo de equipe tem um preço só para o grupo todo."}}, {"@type": "Question", "name": "Tem contrato?", "acceptedAnswer": {"@type": "Answer", "text": "O assistente empresarial é mês a mês, sem fidelidade. Um projeto sob medida segue o escopo que assinamos com você."}}, {"@type": "Question", "name": "Como a gente paga?", "acceptedAnswer": {"@type": "Answer", "text": "No cartão, uma vez por mês, em dólar, por um link seguro da Stripe. A fatura é emitida pela SUPERCLAWMAN LLC, empresa dos Estados Unidos."}}]}</script>
   <style>
 /* ============================================================
    SuperClawman — Blackprint design system
@@ -241,269 +243,153 @@ section+section{border-top:1px solid var(--ink-hair)}
 }
 
 
-/* ===== business ===== */
-/* business.html (EN/PT/ES) */
 
-.hero{padding:150px 0 84px}
-.headline{font-family:var(--mono);font-weight:600;font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.01em;margin-bottom:24px}
-.subheadline{max-width:58ch;font-size:clamp(14.5px,1.4vw,17px);line-height:1.72;color:var(--ink-dim)}
-.subheadline strong{color:var(--ink);font-weight:500;border-bottom:1px solid var(--amber-dim)}
-@media(max-width:767px){.hero{padding:112px 0 56px}}
+/* ===== offer pages (2026-11) ===== */
+nav.topnav{padding-right:150px}
+.navlinks{display:flex;gap:26px}
+.navlinks a{color:var(--ink-dim);text-decoration:none;transition:color .3s;text-transform:uppercase}
+.navlinks a:hover{color:var(--amber)}
+@media(max-width:900px){.navlinks{display:none}nav.topnav{padding-right:18px}}
+@media(max-width:600px){.hero .eyebrow{flex-wrap:nowrap;letter-spacing:.2em;font-size:9.5px}}
+.hero{padding:170px 0 96px;border-top:none}
+@media(max-width:767px){.hero{padding:104px 0 60px}}
+.hero h1{max-width:20ch;margin-bottom:26px}
+.hero .sub{font-size:clamp(15px,1.5vw,18.5px);line-height:1.7;max-width:56ch;margin-bottom:22px}
+.price-line{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink-dim);line-height:1.9;
+  border-left:2px solid var(--amber);padding:4px 0 4px 16px;margin-bottom:34px;max-width:60ch}
+.price-line strong{color:var(--amber);font-weight:500}
+.back-link{display:inline-block;margin-bottom:26px}
+.sec-head{margin-bottom:44px;max-width:66ch}
+.sec-head h2{margin-bottom:14px}
 
-.section-head{margin-bottom:44px;max-width:66ch}
-.section-title{font-family:var(--mono);font-weight:500;font-size:clamp(23px,3vw,38px);margin-bottom:14px}
+/* chat examples */
+.asks{display:grid;gap:10px;max-width:720px}
+.ask{border:1.5px solid var(--ink-faint);background:var(--panel);padding:15px 20px;max-width:88%;font-size:14.5px;line-height:1.6}
+.ask .who{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:5px}
+.ask.me{justify-self:end;border-color:var(--amber-dim)}
+.ask.me .who{color:var(--amber)}
+.ask.bot{justify-self:start;background:var(--ground-2)}
+@media(max-width:600px){.ask{max-width:100%}}
 
-/* ---------- value cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:2px;border:1.5px solid var(--ink-faint);background:var(--ink-faint)}
-.card{background:var(--blue);border:none;padding:32px 28px 34px}
-.card:hover{background:var(--blue-deep)}
-.card-icon{font-size:20px;margin-bottom:18px;display:block;filter:grayscale(.3)}
-.card-title{font-family:var(--mono);font-weight:500;font-size:16px;margin-bottom:11px;letter-spacing:.02em;color:var(--ink)}
-.card-body{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.68}
+/* grids */
+.grid{display:grid;gap:2px;border:1.5px solid var(--ink-faint);background:var(--ink-faint)}
+.grid.g4{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.grid.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.cell{background:var(--ground);padding:30px 26px 32px;transition:background .4s;display:flex;flex-direction:column}
+.cell:hover{background:var(--ground-2)}
+.cell .n{display:block;margin-bottom:14px}
+.cell h3{margin-bottom:10px;font-size:16px;letter-spacing:.02em}
+.cell p{font-size:13.5px;color:var(--ink-dim);line-height:1.68}
+.cell .tag{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:block}
+.cell .vertical-link{align-self:flex-start;margin-top:20px;font-size:10px;padding:10px 18px;border-color:var(--ink-faint);color:var(--ink-dim)}
+.cell .vertical-link:hover{border-color:var(--amber);color:var(--amber)}
+.cell p{flex:1}
 
-/* ---------- engagement timeline ---------- */
-.timeline{border-left:1px solid var(--ink-faint);margin-left:8px;padding-left:0}
-.timeline .step{
-  background:transparent;border:none;position:relative;
-  padding:0 0 38px 34px;
-}
-.timeline .step:hover{background:transparent}
-.timeline .step::before{
-  content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;
-  background:var(--blue);border:1.5px solid var(--amber);
-}
-.timeline .step::after{
-  content:"";position:absolute;left:0;top:11px;width:22px;height:1px;background:var(--ink-faint);
-}
-.step-title{font-family:var(--mono);font-weight:500;font-size:16px;letter-spacing:.04em;color:var(--ink);margin-bottom:6px}
-.step-duration{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:11px;display:block}
-.step-body{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.68;max-width:62ch}
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;align-items:stretch}
+.tier{padding:34px 30px 32px;display:flex;flex-direction:column}
+.tier.featured{border-color:var(--amber);background:var(--ground-2)}
+.tier-name{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+.tier-price{font-family:var(--mono);font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1;color:var(--ink);margin-bottom:6px}
+.tier-price small{font-size:12px;font-weight:400;color:var(--ink-mute);letter-spacing:.08em;margin-left:6px}
+.tier-for{font-size:13.5px;color:var(--ink-dim);margin:12px 0 20px;min-height:2.9em}
+.tier ul{list-style:none;margin-bottom:22px;flex:1}
+.tier li{font-size:13.5px;color:var(--ink);line-height:1.5;padding:9px 0 9px 20px;border-top:1px solid var(--ink-hair);position:relative}
+.tier li::before{content:"";position:absolute;left:0;top:17px;width:9px;height:1.5px;background:var(--amber)}
+.tier-req{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-mute);line-height:1.75;margin-bottom:22px}
+.tier .btn{text-align:center}
+.after-note{margin-top:26px;max-width:74ch}
+.cross{margin-top:22px;font-size:14px;color:var(--ink-dim)}
+.cross a{color:var(--amber);font-weight:500;text-underline-offset:3px}
 
-/* ---------- verticals ---------- */
-.verticals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:2px;border:1.5px solid var(--ink-faint);background:var(--ink-faint)}
-.vertical{background:var(--blue);border:none;padding:32px 30px 34px;display:flex;flex-direction:column}
-.vertical:hover{background:var(--blue-deep)}
-.vertical-icon{font-size:20px;margin-bottom:16px;display:block;filter:grayscale(.3)}
-.vertical-name{
-  font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--amber);margin-bottom:12px;display:block;
-}
-.vertical-title{font-family:var(--mono);font-weight:500;font-size:15.5px;line-height:1.4;margin-bottom:14px;color:var(--ink)}
-.vertical-body{font-size:13.5px;font-weight:300;color:var(--ink-dim);line-height:1.68;flex:1;margin-bottom:20px}
-.vertical-link{
-  align-self:flex-start;font-size:10px;padding:10px 18px;
-  border-color:var(--ink-faint);color:var(--ink-dim);
-}
-.vertical-link:hover{border-color:var(--amber);color:var(--amber);background:transparent}
+/* steps */
+.steps{border-left:1px solid var(--ink-faint);margin-left:8px;max-width:760px}
+.steps .st{position:relative;padding:0 0 34px 34px}
+.steps .st:last-child{padding-bottom:0}
+.steps .st::before{content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;background:var(--ground);border:1.5px solid var(--amber)}
+.steps .st::after{content:"";position:absolute;left:0;top:11px;width:22px;height:1px;background:var(--ink-faint)}
+.steps h3{font-size:16px;margin-bottom:6px}
+.steps .dur{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:9px;display:block}
+.steps p{font-size:13.5px;color:var(--ink-dim);line-height:1.68;max-width:62ch}
 
-/* ---------- final CTA block ---------- */
-.cta-block{
-  border:1.5px solid var(--ink-faint);background:var(--panel);
-  padding:52px 44px 54px;margin:20px 0 10px;position:relative;
-}
-.cta-block::before{
-  content:"";position:absolute;top:-1.5px;left:-1.5px;width:16px;height:16px;
-  border-top:1.5px solid var(--amber);border-left:1.5px solid var(--amber);
-}
-.cta-block::after{
-  content:"";position:absolute;bottom:-1.5px;right:-1.5px;width:16px;height:16px;
-  border-bottom:1.5px solid var(--amber);border-right:1.5px solid var(--amber);
-}
-.cta-headline{font-family:var(--mono);font-weight:500;font-size:clamp(20px,2.6vw,30px);margin-bottom:26px;color:var(--ink)}
+/* limits */
+.limits{list-style:none;max-width:760px;border-top:1px solid var(--ink-hair)}
+.limits li{padding:15px 0 15px 30px;border-bottom:1px solid var(--ink-hair);font-size:14.5px;color:var(--ink);position:relative;line-height:1.6}
+.limits li::before{content:"×";position:absolute;left:4px;top:13px;font-family:var(--mono);color:var(--amber);font-size:16px}
+
+/* faq */
+.faqs{max-width:820px;border-top:1.5px solid var(--ink-faint)}
+.faqs details{border-bottom:1px solid var(--ink-hair)}
+.faqs summary{cursor:pointer;list-style:none;padding:20px 44px 20px 0;font-family:var(--mono);font-weight:500;font-size:15px;line-height:1.45;position:relative;color:var(--ink);transition:color .3s}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";position:absolute;right:6px;top:17px;font-size:20px;color:var(--amber);font-weight:300;transition:transform .3s}
+.faqs details[open] summary::after{transform:rotate(45deg)}
+.faqs summary:hover{color:var(--amber)}
+.faqs summary:focus-visible{outline:1.5px solid var(--amber);outline-offset:4px}
+.faqs p{padding:0 44px 22px 0;font-size:14.5px;color:var(--ink-dim);line-height:1.72;max-width:70ch}
+
+/* final cta */
+.cta-block{border:1.5px solid var(--ink-faint);background:var(--panel);padding:52px 44px 54px;position:relative}
+.cta-block::before{content:"";position:absolute;top:-1.5px;left:-1.5px;width:16px;height:16px;border-top:1.5px solid var(--amber);border-left:1.5px solid var(--amber)}
+.cta-block::after{content:"";position:absolute;bottom:-1.5px;right:-1.5px;width:16px;height:16px;border-bottom:1.5px solid var(--amber);border-right:1.5px solid var(--amber)}
+.cta-block h2{margin-bottom:12px}
+.cta-block .sub{margin-bottom:28px}
 @media(max-width:640px){.cta-block{padding:32px 22px 34px}}
-
+.footer span{margin:0 6px}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></head>
-<body><div class="sheet-frame" aria-hidden="true"><span class="frame-tick t">SUPERCLAWMAN · SHEET A-04 · PT-BR</span><span class="frame-tick b">SCALE 1:1 · REV 2026.08</span></div>
-  <div class="scanline"></div>
-  <div class="lang-row">
-    <a class="lang-switch" href="/business" title="View in English">🇺🇸</a>
-    <a class="lang-switch" href="/business-es" title="Ver en Español">🇪🇸</a>
-  </div>
-
-  <div class="wrapper">
-    <a class="back-link" href="/pt">← Voltar para o SuperClawman</a>
-
-    <!-- HERO -->
-    <div class="hero">
-      <p class="eyebrow">SuperClawman para Empresas</p>
-      <h1 class="headline">Sua IA que age,<br/>não só responde</h1>
-      <p class="subheadline">
-        A maioria das IAs apenas <strong>conversa</strong>. SuperClawman <strong>age</strong> —
-        dentro das ferramentas que seu time já usa, com a confiança para agir em seu nome.
-        Feito para <strong>B2B</strong> e <strong>B2C</strong>, adaptável à sua vertical,
-        aprendendo com sua operação todos os dias.
-      </p>
-    </div>
-
-    <!-- CAPABILITIES -->
-    <div class="section-head">
-      <div class="section-eyebrow">O que ele faz</div>
-      <h2 class="section-title">Oito capacidades, um único assistente</h2>
-      <p class="section-sub">Não é um chatbot. É um operador residente que vive no WhatsApp e alcança toda a sua stack.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="card-icon">💬</div>
-        <div class="card-title">Vive no WhatsApp</div>
-        <div class="card-body">Nenhum app novo, nenhum treinamento. Seu time e seus clientes mantêm o canal que já usam — o SuperClawman cuida do trabalho por trás dele.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <div class="card-title">Memória que se acumula</div>
-        <div class="card-body">Cada cliente, cada negócio, cada conversa indexada e recuperada em tempo real. O contexto nunca se perde entre threads ou turnos.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🔌</div>
-        <div class="card-title">Conecta à sua stack</div>
-        <div class="card-body">CRM, ERP, e-commerce, bancos de dados próprios, sistemas web internos. Lê e escreve via API — orquestra o trabalho entre todos os sistemas que seu time toca.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⚙️</div>
-        <div class="card-title">Autonomia por política</div>
-        <div class="card-body">Você define as regras. O SuperClawman pontua a confiança de cada ação — abaixo do limite, ele rascunha para revisão; acima, executa. Seu time mantém o controle.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📚</div>
-        <div class="card-title">Aprende seus padrões</div>
-        <div class="card-body">Vocabulário, casos limite, fluxos, caminhos de escalada. Melhora diariamente a cada ação aprovada e a cada override — sem ciclos de retreino.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🎯</div>
-        <div class="card-title">Escalada com contexto</div>
-        <div class="card-body">Quando não sabe, passa para um humano com a thread inteira, um resumo do que tentou e uma recomendação de próximo passo. Atendentes viram analistas, não tiradores de pedido.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <div class="card-title">Multilíngue por padrão</div>
-        <div class="card-body">Pega o idioma do cliente — português, inglês, espanhol — e mantém. Áudios são transcritos; sentido ambíguo é confirmado antes de agir.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">👥</div>
-        <div class="card-title">A frota escala com você</div>
-        <div class="card-body">Outreach vende na sua voz. Watchdog fica de vigia 24/7 e assume quando precisa. O CEO dirige. <a href="/pt" style="color:var(--neon);text-decoration:none;font-weight:700;">Conheça a frota →</a></div>
-      </div>
-
-    </div>
-
-    <!-- VERTICALS -->
-    <div class="section-head">
-      <div class="section-eyebrow">Verticais reais</div>
-      <h2 class="section-title">Veja em operação</h2>
-      <p class="section-sub">Mesma arquitetura, adaptada a cada mercado. Algumas verticais para as quais já está moldado:</p>
-    </div>
-
-    <div class="verticals">
-
-      <div class="vertical">
-        <div class="vertical-icon">🏥</div>
-        <div class="vertical-name">Saúde</div>
-        <div class="vertical-title">Agendamentos, triagem, escaladas — direto no seu prontuário</div>
-        <div class="vertical-body">
-          Pacientes mandam mensagem pelo WhatsApp. A IA lista horários reais da sua agenda, marca consultas, cadastra pacientes novos, aceita PDFs de exames e sobe direto no prontuário. Quando o assunto é clínico, escala com contexto completo.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Fale com a gente sobre saúde →</a>
-      </div>
-
-      <div class="vertical">
-        <div class="vertical-icon">🏗️</div>
-        <div class="vertical-name">Operações e Facilities</div>
-        <div class="vertical-title">Cotação autônoma → fechamento de contrato no WhatsApp</div>
-        <div class="vertical-body">
-          Clientes perguntam sobre disponibilidade, datas, preço. A IA consulta seu estoque ou frota ao vivo, gera o contrato, conduz o fechamento — tudo na thread do WhatsApp. Calculadora de ROI mostra a economia operacional vs. um time CLT completo. Operadores viram analistas.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Fale com a gente sobre operações →</a>
-      </div>
-
-      <div class="vertical">
-        <div class="vertical-icon">📸</div>
-        <div class="vertical-name">Varejo e e-commerce · Instagram</div>
-        <div class="vertical-title">Responde DMs e comentários com palavra-chave no Instagram</div>
-        <div class="vertical-body">
-          O cliente manda DM no seu Instagram ou comenta uma palavra num post. A IA responde no Direct com o seu catálogo, preços e links, responde o comentário em público e manda o link no privado — e a sua equipe assume qualquer conversa pela caixa de entrada do Instagram. Você conecta a sua conta profissional uma vez só, pelo login do próprio Instagram. Já no ar numa loja online no Brasil.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Fale com a gente sobre Instagram →</a>
-      </div>
-
-      <div class="vertical">
-        <div class="vertical-icon">🏘️</div>
-        <div class="vertical-name">Sua vertical · Feito para adaptar</div>
-        <div class="vertical-title">Imóveis · serviços · varejo · seja o que você opera</div>
-        <div class="vertical-body">
-          A arquitetura é a mesma; as integrações mudam. CRM de imóveis, agendamento de serviços profissionais, gestão de pedidos de varejo — o SuperClawman se adapta à sua stack e ao seu vocabulário. B2B e B2C no mesmo agente.
-        </div>
-        <a class="vertical-link" href="https://wa.me/5511994917618" target="_blank" rel="noopener">Conte o que você opera →</a>
-      </div>
-
-    </div>
-
-    <!-- PATH TO GO-LIVE -->
-    <div class="section-head">
-      <div class="section-eyebrow">Caminho até o go-live</div>
-      <h2 class="section-title">Do primeiro dia ao piloto automático, no seu ritmo</h2>
-      <p class="section-sub">Aprovação em cada passo. Você vê o que o SuperClawman faria antes de ele poder fazer.</p>
-    </div>
-
-    <div class="timeline">
-
-      <div class="step">
-        <div class="step-title">Descoberta</div>
-        <div class="step-duration">~ 1–2 semanas</div>
-        <div class="step-body">Lemos seus padrões de conversa, seu schema de CRM, seus casos limite — e uma amostra de threads anonimizadas. Sem compromisso ainda.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">Sandbox</div>
-        <div class="step-duration">~ 2–3 semanas</div>
-        <div class="step-body">O agente opera num canal sandbox contra sistemas de homologação. Cada ação passa pela aprovação do seu time. Você constrói confiança antes de tocar um cliente.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">Live · com gating de confiança</div>
-        <div class="step-duration">~ 4–6 semanas</div>
-        <div class="step-body">Vai ao ar com ações de baixa confiança em rascunho para revisão e ações de alta confiança em piloto automático. Limites por política que você controla.</div>
-      </div>
-
-      <div class="step">
-        <div class="step-title">Aprendizado contínuo</div>
-        <div class="step-duration">Contínuo</div>
-        <div class="step-body">Cada aprovação, cada override, cada escalada ensina o modelo. A confiança sobe, a taxa de rascunho cai, o escopo do piloto automático cresce semana a semana.</div>
-      </div>
-
-    </div>
-
-    <!-- MEETINGS PROMO -->
-    <a href="/meetings-pt" style="display:block;text-decoration:none;margin:4rem auto 0;max-width:680px;border:1px solid rgba(255,176,0,0.35);padding:1.5rem 1.8rem;background:rgba(255,176,0,0.05);box-shadow:0 0 30px rgba(255,176,0,0.08);">
-      <span style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#03110e;background:var(--amber);padding:0.25rem 0.8rem;margin-bottom:0.6rem;">Novo · Disponível agora</span>
-      <span style="display:block;font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">SuperClawman for Meetings</span>
-      <span style="display:block;font-size:0.88rem;color:var(--ink-dim);line-height:1.55;">A IA que entra nas suas calls de Meet, Zoom e Teams, ajuda ao vivo por voz e entrega o resumo e o follow-up automaticamente. A partir de US$ 99/mês — <span style="color:var(--amber);font-weight:700;">10 vagas fundadoras →</span></span>
-    </a>
-
-    <!-- CTA -->
-    <div class="cta-block">
-      <p class="cta-label">Pronto para colocar pra trabalhar?</p>
-      <h3 class="cta-headline">Comece com uma call de descoberta de 30 minutos</h3>
-      <a class="cta-btn" href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">
-        💬 Fale com a gente no WhatsApp
-      </a>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    &copy; 2026 SuperClawman &nbsp;·&nbsp;
-    <a href="https://wa.me/5511994917618" target="_blank" rel="noopener noreferrer">Contato no WhatsApp</a> &nbsp;·&nbsp;
-    <a href="/pt">Início</a>
-  <span>·</span><a href="/terms-of-service.html">Terms</a><span>·</span><a href="/privacy.html">Privacy</a><span>·</span><a href="/refund-policy.html">Refunds</a>
-  <div style="margin-top:12px">SUPERCLAWMAN LLC · Miami, Florida · <!--email_off--><a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a><!--/email_off--></div></div>
+<body><div class="sheet-frame" aria-hidden="true"><span class="frame-tick t">SUPERCLAWMAN · SHEET A-04 · PT</span><span class="frame-tick b">SCALE 1:1 · REV 2026.11</span></div>
+<nav class="topnav"><a class="home" href="/pt"><img src="https://pauloovidio-a11y.github.io/superclawman-docs/avatars/web/superclawman-256.png" alt="" width="22" height="22">SUPERCLAWMAN</a></nav>
+<div class="lang-row"><a href="/business" title="View in English" hreflang="en">🇺🇸</a><a href="/business-es" title="Ver en Español" hreflang="es">🇪🇸</a></div>
+<section class="hero"><div class="wrap"><a class="back-link" href="/pt">← Voltar para a SuperClawman</a><div class="eyebrow"><span class="dot"></span>SuperClawman para Empresas</div><h1>Um assistente para você. Agentes para a sua empresa.</h1><p class="sub">Comece com um assistente que tira trabalho da sua mesa. Quando quiser, some agentes para a equipe, para os clientes e para os sistemas.</p><p class="price-line"><strong>US$ 199 por mês</strong> por assistente empresarial. Servidor incluído. Você entra com uma assinatura Claude Pro.</p><div class="cta-row"><a class="btn primary" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20SuperClawman%20para%20empresas." target="_blank" rel="noopener">Fale com a gente no WhatsApp →</a><a class="btn ghost" href="#pricing">Ver preços</a></div></div></section>
+<section id="does"><div class="wrap"><div class="sec-head"><div class="eyebrow">O assistente empresarial</div><h2>O que ele tira da sua mesa</h2><p class="sub">Ele trabalha para uma pessoa: você. Fica no seu WhatsApp e alcança as suas contas de trabalho.</p></div>
+<div class="grid g3">
+<div class="cell"><span class="n">01</span><h3>A sua caixa de entrada, lida</h3><p>Lê o e-mail da empresa e os arquivos compartilhados e diz o que precisa de resposta hoje.</p></div>
+<div class="cell"><span class="n">02</span><h3>Cobranças que acontecem</h3><p>Escreve para os clientes, fornecedores e pessoas da equipe que você liberar, e cobra as respostas atrasadas.</p></div>
+<div class="cell"><span class="n">03</span><h3>Documentos com a sua marca</h3><p>Monta propostas, planilhas, apresentações e peças visuais com o seu logo e as suas cores, prontas para enviar.</p></div>
+<div class="cell"><span class="n">04</span><h3>O seu dia, montado toda manhã</h3><p>Agenda, prazos e pendências chegam num resumo só, de manhã. Ele avisa antes de cada reunião.</p></div>
+<div class="cell"><span class="n">05</span><h3>Memória de toda conversa</h3><p>Pergunte o que você combinou com um cliente há três meses. Ele responde com a conversa citada.</p></div>
+<div class="cell"><span class="n">06</span><h3>Pesquisa na hora</h3><p>Um concorrente, um fornecedor, um preço, uma empresa e os sócios pelo CNPJ. Ele volta com a resposta.</p></div>
+</div></div></section>
+<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Sob consulta</div><h2>Quando um assistente não basta</h2><p class="sub">A mesma tecnologia, moldada à sua operação. Definimos o escopo com você e passamos um preço só.</p></div>
+<div class="grid g2">
+<div class="cell"><span class="tag">A sua equipe</span><h3>Um assistente para cada pessoa</h3><p>Cada pessoa da equipe recebe um assistente com memória própria e acessos próprios. O dono recebe um painel que mostra quem usa o quê.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20sob%20medida%20da%20SuperClawman%20para%20a%20minha%20empresa." target="_blank" rel="noopener">Fale com a gente sobre a equipe →</a></div>
+<div class="cell"><span class="tag">Atendimento e vendas</span><h3>Um agente que atende os seus clientes</h3><p>Atende no WhatsApp ou no Instagram da empresa com o seu catálogo, os seus preços e as suas regras. Passa a conversa para uma pessoa quando deve.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20sob%20medida%20da%20SuperClawman%20para%20a%20minha%20empresa." target="_blank" rel="noopener">Fale com a gente sobre atendimento →</a></div>
+<div class="cell"><span class="tag">Os seus sistemas</span><h3>Ligado ao seu ERP e ao seu CRM</h3><p>Lê e grava nos sistemas que a equipe já usa: pedidos, notas, estoque, agendas, cadastros. Cada conexão tem escopo e teste feitos com você.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20sob%20medida%20da%20SuperClawman%20para%20a%20minha%20empresa." target="_blank" rel="noopener">Fale com a gente sobre integração →</a></div>
+<div class="cell"><span class="tag">O seu segmento</span><h3>Clínicas, construção, varejo, turismo, advocacia</h3><p>Hoje operamos agentes nesses segmentos. A base é a mesma e as conexões mudam conforme o seu negócio.</p><a class="vertical-link" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20sob%20medida%20da%20SuperClawman%20para%20a%20minha%20empresa." target="_blank" rel="noopener">Conte o que você opera →</a></div>
+</div></div></section>
+<section id="pricing"><div class="wrap"><div class="sec-head"><div class="eyebrow">Preços</div><h2>Um preço fixo. O resto sob consulta.</h2><p class="sub">Em dólar, por mês. Sem taxa de implantação no assistente. Sem fidelidade.</p></div>
+<div class="tiers">
+<div class="tier featured"><div class="tier-name">Assistente empresarial</div><div class="tier-price">US$ 199<small>/ mês</small></div><p class="tier-for">Para um dono, um executivo ou um profissional.</p><ul><li>E-mail da empresa e arquivos compartilhados</li><li>Recados a clientes, fornecedores e equipe que você liberar</li><li>Documentos e peças com a sua marca</li><li>Memória do WhatsApp, agenda, pesquisa, áudio</li><li>Servidor só seu, monitoramento e suporte</li></ul><p class="tier-req">Exige Claude Pro ou superior, no seu nome ou no da empresa.</p><a class="btn primary" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20o%20assistente%20SuperClawman%20Empresarial%20%28US%24%20199%20por%20m%C3%AAs%29." target="_blank" rel="noopener">Começar no Empresarial →</a></div>
+<div class="tier"><div class="tier-name">Equipe e empresa</div><div class="tier-price">Sob consulta</div><p class="tier-for">Para equipes, departamentos e a empresa inteira.</p><ul><li>Assistentes para cada pessoa da equipe</li><li>Agentes de atendimento e de vendas</li><li>Integração com ERP, CRM e outros sistemas</li><li>Um painel para o dono</li><li>Um escopo, um preço</li></ul><p class="tier-req">Conte o que você opera. A gente responde com escopo e preço.</p><a class="btn" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20sob%20medida%20da%20SuperClawman%20para%20a%20minha%20empresa." target="_blank" rel="noopener">Pedir orçamento →</a></div>
+</div>
+<p class="note after-note">A mensalidade começa no dia em que o assistente entra no ar. Cada assistente usa uma assinatura Claude que é sua, paga direto à Anthropic.</p><p class="cross">É só para você? <a href="/pt#pricing">Veja o plano Pessoal por US$ 149 →</a></p></div></section>
+<section><div class="wrap"><div class="sec-head"><div class="eyebrow">Do sim ao ar</div><h2>Rápido para um assistente. Cuidadoso para um projeto.</h2><p class="sub">Você vê o que um agente vai fazer antes de ele fazer.</p></div>
+<div class="steps">
+<div class="st"><h3>Assistente empresarial</h3><span class="dur">Cerca de 1 semana</span><p>Você assina o Claude Pro, a gente monta o servidor, você lê um QR code. O e-mail da empresa depende da liberação da TI.</p></div>
+<div class="st"><h3>Projeto sob medida: levantamento</h3><span class="dur">1 a 2 semanas</span><p>Entendemos a sua operação, os seus sistemas e as exceções. Você recebe um escopo por escrito e um preço. Nenhum compromisso antes disso.</p></div>
+<div class="st"><h3>Projeto sob medida: teste</h3><span class="dur">2 a 3 semanas</span><p>O agente trabalha num canal de teste. A sua equipe aprova cada tipo de ação antes de ela chegar a um cliente.</p></div>
+<div class="st"><h3>No ar, com uma pessoa no comando</h3><span class="dur">Contínuo</span><p>O agente trabalha sozinho onde você confia e pergunta a uma pessoa onde você não confia. Monitoramos 24 horas e atualizamos toda semana.</p></div>
+</div></div></section>
+<section id="faq"><div class="wrap"><div class="sec-head"><div class="eyebrow">Dúvidas</div><h2>O que as empresas perguntam</h2></div>
+<div class="faqs">
+<details><summary>De quem é a assinatura Claude?</summary><p>É sua. Cada assistente usa uma assinatura Claude no seu nome ou no da empresa, paga direto à Anthropic. O Claude Pro é o mínimo. A gente não revende.</p></details>
+<details><summary>O que os US$ 199 cobrem?</summary><p>Um assistente empresarial, o servidor dele, a instalação, a conexão das suas contas, o monitoramento 24 horas, as atualizações semanais e o suporte.</p></details>
+<details><summary>O assistente de US$ 199 atende os nossos clientes?</summary><p>Não. Ele trabalha para uma pessoa e escreve só para quem essa pessoa liberar. Um agente que atende clientes na linha da empresa é um projeto sob medida.</p></details>
+<details><summary>Como ele acessa o e-mail e os arquivos da empresa?</summary><p>Pelo acesso que você der, no Google Workspace ou no Microsoft 365. A sua TI aprova e pode remover quando quiser.</p></details>
+<details><summary>Onde ficam os nossos dados?</summary><p>Num servidor que é só seu. Nenhum outro cliente divide esse servidor. A nossa equipe acessa apenas para operar e dar suporte aos seus agentes.</p></details>
+<details><summary>Vocês integram com o nosso ERP ou CRM?</summary><p>Sim, como projeto sob medida. Definimos cada conexão com você, testamos e passamos o preço antes de você se comprometer.</p></details>
+<details><summary>Tem desconto para vários assistentes?</summary><p>Peça um orçamento sob medida. Um acordo de equipe tem um preço só para o grupo todo.</p></details>
+<details><summary>Tem contrato?</summary><p>O assistente empresarial é mês a mês, sem fidelidade. Um projeto sob medida segue o escopo que assinamos com você.</p></details>
+<details><summary>Como a gente paga?</summary><p>No cartão, uma vez por mês, em dólar, por um link seguro da Stripe. A fatura é emitida pela SUPERCLAWMAN LLC, empresa dos Estados Unidos.</p></details>
+</div>
+</div></section>
+<section><div class="wrap"><div class="cta-block"><div class="eyebrow">Pronto para colocar para trabalhar?</div><h2>Comece com uma mensagem</h2><p class="sub">Conte o que a sua empresa faz e para onde vai o tempo.</p><a class="btn primary" href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20SuperClawman%20para%20empresas." target="_blank" rel="noopener">Fale com a gente no WhatsApp →</a></div></div></section>
+<div class="footer">
+  &copy; 2026 SuperClawman <span>·</span> <a href="https://wa.me/5511994917618?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20SuperClawman%20para%20empresas." target="_blank" rel="noopener noreferrer">Contato pelo WhatsApp</a><span>·</span><a href="/pt">Início</a>
+  <span>·</span><a href="/terms-of-service">Termos</a><span>·</span><a href="/privacy">Privacidade</a><span>·</span><a href="/refund-policy">Reembolsos</a>
+  <div style="margin-top:12px">SUPERCLAWMAN LLC · Miami, Florida · <!--email_off--><a href="mailto:superclawman@superclawman.ai">superclawman@superclawman.ai</a><!--/email_off--></div>
+</div>
 </body>
 </html>
