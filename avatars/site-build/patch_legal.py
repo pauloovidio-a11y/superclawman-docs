@@ -74,8 +74,8 @@ terms = [
     ("Orders, pricing and payment",
      "Prices are shown in US dollars and include no taxes unless stated; any applicable taxes are your "
      "responsibility. Payment is processed by Stripe; we never see or store your card number.",
-     "Assistant plans are billed once a month, in advance, at the price published when you order. The first "
-     "month starts on the day your assistant goes into service. There is no "
+     "Assistant plans are billed once a month, in advance, at the price published when you order. Your card "
+     "is saved when you order, and the first charge is 7 days later, while we build and activate your assistant. There is no "
      "setup fee and no minimum term. If we change the price of your plan, we tell you at least 30 days before the "
      "change, and you can cancel before it applies. If a payment fails, we tell you, and we may pause the assistant "
      "until the payment is made.",
@@ -120,7 +120,7 @@ refunds = [
      "advance, and you can cancel at any time.",
      "A month that has started is not refunded when you cancel. The assistant stays on until the end of that "
      "month.",
-     "Billing starts on the day your assistant goes into service. If you paid before that day and we cannot put "
+     "Your card is saved when you order, and the first charge is 7 days later. If we charged you and we cannot put "
      "the assistant into service, we refund everything you paid us for it. If the service is materially not as described on this site and we cannot fix it, we refund the month it "
      "affected.",
      "Your Claude subscription is paid to Anthropic, not to us. A refund of that subscription is a matter between "

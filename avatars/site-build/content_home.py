@@ -63,7 +63,7 @@ HOME = {
      "req": "Tell us what you run. We answer with a scope and a price.", "cta": "Ask for a quote",
      "wa": "Hi! I want a custom quote from SuperClawman."},
   ],
-  "price_note": "Billing starts on the day your assistant goes live. Your Claude subscription is paid by you, direct to Anthropic.",
+  "price_note": "Nothing is charged at checkout. Your card is saved and the first charge is 7 days later, while we build and activate your assistant. Your Claude subscription is paid by you, direct to Anthropic.",
   "steps_eyebrow": "How it starts", "steps_title": "Live in about one week",
   "steps_sub": "Four steps. The only technical part is scanning a QR code.",
   "steps": [
@@ -164,7 +164,7 @@ HOME = {
      "req": "Conte o que você opera. A gente responde com escopo e preço.", "cta": "Pedir orçamento",
      "wa": "Olá! Quero um orçamento sob medida da SuperClawman."},
   ],
-  "price_note": "A mensalidade começa no dia em que o seu assistente entra no ar. A assinatura Claude é paga por você, direto à Anthropic.",
+  "price_note": "Nada é cobrado na hora da compra. O cartão fica salvo e a primeira cobrança acontece 7 dias depois, enquanto a gente monta e ativa o seu assistente. A assinatura Claude é paga por você, direto à Anthropic.",
   "steps_eyebrow": "Como começa", "steps_title": "No ar em cerca de uma semana",
   "steps_sub": "Quatro passos. A única parte técnica é ler um QR code.",
   "steps": [
@@ -265,7 +265,7 @@ HOME = {
      "req": "Cuéntanos qué operas. Respondemos con alcance y precio.", "cta": "Pedir cotización",
      "wa": "¡Hola! Quiero una cotización a medida de SuperClawman."},
   ],
-  "price_note": "La mensualidad empieza el día en que tu asistente entra en operación. La suscripción Claude la pagas tú, directo a Anthropic.",
+  "price_note": "No se cobra nada al comprar. Tu tarjeta queda guardada y el primer cobro es 7 días después, mientras montamos y activamos tu asistente. La suscripción Claude la pagas tú, directo a Anthropic.",
   "steps_eyebrow": "Cómo empieza", "steps_title": "En operación en cerca de una semana",
   "steps_sub": "Cuatro pasos. La única parte técnica es escanear un código QR.",
   "steps": [

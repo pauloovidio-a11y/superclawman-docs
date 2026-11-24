@@ -79,6 +79,8 @@ nav.topnav{padding-right:150px}
 .tier li::before{content:"";position:absolute;left:0;top:17px;width:9px;height:1.5px;background:var(--amber)}
 .tier-req{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-mute);line-height:1.75;margin-bottom:22px}
 .tier .btn{text-align:center}
+.tier-talk{display:block;text-align:center;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-mute);text-underline-offset:3px}
+.tier-talk:hover{color:var(--amber)}
 .after-note{margin-top:26px;max-width:74ch}
 .cross{margin-top:22px;font-size:14px;color:var(--ink-dim)}
 .cross a{color:var(--amber);font-weight:500;text-underline-offset:3px}
@@ -181,7 +183,25 @@ def sec_head(eyebrow, title, sub=None):
     return s + "</div>\n"
 
 
-def tiers(c, featured):
+# Stripe payment links of the public plans (24/11/2026). Source of truth:
+# ~/.openclaw/workspace/scripts/stripe/assistant_plans_ids.json. A price change needs NEW links.
+BUY = {
+    "personal": {
+        "en": "https://buy.stripe.com/dRmfZg234c9E2MP7pSao80L?locale=en",
+        "pt": "https://buy.stripe.com/dRmeVc4bc5Lgbjl4dGao80M?locale=pt-BR",
+        "es": "https://buy.stripe.com/14A5kC7no2z43QT39Cao80N?locale=es"
+    },
+    "business": {
+        "en": "https://buy.stripe.com/aFaeVc9vw1v04UX6lOao80O?locale=en",
+        "pt": "https://buy.stripe.com/dRm6oGePQa1w5Z1aC4ao80P?locale=pt-BR",
+        "es": "https://buy.stripe.com/28E6oGcHI1v02MP11uao80Q?locale=es"
+    }
+}
+BUY_PLAN = {"US$ 249": "personal", "US$ 299": "business"}
+TALK = {"en": "Or talk to us first", "pt": "Ou fale com a gente antes", "es": "O habla con nosotros antes"}
+
+
+def tiers(c, featured, k):
     out = '<div class="tiers">\n'
     for i, t in enumerate(c["tiers"]):
         per = f'<small>{e(c["per"])}</small>' if "US$" in t["price"] else ""
@@ -191,8 +211,13 @@ def tiers(c, featured):
         out += (f'<div class="{cls}"><div class="tier-name">{e(t["name"])}</div>'
                 f'<div class="tier-price">{e(t["price"])}{per}</div>'
                 f'<p class="tier-for">{e(t["for"])}</p><ul>{items}</ul>'
-                f'<p class="tier-req">{e(t["req"])}</p>'
-                f'<a class="{btn}" href="{wa(t["wa"])}" target="_blank" rel="noopener">{e(t["cta"])} →</a></div>\n')
+                f'<p class="tier-req">{e(t["req"])}</p>')
+        plan = BUY_PLAN.get(t["price"])
+        if plan:      # a fixed-price plan: buy on Stripe, WhatsApp stays as the second way in
+            out += (f'<a class="{btn}" href="{e(BUY[plan][k])}" target="_blank" rel="noopener">{e(t["cta"])} →</a>'
+                    f'<a class="tier-talk" href="{wa(t["wa"])}" target="_blank" rel="noopener">{e(TALK[k])}</a></div>\n')
+        else:
+            out += f'<a class="{btn}" href="{wa(t["wa"])}" target="_blank" rel="noopener">{e(t["cta"])} →</a></div>\n'
     return out + "</div>\n"
 
 
@@ -252,7 +277,7 @@ def home_page(k):
     h += "</div></div></section>\n"
     # pricing
     h += ('<section id="pricing"><div class="wrap">' + sec_head(c["price_eyebrow"], c["price_title"], c["price_sub"])
-          + tiers(c, 0) + f'<p class="note after-note">{e(c["price_note"])}</p></div></section>\n')
+          + tiers(c, 0, k) + f'<p class="note after-note">{e(c["price_note"])}</p></div></section>\n')
     # steps
     h += '<section><div class="wrap">' + sec_head(c["steps_eyebrow"], c["steps_title"], c["steps_sub"]) + '<div class="steps">\n'
     for i, (t, b) in enumerate(c["steps"], 1):
@@ -290,7 +315,7 @@ def biz_page(k):
               f'<a class="vertical-link" href="{wa(c["tiers"][1]["wa"])}" target="_blank" rel="noopener">{e(link)} →</a></div>\n')
     h += "</div></div></section>\n"
     h += ('<section id="pricing"><div class="wrap">' + sec_head(c["price_eyebrow"], c["price_title"], c["price_sub"])
-          + tiers(c, 0) + f'<p class="note after-note">{e(c["price_note"])}</p>'
+          + tiers(c, 0, k) + f'<p class="note after-note">{e(c["price_note"])}</p>'
           f'<p class="cross">{e(c["personal_line"])} <a href="{HOME_URL[k]}#pricing">{e(c["personal_link"])} →</a></p></div></section>\n')
     h += '<section><div class="wrap">' + sec_head(c["steps_eyebrow"], c["steps_title"], c["steps_sub"]) + '<div class="steps">\n'
     for t, d, b in c["steps"]:
