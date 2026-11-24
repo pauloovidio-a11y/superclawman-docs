@@ -55,8 +55,8 @@ terms = [
      "connect to it, such as WhatsApp, e-mail, calendar and files. The <strong>Personal</strong> plan is for one "
      "person and their own accounts. The <strong>Business</strong> plan adds company e-mail and shared files, "
      "messages to the clients, suppliers and team you allow, documents with your brand, and an invoice to your "
-     "company. The monthly price covers the server, the installation, the connection of your accounts, monitoring, "
-     "updates and support.",
+     "company. The monthly price covers the server, the installation, the connection of your accounts, monitoring "
+     "and support. Support covers upgrades, fixes for any issue, new features and your requests.",
      "<strong>Custom AI services.</strong> Assistants for a team, agents that answer customers, and integrations "
      "with company systems. We agree the scope and the price in writing for each engagement.",
      "<strong>Earlier products.</strong> SuperClawman for Meetings, WhatsApp Memory, founding seats and founding "
